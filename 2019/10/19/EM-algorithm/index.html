@@ -15,13 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="WILL">
-<meta property="og:url" content="https://vilily.github.io/archives/2019/index.html">
+<meta name="description" content="An introduction to the Expectation-Maximization algorithm">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EM algorithm">
+<meta property="og:url" content="https://vilily.github.io/2019/10/19/EM-algorithm/index.html">
 <meta property="og:site_name" content="WILL">
+<meta property="og:description" content="An introduction to the Expectation-Maximization algorithm">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-19T04:29:30.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WILL">
+<meta name="twitter:title" content="EM algorithm">
+<meta name="twitter:description" content="An introduction to the Expectation-Maximization algorithm">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -46,14 +51,14 @@
     <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../../../css/style.css">
 
 
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2019 | WILL</title>
+<title>EM algorithm | WILL</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +68,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -154,15 +159,15 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="../../index.html">主页</a></li>
+                            <li><a href="../../../../index.html">主页</a></li>
                         
-                            <li><a href="../../archives/">所有文章</a></li>
+                            <li><a href="../../../../archives/">所有文章</a></li>
                         
-                            <li><a href="../../tags/随笔">随笔</a></li>
+                            <li><a href="../../../../tags/随笔">随笔</a></li>
                         
-                            <li><a href="../../tags/">标签云</a></li>
+                            <li><a href="../../../../tags/">标签云</a></li>
                         
-                            <li><a href="../../about/">关于我</a></li>
+                            <li><a href="../../../../about/">关于我</a></li>
                         
                         </ul>
                     </nav>
@@ -184,7 +189,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/markdown/">markdown</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/markdown/">markdown</a></li></ul>
                     </div>
                 </section>
                 
@@ -233,15 +238,15 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="../../index.html">主页</a></li>
+                    <li><a href="../../../../index.html">主页</a></li>
                 
-                    <li><a href="../../archives/">所有文章</a></li>
+                    <li><a href="../../../../archives/">所有文章</a></li>
                 
-                    <li><a href="../../tags/随笔">随笔</a></li>
+                    <li><a href="../../../../tags/随笔">随笔</a></li>
                 
-                    <li><a href="../../tags/">标签云</a></li>
+                    <li><a href="../../../../tags/">标签云</a></li>
                 
-                    <li><a href="../../about/">关于我</a></li>
+                    <li><a href="../../../../about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -263,122 +268,165 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-EM-algorithm" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2019-10-19T04:16:02.000Z" itemprop="datePublished">2019-10-19</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EM algorithm
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Machine-Learning/">Machine Learning</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="../../2019/10/19/EM-algorithm/" class="archive-article-date">
-      <time datetime="2019-10-19T04:16:02.000Z" itemprop="datePublished">10-19</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/10/19/EM-algorithm/">EM algorithm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <h1 id="Expectation-Maximization-algorithm"><a href="#Expectation-Maximization-algorithm" class="headerlink" title=" Expectation-Maximization algorithm "></a><center> Expectation-Maximization algorithm </center></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>EM</strong>算法（ Expectation-Maximization algorithm ），又称<strong>期望极大算法</strong>，是<strong>机器学习</strong>（Machine Learning）十大算法之一。</p>
+<p>  <strong>EM</strong>算法主要通过迭代的方法来进行<strong>极大似然估计</strong>，最终使似然函数最大，从而获取模型参数进而建立预测模型的算法，<strong>EM</strong>算法通常和<strong>高斯混合分布</strong>算法联合使用来进行<strong>分类学习</strong>。</p>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Machine-Learning/">Machine Learning</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="">EM algorithm</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
+        <p><span>Created:</span>2019-10-19, 12:16:02</p>
+        <p><span>Updated:</span>2019-10-19, 12:29:30</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="" title="EM algorithm">https://vilily.github.io/2019/10/19/EM-algorithm/</a>
+            <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/10/19/EM-algorithm/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../../17/markdown-doc/">
+                    markdown-doc
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="../../2019/10/17/markdown-doc/" class="archive-article-date">
-      <time datetime="2019-10-17T15:34:13.000Z" itemprop="datePublished">10-17</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Expectation-Maximization-algorithm"><span class="toc-number">1.</span> <span class="toc-text"> Expectation-Maximization algorithm </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/10/17/markdown-doc/">markdown-doc</a>
-    </h1>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"EM algorithm　| WILL　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        <div class="article-info info-on-archive">
-          
+    
+</div>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/markdown/">markdown</a></li></ul>
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../../17/markdown-doc/" title="Next: markdown-doc">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="../../2019/10/16/Hexo-Learn/" class="archive-article-date">
-      <time datetime="2019-10-16T15:35:05.000Z" itemprop="datePublished">10-16</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">EM algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../17/markdown-doc/">markdown-doc</a></li><li class="post-list-item"><a class="post-list-link" href="../../16/Hexo-Learn/">Hexo-Learn</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="../../2019/10/16/Hexo-Learn/">Hexo-Learn</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
