@@ -40,7 +40,6 @@ require([], function (){
         }
         var w = $(window).width();
         if (w >= 700) {
-            canve();//
             loadPC();
         } else {
             loadMobile();
@@ -50,7 +49,6 @@ require([], function (){
     if(!!browser.versions.mobile || $(window).width() < 800){
         loadMobile();
     } else {
-        canve();
         loadPC();
     }
 
