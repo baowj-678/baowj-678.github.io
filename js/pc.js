@@ -16,7 +16,7 @@ define([], function(){
             }
         }
     })();
-
+    
     var slide = function(idx){
         // 修复IE10+切换无效的bug
         var $wrap = $(".switch-wrap"),

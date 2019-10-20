@@ -14,7 +14,6 @@ require([], function (){
             isPCInit = true;
         })
     }
-
     var browser = {
         versions: function() {
         var u = window.navigator.userAgent;
@@ -41,6 +40,7 @@ require([], function (){
         }
         var w = $(window).width();
         if (w >= 700) {
+            canve();//
             loadPC();
         } else {
             loadMobile();
@@ -50,6 +50,7 @@ require([], function (){
     if(!!browser.versions.mobile || $(window).width() < 800){
         loadMobile();
     } else {
+        canve();
         loadPC();
     }
 
@@ -200,5 +201,4 @@ require([], function (){
             }
         }
     })
-
-})
+});
