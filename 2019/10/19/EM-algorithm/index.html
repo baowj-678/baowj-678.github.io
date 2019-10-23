@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="WILL">
 <meta property="og:description" content="An introduction to the Expectation-Maximization algorithm">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-23T15:48:53.623Z">
+<meta property="og:updated_time" content="2019-10-23T15:59:50.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EM algorithm">
 <meta name="twitter:description" content="An introduction to the Expectation-Maximization algorithm">
@@ -330,6 +330,12 @@
 <p>令$$B(\theta,\theta^{(i)})=L(\theta,\theta^{(i)})+\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})P(Y|\theta^{(i)})}$$</p>
 <p>则有：</p>
 <p>$$L(\theta)\ge B(\theta,\theta^{(i)})$$</p>
+<p>即说明函数 $B(\theta,\theta^{(i)})$ 是函数 $L(\theta)$ 的一个下界，而且由上式可得：</p>
+<p>$$L(\theta^{(i)})=B(\theta^{(i)},\theta^{(i)})$$</p>
+<p>因此，任何可以使 $B(\theta,\theta^{(i)})$ 增大的 $\theta$ ，都可以使 $L(\theta)$ 增大。为了使 $L(\theta)$ 有尽可能大的增长，我们选择 $\theta^{(i+1)}$,即：</p>
+<p>$$L(\theta^{(i+1)})=argmax_{\small{\theta}}B(\theta,\theta^{(i)})$$</p>
+<p>但现在 $\theta^{(i+1)}$  是未知的，所以我们需要推导出 $\theta^{(i+1)}$ 的表达式，如下：</p>
+<p>$$\large{\theta^{(i+1)}}=argmax_{\small{\theta}}(L(\theta^{(i)})+\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})P(Y|\theta^{(i)})})$$</p>
 
       
     </div>
@@ -341,7 +347,7 @@
         <p><span>Title:</span><a href="">EM algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
         <p><span>Created:</span>2019-10-19, 12:16:02</p>
-        <p><span>Updated:</span>2019-10-23, 23:48:53</p>
+        <p><span>Updated:</span>2019-10-23, 23:59:50</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="" title="EM algorithm">https://vilily.github.io/2019/10/19/EM-algorithm/</a>
             <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/10/19/EM-algorithm/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
