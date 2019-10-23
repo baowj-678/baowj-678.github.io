@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="WILL">
 <meta property="og:description" content="An introduction to the Expectation-Maximization algorithm">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-23T15:37:42.463Z">
+<meta property="og:updated_time" content="2019-10-23T15:48:53.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EM algorithm">
 <meta name="twitter:description" content="An introduction to the Expectation-Maximization algorithm">
@@ -324,7 +324,12 @@
 <p>  而<strong>EM算法</strong>并没有硬求为观测变量，它是通过迭代计算的方法逐步极大化$L(\theta)$。因此，我们假设第$i$次迭代后概率模型参数的估计值为$\theta^{(i)}$。我们希望新的估计值 $\theta$ 能使$L(\theta)$ 增加，即 $L(\theta) &gt; L(\theta^{(i)})$ ，为此，我们考虑两者之差：</p>
 <p>$$L(\theta) - L(\theta^{(i)}) = log(\sum_zP(Y|Z,\theta)P(Z|\theta)) - logP(Y|\theta^{(i)})$$</p>
 <p>然后利用<strong>Jensen 不等式</strong>($log\sum_j\lambda_jy_j\ge\sum_j\lambda_jlogy_j , \lambda_j\ge0,\sum_j\lambda_j=1$，这样我们得到下面的放缩：</p>
-<p>$$L(\theta) - L(\theta^{(i)})=log(\sum_{\small{Z}}P(Z|Y,\theta^{(i)})\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})})-logP(Y|\theta^{(i)})$$</p>
+<p>$$L(\theta) - L(\theta^{(i)})=log\sum_{\small{Z}}P(Z|Y,\theta^{(i)})\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})})-logP(Y|\theta^{(i)})$$</p>
+<p>$$\ge\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})}-logP(Y|\theta^{(i)})$$</p>
+<p>$$ = \sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})P(Y|\theta^{(i)})}$$</p>
+<p>令$$B(\theta,\theta^{(i)})=L(\theta,\theta^{(i)})+\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})P(Y|\theta^{(i)})}$$</p>
+<p>则有：</p>
+<p>$$L(\theta)\ge B(\theta,\theta^{(i)})$$</p>
 
       
     </div>
@@ -336,7 +341,7 @@
         <p><span>Title:</span><a href="">EM algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
         <p><span>Created:</span>2019-10-19, 12:16:02</p>
-        <p><span>Updated:</span>2019-10-23, 23:37:42</p>
+        <p><span>Updated:</span>2019-10-23, 23:48:53</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="" title="EM algorithm">https://vilily.github.io/2019/10/19/EM-algorithm/</a>
             <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/10/19/EM-algorithm/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
