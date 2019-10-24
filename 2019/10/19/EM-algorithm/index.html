@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="WILL">
 <meta property="og:description" content="An introduction to the Expectation-Maximization algorithm">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-23T15:59:50.548Z">
+<meta property="og:updated_time" content="2019-10-24T04:56:00.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EM algorithm">
 <meta name="twitter:description" content="An introduction to the Expectation-Maximization algorithm">
@@ -318,8 +318,8 @@
 <h3 id="对数似然函数-LLD-："><a href="#对数似然函数-LLD-：" class="headerlink" title="对数似然函数(LLD)："></a>对数似然函数(LLD)：</h3><p>  对于上面的普通的<strong>似然函数</strong>虽然很容易理解，但却不方便计算(特别是对于计算机来说)，因为当已知数据$y_i$数量很大时，$P(y_i|\theta) &lt; 1$ 从而使得 $L(\theta|Y) &lt;&lt; 1$，甚至会突破计算机对浮点数的存储极限。因此，我们将<strong>似然函数</strong>取对数，从而得到<strong>对数似然函数</strong>，即：</p>
 <p>$$LL(\theta|Y) = log(L(\theta|Y))$$</p>
 <p><strong>对数似然函数</strong>不仅满足了计算机的存储问题，而且对数函数是<strong>增函数</strong>，所以<strong>似然函数</strong>的数学性质不会改变，也满足我们的计算需求</p>
-<h2 id="EM算法的导出"><a href="#EM算法的导出" class="headerlink" title="EM算法的导出"></a>EM算法的导出</h2><h3 id="隐变量"><a href="#隐变量" class="headerlink" title="隐变量"></a>隐变量</h3><h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><p>  对于含有<strong>隐变量</strong>且参数未知的概率模型，我们的优化目标就是极大化观测数（不完全数据）$Y$关于参数$\theta$的<strong>对数似然函数</strong>，即极大化：$$argmax_{\theta}L(\theta) = logP(Y|\theta) = log\sum_ZP(Y,Z|\theta)$$</p>
-<p>$$=log(\sum_ZP(Y|Z,\theta)P(Z|\theta))$$</p>
+<h2 id="EM算法的导出"><a href="#EM算法的导出" class="headerlink" title="EM算法的导出"></a>EM算法的导出</h2><h3 id="隐变量"><a href="#隐变量" class="headerlink" title="隐变量"></a>隐变量</h3><h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><p>  对于含有<strong>隐变量</strong>且参数未知的概率模型，我们的优化目标就是极大化观测数（不完全数据）$Y$关于参数$\theta$的<strong>对数似然函数</strong>，即极大化：$$L(\theta) = logP(Y|\theta) = log\sum_ZP(Y,Z|\theta)$$</p>
+<p>$$=log\Big(\sum_ZP(Y|Z,\theta)P(Z|\theta)\Big)$$</p>
 <p>  对上式求极大化的困难主要在于，上式存在未观测变量$Z$</p>
 <p>  而<strong>EM算法</strong>并没有硬求为观测变量，它是通过迭代计算的方法逐步极大化$L(\theta)$。因此，我们假设第$i$次迭代后概率模型参数的估计值为$\theta^{(i)}$。我们希望新的估计值 $\theta$ 能使$L(\theta)$ 增加，即 $L(\theta) &gt; L(\theta^{(i)})$ ，为此，我们考虑两者之差：</p>
 <p>$$L(\theta) - L(\theta^{(i)}) = log(\sum_zP(Y|Z,\theta)P(Z|\theta)) - logP(Y|\theta^{(i)})$$</p>
@@ -335,7 +335,12 @@
 <p>因此，任何可以使 $B(\theta,\theta^{(i)})$ 增大的 $\theta$ ，都可以使 $L(\theta)$ 增大。为了使 $L(\theta)$ 有尽可能大的增长，我们选择 $\theta^{(i+1)}$,即：</p>
 <p>$$L(\theta^{(i+1)})=argmax_{\small{\theta}}B(\theta,\theta^{(i)})$$</p>
 <p>但现在 $\theta^{(i+1)}$  是未知的，所以我们需要推导出 $\theta^{(i+1)}$ 的表达式，如下：</p>
-<p>$$\large{\theta^{(i+1)}}=argmax_{\small{\theta}}(L(\theta^{(i)})+\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})P(Y|\theta^{(i)})})$$</p>
+<p>$$\large{\theta^{(i+1)}}=argmax_{\small{\theta}}\Big(L(\theta^{(i)})+\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\frac{P(Y|Z,\theta)P(Z|\theta)}{P(Z|Y,\theta^{(i)})P(Y|\theta^{(i)})}\Big)$$</p>
+<p>[因为$L(\theta^{(i)}) , P(Z|Y,\theta^{(i)}),  P(Y|\theta^{(i)})$ , 与自变量 $\theta$ 无关，故删除]，得到：</p>
+<p>$$=argmax_\theta\bigg(\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log\Big(P(Y|Z,\theta)P(Z|\theta)\Big)\bigg)$$</p>
+<p>$$=argmax_\theta\Big(\sum_{\small{Z}}P(Z|Y,\theta^{(i)})log(P(Y,Z|\theta))\Big)$$</p>
+<p>[令其为Q函数]，得到：</p>
+<p>$$=argmax_{\theta}Q(\theta,\theta^{(i)})$$</p>
 
       
     </div>
@@ -347,7 +352,7 @@
         <p><span>Title:</span><a href="">EM algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
         <p><span>Created:</span>2019-10-19, 12:16:02</p>
-        <p><span>Updated:</span>2019-10-23, 23:59:50</p>
+        <p><span>Updated:</span>2019-10-24, 12:56:00</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="" title="EM algorithm">https://vilily.github.io/2019/10/19/EM-algorithm/</a>
             <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/10/19/EM-algorithm/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
