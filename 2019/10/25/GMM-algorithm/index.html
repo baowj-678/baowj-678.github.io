@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="WILL">
 <meta property="og:description" content="What&apos;s GMM and How to use the GMM to do clusterring?">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-25T14:50:25.758Z">
+<meta property="og:updated_time" content="2019-10-25T16:17:11.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GMM algorithm">
 <meta name="twitter:description" content="What&apos;s GMM and How to use the GMM to do clusterring?">
@@ -314,13 +314,29 @@
 <p>$$P(x) =\phi(x) = \frac{1}{2\pi^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}e^{-\frac{1}{2}\frac{(x-\mu)^T(x-\mu)}{\Sigma}}$$    <font color="red">(1)</font></p>
 <p>其中 $\vec\mu$ 为n维均值向量，$\vec\Sigma$ 为 $n<em>n$ 的*</em>协方差矩阵<strong>，由<font color="red">(1)</font>可以看出：高斯分布</strong>完全**由均值向量 $\vec\mu$ 和协方差矩阵 $\vec\Sigma$ 这两个参数确定，为了明确高斯分布与相应参数的依赖关系，将概率密度函数记为$$\phi(\vec x|\vec\mu,\vec\Sigma)$$</p>
 <p>下文中为了方便，<strong>向量不再加箭头</strong>。</p>
-<h3 id="高斯混合模型-1"><a href="#高斯混合模型-1" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h3><p>为了表达方便我们记 $\theta = (\mu,\Sigma)$ 为高斯分布的参数。</p>
+<h3 id="高斯混合模型-1"><a href="#高斯混合模型-1" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h3><h4 id="1-明确隐变量，写出完全数据的对数似然函数"><a href="#1-明确隐变量，写出完全数据的对数似然函数" class="headerlink" title="1.明确隐变量，写出完全数据的对数似然函数"></a>1.明确隐变量，写出完全数据的对数似然函数</h4><p>为了表达方便我们记 $\theta = (\mu,\Sigma)$ 为高斯分布的参数。</p>
 <p>于是我们可以定义<strong>高斯混合模型</strong>为：</p>
-<p>$$P(y|\theta) = \sum_{i=1}^{N}\alpha_i\phi(y|\theta_i)$$    <font color="red">(2)</font></p>
-<p>其中，$\alpha_k$ 是系数，$\alpha_k\ge0$，$\sum_{i=1}^N=1$；$\phi(y|\theta_i)$ 是高斯概率密度函数。</p>
-<p>$$\phi(y|\theta_i)=\frac{1}{\sqrt{2\pi}\sigma_i}exp(-\frac{(y-\mu_i)^2}{2\sigma_i^2})$$        <font color="red"> (3)</font></p>
+<p>$$P(y|\theta) = \sum_{k=1}^{K}\alpha_k\phi(y|\theta_k)$$    <font color="red">(2)</font></p>
+<p>其中，$\alpha_k$ 是系数，$\alpha_k\ge0$，$\sum_{k=1}^K=1$；$\phi(y|\theta_k)$ 是高斯概率密度函数。</p>
+<p>$$\phi(y|\theta_k)=\frac{1}{\sqrt{2\pi}\sigma_i}exp(-\frac{(y-\mu_k)^2}{2\sigma_k^2})$$        <font color="red"> (3)</font></p>
 <p><font color="red">(3)</font>式称为第 $i$ 个分模型。</p>
-<p>所以高斯混合模型可以理解为：构建N个高斯分布，对于每个 $y$ 取N个高斯分布的加权平均($\alpha_i$ 的作用)。</p>
+<p>设想观测数据 $y_j$ 是这样产生的：首先依概率 $\alpha_i$ 选择 第 $k$ 个高斯分布分模型 $\phi(y|\theta_k)$，然后依第 $k$ 个分模型的概率分布 $\phi(y|\theta_k)$ 生成观测数据 $y_j$。这时，观测数据 $y_j$ 是已知的；反映观测数据 $y_j$ 来自第 $k$ 个分模型的数据是未知的，$k=1,2,…,K$，以隐变量 $\gamma_{jk}$ 表示，其定义如下：</p>
+<p>$$\gamma_{jk}=\begin{cases}1, \quad 第j个观测来自第k个模型\0,\quad 否则\end{cases}$$</p>
+<p>$$j=1,2,…,N;k=1,2,…,k$$    <font color="red">(4)</font></p>
+<p>$\gamma_{jk}$ 是0-1随机变量【但也可以看成一种加权平均】</p>
+<p>有了观测数据 $y_j$ 以及未观测数据 $\gamma_{jk}$，那么完全数据是：</p>
+<p>$$(y_j,\gamma_{j1},\gamma_{j2},…,\gamma_{jk}),\quad j=1,2,…,N$$</p>
+<p>于是我们可以写出完全数据的似然函数：</p>
+<p>$$P(y,\gamma|\theta)=\prod_{j=1}^NP(y_j,\gamma_{j1},\gamma_{j2},…,\gamma_{jk}|\theta)$$</p>
+<p>$$=\prod_{k=1}^K\prod_{j=1}^N[\alpha_k\phi(y_j|\theta_k)]^{\gamma_{jk}}$$</p>
+<p>$$=\prod_{k=1}^K\alpha_k^{n_k}\prod_{i=1}^N[\phi(y_j|\theta_k)]^{\gamma_{jk}}$$</p>
+<p>$$=\prod_{k=1}^K\alpha_k^{n_k}\prod_{j=1}^N[\frac{1}{\sqrt{2\pi}\sigma_k}exp(-\frac{(y_j-mu_k)^2}{2\sigma_k^2})]^{\gamma_{jk}}$$</p>
+<p>式中，$n_k=\sum_{j=1}^N\gamma_{jk},\sum_{k=1}^Kn_k=N$</p>
+<p>那么，完全数据的对数似然函数为：</p>
+<p>$$logP(y,\gamma|\theta)=\sum_{k=1}^K\Bigg(n_klog\alpha_k+\sum_{j=1}^N\gamma_{jk}\Big[log\big(\frac{1}{\sqrt{2\pi}}-log\sigma_k-\frac{1}{2\sigma_k^2}(y_j-\mu_k\big)^2\Big]\Bigg)$$    <font color="red">(5)</font></p>
+<h4 id="2-EM算法的E步：确定Q函数"><a href="#2-EM算法的E步：确定Q函数" class="headerlink" title="2.EM算法的E步：确定Q函数"></a>2.EM算法的E步：确定Q函数</h4><p>根据Q函数定义得到：</p>
+<p>$$Q(\theta,\theta^{i})=E[logP\Big((y,\gamma|\theta)\Big)|y,\theta^{(i)}]$$</p>
+<p>$$=E\Bigg(\sum_{k=1}^K\Big(n_klog\alpha+\sum_{j=1}^N\gamma_{jk}\Big[log\big(\frac{1}{\sqrt{2\pi}}\big)-log\sigma_k^2-\frac{1}{2\sigma_k^2}(y_j-\mu_k)^2\Big]\Big)\Bigg)$$</p>
 
       
     </div>
@@ -332,7 +348,7 @@
         <p><span>Title:</span><a href="">GMM algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
         <p><span>Created:</span>2019-10-25, 22:05:41</p>
-        <p><span>Updated:</span>2019-10-25, 22:50:25</p>
+        <p><span>Updated:</span>2019-10-26, 00:17:11</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="" title="GMM algorithm">https://vilily.github.io/2019/10/25/GMM-algorithm/</a>
             <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/10/25/GMM-algorithm/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -362,7 +378,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#高斯混合模型"><span class="toc-number">1.</span> <span class="toc-text">高斯混合模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型推导"><span class="toc-number">1.2.</span> <span class="toc-text">模型推导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#高斯分布定义"><span class="toc-number">1.2.1.</span> <span class="toc-text">高斯分布定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高斯混合模型-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">高斯混合模型</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#高斯混合模型"><span class="toc-number">1.</span> <span class="toc-text">高斯混合模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型推导"><span class="toc-number">1.2.</span> <span class="toc-text">模型推导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#高斯分布定义"><span class="toc-number">1.2.1.</span> <span class="toc-text">高斯分布定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高斯混合模型-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">高斯混合模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-明确隐变量，写出完全数据的对数似然函数"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">1.明确隐变量，写出完全数据的对数似然函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-EM算法的E步：确定Q函数"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2.EM算法的E步：确定Q函数</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
     <style>
