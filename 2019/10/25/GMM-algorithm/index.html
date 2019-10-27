@@ -24,7 +24,7 @@
 <meta property="og:description" content="What&apos;s GMM and How to use the GMM to do clusterring?">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://vilily.github.io/2019/10/25/GMM-algorithm/Figure.png">
-<meta property="og:updated_time" content="2019-10-27T05:36:37.214Z">
+<meta property="og:updated_time" content="2019-10-27T05:39:19.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GMM algorithm">
 <meta name="twitter:description" content="What&apos;s GMM and How to use the GMM to do clusterring?">
@@ -323,7 +323,7 @@
 <p>$$\phi(y|\theta_k)=\frac{1}{\sqrt{2\pi}\sigma_i}exp(-\frac{(y-\mu_k)^2}{2\sigma_k^2})$$        <font color="red"> (3)</font></p>
 <p><font color="red">(3)</font>式称为第 $i$ 个分模型。</p>
 <p>设想观测数据 $y_j$ 是这样产生的：首先依概率 $\alpha_i$ 选择 第 $k$ 个高斯分布分模型 $\phi(y|\theta_k)$，然后依第 $k$ 个分模型的概率分布 $\phi(y|\theta_k)$ 生成观测数据 $y_j$。这时，观测数据 $y_j$ 是已知的；反映观测数据 $y_j$ 来自第 $k$ 个分模型的数据是未知的，$k=1,2,…,K$，以隐变量 $\gamma_{jk}$ 表示，其定义如下：</p>
-<p>$$\gamma_{jk}=\begin{cases}1, \quad 第j个观测来自第k个模型\0,\quad 否则\end{cases}$$</p>
+<p>$$\gamma_{jk}=\begin{cases}1, \quad 第j个观测来自第k个模型\\0,\quad 否则\end{cases}$$</p>
 <p>$$j=1,2,…,N;k=1,2,…,k$$    <font color="red">(4)</font></p>
 <p>$\gamma_{jk}$ 是0-1随机变量【但也可以看成一种加权平均】</p>
 <p>有了观测数据 $y_j$ 以及未观测数据 $\gamma_{jk}$，那么完全数据是：</p>
@@ -403,7 +403,7 @@
         <p><span>Title:</span><a href="">GMM algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
         <p><span>Created:</span>2019-10-25, 22:05:41</p>
-        <p><span>Updated:</span>2019-10-27, 13:36:37</p>
+        <p><span>Updated:</span>2019-10-27, 13:39:19</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="" title="GMM algorithm">https://vilily.github.io/2019/10/25/GMM-algorithm/</a>
             <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/10/25/GMM-algorithm/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
