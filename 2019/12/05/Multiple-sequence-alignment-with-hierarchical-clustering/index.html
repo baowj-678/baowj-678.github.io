@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="SQL">
-<meta name="keywords" content="SQL">
+<meta name="description" content="A Paper Multiple Sequence Alignment Problem">
+<meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mySQL Command Line">
-<meta property="og:url" content="https://vilily.github.io/2019/11/09/mySQL-Command-Line/index.html">
+<meta property="og:title" content="Multiple sequence alignment with hierarchical clustering">
+<meta property="og:url" content="https://vilily.github.io/2019/12/05/Multiple-sequence-alignment-with-hierarchical-clustering/index.html">
 <meta property="og:site_name" content="WILL">
-<meta property="og:description" content="SQL">
+<meta property="og:description" content="A Paper Multiple Sequence Alignment Problem">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-09T05:01:10.721Z">
+<meta property="og:updated_time" content="2019-12-05T04:08:35.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mySQL Command Line">
-<meta name="twitter:description" content="SQL">
+<meta name="twitter:title" content="Multiple sequence alignment with hierarchical clustering">
+<meta name="twitter:description" content="A Paper Multiple Sequence Alignment Problem">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>mySQL Command Line | WILL</title>
+<title>Multiple sequence alignment with hierarchical clustering | WILL</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-mySQL-Command-Line" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Multiple-sequence-alignment-with-hierarchical-clustering" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="" class="article-date">
-      <time datetime="2019-11-08T16:06:44.000Z" itemprop="datePublished">2019-11-09</time>
+      <time datetime="2019-12-05T01:40:50.000Z" itemprop="datePublished">2019-12-05</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mySQL Command Line
+      Multiple sequence alignment with hierarchical clustering
     </h1>
   
 
@@ -298,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/SQL/">SQL</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Algorithm/">Algorithm</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,26 +308,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><h5 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE library;</span><br></pre></td></tr></table></figure>
-
-<h5 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE library</span><br></pre></td></tr></table></figure>
-
-<h5 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE library</span><br></pre></td></tr></table></figure>
-
-<h5 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE book(name char(20), author char(20))</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看表的内容"><a href="#查看表的内容" class="headerlink" title="查看表的内容"></a>查看表的内容</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM book WHERE id = 1;</span><br></pre></td></tr></table></figure>
-
-<h5 id="插入内容"><a href="#插入内容" class="headerlink" title="插入内容"></a>插入内容</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO book VALUES(&apos;jave&apos;, &apos;kkk&apos;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看数据库内的表"><a href="#查看数据库内的表" class="headerlink" title="查看数据库内的表"></a>查看数据库内的表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW TABLES</span><br></pre></td></tr></table></figure>
-
-<h5 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES</span><br></pre></td></tr></table></figure>
-
-<h5 id="显示表的结构"><a href="#显示表的结构" class="headerlink" title="显示表的结构"></a>显示表的结构</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC book</span><br></pre></td></tr></table></figure>
-
-<h5 id="获取上一次插入数据的ID"><a href="#获取上一次插入数据的ID" class="headerlink" title="获取上一次插入数据的ID"></a>获取上一次插入数据的ID</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT LAST_INSERT_ID();</span><br></pre></td></tr></table></figure>
-
+        <h1 id="Multiple-sequence-alignment-with-hierarchical-clustering"><a href="#Multiple-sequence-alignment-with-hierarchical-clustering" class="headerlink" title="Multiple sequence alignment with hierarchical clustering"></a>Multiple sequence alignment with hierarchical clustering</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p> 无论是在蛋白质还是核酸的<strong>多序列的匹配</strong>问题，用计算机来实现，都是非常容易和准确的。这个方法是基于<strong>两两匹配</strong>的普通的<strong>贪心算法</strong>。开始的时候，用<strong>双匹配</strong>的<strong>分数矩阵来</strong>来实现序列的<strong>层次聚类</strong>。<strong>最近</strong>的序列会被<strong>联合</strong>起来，从而生成<strong>联合序列</strong>的群体(group)。然后，当一个<strong>群体</strong>内的所以序列都被<strong>联合(Aligned)</strong>起来后，最近的<strong>群体(Group)</strong>的会被联合(aligned)起来。在<strong>多匹配</strong>中的两个匹配好的序列会生成一个新的矩阵，而这个矩阵被用来产生一个<strong>层次聚类</strong></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>  核酸(nucleic acids)和蛋白质(proteins)，可以被一些<strong>升序排列</strong>的分子生物学上的<strong>数字序列</strong>来表示，而这些数字可以通过自动且快速的技术来获得。因此，一个<strong>升序序列</strong>需要被我们分析，而这个在没有<strong>数据分析</strong>的帮助是不可能的。</p>
+<p>  确认某些部分和一个相同的<strong>族</strong>(family)里面的许多序列对应部分相似的过程是非常有趣的。比如，蛋白质序列的相似区域和许多活着的的微生物(organism)有着相同的功能，这在功能和结构的观点来看是非常重要的。</p>
+<p>  这些分析都需要，<strong>序列的匹配</strong></p>
+<p>  两个序列的匹配可以许多自从1970就出现的算法实现。但是，当有多于两个序列时，</p>
+<h2 id="两个序列的匹配算法"><a href="#两个序列的匹配算法" class="headerlink" title="两个序列的匹配算法"></a>两个序列的匹配算法</h2><p>假设存在两个序列 $A、B$ 长度分别为 $m,n$，并且 $A(i),B(j)$ 分别表示 对应序列中的第 $i$ 个和第 $j$ 的元素。对于每一个<strong>元素对</strong>(pair of elements) $A(i),B(j)$ ，其权值 $weight\ w(i,j)$ 可以通过一个适合的矩阵 $D$ 来给定，比如<strong>Dayhoff</strong> 的氨基酸<strong>突变数据矩阵</strong>（如果需要的话，可以通过增加一个适当的<strong>常数</strong>来使得矩阵<strong>非负</strong>）。由此 $w(i,j)=D(A(i),A(j))$。$w$ 的值不需要存储，当需要的时候从存储的矩阵计算获得。计算中使用的方法和<strong>Needleman and Wunsh</strong>和<strong>Murata</strong>的方法一样，是从<strong>元素</strong>(cell) $(m,n)$ 开始，<strong>后向</strong>(backward)计算，依次计算从每条不同的元素来的<strong>路</strong>(path)的最大权值之和(maximum total value)。</p>
+<p>令 $S(i,j)$ 表示从所有的从元素 $(i,j)$ 到底部(bottom)或者右边(right side)的路径上的所有元素权值之和再减去 $g$ 乘以路上的<strong>间隔</strong>(gap)数，即 $\sum w-g(n-1)$，的<strong>最大值</strong></p>
+<p>这个<strong>间隔惩罚</strong>(gap penalty)是<strong>Barton and Sternberg</strong>建议的独立于间隔的长度。</p>
+<p>令 $M(i,j)$ 表示 $S$ 上所有满足 $(i,k) and(l,j)\quad(j\le k\le n\ and\ i\le l\le m)$元素的最大值，根据它的定义 $M(i,j)$ 就表示 $S$ 上所有满足  $(l,k),(l\ge i \ and \ k\ge j)$ 的元素最大值。</p>
+<p>下面的算法就是用来计算 $S\ and\ M$的：</p>
+<p>$$S(i,j)=w(i,j)+max(S(i+1,j+1,M(i+1,j+1)-g)$$</p>
+<p>$$M(i,j)=max(S(i,j),M(i+1,j),M(i,j+1))$$</p>
+<p>一旦矩阵 $S$ 被计算出来，就会执行一个回溯(traceback) 的过程，取寻找最好的路径上的最优元素。它的首选元素就是<strong>第一行或第一列的最大元素</strong>。这个值就是<strong>匹配的分数</strong>。在每个路径的末尾都不需要增加<strong>间隔惩罚</strong>(gap penalty)。</p>
+<p>为了比较多于两个的序列，已经匹配好的会被利用一个<strong>匹配算法</strong>(alignment algorithm)一步一步的重新组合，这也是<strong>过程一</strong>的延申。</p>
+<p>令 $B_1,…B_p$ 为一个<strong>类</strong>(cluster)中的序列，$C_1,…,C_Q$ 为第二个类中的序列。当生成一个矩阵 $S$ 来<strong>联合</strong>(align) $C$ 序列和 $B$ 序列。我们需要引入一个<strong>分数体制</strong>(scoring scheme)，它包含所有的以前已经联合起来的序列的贡献，因此需要赋予已经联合起来的区域更多的权重。</p>
+<p>令 $i,j$ 分别表示序列 $B,C$ 某个<strong>联合的产物</strong>(aligned residue)的位置。则：</p>
+<p>$$w(i,j)=\frac{1}{PQ}\sum_{R=1}^{R=P}\sum^{S=Q}_{S=1}D(B_R(i),C_S(j))$$</p>
+<p>其中 $D$ 表示<strong>氨基酸联合分数</strong>(amino acid pair scores)。例如，<strong>(Ala-Val-Leu)</strong>和<strong>(Ala-Leu)</strong>联合的分数就是 $[w(Ala\ vs.\ Ala)+(Ala\ vs.\ Ala)+(Val\ vs. Ala)+(Val\ vs.\ Leu)+(Leu\ vs.\ Ala)+(Leu\ vs.\ Leu)]*\frac{1}{6}$</p>
+<p>矩阵 $S$ 和矩阵 $M$ 和前面的算法一样，但是需要用新的 $w$ 来计算。</p>
+<p>一旦获得一个由 $P+Q$ 联合的<strong>类</strong>，就会替代 $P\ Q$ 序列。</p>
+<h3 id="聚类的顺序"><a href="#聚类的顺序" class="headerlink" title="聚类的顺序"></a>聚类的顺序</h3><p>聚类的顺序会影响聚类的结果，因此我们需要选择一个好的聚类顺序。这里用到的方法是：使用两两比较的得分作为序列间的相似度的序号。原则就是：聚类从基本的序列出发，通过<strong>联合两个最近的类</strong>产生新的类。</p>
+<p>假设 $A_1,A_2,…,A_N$ 是 $N$ 个待联合的序列，所有的<strong>两两比较</strong>已经执行好，并被存储在一个矩阵 $T_1$ 中。其中 $T_1(I,J)$ 表示 $A_I$ 和 $A_J$ 联合的分数。然后，联合的序列的类按如下定义：</p>
+<p>步骤一，有N个类，每个类有1个序列。最优分数在矩阵 $T_1$ 中。序列 $A_I$ 和序列 $A_J$ 【他们的分数是最适合的】被<strong>联合</strong>(aligned)起来，并且两个序列的<strong>联合体</strong>(alignment)产生一个聚类，这个类代替了第 $I$ 个序列，第 $J$ 个序列则被删除。然后，产生新的<strong>分数矩阵</strong> $T_2$，它的维度是 $N-1$ 并且在被删除的</p>
 
       
     </div>
@@ -336,13 +339,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="">mySQL Command Line</a></p>
+        <p><span>Title:</span><a href="">Multiple sequence alignment with hierarchical clustering</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bao Wenjie</a></p>
-        <p><span>Created:</span>2019-11-09, 00:06:44</p>
-        <p><span>Updated:</span>2019-11-09, 13:01:10</p>
+        <p><span>Created:</span>2019-12-05, 09:40:50</p>
+        <p><span>Updated:</span>2019-12-05, 12:08:35</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="" title="mySQL Command Line">https://vilily.github.io/2019/11/09/mySQL-Command-Line/</a>
-            <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/11/09/mySQL-Command-Line/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="" title="Multiple sequence alignment with hierarchical clustering">https://vilily.github.io/2019/12/05/Multiple-sequence-alignment-with-hierarchical-clustering/</a>
+            <span class="copy-path" data-clipboard-text="From https://vilily.github.io/2019/12/05/Multiple-sequence-alignment-with-hierarchical-clustering/　　By Bao Wenjie" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -354,16 +357,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="../../../12/05/Multiple-sequence-alignment-with-hierarchical-clustering/">
-                    Multiple sequence alignment with hierarchical clustering
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="../../../10/29/GitHub-Command-Line/">
-                    GitHub Command Line
+                <a href="../../../11/09/mySQL-Command-Line/">
+                    mySQL Command Line
                 </a>
             </div>
         
@@ -375,7 +372,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#新建数据库"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">新建数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除数据库"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">删除数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用数据库"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">使用数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#建表"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">建表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看表的内容"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">查看表的内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#插入内容"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">插入内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看数据库内的表"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">查看数据库内的表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看数据库"><span class="toc-number">1.0.0.0.8.</span> <span class="toc-text">查看数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#显示表的结构"><span class="toc-number">1.0.0.0.9.</span> <span class="toc-text">显示表的结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取上一次插入数据的ID"><span class="toc-number">1.0.0.0.10.</span> <span class="toc-text">获取上一次插入数据的ID</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Multiple-sequence-alignment-with-hierarchical-clustering"><span class="toc-number">1.</span> <span class="toc-text">Multiple sequence alignment with hierarchical clustering</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两个序列的匹配算法"><span class="toc-number">1.3.</span> <span class="toc-text">两个序列的匹配算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#聚类的顺序"><span class="toc-number">1.3.1.</span> <span class="toc-text">聚类的顺序</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -411,7 +408,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"mySQL Command Line　| WILL　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Multiple sequence alignment with hierarchical clustering　| WILL　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -431,21 +428,19 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="../../../12/05/Multiple-sequence-alignment-with-hierarchical-clustering/" title="Pre: Multiple sequence alignment with hierarchical clustering">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="../../../10/29/GitHub-Command-Line/" title="Next: GitHub Command Line">
+            <a href="../../../11/09/mySQL-Command-Line/" title="Next: mySQL Command Line">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../12/05/Multiple-sequence-alignment-with-hierarchical-clustering/">Multiple sequence alignment with hierarchical clustering</a></li><li class="post-list-item"><a class="post-list-link" href="">mySQL Command Line</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/29/GitHub-Command-Line/">GitHub Command Line</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/28/PCA-algorithm/">PCA algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/25/GMM-algorithm/">GMM algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/19/EM-algorithm/">EM algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/17/markdown-doc/">markdown-doc</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/16/Hexo-Learn/">Hexo-Learn</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">Multiple sequence alignment with hierarchical clustering</a></li><li class="post-list-item"><a class="post-list-link" href="../../../11/09/mySQL-Command-Line/">mySQL Command Line</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/29/GitHub-Command-Line/">GitHub Command Line</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/28/PCA-algorithm/">PCA algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/25/GMM-algorithm/">GMM algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/19/EM-algorithm/">EM algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/17/markdown-doc/">markdown-doc</a></li><li class="post-list-item"><a class="post-list-link" href="../../../10/16/Hexo-Learn/">Hexo-Learn</a></li></ul>
 
 
 
