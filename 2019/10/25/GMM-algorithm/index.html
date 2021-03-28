@@ -17,6 +17,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" media="all" href="../../../../lib/Han/dist/han.min.css?v=3.3">
+
 
 
 
@@ -87,12 +91,12 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="What&apos;s GMM and How to use the GMM to do clusterring?">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://baowj-678.github.io/2019/10/25/GMM-algorithm/Figure.png">
+<meta property="og:image" content="https://1.15.86.100/2019/10/25/GMM-algorithm/Figure.png">
 <meta property="og:updated_time" content="2019-10-27T05:39:19.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GMM algorithm">
 <meta name="twitter:description" content="What&apos;s GMM and How to use the GMM to do clusterring?">
-<meta name="twitter:image" content="https://baowj-678.github.io/2019/10/25/GMM-algorithm/Figure.png">
+<meta name="twitter:image" content="https://1.15.86.100/2019/10/25/GMM-algorithm/Figure.png">
 
 
 
@@ -350,7 +354,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
       
@@ -436,7 +440,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    data_0 = np.random.normal(loc=<span class="number">1</span>, scale=<span class="number">2</span>, size=(<span class="number">100</span>,<span class="number">2</span>))</span><br><span class="line">    data_1 = np.random.normal(loc=<span class="number">10</span>, scale=<span class="number">2</span>, size=(<span class="number">100</span>,<span class="number">2</span>))</span><br><span class="line">    data_2 = np.random.normal(loc=<span class="number">5</span>, scale=<span class="number">1</span>, size=(<span class="number">100</span>,<span class="number">2</span>))</span><br><span class="line">    data_Y = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(data_0.shape[<span class="number">0</span>]):</span><br><span class="line">        data_Y.append(data_0[i, :])</span><br><span class="line">        data_Y.append(data_1[i, :])</span><br><span class="line">        data_Y.append(data_2[i, :])</span><br><span class="line">    data_Y = np.transpose(data_Y)</span><br><span class="line">    K = <span class="number">3</span></span><br><span class="line">    gamma = GMM(data_Y, K)</span><br><span class="line">    index = np.argmax(gamma, axis=<span class="number">1</span>)</span><br><span class="line">    index_ = []</span><br><span class="line">    data_Y_ = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(K):</span><br><span class="line">        data_Y_ = data_Y[:,np.where(index == i)]</span><br><span class="line">        plt.scatter(data_Y_[<span class="number">0</span>, :], data_Y_[<span class="number">1</span>, :])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
 
 <p>最后输出的结果图像如下：</p>
-<p><img src="//baowj-678.github.io/2019/10/25/GMM-algorithm/Figure.png" alt="GMM"></p>
+<p><img src="//1.15.86.100/2019/10/25/GMM-algorithm/Figure.png" alt="GMM"></p>
 <p>可以看出，<strong>高斯混合模型聚类器</strong>很好的将数据进行聚类！</p>
 
       

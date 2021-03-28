@@ -17,6 +17,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" media="all" href="../../../../lib/Han/dist/han.min.css?v=3.3">
+
 
 
 
@@ -87,14 +91,14 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="Google Brain重磅出品，集自回归语言模型和自编码语言模型之大成，又灵活融入Transformer-XL长文本建模能力！">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://baowj-678.github.io/2021/03/28/XLNet/image-20210322211204908.png">
-<meta property="og:image" content="https://baowj-678.github.io/2021/03/28/XLNet/image-20210325230153410.png">
-<meta property="og:image" content="https://baowj-678.github.io/2021/03/28/XLNet/image-20210328204303326.png">
+<meta property="og:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210322211204908.png">
+<meta property="og:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210325230153410.png">
+<meta property="og:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210328204303326.png">
 <meta property="og:updated_time" content="2021-03-28T12:53:16.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XLNet">
 <meta name="twitter:description" content="Google Brain重磅出品，集自回归语言模型和自编码语言模型之大成，又灵活融入Transformer-XL长文本建模能力！">
-<meta name="twitter:image" content="https://baowj-678.github.io/2021/03/28/XLNet/image-20210322211204908.png">
+<meta name="twitter:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210322211204908.png">
 
 
 
@@ -352,7 +356,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
       
@@ -402,7 +406,7 @@
 <p>$$\mathrm{max}<em>\theta\ \ \ \mathbb{E}</em>{z\sim\mathcal{Z}<em>T}[\sum</em>{t=1}^T\mathrm{log}\ p_\theta(x_{z_t}|\bold{x}<em>{\bold{z}</em>{&lt;t}})]$$</p>
 <p>其中：</p>
 <p>$\mathcal{Z}_T$：长度为$T$的序列的所有排列方式；</p>
-<p><img src="//baowj-678.github.io/2021/03/28/XLNet/image-20210322211204908.png" alt="image-20210322211204908"></p>
+<p><img src="//1.15.86.100/2021/03/28/XLNet/image-20210322211204908.png" alt="image-20210322211204908"></p>
 <p>实践中，对于一个文本序列$\bold{x}$，我们<strong>采样</strong>出一个排列顺序，然后按照这个顺序将$p_\theta(\bold{x})$的似然估计进行<strong>因子分解</strong>，因为$\theta$参数是共享的，所以理论上$x_i$会”看见“每个$x_j,x_i\neq x_j$。</p>
 <p><strong>排列采样</strong>在<strong>Transformer</strong>的实践中通过<strong>Attention</strong>的<strong>mask</strong>矩阵实现。</p>
 <p>这样就避免了<strong>独立性假设</strong>和<strong>预训练-微调差异</strong>。</p>
@@ -420,7 +424,7 @@
 <li>为了预测其他位置的字词$x_{z_t},j&gt;t$，$g_\theta(\bold{x}<em>{\bold{z}</em>{&lt;t}},z_t)$需要加入$x_{z_{t}}$的信息。</li>
 </ul>
 <p>为了解决上面问题，这里提出了<strong>Two-Stream Self-Attention</strong>方法</p>
-<p><img src="//baowj-678.github.io/2021/03/28/XLNet/image-20210325230153410.png" alt="image-20210325230153410"></p>
+<p><img src="//1.15.86.100/2021/03/28/XLNet/image-20210325230153410.png" alt="image-20210325230153410"></p>
 <ul>
 <li><strong>content representation</strong>$h_\theta(\bold{x}<em>{\bold{z}</em>{\le t}})$，这个和<strong>Transformer</strong>中的类似，它保留了上游文本信息和$x_{z_t}$的信息；</li>
 <li><strong>query representation</strong>$g_\theta(\bold{x}<em>{\bold{z}_t},z_t)$，这个只保留了$\bold{z}</em>{&lt;t}$的信息。</li>
@@ -440,7 +444,7 @@
 <li><p><strong>相对位置编码</strong>：即前文的$g_\theta(\bold{x}_{\bold{z}_t},z_t)$</p>
 </li>
 <li><p><strong>段循环机制</strong>：</p>
-<p>  <img src="//baowj-678.github.io/2021/03/28/XLNet/image-20210328204303326.png" alt="image-20210328204303326"></p>
+<p>  <img src="//1.15.86.100/2021/03/28/XLNet/image-20210328204303326.png" alt="image-20210328204303326"></p>
 <p>  假设有长文本中的两段文本，长文本为：$\bold{s}$，两端文本为：$\tilde{\bold{x}}=\bold{s}<em>{1:T},\bold{x}=\bold{s}</em>{T+1:2T}$，两端文本对应的采样的排列顺序为$\tilde{\bold{z}}=[1\dots T],\bold{z}=[T+1\dots 2T]$</p>
 <p>  于是基于$\tilde{\bold{z}}$，先处理第一段，获得<strong>文本表征</strong>$\tilde{\bold{h}}^{(m)}$($m$代表层数)，然后对于下一段，计算公式为：</p>
 <p>  $$h_{z_t}^{(m)}\leftarrow \mathrm{Attention}(Q=h_{z_t}^{(m-1)},KV=[\tilde{\bold{h}}^{(m-1)},\bold{h}<em>{\bold{z}</em>{\le t}}^{(m-1)}];\theta)$$</p>

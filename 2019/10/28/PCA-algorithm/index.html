@@ -17,6 +17,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" media="all" href="../../../../lib/Han/dist/han.min.css?v=3.3">
+
 
 
 
@@ -87,15 +91,15 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="A simply inroduction to the PCA algorithm.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_2.png">
-<meta property="og:image" content="https://baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_3.png">
-<meta property="og:image" content="https://baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_1.png">
-<meta property="og:image" content="https://baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_5.png">
+<meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_2.png">
+<meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_3.png">
+<meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_1.png">
+<meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_5.png">
 <meta property="og:updated_time" content="2019-11-01T16:12:03.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PCA algorithm">
 <meta name="twitter:description" content="A simply inroduction to the PCA algorithm.">
-<meta name="twitter:image" content="https://baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_2.png">
+<meta name="twitter:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_2.png">
 
 
 
@@ -353,7 +357,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
       
@@ -367,15 +371,15 @@
 <li>降低数据的<strong>多余的无用的</strong>维度可以提高训练出来的模型的<strong>泛化能力</strong>，避免<strong>过拟合(Over Fitting)</strong>。因为数据维度过高时需要训练的模型参数也会增加，这就很容易导致模型过拟合。</li>
 </ol>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>比如我们看这些数据：</p>
-<p><img src="//baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_2.png" alt="Figure_1"></p>
-<img src="//baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_3.png" alt="Figure_2" style="zoom: 200%;">
+<p><img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_2.png" alt="Figure_1"></p>
+<img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_3.png" alt="Figure_2" style="zoom: 200%;">
 
 <p>我们发现，这些数据在y维度上的偏差均匀分布且偏差极小，因此可以对其进行降维处理【删除该维度】，得到下列数据</p>
-<p><img src="//baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_1.png" alt="Figure"></p>
+<p><img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_1.png" alt="Figure"></p>
 <p>这些数据不仅保留了原数据的<strong>主要特征</strong>，而且剔除了多余的干扰，更利于训练何提高泛化性。</p>
 <h2 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h2><h3 id="PCA降维原则"><a href="#PCA降维原则" class="headerlink" title="PCA降维原则"></a>PCA降维原则</h3><p>我们先考虑二维情况，然后再推广到高维。</p>
 <p>考虑下面的数据集：</p>
-<p><img src="//baowj-678.github.io/2019/10/28/PCA-algorithm/Figure_5.png" alt="data"></p>
+<p><img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_5.png" alt="data"></p>
 <p>可以发现，图中不在线上的蓝色数据点基本上沿着一条直线分布。因此我们可以断定，数据集的 x 和 y 之间存在相关关系。因此我们可以进行降维。</p>
 <p>为了对这个数据集进行降维，我们首先要确定什么样的<strong>维</strong>是<strong>好的维</strong>，什么样的<strong>维</strong>是我们要<strong>丢弃的维</strong>。</p>
 <p>为此我们分别沿数据的分布方向和其垂直方向做两条垂直的直线(如图)，根据<strong>线性代数</strong>相关知识，这两条直线代表的构成了该数据空间的<strong>标准正交基</strong>。也就是说以这两条直线为<strong>坐标轴</strong>也可以表示该数据集。</p>

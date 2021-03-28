@@ -17,6 +17,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" media="all" href="../../../../lib/Han/dist/han.min.css?v=3.3">
+
 
 
 
@@ -87,12 +91,12 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="LDA">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://baowj-678.github.io/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
+<meta property="og:image" content="https://1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
 <meta property="og:updated_time" content="2021-03-27T14:39:47.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LDA(Fisher)">
 <meta name="twitter:description" content="LDA">
-<meta name="twitter:image" content="https://baowj-678.github.io/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
+<meta name="twitter:image" content="https://1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
 
 
 
@@ -350,14 +354,14 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
       
 
       
         <h1 id="LDA-Fisher"><a href="#LDA-Fisher" class="headerlink" title="LDA(Fisher)"></a>LDA(Fisher)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>LDA(Linear Discriminant Analysis)</strong>，又称<strong>Fisher判别方法</strong>。是一种经典的<strong>线性判别方法</strong>。该方法主要思想是：将样例投影到一维直线上，使得<strong>同类样例</strong>的投影点尽可能<strong>接近</strong>和<strong>密集</strong>；<strong>异类</strong>投影点尽可能<strong>远离</strong>。</p>
-<p><img src="//baowj-678.github.io/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png" alt="fisher"></p>
+<p><img src="//1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png" alt="fisher"></p>
 <h3 id="计算推导"><a href="#计算推导" class="headerlink" title="计算推导"></a>计算推导</h3><p>假设已知样本 $C_1$ 和 $C_2$ ，$|C_1|、|C_2|$ 分别两类样本数据的总数。</p>
 <p>则两类样例的<strong>类中心</strong>分别为：</p>
 <p>$$\mu_1=\frac{1}{|C_1|}\sum_{x\in{C_1}}x$$</p>
