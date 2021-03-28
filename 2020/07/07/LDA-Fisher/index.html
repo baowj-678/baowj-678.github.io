@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon.png?v=5.1.4">
@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,">
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -84,18 +84,18 @@
 
 
 <meta name="description" content="LDA">
-<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LDA(Fisher)">
 <meta property="og:url" content="https://1.15.86.100/2020/07/07/LDA-Fisher/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="LDA">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
-<meta property="og:updated_time" content="2021-03-27T14:39:47.317Z">
+<meta property="article:published_time" content="2020-07-07T07:58:22.000Z">
+<meta property="article:modified_time" content="2021-03-27T14:39:47.317Z">
+<meta property="article:author" content="Bao Wenjie">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LDA(Fisher)">
-<meta name="twitter:description" content="LDA">
 <meta name="twitter:image" content="https://1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
 
 
@@ -103,7 +103,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2020/07/07/LDA-Fisher/">
+  <link rel="canonical" href="https://1.15.86.100/2020/07/07/LDA-Fisher/"/>
 
 
 
@@ -142,7 +142,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -160,7 +160,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">BaoWJ's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -188,9 +188,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -198,9 +198,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             About
           </a>
@@ -208,9 +208,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -218,9 +218,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -228,9 +228,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -238,9 +238,9 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             Schedule
           </a>
@@ -248,9 +248,9 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="sitemap.xml" rel="section">
+          <a href="sitemap.xml%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
             Sitemap
           </a>
@@ -292,8 +292,8 @@
     <link itemprop="mainEntityOfPage" href="https://1.15.86.100">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bao Wenjie">
-      <meta itemprop="description" content>
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="../../../../uploads/avatar.png">
     </span>
 
@@ -360,8 +360,8 @@
       
 
       
-        <h1 id="LDA-Fisher"><a href="#LDA-Fisher" class="headerlink" title="LDA(Fisher)"></a>LDA(Fisher)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>LDA(Linear Discriminant Analysis)</strong>，又称<strong>Fisher判别方法</strong>。是一种经典的<strong>线性判别方法</strong>。该方法主要思想是：将样例投影到一维直线上，使得<strong>同类样例</strong>的投影点尽可能<strong>接近</strong>和<strong>密集</strong>；<strong>异类</strong>投影点尽可能<strong>远离</strong>。</p>
-<p><img src="//1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png" alt="fisher"></p>
+        <h1 id="LDA-Fisher"><a href="#LDA-Fisher" class="headerlink" title="LDA(Fisher)"></a>LDA(Fisher)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>LDA(Linear Discriminant Analysis)<strong>，又称</strong>Fisher判别方法</strong>。是一种经典的<strong>线性判别方法</strong>。该方法主要思想是：将样例投影到一维直线上，使得<strong>同类样例</strong>的投影点尽可能<strong>接近</strong>和<strong>密集</strong>；<strong>异类</strong>投影点尽可能<strong>远离</strong>。</p>
+<p><img src="/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png" alt="fisher"></p>
 <h3 id="计算推导"><a href="#计算推导" class="headerlink" title="计算推导"></a>计算推导</h3><p>假设已知样本 $C_1$ 和 $C_2$ ，$|C_1|、|C_2|$ 分别两类样本数据的总数。</p>
 <p>则两类样例的<strong>类中心</strong>分别为：</p>
 <p>$$\mu_1=\frac{1}{|C_1|}\sum_{x\in{C_1}}x$$</p>
@@ -489,10 +489,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="../../../../uploads/avatar.png" alt="Bao Wenjie">
+              <img class="site-author-image" itemprop="image"
+                src="../../../../uploads/avatar.png"
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Bao Wenjie</p>
-              <p class="site-description motion-element" itemprop="description">AI and Philosophy</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -500,9 +502,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../../../archives/">
+                <a href="../../../../archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -548,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LDA-Fisher"><span class="nav-number">1.</span> <span class="nav-text">LDA(Fisher)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算推导"><span class="nav-number">1.0.2.</span> <span class="nav-text">计算推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类间距离"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">类间距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类内距离"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">类内距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最优化"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">最优化</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LDA-Fisher"><span class="nav-number">1.</span> <span class="nav-text">LDA(Fisher)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.0.2.</span> <span class="nav-text">计算推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E9%97%B4%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">类间距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%86%85%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">类内距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BC%98%E5%8C%96"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">最优化</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -756,11 +758,33 @@
 
   
   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
 
   
+  <script type="text/javascript" src="../../../../js/src/exturl.js?v=5.1.4"></script>
+
 
 </body>
 </html>

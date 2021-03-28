@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="SQL," />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -83,18 +83,20 @@
 
 
 
-<meta name="description" content="SQL">
+<meta name="description" content="解决Hexo {% extends &#39;_layout.swig&#39; %}....{% endblock %} 报错">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL-install">
-<meta property="og:url" content="https://1.15.86.100/2020/10/29/SQL-install/index.html">
+<meta property="og:title" content="Hexo ERROR:hexo-renderer-swig">
+<meta property="og:url" content="https://1.15.86.100/2021/03/28/Hexo-ERROR-hexo-renderer-swig/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="SQL">
+<meta property="og:description" content="解决Hexo {% extends &#39;_layout.swig&#39; %}....{% endblock %} 报错">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-29T11:49:01.000Z">
-<meta property="article:modified_time" content="2021-03-27T14:40:20.193Z">
+<meta property="og:image" content="https://1.15.86.100/2021/03/28/Hexo-ERROR-hexo-renderer-swig/image-20210328221727193.png">
+<meta property="article:published_time" content="2021-03-28T14:14:10.000Z">
+<meta property="article:modified_time" content="2021-03-28T14:19:14.200Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/03/28/Hexo-ERROR-hexo-renderer-swig/image-20210328221727193.png">
 
 
 
@@ -124,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2020/10/29/SQL-install/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/03/28/Hexo-ERROR-hexo-renderer-swig/"/>
 
 
 
 
 
-  <title>SQL-install | BaoWJ's Blog</title>
+  <title>Hexo ERROR:hexo-renderer-swig | BaoWJ's Blog</title>
   
 
 
@@ -304,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SQL-install</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo ERROR:hexo-renderer-swig</h1>
         
 
         <div class="post-meta">
@@ -316,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-29T19:49:01+08:00">
-                2020-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-28T22:14:10+08:00">
+                2021-03-28
               </time>
             
 
@@ -341,7 +343,7 @@
 
           
               <div class="post-description">
-                  SQL
+                  解决Hexo {% extends '_layout.swig' %}....{% endblock %} 报错
               </div>
           
 
@@ -358,32 +360,14 @@
       
 
       
-        <h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><h3 id="下载："><a href="#下载：" class="headerlink" title="下载："></a>下载：</h3><ul>
-<li><p>在<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">MySQL官网</a>下载<strong>zip</strong>文件；</p>
-</li>
-<li><p>本地直接解压；</p>
-</li>
-</ul>
-<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><ul>
-<li>配置<strong>环境变量</strong>：添加解压文件的<strong>bin</strong>文件夹路径至<strong>PATH</strong>；</li>
-<li>初始化，生成DATA文件：<em>mysqld –initialize-insecure –user=mysql</em></li>
-<li>网络连接：<em>mysqld -install</em></li>
-<li>启动服务：<em>net start mysql</em>【在bin目录下】</li>
-</ul>
-<h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><ul>
-<li><p>登录【不用密码】：<em>mysql -u root -p</em></p>
-</li>
-<li><p>查询用户密码：<em>select host,user,authentication_string from mysql.user;</em></p>
-</li>
-<li><p>设置<strong>root</strong>用户密码：<strong>ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘123456’;</strong></p>
-</li>
-<li><p>保存修改：<em>flush privileges;</em></p>
-</li>
-</ul>
-<h3 id="基本操作："><a href="#基本操作：" class="headerlink" title="基本操作："></a>基本操作：</h3><ul>
-<li><strong>退出</strong>：<em>quit</em></li>
-<li></li>
-</ul>
+        <h1 id="Hexo-ERROR-hexo-renderer-swig"><a href="#Hexo-ERROR-hexo-renderer-swig" class="headerlink" title="Hexo ERROR: hexo-renderer-swig"></a>Hexo ERROR: hexo-renderer-swig</h1><h3 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &#x27;_layout.swig&#x27; %&#125; &#123;% import &#x27;_macro/post.swig&#x27; as post_template %&#125; &#123;% import &#x27;_macro/sidebar.swig&#x27; as sidebar_template %&#125; &#123;% block title %&#125;&#123;&#123; config.title &#125;&#125;&#123;% if theme.index_with_subtitle and config.subtitle %&#125; - &#123;&#123;config.subtitle &#125;&#125;&#123;% endif %&#125;&#123;% endblock %&#125; &#123;% block page_class %&#125; &#123;% if is_home() %&#125;page-home&#123;% endif -%&#125; &#123;% endblock %&#125; &#123;% block content %&#125;</span><br><span class="line">&#123;% for post in page.posts %&#125; &#123;&#123; post_template.render(post, true) &#125;&#125; &#123;% endfor %&#125;</span><br><span class="line">&#123;% include &#x27;_partials/pagination.swig&#x27; %&#125; &#123;% endblock %&#125; &#123;% block sidebar %&#125; &#123;&#123; sidebar_template.render(false) &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021/03/28/Hexo-ERROR-hexo-renderer-swig/image-20210328221727193.png" alt="image-20210328221727193"></p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p><strong>Hexo</strong>在5.0+中删除了<em>hexo-renderer-swig</em>，因此需要自己安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-swig</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -401,7 +385,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/SQL/" rel="tag"># SQL</a>
+            <a href="../../../../tags/Hexo/" rel="tag"># Hexo</a>
           
         </div>
       
@@ -414,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../07/07/LDA-Fisher/" rel="next" title="LDA(Fisher)">
-                <i class="fa fa-chevron-left"></i> LDA(Fisher)
+              <a href="../XLNet-PPT/" rel="next" title="XLNet-PPT">
+                <i class="fa fa-chevron-left"></i> XLNet-PPT
               </a>
             
           </div>
@@ -423,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../../2021/03/28/XLNet/" rel="prev" title="XLNet">
-                XLNet <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="nav-number">1.</span> <span class="nav-text">安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">1.0.1.</span> <span class="nav-text">下载：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">安装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%EF%BC%9A"><span class="nav-number">1.0.3.</span> <span class="nav-text">登录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-number">1.0.4.</span> <span class="nav-text">基本操作：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-ERROR-hexo-renderer-swig"><span class="nav-number">1.</span> <span class="nav-text">Hexo ERROR: hexo-renderer-swig</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%99%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.1.</span> <span class="nav-text">报错内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

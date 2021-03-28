@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon.png?v=5.1.4">
@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,">
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -84,24 +84,24 @@
 
 
 <meta name="description" content="An introduction to the Expectation-Maximization algorithm">
-<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EM algorithm">
 <meta property="og:url" content="https://1.15.86.100/2019/10/19/EM-algorithm/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="An introduction to the Expectation-Maximization algorithm">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-25T14:03:28.174Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-19T04:16:02.000Z">
+<meta property="article:modified_time" content="2019-10-25T14:03:28.174Z">
+<meta property="article:author" content="Bao Wenjie">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EM algorithm">
-<meta name="twitter:description" content="An introduction to the Expectation-Maximization algorithm">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2019/10/19/EM-algorithm/">
+  <link rel="canonical" href="https://1.15.86.100/2019/10/19/EM-algorithm/"/>
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -158,7 +158,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">BaoWJ's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -186,9 +186,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -196,9 +196,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             About
           </a>
@@ -206,9 +206,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -216,9 +216,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -226,9 +226,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -236,9 +236,9 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             Schedule
           </a>
@@ -246,9 +246,9 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="sitemap.xml" rel="section">
+          <a href="sitemap.xml%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
             Sitemap
           </a>
@@ -290,8 +290,8 @@
     <link itemprop="mainEntityOfPage" href="https://1.15.86.100">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bao Wenjie">
-      <meta itemprop="description" content>
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="../../../../uploads/avatar.png">
     </span>
 
@@ -371,7 +371,7 @@
 <p>$$LL(\theta|Y) = log(L(\theta|Y))$$</p>
 <p><strong>对数似然函数</strong>不仅满足了计算机的存储问题，而且对数函数是<strong>单调增函数</strong>，所以<strong>似然函数</strong>的数学性质不会改变，也满足我们的计算需求。</p>
 <hr>
-<h2 id="EM算法的导出"><a href="#EM算法的导出" class="headerlink" title="EM算法的导出"></a>EM算法的导出</h2><h3 id="隐变量"><a href="#隐变量" class="headerlink" title="隐变量"></a>隐变量</h3><p><strong>隐变量(latent variable)</strong>即潜在变量，是模型中无法被观测到却又在理论上存在的中间变量。例如，有以下模型：假设有三枚硬币，分别记作A、B、C。这些硬币正面出现的概率分别为 $\pi、p、q$。进行如下试验：先掷硬币A，如果A正面向上，选B硬币；如果A反面向上，选C硬币；然后记录B或C硬币投掷的结果 $y$。</p>
+<h2 id="EM算法的导出"><a href="#EM算法的导出" class="headerlink" title="EM算法的导出"></a>EM算法的导出</h2><h3 id="隐变量"><a href="#隐变量" class="headerlink" title="隐变量"></a>隐变量</h3><p>**隐变量(latent variable)**即潜在变量，是模型中无法被观测到却又在理论上存在的中间变量。例如，有以下模型：假设有三枚硬币，分别记作A、B、C。这些硬币正面出现的概率分别为 $\pi、p、q$。进行如下试验：先掷硬币A，如果A正面向上，选B硬币；如果A反面向上，选C硬币；然后记录B或C硬币投掷的结果 $y$。</p>
 <p>在上述试验中：$y$ 为观测变量， $\pi、p、q$ 为模型参数，<strong>投掷A硬币的结果即为隐变量</strong>。</p>
 <h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><p>对于含有<strong>隐变量</strong>且参数未知的概率模型，我们的优化目标就是极大化观测数（不完全数据）$Y$关于参数$\theta$的<strong>对数似然函数</strong>，即极大化：$$L(\theta) = logP(Y|\theta) = log\sum_ZP(Y,Z|\theta)$$</p>
 <p>$$=log\Big(\sum_ZP(Y|Z,\theta)P(Z|\theta)\Big)$$</p>
@@ -402,7 +402,7 @@
 <p>$$=\sum_{\small{Z}}log\big(P(Y,Z|\theta)\big)P(Z|Y,\theta^{(i)})$$</p>
 <hr>
 <p>由于 $P(Y,Z|\theta)$ 我们可以通过原始数据求的，因此我们便得出最终的优化目标，即<strong>最大化Q函数</strong>，下面是<strong>EM算法</strong>的步骤：</p>
-<h3 id="EM算法步骤"><a href="#EM算法步骤" class="headerlink" title="EM算法步骤"></a>EM算法步骤</h3><p>输入：观测变量数据<strong>Y</strong>，隐变量数据<strong>Z</strong>，联合分布<strong>$P(Y,Z|\theta)$</strong>，条件分布$P(Z|Y,\theta)$</p>
+<h3 id="EM算法步骤"><a href="#EM算法步骤" class="headerlink" title="EM算法步骤"></a>EM算法步骤</h3><p>输入：观测变量数据<strong>Y</strong>，隐变量数据<strong>Z</strong>，联合分布**$P(Y,Z|\theta)$**，条件分布$P(Z|Y,\theta)$</p>
 <p>输出：模型参数 $\theta$</p>
 <ol>
 <li><p>选择参数的初值 $\theta^{(0)}$ ，开始迭代；</p>
@@ -561,10 +561,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="../../../../uploads/avatar.png" alt="Bao Wenjie">
+              <img class="site-author-image" itemprop="image"
+                src="../../../../uploads/avatar.png"
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Bao Wenjie</p>
-              <p class="site-description motion-element" itemprop="description">AI and Philosophy</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -572,9 +574,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../../../archives/">
+                <a href="../../../../archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -620,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Expectation-Maximization-algorithm"><span class="nav-number">1.</span> <span class="nav-text"> Expectation-Maximization algorithm </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对数似然函数-Log-likelihood"><span class="nav-number">1.2.</span> <span class="nav-text">对数似然函数(Log likelihood)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#似然函数-Likelihood"><span class="nav-number">1.2.1.</span> <span class="nav-text">似然函数(Likelihood):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极大似然估计-MLE"><span class="nav-number">1.2.2.</span> <span class="nav-text">极大似然估计(MLE):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对数似然函数-LLD-："><span class="nav-number">1.2.3.</span> <span class="nav-text">对数似然函数(LLD)：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM算法的导出"><span class="nav-number">1.3.</span> <span class="nav-text">EM算法的导出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隐变量"><span class="nav-number">1.3.1.</span> <span class="nav-text">隐变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推导"><span class="nav-number">1.3.2.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q函数"><span class="nav-number">1.3.3.</span> <span class="nav-text">Q函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EM算法步骤"><span class="nav-number">1.3.4.</span> <span class="nav-text">EM算法步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM算法的收敛性证明"><span class="nav-number">1.4.</span> <span class="nav-text">EM算法的收敛性证明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Expectation-Maximization-algorithm"><span class="nav-number">1.</span> <span class="nav-text"> Expectation-Maximization algorithm </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0-Log-likelihood"><span class="nav-number">1.2.</span> <span class="nav-text">对数似然函数(Log likelihood)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0-Likelihood"><span class="nav-number">1.2.1.</span> <span class="nav-text">似然函数(Likelihood):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1-MLE"><span class="nav-number">1.2.2.</span> <span class="nav-text">极大似然估计(MLE):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0-LLD-%EF%BC%9A"><span class="nav-number">1.2.3.</span> <span class="nav-text">对数似然函数(LLD)：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%BC%E5%87%BA"><span class="nav-number">1.3.</span> <span class="nav-text">EM算法的导出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">隐变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.3.2.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">Q函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EM%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.4.</span> <span class="nav-text">EM算法步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B6%E6%95%9B%E6%80%A7%E8%AF%81%E6%98%8E"><span class="nav-number">1.4.</span> <span class="nav-text">EM算法的收敛性证明</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -828,11 +830,33 @@
 
   
   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
 
   
+  <script type="text/javascript" src="../../../../js/src/exturl.js?v=5.1.4"></script>
+
 
 </body>
 </html>

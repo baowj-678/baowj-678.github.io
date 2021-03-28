@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon.png?v=5.1.4">
@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,">
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -84,21 +84,21 @@
 
 
 <meta name="description" content="A simply inroduction to the PCA algorithm.">
-<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PCA algorithm">
 <meta property="og:url" content="https://1.15.86.100/2019/10/28/PCA-algorithm/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="A simply inroduction to the PCA algorithm.">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_2.png">
 <meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_3.png">
 <meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_1.png">
 <meta property="og:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_5.png">
-<meta property="og:updated_time" content="2019-11-01T16:12:03.191Z">
+<meta property="article:published_time" content="2019-10-28T13:09:18.000Z">
+<meta property="article:modified_time" content="2019-11-01T16:12:03.191Z">
+<meta property="article:author" content="Bao Wenjie">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PCA algorithm">
-<meta name="twitter:description" content="A simply inroduction to the PCA algorithm.">
 <meta name="twitter:image" content="https://1.15.86.100/2019/10/28/PCA-algorithm/Figure_2.png">
 
 
@@ -106,7 +106,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2019/10/28/PCA-algorithm/">
+  <link rel="canonical" href="https://1.15.86.100/2019/10/28/PCA-algorithm/"/>
 
 
 
@@ -145,7 +145,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -163,7 +163,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">BaoWJ's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -191,9 +191,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -201,9 +201,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             About
           </a>
@@ -211,9 +211,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -221,9 +221,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -231,9 +231,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -241,9 +241,9 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             Schedule
           </a>
@@ -251,9 +251,9 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="sitemap.xml" rel="section">
+          <a href="sitemap.xml%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
             Sitemap
           </a>
@@ -295,8 +295,8 @@
     <link itemprop="mainEntityOfPage" href="https://1.15.86.100">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bao Wenjie">
-      <meta itemprop="description" content>
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="../../../../uploads/avatar.png">
     </span>
 
@@ -363,23 +363,23 @@
       
 
       
-        <h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>PCA(Principal Component Analysis)【主成分分析】</strong>，是一种常用的<strong>无监督学习(Unsupervised Learning)</strong>算法，它主要被用在数据降维方面，是机器学习中一种数据进行<strong>预处理</strong>的重要方法</p>
+        <h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>PCA(Principal Component Analysis)【主成分分析】</strong>，是一种常用的<strong>无监督学习(Unsupervised Learning)<strong>算法，它主要被用在数据降维方面，是机器学习中一种数据进行</strong>预处理</strong>的重要方法</p>
 <h2 id="降维-Dimensionality-Reduction"><a href="#降维-Dimensionality-Reduction" class="headerlink" title="降维(Dimensionality Reduction)"></a>降维(Dimensionality Reduction)</h2><h3 id="啥是降维"><a href="#啥是降维" class="headerlink" title="啥是降维"></a>啥是降维</h3><p><strong>降维</strong>就是将原来维度过高的数据集经过<strong>线性</strong>或<strong>非线性</strong>的变换，变成低维的数据集。比如我有一个观测数据数据 $\vec x={1,2,2.3}$ ，经过某个变换后，剔除了它的<strong>多余</strong>的维度得到 $\vec x={2,2.3}$。这就是一个降维的过程</p>
 <h3 id="为啥要降维"><a href="#为啥要降维" class="headerlink" title="为啥要降维"></a>为啥要降维</h3><p>降维的原因有许多，这里主要讲两个比较重要的原因：</p>
 <ol>
 <li>剔除无用的维度可以减少训练样本的数据量，便于我们的训练学习过程，特别是当样本量特别巨大时【一般有几百G或者几T的数据】。</li>
-<li>降低数据的<strong>多余的无用的</strong>维度可以提高训练出来的模型的<strong>泛化能力</strong>，避免<strong>过拟合(Over Fitting)</strong>。因为数据维度过高时需要训练的模型参数也会增加，这就很容易导致模型过拟合。</li>
+<li>降低数据的<strong>多余的无用的</strong>维度可以提高训练出来的模型的<strong>泛化能力</strong>，避免**过拟合(Over Fitting)**。因为数据维度过高时需要训练的模型参数也会增加，这就很容易导致模型过拟合。</li>
 </ol>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>比如我们看这些数据：</p>
-<p><img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_2.png" alt="Figure_1"></p>
-<img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_3.png" alt="Figure_2" style="zoom: 200%;">
+<p><img src="/2019/10/28/PCA-algorithm/Figure_2.png" alt="Figure_1"></p>
+<img src="/2019/10/28/PCA-algorithm/Figure_3.png" alt="Figure_2" style="zoom: 200%;">
 
 <p>我们发现，这些数据在y维度上的偏差均匀分布且偏差极小，因此可以对其进行降维处理【删除该维度】，得到下列数据</p>
-<p><img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_1.png" alt="Figure"></p>
+<p><img src="/2019/10/28/PCA-algorithm/Figure_1.png" alt="Figure"></p>
 <p>这些数据不仅保留了原数据的<strong>主要特征</strong>，而且剔除了多余的干扰，更利于训练何提高泛化性。</p>
 <h2 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h2><h3 id="PCA降维原则"><a href="#PCA降维原则" class="headerlink" title="PCA降维原则"></a>PCA降维原则</h3><p>我们先考虑二维情况，然后再推广到高维。</p>
 <p>考虑下面的数据集：</p>
-<p><img src="//1.15.86.100/2019/10/28/PCA-algorithm/Figure_5.png" alt="data"></p>
+<p><img src="/2019/10/28/PCA-algorithm/Figure_5.png" alt="data"></p>
 <p>可以发现，图中不在线上的蓝色数据点基本上沿着一条直线分布。因此我们可以断定，数据集的 x 和 y 之间存在相关关系。因此我们可以进行降维。</p>
 <p>为了对这个数据集进行降维，我们首先要确定什么样的<strong>维</strong>是<strong>好的维</strong>，什么样的<strong>维</strong>是我们要<strong>丢弃的维</strong>。</p>
 <p>为此我们分别沿数据的分布方向和其垂直方向做两条垂直的直线(如图)，根据<strong>线性代数</strong>相关知识，这两条直线代表的构成了该数据空间的<strong>标准正交基</strong>。也就是说以这两条直线为<strong>坐标轴</strong>也可以表示该数据集。</p>
@@ -388,7 +388,7 @@
 <p>假设我们选择<strong>保留橘黄色</strong>的坐标轴，而丢弃蓝色坐标轴，可以发现：数据的分布十分紧密【<strong>方差较小</strong>】，因此数据对原始数据信息(<strong>数据的分布特征</strong>)保留的也较少。</p>
 <p>而相反，如果我们选择<strong>保留蓝色坐标轴</strong>，这时：数据的分布十分稀疏【<strong>反差较大</strong>】，因此数据对原始数据信息的保留的也较多。</p>
 <p>根据上面的分析，我们得出结论：</p>
-<p>进行降维时我们要保留<strong>使数据在该维度上面投影方差最大</strong>的维度，而丢弃方差最小的维度，这也就是<strong>主成分分析(PCA)</strong>的主要思想。</p>
+<p>进行降维时我们要保留<strong>使数据在该维度上面投影方差最大</strong>的维度，而丢弃方差最小的维度，这也就是**主成分分析(PCA)**的主要思想。</p>
 <h3 id="PCA推导"><a href="#PCA推导" class="headerlink" title="PCA推导"></a>PCA推导</h3><p>原始数据集 ${\vec x_i},\quad (i=1,2,…,N)$，为<strong>列向量</strong>；</p>
 <p>为了方便计算我们先对数据集进行<strong>中心化</strong>即令 $ \vec x_i=\vec x_i-\vec\mu$ ，$\vec\mu$ 为原始数据集的均值，下面使用的$x_i$ 都指以及<strong>中心化</strong>的数据。</p>
 <p>所以<strong>中心化</strong>后的数据的<strong>平均值</strong> $\vec\mu=0$;</p>
@@ -421,7 +421,7 @@
 <p>又因为 $\Sigma$ 的特征向量都是相互<strong>正交</strong>的<strong>单位向量</strong>，且所有的特征向量构成了原数据集的<strong>标准正交基</strong></p>
 <p>所以，对原数据降维只需要：<strong>保留较大特征值对应的特征向量，而丢弃较小特征值对应的特征向量</strong>。</p>
 <p>以上就是<strong>主成分分析</strong>的主要方法。</p>
-<h3 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><strong>奇异值分解(PCA,Principle Component Analysis)</strong>，是矩阵论的重要内容。</p>
+<h3 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>**奇异值分解(PCA,Principle Component Analysis)**，是矩阵论的重要内容。</p>
 <p><strong>奇异值分解基本定理</strong>：若A为一个$m\times n$ 实矩阵，$A\in R^{m\times n}$，则 $A$ 的奇异值分解存在：</p>
 <p>$$\vec A=\vec U\vec \Sigma\vec V^T$$    <font color="red">(#)</font></p>
 <p>其中 $U$ 是m阶正交矩阵，$V$是n阶正交矩阵， $\Sigma$ 是 $m\times n$ 对角矩阵，其对角线元素非负，且按降序排列。</p>
@@ -569,10 +569,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="../../../../uploads/avatar.png" alt="Bao Wenjie">
+              <img class="site-author-image" itemprop="image"
+                src="../../../../uploads/avatar.png"
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Bao Wenjie</p>
-              <p class="site-description motion-element" itemprop="description">AI and Philosophy</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -580,9 +582,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../../../archives/">
+                <a href="../../../../archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -628,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA"><span class="nav-number">1.</span> <span class="nav-text">PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降维-Dimensionality-Reduction"><span class="nav-number">1.2.</span> <span class="nav-text">降维(Dimensionality Reduction)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#啥是降维"><span class="nav-number">1.2.1.</span> <span class="nav-text">啥是降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为啥要降维"><span class="nav-number">1.2.2.</span> <span class="nav-text">为啥要降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例"><span class="nav-number">1.2.3.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主成分分析"><span class="nav-number">1.3.</span> <span class="nav-text">主成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA降维原则"><span class="nav-number">1.3.1.</span> <span class="nav-text">PCA降维原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA推导"><span class="nav-number">1.3.2.</span> <span class="nav-text">PCA推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#协方差"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">协方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉格朗日乘子法"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">拉格朗日乘子法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇异值分解"><span class="nav-number">1.3.3.</span> <span class="nav-text">奇异值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#证明"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用SVD求PCA"><span class="nav-number">1.3.4.</span> <span class="nav-text">用SVD求PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#推导"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">推导</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA"><span class="nav-number">1.</span> <span class="nav-text">PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4-Dimensionality-Reduction"><span class="nav-number">1.2.</span> <span class="nav-text">降维(Dimensionality Reduction)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%95%A5%E6%98%AF%E9%99%8D%E7%BB%B4"><span class="nav-number">1.2.1.</span> <span class="nav-text">啥是降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%95%A5%E8%A6%81%E9%99%8D%E7%BB%B4"><span class="nav-number">1.2.2.</span> <span class="nav-text">为啥要降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">主成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA%E9%99%8D%E7%BB%B4%E5%8E%9F%E5%88%99"><span class="nav-number">1.3.1.</span> <span class="nav-text">PCA降维原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.3.2.</span> <span class="nav-text">PCA推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">协方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">拉格朗日乘子法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">1.3.3.</span> <span class="nav-text">奇异值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%81%E6%98%8E"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8SVD%E6%B1%82PCA"><span class="nav-number">1.3.4.</span> <span class="nav-text">用SVD求PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">推导</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -836,11 +838,33 @@
 
   
   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
 
   
+  <script type="text/javascript" src="../../../../js/src/exturl.js?v=5.1.4"></script>
+
 
 </body>
 </html>

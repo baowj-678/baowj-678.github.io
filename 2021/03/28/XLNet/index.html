@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon.png?v=5.1.4">
@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="NLP,">
+  <meta name="keywords" content="NLP," />
 
 
 
@@ -84,20 +84,20 @@
 
 
 <meta name="description" content="Google Brain重磅出品，集自回归语言模型和自编码语言模型之大成，又灵活融入Transformer-XL长文本建模能力！">
-<meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XLNet">
 <meta property="og:url" content="https://1.15.86.100/2021/03/28/XLNet/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="Google Brain重磅出品，集自回归语言模型和自编码语言模型之大成，又灵活融入Transformer-XL长文本建模能力！">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210322211204908.png">
 <meta property="og:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210325230153410.png">
 <meta property="og:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210328204303326.png">
-<meta property="og:updated_time" content="2021-03-28T12:53:16.558Z">
+<meta property="article:published_time" content="2021-03-28T12:44:55.000Z">
+<meta property="article:modified_time" content="2021-03-28T12:53:16.558Z">
+<meta property="article:author" content="Bao Wenjie">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XLNet">
-<meta name="twitter:description" content="Google Brain重磅出品，集自回归语言模型和自编码语言模型之大成，又灵活融入Transformer-XL长文本建模能力！">
 <meta name="twitter:image" content="https://1.15.86.100/2021/03/28/XLNet/image-20210322211204908.png">
 
 
@@ -105,7 +105,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2021/03/28/XLNet/">
+  <link rel="canonical" href="https://1.15.86.100/2021/03/28/XLNet/"/>
 
 
 
@@ -144,7 +144,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -162,7 +162,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">BaoWJ's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -190,9 +190,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -200,9 +200,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             About
           </a>
@@ -210,9 +210,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -220,9 +220,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -230,9 +230,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -240,9 +240,9 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href rel="section">
+          <a href="%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             Schedule
           </a>
@@ -250,9 +250,9 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="sitemap.xml" rel="section">
+          <a href="sitemap.xml%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
             Sitemap
           </a>
@@ -294,8 +294,8 @@
     <link itemprop="mainEntityOfPage" href="https://1.15.86.100">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bao Wenjie">
-      <meta itemprop="description" content>
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="../../../../uploads/avatar.png">
     </span>
 
@@ -362,13 +362,13 @@
       
 
       
-        <h1 id="XLNet"><a href="#XLNet" class="headerlink" title="XLNet"></a>XLNet</h1><p><a href="https://arxiv.org/pdf/1906.08237.pdf" target="_blank" rel="noopener">XLNET</a></p>
+        <h1 id="XLNet"><a href="#XLNet" class="headerlink" title="XLNet"></a>XLNet</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.08237.pdf">XLNET</a></p>
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="AR-AutoRegressive"><a href="#AR-AutoRegressive" class="headerlink" title="AR(AutoRegressive)"></a>AR(AutoRegressive)</h3><p>用模型估计一个文本库的<strong>概率分布</strong></p>
 <p>给定<strong>文本序列</strong>：</p>
 <p>$ \bold{x}=[x_1,x_2,\dots,x_T] $</p>
-<p><strong>AR</strong>模型会将<strong>似然</strong>分解成<strong>前向的乘积(forward product)</strong>：</p>
+<p><strong>AR</strong>模型会将<strong>似然</strong>分解成**前向的乘积(forward product)**：</p>
 <p>$p(\bold{x})=\prod_{t=1}^Tp(x_t|\bold{x}_{&lt;t})$</p>
-<p>或者<strong>后向乘积(backward product)</strong>：</p>
+<p>或者**后向乘积(backward product)**：</p>
 <p>$p(\bold{x})=\prod_{t=T}^1p(x_t|\bold{x}_{&gt;t})$</p>
 <p>而其中每个的<strong>概率分布</strong>可以用带参数的模型(神经网络等)来建模。</p>
 <p><strong>AR</strong>通过最大化<strong>对数似然估计</strong>进行预训练：</p>
@@ -377,8 +377,8 @@
 <p>$h_{\theta}(\bold{x}_{1:t-1})$：是用<em>神经网络模型</em>计算的文本的表征，可以通过<strong>RNN</strong>，<strong>Transformer</strong>等计算；</p>
 <p>$e(x)$：是$x$的<strong>embedding</strong>；</p>
 <p><strong>缺陷</strong>：<strong>AR</strong>模型只能<strong>单向(uni-directional)建模</strong></p>
-<h3 id="AE-AutoEncoding"><a href="#AE-AutoEncoding" class="headerlink" title="AE(AutoEncoding)"></a>AE(AutoEncoding)</h3><p><strong>AE（自编码器）</strong>模型不会建立<strong>清晰的概率密度估计(explicit density estimation)</strong>，而是对原始数据进行<strong>重构(reconstruct)</strong>，例如：<strong>BERT</strong></p>
-<p><strong>BERT</strong>：基于<strong>降噪自编码器（denoising auto-encoding）</strong>，给定输入，每次<strong>15%</strong>的<strong>字词(token)</strong>会被替换成特殊的标记<strong>[MASK]</strong>，然后模型会被训练去从输入的<strong>不全(corrupted)的数据</strong>中恢复原始的字词。因为<strong>BERT</strong>不用做<strong>密度估计(density estimation)</strong>，所以可以双向建模。</p>
+<h3 id="AE-AutoEncoding"><a href="#AE-AutoEncoding" class="headerlink" title="AE(AutoEncoding)"></a>AE(AutoEncoding)</h3><p><strong>AE（自编码器）</strong>模型不会建立<strong>清晰的概率密度估计(explicit density estimation)<strong>，而是对原始数据进行</strong>重构(reconstruct)<strong>，例如：</strong>BERT</strong></p>
+<p><strong>BERT</strong>：基于<strong>降噪自编码器（denoising auto-encoding）</strong>，给定输入，每次<strong>15%<strong>的</strong>字词(token)<strong>会被替换成特殊的标记</strong>[MASK]<strong>，然后模型会被训练去从输入的</strong>不全(corrupted)的数据</strong>中恢复原始的字词。因为<strong>BERT</strong>不用做**密度估计(density estimation)**，所以可以双向建模。</p>
 <p>最优化训练公式如下：</p>
 <p>$$\mathrm{max}<em>{\theta}\ \ \mathrm{log}\ p</em>{\theta}(\bar{\bold{x}}|\hat{\bold{x}})\approx \sum_{t=1}^Tm_t\mathrm{log}\ p_{\theta}(x_t|\hat{\bold{x}})=\sum_{t=1}^Tm_t\mathrm{log}\frac{\mathrm{exp}(H_\theta(\hat{\bold{x}})<em>t^Te(x_t))}{\sum</em>{x’}\mathrm{exp}(H_\theta(\hat{\bold{x}})_t^Te(x’))}$$</p>
 <p>其中：</p>
@@ -388,7 +388,7 @@
 <p>$H_\theta$：Transformer模型；</p>
 <p><strong>缺陷</strong>：</p>
 <ul>
-<li><strong>BERT</strong>预训练使用的标记<strong>[MASK]</strong>不会出现在真正数据中，会导致<strong>预训练-微调差异(pretrain-finetune discrepancy)</strong></li>
+<li><strong>BERT</strong>预训练使用的标记**[MASK]<strong>不会出现在真正数据中，会导致</strong>预训练-微调差异(pretrain-finetune discrepancy)**</li>
 <li>输入中不包括待预测字词（被mask掉），<strong>BERT</strong>模型不能像<strong>AR</strong>中一样用乘法规则建模<strong>联合概率(joint probability)</strong></li>
 <li><strong>BERT</strong>假设待预测的字词即$\bar{x}$<strong>互相独立</strong></li>
 </ul>
@@ -397,16 +397,16 @@
 <li><strong>BERT</strong>每个位置的字词可以注意到双向的上下文所有的文本；</li>
 </ul>
 <h2 id="XLNet-1"><a href="#XLNet-1" class="headerlink" title="XLNet"></a>XLNet</h2><ul>
-<li><strong>XLNet</strong>最大化基于所有可能的<strong>分解顺序的排列(permutation of the factorization order)</strong>的<strong>极大对数似然估计</strong>，由于这个原因每个位置的字词可以学习左右的文本；</li>
+<li><strong>XLNet</strong>最大化基于所有可能的<strong>分解顺序的排列(permutation of the factorization order)<strong>的</strong>极大对数似然估计</strong>，由于这个原因每个位置的字词可以学习左右的文本；</li>
 <li><strong>XLNet</strong>预训练不会通过mask部分字词的方法，因此避免<strong>预训练-微调差异</strong>；</li>
-<li><strong>XLNet</strong>集成了<strong>段RNN机制(segment recurrence)</strong>和<strong>Transformer-XL</strong>；</li>
+<li><strong>XLNet</strong>集成了<strong>段RNN机制(segment recurrence)<strong>和</strong>Transformer-XL</strong>；</li>
 </ul>
 <h3 id="Permutation-Language-Modeling"><a href="#Permutation-Language-Modeling" class="headerlink" title="Permutation Language Modeling"></a>Permutation Language Modeling</h3><p>一般来说，对于一个长度为$T$的序列$\bold{x}$，<strong>AE</strong>的<strong>因子分解</strong>存在$T!$个不同的排列顺序。直觉上，如果模型参数能够从所有的排列中学得，那么这个模型就可以从双向的所有位置获得信息。</p>
 <p>根据这个想法，得出以下优化公式：</p>
 <p>$$\mathrm{max}<em>\theta\ \ \ \mathbb{E}</em>{z\sim\mathcal{Z}<em>T}[\sum</em>{t=1}^T\mathrm{log}\ p_\theta(x_{z_t}|\bold{x}<em>{\bold{z}</em>{&lt;t}})]$$</p>
 <p>其中：</p>
 <p>$\mathcal{Z}_T$：长度为$T$的序列的所有排列方式；</p>
-<p><img src="//1.15.86.100/2021/03/28/XLNet/image-20210322211204908.png" alt="image-20210322211204908"></p>
+<p><img src="/2021/03/28/XLNet/image-20210322211204908.png" alt="image-20210322211204908"></p>
 <p>实践中，对于一个文本序列$\bold{x}$，我们<strong>采样</strong>出一个排列顺序，然后按照这个顺序将$p_\theta(\bold{x})$的似然估计进行<strong>因子分解</strong>，因为$\theta$参数是共享的，所以理论上$x_i$会”看见“每个$x_j,x_i\neq x_j$。</p>
 <p><strong>排列采样</strong>在<strong>Transformer</strong>的实践中通过<strong>Attention</strong>的<strong>mask</strong>矩阵实现。</p>
 <p>这样就避免了<strong>独立性假设</strong>和<strong>预训练-微调差异</strong>。</p>
@@ -424,10 +424,10 @@
 <li>为了预测其他位置的字词$x_{z_t},j&gt;t$，$g_\theta(\bold{x}<em>{\bold{z}</em>{&lt;t}},z_t)$需要加入$x_{z_{t}}$的信息。</li>
 </ul>
 <p>为了解决上面问题，这里提出了<strong>Two-Stream Self-Attention</strong>方法</p>
-<p><img src="//1.15.86.100/2021/03/28/XLNet/image-20210325230153410.png" alt="image-20210325230153410"></p>
+<p><img src="/2021/03/28/XLNet/image-20210325230153410.png" alt="image-20210325230153410"></p>
 <ul>
 <li><strong>content representation</strong>$h_\theta(\bold{x}<em>{\bold{z}</em>{\le t}})$，这个和<strong>Transformer</strong>中的类似，它保留了上游文本信息和$x_{z_t}$的信息；</li>
-<li><strong>query representation</strong>$g_\theta(\bold{x}<em>{\bold{z}_t},z_t)$，这个只保留了$\bold{z}</em>{&lt;t}$的信息。</li>
+<li><strong>query representation</strong>$g_\theta(\bold{x}_{\bold{z}<em>t},z_t)$，这个只保留了$\bold{z}</em>{&lt;t}$的信息。</li>
 </ul>
 <p>在计算上：</p>
 <p>第一层的<strong>query stream</strong>被初始化为可训练的向量，$g_i^{(0)}=w$；</p>
@@ -436,22 +436,22 @@
 <p>$$g_{z_t}^{(m)}=\mathrm{Attention}(Q=g_{z_t}^{(m-1)},KV=h_{\bold{z}_{&lt;t}}^{(m-1)};\theta)$$</p>
 <p>$$h_{z_t}^{(m)}=\mathrm{Attention}(Q=h_{z_t}^{(m-1)},KV=h_{\bold{z}_{\le t}}^{(m-1)};\theta)$$</p>
 <p><strong>content representation</strong>和标准的<strong>self-attention</strong>一样，所以在<strong>微调</strong>的时候我们会丢掉<strong>query stream</strong>，只使用<strong>content stream</strong>作为普通的<strong>Transformer</strong>看，同时我们将$g_{z_t}^{(M)}$作为最终的预测结果。</p>
-<h4 id="Partial-Prediction"><a href="#Partial-Prediction" class="headerlink" title="Partial Prediction"></a>Partial Prediction</h4><p>利用语句排列来训练模型存在<strong>难收敛(slow convergence)</strong>的问题，为了解决这个问题，将$\bold{z}$分为$\bold{z}<em>{\le c}$和$\bold{z}</em>{&gt;c}$，然后最大化以下概率：</p>
-<p>$$\mathrm{max}<em>{\theta}\ \ \ \mathbb{E}</em>{\bold{z}\sim \mathcal{Z}<em>T}[\mathrm{log}p</em>{\theta}(\bold{x}<em>{\bold{z}</em>{&gt;c}}|\bold{x}<em>{\bold{z}</em>{\le c}})]=\mathbb{E}<em>{\bold{z}\sim \mathcal{Z}_T}[\sum</em>{t=c+1}^{\bold{z}}\mathrm{log}p_{\theta}(x_{z_t}|\bold{x}<em>{\bold{z}</em>{&lt;t}})]$$</p>
+<h4 id="Partial-Prediction"><a href="#Partial-Prediction" class="headerlink" title="Partial Prediction"></a>Partial Prediction</h4><p>利用语句排列来训练模型存在**难收敛(slow convergence)**的问题，为了解决这个问题，将$\bold{z}$分为$\bold{z}<em>{\le c}$和$\bold{z}</em>{&gt;c}$，然后最大化以下概率：</p>
+<p>$$\mathrm{max}<em>{\theta}\ \ \ \mathbb{E}</em>{\bold{z}\sim \mathcal{Z}<em>T}[\mathrm{log}p</em>{\theta}(\bold{x}<em>{\bold{z}</em>{&gt;c}}|\bold{x}<em>{\bold{z}</em>{\le c}})]=\mathbb{E}<em>{\bold{z}\sim \mathcal{Z}<em>T}[\sum</em>{t=c+1}^{\bold{z}}\mathrm{log}p</em>{\theta}(x_{z_t}|\bold{x}<em>{\bold{z}</em>{&lt;t}})]$$</p>
 <p>预测$\bold{z}_{&gt;c}$的原因是因为，能够传递足够的信息。一般会设置一个超参数$K$，$1/K$的字词被选择用做预测。</p>
 <h3 id="Incorporating-Ideas-from-Transformer-XL"><a href="#Incorporating-Ideas-from-Transformer-XL" class="headerlink" title="Incorporating Ideas from Transformer-XL"></a>Incorporating Ideas from Transformer-XL</h3><p>这里使用了<strong>Transformer-XL</strong>的两个技巧：<strong>相对位置编码（relative positional encoding scheme）</strong>和<strong>段循环机制（segment recurrence mechanism）</strong></p>
 <ul>
 <li><p><strong>相对位置编码</strong>：即前文的$g_\theta(\bold{x}_{\bold{z}_t},z_t)$</p>
 </li>
 <li><p><strong>段循环机制</strong>：</p>
-<p>  <img src="//1.15.86.100/2021/03/28/XLNet/image-20210328204303326.png" alt="image-20210328204303326"></p>
+<p>  <img src="/2021/03/28/XLNet/image-20210328204303326.png" alt="image-20210328204303326"></p>
 <p>  假设有长文本中的两段文本，长文本为：$\bold{s}$，两端文本为：$\tilde{\bold{x}}=\bold{s}<em>{1:T},\bold{x}=\bold{s}</em>{T+1:2T}$，两端文本对应的采样的排列顺序为$\tilde{\bold{z}}=[1\dots T],\bold{z}=[T+1\dots 2T]$</p>
 <p>  于是基于$\tilde{\bold{z}}$，先处理第一段，获得<strong>文本表征</strong>$\tilde{\bold{h}}^{(m)}$($m$代表层数)，然后对于下一段，计算公式为：</p>
 <p>  $$h_{z_t}^{(m)}\leftarrow \mathrm{Attention}(Q=h_{z_t}^{(m-1)},KV=[\tilde{\bold{h}}^{(m-1)},\bold{h}<em>{\bold{z}</em>{\le t}}^{(m-1)}];\theta)$$</p>
 <p>  $[\dots]$：表示将矩阵按照<strong>序列长度的维度</strong>拼接起来。</p>
 </li>
 </ul>
-<h3 id="Modeling-Multiple-Segments"><a href="#Modeling-Multiple-Segments" class="headerlink" title="Modeling Multiple Segments"></a>Modeling Multiple Segments</h3><p>预训练时，对于多段文本，<strong>XLNet</strong>随机采样两段文本（可能从同一上下文，也可能从不同上下文）然后将其拼接成一段文本（方法和<strong>BERT</strong>一样：<strong>[A, SEP, B, SEP, CLS]</strong>）</p>
+<h3 id="Modeling-Multiple-Segments"><a href="#Modeling-Multiple-Segments" class="headerlink" title="Modeling Multiple Segments"></a>Modeling Multiple Segments</h3><p>预训练时，对于多段文本，<strong>XLNet</strong>随机采样两段文本（可能从同一上下文，也可能从不同上下文）然后将其拼接成一段文本（方法和<strong>BERT</strong>一样：**[A, SEP, B, SEP, CLS]**）</p>
 <h4 id="Relative-Segment-Encoding"><a href="#Relative-Segment-Encoding" class="headerlink" title="Relative Segment Encoding"></a>Relative Segment Encoding</h4><p>给定两个位置$i,j$，如果这两个位置是来自同一段，则用编码$s_{i,j}=s_{+}$，否则用编码$s_{i,j}=s_{-}$。这两个编码都是学得的参数。</p>
 <p>当$i$查询$j$时，段位置编码$s_{i,j}$会被用于计算<strong>注意权重（attention weight）</strong>$a_{i,j}=(\bold{q}<em>i+\bold{b})^T\bold{s}</em>{i,j}$。</p>
 <p>$\bold{q}_i$是查询向量，$\bold{b}$是待学习的依赖于头的偏差向量<strong>（learnable head-specific bias vector）</strong>。最后该权重会被加到最终的<strong>注意权重</strong>上。</p>
@@ -568,10 +568,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="../../../../uploads/avatar.png" alt="Bao Wenjie">
+              <img class="site-author-image" itemprop="image"
+                src="../../../../uploads/avatar.png"
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Bao Wenjie</p>
-              <p class="site-description motion-element" itemprop="description">AI and Philosophy</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -579,9 +581,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../../../archives/">
+                <a href="../../../../archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -835,11 +837,33 @@
 
   
   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
 
   
+  <script type="text/javascript" src="../../../../js/src/exturl.js?v=5.1.4"></script>
+
 
 </body>
 </html>
