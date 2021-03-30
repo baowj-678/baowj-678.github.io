@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="../../../../lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="../../../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -78,6 +85,8 @@
 
 
 
+  <link rel="alternate" href="../../../../atom.xml" title="BaoWJ's Blog" type="application/atom+xml" />
+
 
 
 
@@ -110,7 +119,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'baowj'
     },
     algolia: {
       applicationID: '',
@@ -151,7 +160,7 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
+	
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -165,7 +174,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -186,7 +195,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="%20" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -196,7 +205,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="%20" rel="section">
+          <a href="about" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -206,7 +215,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="%20" rel="section">
+          <a href="tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -216,7 +225,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="%20" rel="section">
+          <a href="categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -226,7 +235,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="%20" rel="section">
+          <a href="archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -236,7 +245,7 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href="%20" rel="section">
+          <a href="schedule" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
@@ -246,7 +255,7 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="sitemap.xml%20" rel="section">
+          <a href="sitemap.xml" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
@@ -304,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SQL-install</h1>
+          <h2 class="post-title" itemprop="name headline">SQL-install</h2>
         
 
         <div class="post-meta">
@@ -401,7 +410,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/SQL/" rel="tag"># SQL</a>
+            <a href="../../../../tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
           
         </div>
       
@@ -505,9 +514,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../../../archives/%20%7C%7C%20archive">
+                <a href="../../../../archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -519,17 +528,52 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">14</span>
+                <a href="../../../../tags/index.html">
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="../../../../atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/baowj-678" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:bwj_678@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/baowj_678" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-address-book"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5666754662/profile" target="_blank" title="Weibi">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibi</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -573,7 +617,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -587,15 +631,15 @@
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
 
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共11.6k字</span>
+</div>
         
 
 
@@ -638,7 +682,12 @@
   
 
 
+  
 
+
+
+  
+  
 
 
 
@@ -676,6 +725,21 @@
   
   
     <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/three/three-waves.min.js"></script>
   
 
 
