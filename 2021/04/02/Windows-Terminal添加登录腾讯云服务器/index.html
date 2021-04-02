@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://1.15.86.100/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p5.png">
 <meta property="og:image" content="https://1.15.86.100/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p6.png">
 <meta property="article:published_time" content="2021-04-02T04:27:36.000Z">
-<meta property="article:modified_time" content="2021-04-02T04:51:02.463Z">
+<meta property="article:modified_time" content="2021-04-02T05:10:15.999Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Server">
 <meta name="twitter:card" content="summary">
@@ -383,7 +383,7 @@
 <p>填写密钥的名称（描述密钥存放位置和用处，方便记忆）：</p>
 <p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p2.png" alt="p2"></p>
 <p>点击<strong>确定</strong>，系统会自动下载密钥文件。</p>
-<h3 id="保存密钥"><a href="#保存密钥" class="headerlink" title="保存密钥"></a>保存密钥</h3><p>将上一步下载的密钥改名为<strong>id_rsa_tencent.pub</strong>（自定义），并置于<em>~/.ssh/</em>目录下：</p>
+<h3 id="保存密钥"><a href="#保存密钥" class="headerlink" title="保存密钥"></a>保存密钥</h3><p>将上一步下载的密钥改名为<strong>id_rsa_tencent</strong>（自定义），并置于<em>~/.ssh/</em>目录下：</p>
 <p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p3.png" alt="p3"></p>
 <h3 id="配置Windows-Terminal"><a href="#配置Windows-Terminal" class="headerlink" title="配置Windows Terminal"></a>配置Windows Terminal</h3><p>打开<strong>Windows Terminal</strong>，点击设置：</p>
 <p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p4.png" alt="p4"></p>
@@ -391,7 +391,7 @@
 <p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p5.png" alt="p5"></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;******************************&#125;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;TencentCloud&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;commandline&quot;</span>: <span class="string">&quot;ssh -i 密钥文件位置 服务器用户名@服务器ip地址&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;图标位置&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中：</p>
-<p><strong>guid</strong>可以在<em>guidgen.com</em>生成。</p>
+<p><strong>guid</strong>可以在<a target="_blank" rel="noopener" href="https://www.guidgen.com/"><em>guidgen.com</em></a>生成。</p>
 <h2 id="配置结果"><a href="#配置结果" class="headerlink" title="配置结果"></a>配置结果</h2><p>点击<strong>腾讯云图标</strong>即可自动登录，并进入<strong>控制台</strong>：</p>
 <p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p6.png" alt="p6"></p>
 
