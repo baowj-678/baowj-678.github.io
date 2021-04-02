@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-03-31T08:40:13.096Z</updated>
+  <updated>2021-04-02T04:51:02.463Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows Terminal添加登录腾讯云服务器</title>
+    <link href="https://1.15.86.100/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://1.15.86.100/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <published>2021-04-02T04:27:36.000Z</published>
+    <updated>2021-04-02T04:51:02.463Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Windows-Terminal配置腾讯云服务器"><a href="#Windows-Terminal配置腾讯云服务器" class="headerlink" title="Windows Terminal配置腾讯云服务器"></a>Windows Terminal配置腾讯云服务器</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol><li>租一台<strong>腾讯云服务器</strong>；</li><li>本地安装好<strong>Windows Terminal</strong>；</li></ol><h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="生成SSH私钥"><a href="#生成SSH私钥" class="headerlink" title="生成SSH私钥"></a>生成SSH私钥</h3><p>在腾讯云<strong>控制台</strong>，进入<strong>SSH密钥</strong>界面，点击<strong>创建密钥</strong>：</p><p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p1.png" alt="p1"></p><p>填写密钥的名称（描述密钥存放位置和用处，方便记忆）：</p><p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p2.png" alt="p2"></p><p>点击<strong>确定</strong>，系统会自动下载密钥文件。</p><h3 id="保存密钥"><a href="#保存密钥" class="headerlink" title="保存密钥"></a>保存密钥</h3><p>将上一步下载的密钥改名为<strong>id_rsa_tencent.pub</strong>（自定义），并置于<em>~/.ssh/</em>目录下：</p><p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p3.png" alt="p3"></p><h3 id="配置Windows-Terminal"><a href="#配置Windows-Terminal" class="headerlink" title="配置Windows Terminal"></a>配置Windows Terminal</h3><p>打开<strong>Windows Terminal</strong>，点击设置：</p><p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p4.png" alt="p4"></p><p>在<strong>list</strong>下添加下列<strong>配置信息</strong>：</p><p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p5.png" alt="p5"></p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;******************************&#125;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;TencentCloud&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;commandline&quot;</span>: <span class="string">&quot;ssh -i 密钥文件位置 服务器用户名@服务器ip地址&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;图标位置&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其中：</p><p><strong>guid</strong>可以在<em>guidgen.com</em>生成。</p><h2 id="配置结果"><a href="#配置结果" class="headerlink" title="配置结果"></a>配置结果</h2><p>点击<strong>腾讯云图标</strong>即可自动登录，并进入<strong>控制台</strong>：</p><p><img src="/2021/04/02/Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/p6.png" alt="p6"></p>]]></content>
+    
+    
+    <summary type="html">在windows terminal里添加腾讯云服务器配置，使其可以自动利用ssh登录服务器。</summary>
+    
+    
+    
+    
+    <category term="Server" scheme="https://1.15.86.100/tags/Server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Position Encoding Methods of Transformer</title>
+    <link href="https://1.15.86.100/2021/03/31/Position-Encoding-Methods-of-Transformer/"/>
+    <id>https://1.15.86.100/2021/03/31/Position-Encoding-Methods-of-Transformer/</id>
+    <published>2021-03-31T09:05:07.000Z</published>
+    <updated>2021-03-31T15:58:27.610Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Position-Encoding"><a href="#Position-Encoding" class="headerlink" title="Position Encoding"></a>Position Encoding</h1><p>[toc]</p><h2 id="Background1"><a href="#Background1" class="headerlink" title="Background1"></a>Background<a href="#refer-anchor-1"><sup>1</sup></a></h2><p>2017年<strong>谷歌</strong>提出的<strong>Transformer</strong>模型深刻地影响了<strong>NLP</strong>领域，<strong>Transformer</strong>模型是基于<strong>Attention</strong>机制的<strong>降噪自编码器（denoising autoencoder）</strong>模型。因为采用了这种架构，所有的输入文本都<strong>平行地进行</strong>计算。优点是提高了模型效率，但缺点就导致了需要加入<strong>位置编码</strong>，并且<strong>位置编码</strong>很大程度上影响着模型的效果。</p><h2 id="Vanilla-Position-Encoding"><a href="#Vanilla-Position-Encoding" class="headerlink" title="Vanilla Position-Encoding"></a>Vanilla Position-Encoding</h2><h3 id="绝对位置编码"><a href="#绝对位置编码" class="headerlink" title="绝对位置编码"></a>绝对位置编码</h3><p>在这篇论文中，作者提出下面的编码方法：</p><script type="math/tex; mode=display">PE_{(pos,2i)} =sin(pos/10000^{2i/d_{model}})</script><script type="math/tex; mode=display">PE_{(pos,2i+1)}=cos(pos/10000^{2i/d_{model}})</script><p>其中： </p><script type="math/tex; mode=display">pos$$：句中字词（token）所在的位置；$$i$$：编码的**位置向量**的一个维度；这个编码中，**每个位置的每个维度**都服从一个**正弦函数**的“分布”，且可以编码的距离也较长。该编码可以学习到**相对位置**，对于任意一个位置$$PE_{pos+k}$$都可以表示成$$PE_{pos}$$的**线性函数**。### 编码原理[<sup>2</sup>](#refer-anchor-2)假设模型为$$f(\dots,x_m,\dots,x_n,\dots)$$，其中参数都是输入的**词向量**，而$$x_m,x_n$$是在$$n,m$$位置上的词向量。这就是**Transformer**的基本模型（不包括位置编码）。在加入位置编码后，变为：$$\tilde{f}(\dots,x_m+p_m,\dots,x_n+p_n,\dots)$$。然后用**泰勒公式**将其展开：$$\tilde{f}\approx f+p^T_m\frac{\partial f}{\partial x_m}+p^T_n\frac{\partial f}{\partial x_n}+\frac{1}{2}p^T_m\frac{\partial^2 f}{\partial x_m^2}p_m+\frac{1}{2}p^T_n\frac{\partial^2 f}{\partial x_n^2}p_n+p_m^T\frac{\partial^2f}{\partial x_m\partial x_n}p_n</script><p>可以发现：</p><ul><li><strong>第一项</strong>和位置无关，<strong>第二、三、四、五项</strong>只依赖于单一位置，所以他们只是<strong>绝对位置信息</strong>；</li><li><strong>第六项</strong>简化为<script type="math/tex">p^T_m\mathcal{H}p_n</script>，目标是希望该项能表达<strong>相对位置信息</strong>；</li></ul><h2 id="Relative-Position-Encoding"><a href="#Relative-Position-Encoding" class="headerlink" title="Relative Position-Encoding"></a>Relative Position-Encoding</h2><h2 id="XL-Position-Encoding"><a href="#XL-Position-Encoding" class="headerlink" title="XL Position-Encoding"></a>XL Position-Encoding</h2><h2 id="T5-Position-Encoding"><a href="#T5-Position-Encoding" class="headerlink" title="T5 Position-Encoding"></a>T5 Position-Encoding</h2><p><strong>REF</strong>：</p><p><div id="refer-anchor-1"></div> [1] <a href="https://arxiv.org/abs/1706.03762">Attention is all you need</a></p><p><div id="refer-anchor-2"></div> [2] <a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/1150593142">Transformer升级之路：Sinusoidal位置编码追根溯源</a></p>]]></content>
+    
+    
+    <summary type="html">Transformer模型用Attention机制取代了递归的序列机制，因此其位置编码对模型效果有十分重要的影响；所以本文梳理了Transformer的经典位置编码方法。</summary>
+    
+    
+    
+    
+    <category term="NLP" scheme="https://1.15.86.100/tags/NLP/"/>
+    
+    <category term="Transformer" scheme="https://1.15.86.100/tags/Transformer/"/>
+    
+  </entry>
   
   <entry>
     <title>Feature Selection: Relief</title>
@@ -363,25 +403,6 @@
     
     
     <category term="markdown" scheme="https://1.15.86.100/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-Learn</title>
-    <link href="https://1.15.86.100/2019/10/16/Hexo-Learn/"/>
-    <id>https://1.15.86.100/2019/10/16/Hexo-Learn/</id>
-    <published>2019-10-16T15:35:05.000Z</published>
-    <updated>2019-10-25T14:52:12.423Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hexo-Learning"><a href="#Hexo-Learning" class="headerlink" title="Hexo Learning"></a><center>Hexo Learning</center></h1><h2 id="Change-Theme"><a href="#Change-Theme" class="headerlink" title="Change Theme"></a>Change Theme</h2><ol><li><p>Get open open source <a href="https://hexo.io/themes/">theme</a>.</p></li><li><p>Clone the files of the themes in <a href="https://github.com/">Github</a> to the theme folder.</p></li><li><p>Open the (_config.yml)file which is a file to store the information of sets.</p><p><img src="/2019/10/16/Hexo-Learn/test.png" alt="config.yml"></p></li><li><p>run code [hexo generate]</p></li><li><p>run code [hexo deploy]</p></li></ol><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p><h2 id="Add-Tags"><a href="#Add-Tags" class="headerlink" title="Add Tags"></a>Add Tags</h2><p>tags: [tags1, tags 2, …]</p>]]></content>
-    
-    
-    <summary type="html">My first post, something about hexo.</summary>
-    
-    
-    
-    
-    <category term="Hexo" scheme="https://1.15.86.100/tags/Hexo/"/>
     
   </entry>
   
