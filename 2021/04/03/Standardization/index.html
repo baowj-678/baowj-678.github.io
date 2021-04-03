@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="Feature Engineering," />
 
 
 
@@ -92,18 +92,20 @@
 
 
 
-<meta name="description" content="An introduction to the Hidden Markov Algorithm">
+<meta name="description" content="数据标准化是特征工程或者数据预处理中很关键的一个环节，这里会对数据标准化进行简单介绍。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HMM-algorithm">
-<meta property="og:url" content="https://1.15.86.100/2020/01/06/HMM-algorithm/index.html">
+<meta property="og:title" content="Standardization">
+<meta property="og:url" content="https://1.15.86.100/2021/04/03/Standardization/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="An introduction to the Hidden Markov Algorithm">
+<meta property="og:description" content="数据标准化是特征工程或者数据预处理中很关键的一个环节，这里会对数据标准化进行简单介绍。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-06T03:04:29.000Z">
-<meta property="article:modified_time" content="2020-01-06T03:11:33.528Z">
+<meta property="og:image" content="https://1.15.86.100/2021/04/03/Standardization/p1.png">
+<meta property="article:published_time" content="2021-04-03T08:16:38.000Z">
+<meta property="article:modified_time" content="2021-04-03T08:59:26.718Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Feature Engineering">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/04/03/Standardization/p1.png">
 
 
 
@@ -133,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2020/01/06/HMM-algorithm/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/04/03/Standardization/"/>
 
 
 
 
 
-  <title>HMM-algorithm | BaoWJ's Blog</title>
+  <title>Standardization | BaoWJ's Blog</title>
   
 
 
@@ -315,7 +317,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">HMM-algorithm</h2>
+          <h2 class="post-title" itemprop="name headline">Standardization</h2>
         
 
         <div class="post-meta">
@@ -327,8 +329,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-06T11:04:29+08:00">
-                2020-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-03T16:16:38+08:00">
+                2021-04-03
               </time>
             
 
@@ -352,7 +354,7 @@
 
           
               <div class="post-description">
-                  An introduction to the Hidden Markov Algorithm
+                  数据标准化是特征工程或者数据预处理中很关键的一个环节，这里会对数据标准化进行简单介绍。
               </div>
           
 
@@ -369,8 +371,16 @@
       
 
       
-        <h1 id="隐马尔可夫模型-HMM"><a href="#隐马尔可夫模型-HMM" class="headerlink" title="隐马尔可夫模型(HMM)"></a>隐马尔可夫模型(HMM)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>隐马尔可夫模型(Hidden-Markov-Model)<strong>是一种</strong>概率图</strong>模型，在<strong>深度学习</strong>出现之前，该模型被广泛应用于<em>语音识别，文本标注</em>等方面。</p>
-<p>隐马尔可夫模型是关于时序的概率图模型。</p>
+        <h1 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>数据标准化</strong>就是把数据集中服从不同”分布“的各个属性空间，通过数学变换到同一的”分布空间“，一般映射到<strong>[0,1]</strong>范围。</p>
+<h3 id="数据标准化的必要性"><a href="#数据标准化的必要性" class="headerlink" title="数据标准化的必要性"></a>数据标准化的必要性</h3><p>例如给定一条数据，其不同属性的值分别为</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100, 1.0, 0.1, 0.01</span><br></pre></td></tr></tbody></table></figure>
+<p>那么，假如每个属性都有一个0.01的微小扰动，则第四个属性的扰动对整个数据的影响远远大于第一个属性。</p>
+<p>同时，对于机器学习模型，数据未标准化会对模型产生影响。</p>
+<h2 id="数据标准化方法"><a href="#数据标准化方法" class="headerlink" title="数据标准化方法"></a>数据标准化方法</h2><p>数据集：</p>
+<script type="math/tex; mode=display">X=\{x_1,x_2, \dots,x_n\}</script><h3 id="min-max方法"><a href="#min-max方法" class="headerlink" title="min-max方法"></a>min-max方法</h3><p>即通过<strong>线性变换</strong>将数据映射到<strong>[0,1]</strong>范围。</p>
+<script type="math/tex; mode=display">f(x_i)=\frac{x_i-\mathrm{min}(X)}{\mathrm{max}(X)-\mathrm{min}(X)}\ for\ 1\le i \le n</script><h3 id="z-score方法"><a href="#z-score方法" class="headerlink" title="z-score方法"></a>z-score方法</h3><p>通过<strong>按比例缩放</strong>的形式，将数据映射到<strong>[-x,x]</strong>范围，要求<script type="math/tex">\mu=0,\sigma=1</script>。</p>
+<script type="math/tex; mode=display">f(x_i)=\frac{x_i- \mu}{\sigma},\mu=\mathrm{mean}(X),\sigma=\sqrt{\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2}</script><h3 id="logistic方法"><a href="#logistic方法" class="headerlink" title="logistic方法"></a>logistic方法</h3><p>通过函数映射，将数据映射到<strong>[0,1]</strong>范围。</p>
+<script type="math/tex; mode=display">f(x_i)=\frac{1}{1+e^{-x_i}}</script><p><img src="/2021/04/03/Standardization/p1.png" alt=""></p>
 
       
     </div>
@@ -388,7 +398,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+            <a href="../../../../tags/Feature-Engineering/" rel="tag"><i class="fa fa-tag"></i> Feature Engineering</a>
           
         </div>
       
@@ -401,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../../2019/12/17/Linux/" rel="next" title="Linux">
-                <i class="fa fa-chevron-left"></i> Linux
+              <a href="../../02/Feature-Selection-Embedding/" rel="next" title="Feature Selection: Embedding">
+                <i class="fa fa-chevron-left"></i> Feature Selection: Embedding
               </a>
             
           </div>
@@ -410,10 +420,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../03/08/PowerShell/" rel="prev" title="PowerShell">
-                PowerShell <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B-HMM"><span class="nav-number">1.</span> <span class="nav-text">隐马尔可夫模型(HMM)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">数据标准化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-number">1.0.2.</span> <span class="nav-text">数据标准化的必要性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">数据标准化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#min-max%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">min-max方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-score%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">z-score方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.3.</span> <span class="nav-text">logistic方法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

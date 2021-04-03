@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Machine Learning,Feature Engineering,L1," />
 
 
 
@@ -92,17 +92,19 @@
 
 
 
-<meta name="description" content="AI and Philosophy">
+<meta name="description" content="介绍嵌入式(Embedding)特征选择的方法和L1正则化相关问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Feature Selection: Embedding">
 <meta property="og:url" content="https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="AI and Philosophy">
+<meta property="og:description" content="介绍嵌入式(Embedding)特征选择的方法和L1正则化相关问题。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-02T12:28:50.000Z">
-<meta property="article:modified_time" content="2021-04-02T12:28:50.808Z">
+<meta property="article:modified_time" content="2021-04-02T13:07:27.872Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="will">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Feature Engineering">
+<meta property="article:tag" content="L1">
 <meta name="twitter:card" content="summary">
 
 
@@ -351,6 +353,10 @@
           
 
           
+              <div class="post-description">
+                  介绍嵌入式(Embedding)特征选择的方法和L1正则化相关问题。
+              </div>
+          
 
         </div>
       </header>
@@ -365,7 +371,7 @@
       
 
       
-        
+        <h1 id="嵌入式特征选择"><a href="#嵌入式特征选择" class="headerlink" title="嵌入式特征选择"></a>嵌入式特征选择</h1>
       
     </div>
     
@@ -379,6 +385,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          
+            <a href="../../../../tags/Feature-Engineering/" rel="tag"><i class="fa fa-tag"></i> Feature Engineering</a>
+          
+            <a href="../../../../tags/L1/" rel="tag"><i class="fa fa-tag"></i> L1</a>
+          
+        </div>
       
 
       
@@ -398,6 +414,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="../../03/Standardization/" rel="prev" title="Standardization">
+                Standardization <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -449,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -469,7 +498,7 @@
               
                 <a href="../../../../archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -482,7 +511,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -541,6 +570,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">嵌入式特征选择</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -575,7 +620,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.7k字</span>
+  <span class="post-count">博客全站共14k字</span>
 </div>
         
 

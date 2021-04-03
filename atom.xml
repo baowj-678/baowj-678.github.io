@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-04-02T12:28:50.808Z</updated>
+  <updated>2021-04-03T08:59:26.718Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -17,15 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Standardization</title>
+    <link href="https://1.15.86.100/2021/04/03/Standardization/"/>
+    <id>https://1.15.86.100/2021/04/03/Standardization/</id>
+    <published>2021-04-03T08:16:38.000Z</published>
+    <updated>2021-04-03T08:59:26.718Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>数据标准化</strong>就是把数据集中服从不同”分布“的各个属性空间，通过数学变换到同一的”分布空间“，一般映射到<strong>[0,1]</strong>范围。</p><h3 id="数据标准化的必要性"><a href="#数据标准化的必要性" class="headerlink" title="数据标准化的必要性"></a>数据标准化的必要性</h3><p>例如给定一条数据，其不同属性的值分别为</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100, 1.0, 0.1, 0.01</span><br></pre></td></tr></tbody></table></figure><p>那么，假如每个属性都有一个0.01的微小扰动，则第四个属性的扰动对整个数据的影响远远大于第一个属性。</p><p>同时，对于机器学习模型，数据未标准化会对模型产生影响。</p><h2 id="数据标准化方法"><a href="#数据标准化方法" class="headerlink" title="数据标准化方法"></a>数据标准化方法</h2><p>数据集：</p><script type="math/tex; mode=display">X=\{x_1,x_2, \dots,x_n\}</script><h3 id="min-max方法"><a href="#min-max方法" class="headerlink" title="min-max方法"></a>min-max方法</h3><p>即通过<strong>线性变换</strong>将数据映射到<strong>[0,1]</strong>范围。</p><script type="math/tex; mode=display">f(x_i)=\frac{x_i-\mathrm{min}(X)}{\mathrm{max}(X)-\mathrm{min}(X)}\ for\ 1\le i \le n</script><h3 id="z-score方法"><a href="#z-score方法" class="headerlink" title="z-score方法"></a>z-score方法</h3><p>通过<strong>按比例缩放</strong>的形式，将数据映射到<strong>[-x,x]</strong>范围，要求<script type="math/tex">\mu=0,\sigma=1</script>。</p><script type="math/tex; mode=display">f(x_i)=\frac{x_i- \mu}{\sigma},\mu=\mathrm{mean}(X),\sigma=\sqrt{\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2}</script><h3 id="logistic方法"><a href="#logistic方法" class="headerlink" title="logistic方法"></a>logistic方法</h3><p>通过函数映射，将数据映射到<strong>[0,1]</strong>范围。</p><script type="math/tex; mode=display">f(x_i)=\frac{1}{1+e^{-x_i}}</script><p><img src="/2021/04/03/Standardization/p1.png" alt=""></p>]]></content>
+    
+    
+    <summary type="html">数据标准化是特征工程或者数据预处理中很关键的一个环节，这里会对数据标准化进行简单介绍。</summary>
+    
+    
+    
+    
+    <category term="Feature Engineering" scheme="https://1.15.86.100/tags/Feature-Engineering/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Feature Selection: Embedding</title>
     <link href="https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/"/>
     <id>https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/</id>
     <published>2021-04-02T12:28:50.000Z</published>
-    <updated>2021-04-02T12:28:50.808Z</updated>
+    <updated>2021-04-02T13:07:27.872Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="嵌入式特征选择"><a href="#嵌入式特征选择" class="headerlink" title="嵌入式特征选择"></a>嵌入式特征选择</h1>]]></content>
+    
+    
+    <summary type="html">介绍嵌入式(Embedding)特征选择的方法和L1正则化相关问题。</summary>
     
     
     
     
+    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
+    
+    <category term="Feature Engineering" scheme="https://1.15.86.100/tags/Feature-Engineering/"/>
+    
+    <category term="L1" scheme="https://1.15.86.100/tags/L1/"/>
     
   </entry>
   
@@ -382,25 +411,6 @@
     
     
     <category term="SQL" scheme="https://1.15.86.100/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub Command Line</title>
-    <link href="https://1.15.86.100/2019/10/29/GitHub-Command-Line/"/>
-    <id>https://1.15.86.100/2019/10/29/GitHub-Command-Line/</id>
-    <published>2019-10-29T14:33:04.000Z</published>
-    <updated>2021-01-13T11:40:03.491Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="链接仓库"><a href="#链接仓库" class="headerlink" title="链接仓库"></a>链接仓库</h3><ol><li><p>复制仓库的链接</p><p><img src="/2019/10/29/GitHub-Command-Line/one.png" alt="Position"></p></li><li><p>在需要链接的文件夹下面打开<strong>Git Bash</strong></p><p><img src="/2019/10/29/GitHub-Command-Line/two.png" alt="git"></p></li><li><p>命令行界面如下：</p><p><img src="/2019/10/29/GitHub-Command-Line/three.png" alt="GitBash"></p></li><li><p>运行命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init<span class="comment">#初始化本地仓库</span></span><br><span class="line">git config user.email<span class="string">&quot;your email@address&quot;</span></span><br><span class="line">git config user.name<span class="string">&quot;your name&quot;</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">&#x27;My first post&#x27;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></li><li><p>获取ssh</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure></li><li><p>撤回上一次commit</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~</span><br><span class="line">git reset HEAD@&#123;index&#125;</span><br></pre></td></tr></table></figure></li><li><p>获取已经commit但未push的文件信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry -v</span><br></pre></td></tr></table></figure></li><li><p>当前提交状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></li><li><p>列出所有操作记录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure></li><li><p>合并到最后一次提交</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure></li><li><p>获取最新提交记录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick master</span><br></pre></td></tr></table></figure></li><li><p>对远程仓库的操作</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看所有的远程仓库</span></span><br><span class="line">git remote</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看远程仓库对应的地址</span></span><br><span class="line">git remote -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置新的远程仓库地址</span></span><br><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></table></figure></li></ol><h3 id="Git-Problem"><a href="#Git-Problem" class="headerlink" title="Git Problem"></a>Git Problem</h3><ol><li><pre><code class="bash">fatal: unable to access &#39;https://github.com/Vilily/python.git/&#39;: SSL certificate problem: self signed certificate in certificate chainsolution：git config --global http.sslVerify false</code></pre></li><li></li></ol>]]></content>
-    
-    
-    <summary type="html">Common Command Lines and the Solutions to sone Errors of GitHub.</summary>
-    
-    
-    
-    
-    <category term="GitHub" scheme="https://1.15.86.100/tags/GitHub/"/>
     
   </entry>
   
