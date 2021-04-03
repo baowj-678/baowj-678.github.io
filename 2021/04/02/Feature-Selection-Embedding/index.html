@@ -99,13 +99,15 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="介绍嵌入式(Embedding)特征选择的方法和L1正则化相关问题。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/p1.png">
 <meta property="article:published_time" content="2021-04-02T12:28:50.000Z">
-<meta property="article:modified_time" content="2021-04-02T13:07:27.872Z">
+<meta property="article:modified_time" content="2021-04-03T13:18:00.392Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Feature Engineering">
 <meta property="article:tag" content="L1">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/p1.png">
 
 
 
@@ -371,7 +373,21 @@
       
 
       
-        <h1 id="嵌入式特征选择"><a href="#嵌入式特征选择" class="headerlink" title="嵌入式特征选择"></a>嵌入式特征选择</h1>
+        <h1 id="嵌入式特征选择"><a href="#嵌入式特征选择" class="headerlink" title="嵌入式特征选择"></a>嵌入式特征选择</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>嵌入式特征选择（Embedding）</strong>是将特征选择和模型训练融为一体，也就是模型中包括了特征选择的过程，而训练时只需将原始数据全部输入到模型中即可。</p>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>给定数据集</p>
+<script type="math/tex; mode=display">D=\{(x_1,y_1),(x_2,y_2),\dots,(x_m,y_m)\}</script><script type="math/tex; mode=display">x_i\in \mathbb{R}^d</script><script type="math/tex; mode=display">y_i\in \mathbb{R}</script><p>如果使用<strong>线性回归模型</strong>，则优化目标为：</p>
+<script type="math/tex; mode=display">\mathrm{min}_{w}\sum_{i=1}^m(y_i-w^Tx_i)^2,w\in\mathbb{R}^d</script><p>而上述模型可能会陷入<strong>过拟合（over fitting）</strong>，为了解决这个问题，会引入<strong>L1正则化</strong>和<strong>L2正则化</strong>；</p>
+<h3 id="L2正则化"><a href="#L2正则化" class="headerlink" title="L2正则化"></a>L2正则化</h3><p><strong>L2正则化</strong>将优化目标修改为：</p>
+<script type="math/tex; mode=display">\mathrm{min}_{w}\sum_{i=1}^m(y_i-w^Tx_i)^2,w\in\mathbb{R}^d+\lambda||w||_2^2,\lambda>0</script><p>该模型称为<strong>岭回归</strong>，能降低过拟合风险。</p>
+<h3 id="L1正则化"><a href="#L1正则化" class="headerlink" title="L1正则化"></a>L1正则化</h3><p>将<strong>L2正则化</strong>的<strong>2范数</strong>替换成<strong>1范数</strong>，就得到<strong>L1正则化</strong>：</p>
+<script type="math/tex; mode=display">\mathrm{min}_{w}\sum_{i=1}^m(y_i-w^Tx_i)^2,w\in\mathbb{R}^d+\lambda||w||_1,\lambda>0</script><p>该模型称为<strong>LASSO</strong>。</p>
+<p><strong>L1正则化</strong>除了能降低<strong>过拟合</strong>风险，而且该模型还会倾向于<strong>”稀疏解“</strong>，即该模型倾向于只使用原数据的某些<strong>子属性</strong>，这就间接等同于进行了<strong>特征选择</strong>。</p>
+<p>下面介绍为何会倾向<strong>稀疏解</strong>。</p>
+<p><img src="/2021/04/02/Feature-Selection-Embedding/p1.png" alt="image-20210403211035916"></p>
+<p>假设该模型只有两个参数<script type="math/tex">w_1,w_2</script>，则其<strong>L1范数</strong>和<strong>L2范数</strong>等值线如图所示。<strong>平方项</strong>（即原始的最优化目标）等值线近似如图所示。可以发现，平方误差加上范数误差，对于<strong>L1范数</strong>来说，最小值易在<strong>两个坐标轴上取的</strong>，而<strong>L2范数</strong>偏向在<strong>第一象限取的</strong>。当最优值在坐标轴取的时，<script type="math/tex">w_1,w_2</script>其中一个值就为0，也就是该特征被剔除了，所以易得到<strong>稀疏解</strong>。</p>
+<p><strong>REF</strong>：</p>
+<p>周志华.2015.机器学习.北京.清华大学出版社.p253</p>
+
       
     </div>
     
@@ -579,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">嵌入式特征选择</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">嵌入式特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#L2%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">L2正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L1%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-number">1.2.2.</span> <span class="nav-text">L1正则化</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -620,7 +636,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共14.1k字</span>
+  <span class="post-count">博客全站共14.6k字</span>
 </div>
         
 
