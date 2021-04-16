@@ -100,8 +100,9 @@
 <meta property="og:description" content="Transformer模型用Attention机制取代了递归的序列机制，因此其位置编码对模型效果有十分重要的影响；所以本文梳理了Transformer的经典位置编码方法。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://1.15.86.100/2021/03/31/Position-Encoding-Methods-of-Transformer/Figure_1.png">
+<meta property="og:image" content="https://1.15.86.100/2021/03/31/Position-Encoding-Methods-of-Transformer/Figure_2.png">
 <meta property="article:published_time" content="2021-03-31T09:05:07.000Z">
-<meta property="article:modified_time" content="2021-04-06T09:00:36.308Z">
+<meta property="article:modified_time" content="2021-04-16T15:44:46.850Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="Transformer">
@@ -397,6 +398,12 @@
 <p>当<script type="math/tex">d</script>为多维时，可以把上述方法叠加，编码就变成</p>
 <script type="math/tex; mode=display">p_m=[\mathrm{cos}(\frac{m}{10000^{\theta_1}}),\mathrm{sin}(\frac{m}{10000^{\theta_1}}),\dots,\mathrm{cos}(\frac{m}{10000^{\theta_{d/2}}}),\mathrm{sin}(\frac{m}{10000^{\theta_{d/2}}})]</script><script type="math/tex; mode=display">p^T_mp_n=\sum_d(\mathrm{cos}(\frac{n-m}{10000^{\theta_i}}))</script><p>对于<script type="math/tex">n-m\in [1, 1000]</script>的数值计算结果如下图：</p>
 <p><img src="/2021/03/31/Position-Encoding-Methods-of-Transformer/Figure_1.png" alt=""></p>
+<h3 id="编码的缺点"><a href="#编码的缺点" class="headerlink" title="编码的缺点"></a>编码的缺点</h3><p>由于<strong>Transformer</strong>一般由多层<strong>Self-Attention</strong>叠加构成。而<strong>Vanilla Position Encoding</strong>只在第一层的输入对位置进行了编码，因此在网络的前向传播过程中，位置编码的信息会逐渐消减。</p>
+<p><img src="/2021/03/31/Position-Encoding-Methods-of-Transformer/Figure_2.png" alt="image-20210416230442907" style="zoom:80%;"></p>
+<p>上图是<strong>Gaussian Transformer</strong><a href="#refer-anchor-8"><sup>8</sup></a>论文中的图片，这里主要关注<strong>（a）</strong>，在<strong>（a）</strong>图中，每个柱形的高度代表每个单词对<strong>book</strong>单词的“关注程度”（即Transformer的Attention矩阵的值）。从图中可以发现，对于同一个单词<strong>new</strong>在三个不同的位置，但模型训练的结果显示它们对<strong>book</strong>的关注度相同。这显然是<strong>违反语言常识</strong>的，因为</p>
+<p>第一个<strong>new</strong>是修饰<strong>book</strong>的，显然应该对<strong>book</strong>有更高的关注度；</p>
+<p>而后面两个<strong>new</strong>分别是修饰<strong>friend</strong>以及是<strong>New York</strong>短语的一部分，显然对<strong>book</strong>没什么关注度；</p>
+<p>三相同的单词，在不同的位置，意味着这三个单词在模型中的<strong>词向量</strong>是一样的，唯一区别的只有<strong>位置编码</strong>，但<strong>Attention</strong>结果又没有区别，说明<strong>位置编码没有发挥应有的作用！</strong></p>
 <h2 id="Relative-Position-Encoding3"><a href="#Relative-Position-Encoding3" class="headerlink" title="Relative Position-Encoding3"></a>Relative Position-Encoding<a href="#refer-anchor-3"><sup>3</sup></a></h2><p><strong>Self-Attention</strong>主要将输入的<strong>n</strong>元素：<script type="math/tex">x=(x_1,\dots,x_n),x_i\in \mathbb{R}^{d_x}</script>转化成新的长度为<strong>n</strong>的表示序列：<script type="math/tex">z=(z_1,\dots,z_n),z_i\in\mathbb{R}^{d_z}</script></p>
 <p>对于其中的每个输出元素<script type="math/tex">z_i</script>，<strong>Self-Attention</strong>计算过程如下：</p>
 <script type="math/tex; mode=display">z_i=\sum_{j=1}^n\alpha_{ij}(x_jW^V),W^V\in\mathbb{R}^{d_x\times d_z} \tag{1}</script><p>式中：<script type="math/tex">\alpha</script>是权重</p>
@@ -406,11 +413,54 @@
 <script type="math/tex; mode=display">z_i=\sum_{j=1}^n\alpha_{ij}(x_jW^V+a_{ij}^V) \tag{4}</script><p>上式<font color="red">(3)</font>也可以修改为【因为位置会影响查询的权重】：</p>
 <script type="math/tex; mode=display">e_{ij}=\frac{(x_iW^Q)(x_jW^K+a_{ij}^K)}{\sqrt{d_z}} \tag{5}</script><p>其中<script type="math/tex">a_{ij}^V,a_{ij}^K</script>可以通过学习得到。</p>
 <p>在语言模型中，为了表示字词的<strong>相对位置关系</strong>，<script type="math/tex">a_{ij}</script>应当只与<script type="math/tex">i-j</script>有关，所以该模型可以简化为：</p>
-<script type="math/tex; mode=display">a_{ij}=a_{i-j},\tag{6}</script><p>同时在实践中，当句子较长时，可以采用<strong>修剪（clip）</strong>方法，如下：</p>
-<script type="math/tex; mode=display">a_{ij}=a_{\mathrm{min(i-j,k)}},k=const</script><h2 id="XL-Position-Encoding"><a href="#XL-Position-Encoding" class="headerlink" title="XL Position-Encoding"></a>XL Position-Encoding</h2><h2 id="T5-Position-Encoding"><a href="#T5-Position-Encoding" class="headerlink" title="T5 Position-Encoding"></a>T5 Position-Encoding</h2><p><strong>REF</strong>：</p>
+<script type="math/tex; mode=display">a_{ij}=a_{i-j}\tag{6}</script><p>同时在实践中，当句子较长时，可以采用<strong>修剪（clip）</strong>方法，如下：</p>
+<script type="math/tex; mode=display">a_{ij}=a_{\mathrm{min(i-j,k)}},k=const</script><h2 id="DeBERTa-Position-Encoding4"><a href="#DeBERTa-Position-Encoding4" class="headerlink" title="DeBERTa Position-Encoding4"></a>DeBERTa Position-Encoding<a href="#refer-anchor-4"><sup>4</sup></a></h2><p>位置编码模型可以简化为：</p>
+<script type="math/tex; mode=display">A_{i,j}=(W_i+P_i)(W_j+P_j)=W_iW_j+W_iP_j+P_iW_j+P_iP_j \tag{*}</script><p><strong>DeBERTa</strong>认为<strong>位置和语义</strong>之间的作用是十分重要的，而因为使用的是<strong>相对位置</strong>，所有位置和位置之间的作用的没用的。所以该模型舍去了<font color="red">(*)</font>的右边第四项。得到下列模型：</p>
+<script type="math/tex; mode=display">Q_c=HW_{q,c},K_c=HW_{k,c},V_c=HW_{v,c}</script><script type="math/tex; mode=display">\tilde{A}_{i,j}=Q_i^cK_j^{cT}+Q_i^cK_{\delta(i,j)}^{rT}+K_j^cQ_{\delta(j,i)}^{rT}</script><script type="math/tex; mode=display">H_o=\mathrm{softmax}(\frac{\tilde{A}}{\sqrt{3d}})V_c</script><h2 id="XL-Position-Encoding5"><a href="#XL-Position-Encoding5" class="headerlink" title="XL Position-Encoding5"></a>XL Position-Encoding<a href="#refer-anchor-5"><sup>5</sup></a></h2><p>该方法在<strong>Transformer-XL</strong>模型中提出，主要考虑的也是<strong>相对位置编码</strong>。</p>
+<p>该论文认为<strong>Vanilla Transformer</strong>是：</p>
+<script type="math/tex; mode=display">A_{i,j} = (E_{x_i}+U_i)^TW_q^TW_k(E_{x_j}+U_j)</script><script type="math/tex; mode=display">=E_{x_i}^TW_q^TW_{k}E_{x_j}+E_{x_i}^TW_q^TW_{k}U_j+U_i^TW_{q}^TW_kE_{x_j}+U_i^TW_{q}^TW_kU_j</script><p>所以，该方法主要是将上式修改成如下形式：</p>
+<script type="math/tex; mode=display">A_{i,j}=E_{x_i}^TW_q^TW_{k,E}E_{x_j}+E_{x_i}^TW_q^TW_{k,R}R_{i-j}+u^TW_{k,E}E_{x_j}+v^TW_{k,R}R_{i-j}</script><p>主要考虑是用相对位置编码<script type="math/tex">R_{i-j}</script>替换绝对位置编码<script type="math/tex">U_j</script>，用另一待训练参数替换绝对位置编码<script type="math/tex">U_i</script>。</p>
+<p>该方法在预训练模型<strong>XLNet</strong>中也有应用。</p>
+<h2 id="Position-aware-Attention-Position-Encoding6"><a href="#Position-aware-Attention-Position-Encoding6" class="headerlink" title="Position-aware Attention Position-Encoding6"></a>Position-aware Attention Position-Encoding<a href="#refer-anchor-6"><sup>6</sup></a></h2><p>该方法是<strong>RPE</strong><a href="#refer-anchor-3"><sup>3</sup></a>的改进，当然该论文不仅提出了该<strong>位置编码</strong>还提出了一种<strong>网络架构</strong>（这里不介绍）。</p>
+<p>该方法将<font color="red">(5)</font>式修改为下面形式：</p>
+<script type="math/tex; mode=display">e_{ij}=\frac{(x_iW^Q)(x_jW^K)+x_iR_{j-i}^Kx_j^T}{\sqrt{d_z}} \tag{6}</script><p>其中，加号前面部分是<strong>文本相关</strong>的，后面部分是<strong>位置相关</strong>的，并且<script type="math/tex">R_{j-i}</script>是相对位置相关的。</p>
+<p>该模型<strong>亮点</strong>在于在<strong>相对位置</strong>编码中考虑了<strong>文本信息</strong>。</p>
+<p>而后，为了优化参数数量以及计算复杂度，该模型提出将<script type="math/tex">R_{j-i}^K</script>进行<strong>SVD</strong>分解：</p>
+<script type="math/tex; mode=display">R_{j-i}^K=U_c\Gamma^K_{j-i}V_c^T \tag{7}</script><p>其中<script type="math/tex">U_c\in \mathbb{R}^{d_z\times d_c},V_c\in \mathbb{R}^{d_z \times d_c},\Gamma^K_{j-i}\in \mathbb{R}^{d_c\times d_c}</script>是一个<strong>对角阵</strong>。</p>
+<p>为了简化参数，令<script type="math/tex">U_c=W^Q,V_c=W^K</script></p>
+<p>式<font color="red">(7)</font>可以写为：</p>
+<script type="math/tex; mode=display">e_{ij}=\frac{(x_iW^Q)(x_jW^K)+(x_iW^Q)\Gamma^K_{j-i}(x_j^TW^K)}{\sqrt{d_z}}</script><script type="math/tex; mode=display">e_{ij}=\frac{(x_iW^Q)(I+\Gamma^K_{j-i})(x_jW^K)}{\sqrt{d_z}} \tag{8}</script><p>式<font color="red">(4)</font>相应改写为：</p>
+<script type="math/tex; mode=display">z_i=\sum_{j=1}^n\alpha_{ij}(x_jW^V(I+\Gamma^V_{j-i})) \tag{9}</script><h2 id="T5-Position-Encoding"><a href="#T5-Position-Encoding" class="headerlink" title="T5 Position-Encoding"></a>T5 Position-Encoding</h2><h2 id="Complex-Position-Encoding7"><a href="#Complex-Position-Encoding7" class="headerlink" title="Complex Position-Encoding7"></a>Complex Position-Encoding<a href="#refer-anchor-7"><sup>7</sup></a></h2><p>该论文创新之处在于利用<strong>复数</strong>进行<strong>相对位置</strong>编码，其不仅修改了编码方法，还修改了<strong>神经网络</strong>架构，使之成为<strong>复数神经网络</strong>。</p>
+<p>对于位置向量长度为<script type="math/tex">D</script>的模型，其编码方法如下：</p>
+<script type="math/tex; mode=display">f(j,pos)=[r_{j,1}e^{i(w_{j,1}\times pos+\theta_{j,1})},r_{j,2}e^{i(w_{j,2}\times pos+\theta_{j,2})},\dots,r_{j,D}e^{i(w_{j,D}\times pos+\theta_{j,D})}]</script><p>其中：</p>
+<ul>
+<li><p><script type="math/tex">f(j,pos)</script>：表示<strong>词汇表</strong>中第<script type="math/tex">j</script>个单词在<script type="math/tex">pos</script>位置的编码结果，只和单词有关（可以是词向量），该向量会进行<strong>Attention</strong>；</p>
+</li>
+<li><p><script type="math/tex">r_j\in \mathbb{R}^D</script>：带训练的模型参数；</p>
+</li>
+<li><p><script type="math/tex">w_j\in \mathbb{R}^D</script>：频率相关的向量；</p>
+</li>
+<li><p><script type="math/tex">\theta_j\in\mathbb{R}^D</script>：初相位向量；</p>
+</li>
+</ul>
+<h3 id="编码原理-1"><a href="#编码原理-1" class="headerlink" title="编码原理"></a>编码原理</h3><p>该编码满足下列性质【因为该编码方式是先假定满足性质，而后推导出的编码方程】</p>
+<ul>
+<li>位置的偏移变换和和位置本身无关的，即<script type="math/tex">g(pos+n)=Transform_n(g(pos))</script>；</li>
+<li>有界性，即<script type="math/tex">|g(pos)|\le \delta,pos\in\mathbb{N}</script></li>
+</ul>
+<h3 id="与Vanilla-Tranformer联系"><a href="#与Vanilla-Tranformer联系" class="headerlink" title="与Vanilla Tranformer联系"></a>与Vanilla Tranformer联系</h3><p><strong>Vanilla Tranformer</strong>可以看成该方法的一种特例。</p>
+<p>令<script type="math/tex">f(\cdot,pos,k)=e^{i\times10000 ^{2k/d_{model}}}=cos(10000^{2k/d_{model}}pos)+isin(10000^{2k/d_{model}}pos)</script></p>
+<p>所以：</p>
+<script type="math/tex; mode=display">PE_{pos,2k}=img(f(\cdot,pos,k))</script><script type="math/tex; mode=display">PE_{pos,2k+1}=real(f(\cdot,pos,k))</script><p>与<strong>Complex</strong>不同的是，<strong>Vanilla</strong>将位置编码<strong>加</strong>上<strong>语义编码</strong>，而<strong>Complex</strong>是<strong>乘</strong>上。</p>
+<p><strong>REF</strong>：</p>
 <p></p><div id="refer-anchor-1"></div> [1] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention is all you need</a><p></p>
 <p></p><div id="refer-anchor-2"></div> [2] <a target="_blank" rel="noopener" href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/1150593142">Transformer升级之路：Sinusoidal位置编码追根溯源</a><p></p>
-<p></p><div id="refer-anchor-3"></div> [1] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.02155">Self-Attention with Relative Position Representations</a><p></p>
+<p></p><div id="refer-anchor-3"></div> [3] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.02155">Self-Attention with Relative Position Representations</a><p></p>
+<p></p><div id="refer-anchor-4"></div> [4] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.03654">DeBERTa: Decoding-enhanced BERT with Disentangled Attention</a><p></p>
+<p></p><div id="refer-anchor-5"></div> [5] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1901.02860">Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context</a><p></p>
+<p></p><div id="refer-anchor-6"></div> [6] <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9099090">Improving Self-Attention Networks With Sequential Relations</a><p></p>
+<p></p><div id="refer-anchor-7"></div> [7] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.12333">ENCODING WORD ORDER IN COMPLEX  EMBEDDINGS</a><p></p>
+<p></p><div id="refer-anchor-8"></div> [8] <a target="_blank" rel="noopener" href="https://ojs.aaai.org//index.php/aaai/article/view/4614">Gaussian Transformer: A Lightweight Approach for Natural Language Inference</a><p></p>
 
       
     </div>
@@ -617,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Position-Encoding"><span class="nav-number">1.</span> <span class="nav-text">Position Encoding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background1"><span class="nav-number">1.1.</span> <span class="nav-text">Background1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vanilla-Position-Encoding1"><span class="nav-number">1.2.</span> <span class="nav-text">Vanilla Position-Encoding1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">绝对位置编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%862"><span class="nav-number">1.2.2.</span> <span class="nav-text">编码原理2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relative-Position-Encoding3"><span class="nav-number">1.3.</span> <span class="nav-text">Relative Position-Encoding3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.1.</span> <span class="nav-text">编码原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XL-Position-Encoding"><span class="nav-number">1.4.</span> <span class="nav-text">XL Position-Encoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T5-Position-Encoding"><span class="nav-number">1.5.</span> <span class="nav-text">T5 Position-Encoding</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Position-Encoding"><span class="nav-number">1.</span> <span class="nav-text">Position Encoding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background1"><span class="nav-number">1.1.</span> <span class="nav-text">Background1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vanilla-Position-Encoding1"><span class="nav-number">1.2.</span> <span class="nav-text">Vanilla Position-Encoding1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">绝对位置编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%862"><span class="nav-number">1.2.2.</span> <span class="nav-text">编码原理2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.3.</span> <span class="nav-text">编码的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relative-Position-Encoding3"><span class="nav-number">1.3.</span> <span class="nav-text">Relative Position-Encoding3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.1.</span> <span class="nav-text">编码原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeBERTa-Position-Encoding4"><span class="nav-number">1.4.</span> <span class="nav-text">DeBERTa Position-Encoding4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XL-Position-Encoding5"><span class="nav-number">1.5.</span> <span class="nav-text">XL Position-Encoding5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Position-aware-Attention-Position-Encoding6"><span class="nav-number">1.6.</span> <span class="nav-text">Position-aware Attention Position-Encoding6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T5-Position-Encoding"><span class="nav-number">1.7.</span> <span class="nav-text">T5 Position-Encoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complex-Position-Encoding7"><span class="nav-number">1.8.</span> <span class="nav-text">Complex Position-Encoding7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">编码原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8EVanilla-Tranformer%E8%81%94%E7%B3%BB"><span class="nav-number">1.8.2.</span> <span class="nav-text">与Vanilla Tranformer联系</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -658,7 +708,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.1k字</span>
+  <span class="post-count">博客全站共16.4k字</span>
 </div>
         
 
