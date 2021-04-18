@@ -100,7 +100,7 @@
 <meta property="og:description" content="Basic CommandLine for Linux">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-17T03:40:07.000Z">
-<meta property="article:modified_time" content="2021-04-18T08:13:04.158Z">
+<meta property="article:modified_time" content="2021-04-18T12:39:03.847Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -377,6 +377,7 @@
 <h3 id="查看文件大小"><a href="#查看文件大小" class="headerlink" title="查看文件大小"></a>查看文件大小</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -ah</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实时查看GPU显存利用率，需要用pip按照gpustat</span></span><br><span class="line">watch --color -n1 gpustat -cpu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看显存利用率</span></span><br><span class="line">nvidia-smi</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="远程传文件"><a href="#远程传文件" class="headerlink" title="远程传文件"></a>远程传文件</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地传文件到远程</span></span><br><span class="line">scp [-r] local_path user@255.255.255.255:server_path</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 远程传到本地</span></span><br><span class="line">scp [-r] user@255.255.255.255:server_path local_path</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新源列表信息</span></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新软件</span></span><br><span class="line">apt-get upgrade</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看可以更新软件</span></span><br><span class="line">apt-get list --upgradable</span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -513,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -581,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">Vim 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">进程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">查看历史命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%BE%E5%8D%A1%E5%88%A9%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">5.</span> <span class="nav-text">查看显卡利用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">6.</span> <span class="nav-text">查看文件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPU"><span class="nav-number">7.</span> <span class="nav-text">GPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">远程传文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">Vim 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">进程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">查看历史命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%BE%E5%8D%A1%E5%88%A9%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">5.</span> <span class="nav-text">查看显卡利用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">6.</span> <span class="nav-text">查看文件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPU"><span class="nav-number">7.</span> <span class="nav-text">GPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">远程传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="nav-number">9.</span> <span class="nav-text">更新操作</span></a></li></ol></div>
             
 
           </div>
@@ -622,7 +623,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共16.5k字</span>
+  <span class="post-count">博客全站共16.6k字</span>
 </div>
         
 

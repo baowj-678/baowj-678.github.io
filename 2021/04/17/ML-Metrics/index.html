@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Machine Learning,Metrics," />
 
 
 
@@ -92,18 +92,21 @@
 
 
 
-<meta name="description" content="AI and Philosophy">
+<meta name="description" content="本文主要介绍机器学习性能度量方法（主要依赖sklearn.metrics）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ML Metrics">
 <meta property="og:url" content="https://1.15.86.100/2021/04/17/ML-Metrics/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="AI and Philosophy">
+<meta property="og:description" content="本文主要介绍机器学习性能度量方法（主要依赖sklearn.metrics）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://1.15.86.100/2021/04/17/ML-Metrics/image-20210418230321354.png">
 <meta property="article:published_time" content="2021-04-17T02:12:13.000Z">
-<meta property="article:modified_time" content="2021-04-17T02:12:13.194Z">
+<meta property="article:modified_time" content="2021-04-18T15:04:14.803Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="will">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Metrics">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/04/17/ML-Metrics/image-20210418230321354.png">
 
 
 
@@ -351,6 +354,10 @@
           
 
           
+              <div class="post-description">
+                  本文主要介绍机器学习性能度量方法（主要依赖sklearn.metrics）
+              </div>
+          
 
         </div>
       </header>
@@ -365,7 +372,10 @@
       
 
       
-        
+        <h1 id="ML-Metrics"><a href="#ML-Metrics" class="headerlink" title="ML Metrics"></a>ML Metrics</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="Classification-Metrics"><a href="#Classification-Metrics" class="headerlink" title="Classification Metrics"></a>Classification Metrics</h2><h3 id="confusion-matrix"><a href="#confusion-matrix" class="headerlink" title="confusion matrix"></a>confusion matrix</h3><p><img src="/2021/04/17/ML-Metrics/image-20210418230321354.png" alt="image-20210418230321354" style="zoom: 50%;"></p>
+<h3 id="accuracy"><a href="#accuracy" class="headerlink" title="accuracy"></a>accuracy</h3><h3 id="recall"><a href="#recall" class="headerlink" title="recall"></a>recall</h3><h3 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h3><h2 id="Regression-Metrics"><a href="#Regression-Metrics" class="headerlink" title="Regression Metrics"></a>Regression Metrics</h2><p><strong>REF</strong></p>
+<p></p><div id="refer-anchor-1"></div> [1] <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metric#module-sklearn.metrics">sklearn.metrics</a><p></p>
+
       
     </div>
     
@@ -379,6 +389,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          
+            <a href="../../../../tags/Metrics/" rel="tag"><i class="fa fa-tag"></i> Metrics</a>
+          
+        </div>
       
 
       
@@ -453,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -486,7 +513,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -545,6 +572,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Metrics"><span class="nav-number">1.</span> <span class="nav-text">ML Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Metrics"><span class="nav-number">1.2.</span> <span class="nav-text">Classification Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#confusion-matrix"><span class="nav-number">1.2.1.</span> <span class="nav-text">confusion matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accuracy"><span class="nav-number">1.2.2.</span> <span class="nav-text">accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recall"><span class="nav-number">1.2.3.</span> <span class="nav-text">recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F1"><span class="nav-number">1.2.4.</span> <span class="nav-text">F1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Metrics"><span class="nav-number">1.3.</span> <span class="nav-text">Regression Metrics</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -579,7 +622,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共16.5k字</span>
+  <span class="post-count">博客全站共16.6k字</span>
 </div>
         
 
