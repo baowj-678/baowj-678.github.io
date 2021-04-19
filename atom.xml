@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-04-18T09:00:32.020Z</updated>
+  <updated>2021-04-19T15:56:27.842Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Joint Training for Neural Machine Translation Models with Monolingual Data</title>
+    <link href="https://1.15.86.100/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/"/>
+    <id>https://1.15.86.100/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/</id>
+    <published>2021-04-19T13:20:51.000Z</published>
+    <updated>2021-04-19T15:56:27.842Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data1"><a href="#Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data1" class="headerlink" title="Joint Training for Neural Machine Translation Models with Monolingual Data1"></a>Joint Training for Neural Machine Translation Models with Monolingual Data<a href="#refer-anchor-1"><sup>1</sup></a></h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="背景关键词"><a href="#背景关键词" class="headerlink" title="背景关键词"></a>背景关键词</h3><ul><li><strong>encoder-decoder</strong></li><li><strong>NMT</strong></li></ul><h3 id="传统NMT面临的问题"><a href="#传统NMT面临的问题" class="headerlink" title="传统NMT面临的问题"></a>传统NMT面临的问题</h3><ul><li>传统<strong>NMT</strong>所需要的<strong>平行文本（parallel data）</strong>缺乏；</li><li>传统<strong>NMT</strong>高度依赖高质量的<strong>平行文本</strong>，并且在<strong>平行文本</strong>缺乏和<strong>特定领域（domain-specific）</strong>的任务上表现很差；</li><li>但<strong>单语言（Monolingual Data）</strong>【即该语言文本没有对应的译文数据】文本丰富，易收集且多样；</li></ul><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本模型采用<strong>联合训练（Joint Training）</strong>和<strong>反向翻译（Back Translation）</strong>的方式，提出一种新的<strong>联合训练</strong>方法。</p><p>该模型使用两个<strong>NMT</strong>模型来<strong>联合训练</strong>：</p><p><strong>A-model</strong>：从<strong>源语言</strong>到<strong>目标语言（source-to-target）</strong>的<strong>NMT</strong>模型；</p><p><strong>B-model</strong>：从<strong>目标语言</strong>到<strong>源语言（target-to-source）</strong>的<strong>NMT</strong>模型；</p><h3 id="联合训练方法"><a href="#联合训练方法" class="headerlink" title="联合训练方法"></a>联合训练方法</h3><p>在模型开始时，利用少量的<strong>平行文本D</strong>训练出两个翻译器<strong>A-model</strong>和<strong>B-model</strong>。</p><p>然后，该模型的<strong>联合训练</strong>是采用<strong>迭代训练（iterative）</strong>的过程【如下图】。在每个迭代中：</p><ul><li><strong>B-model</strong>利用<strong>目标语言</strong>的单文本得到对应的<strong>源语言</strong>文本，该生成的平行文本再加上平行文本D作为<strong>A-model</strong>的<strong>伪训练数据（pseudo-training data）</strong>。即<strong>A-model</strong>利用<strong>B-model</strong>生成的<strong>源语言</strong>文本作为输入，而原来的单文本作为目标，进行训练；</li><li>同理，<strong>A-model</strong>利用<strong>源语言</strong>的单文本得到对应的<strong>目标语言</strong>文本，该生成的平行文本再加上平行文本D作为<strong>B-model</strong>的<strong>伪训练数据</strong>。</li></ul><p><img src="/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/image-20210419233220188.png" alt="image-20210419233220188"></p><p><strong>图中</strong>：</p><p>在第一轮迭代之前：<script type="math/tex">M^0_{x\to y},M^0_{y\to x}</script>，都是利用<strong>平行文本</strong><script type="math/tex">D=\{x^n,y^n\}</script>预训练得到；</p><p>在每一轮迭代中：</p><ul><li><script type="math/tex">M^i_{x\to y}</script>利用<script type="math/tex">X={x^{(s)}}</script>，得到翻译后的文本<script type="math/tex">Y'_i={y_i^{(s)}}</script>；</li><li><script type="math/tex">M^i_{y\to x}</script>利用<script type="math/tex">Y={y^{(s)}}</script>，得到翻译后的文本<script type="math/tex">X'_i={x_i^{(s)}}</script>；</li><li>利用<script type="math/tex">\{X_i',Y\}\cup D</script>训练模型<script type="math/tex">M^i_{x\to y}</script>；</li><li>利用<script type="math/tex">\{Y_i',X\}\cup D</script>训练模型<script type="math/tex">M^i_{y\to x}</script>；</li></ul><h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p><img src="/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/image-20210419234535538.png" alt="image-20210419234535538"></p><h2 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective"></a>Training Objective</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul><li><strong>平行语料</strong>：<script type="math/tex">D=\{(x^{(n)}, y^{(n)})\}_{n=1}^N</script></li><li><strong>目标语言的单语言语料</strong>：<script type="math/tex">Y=\{y^{(t)}\}_{t=1}^T</script></li></ul><h3 id="优化过程"><a href="#优化过程" class="headerlink" title="优化过程"></a>优化过程</h3><p>优化目标如下：</p><script type="math/tex; mode=display">L^*(\theta_{x\to y})=\sum_{n=1}^N\mathrm{log}p(y^{(n)}|x^{(n)})+\sum_{t=1}^T\mathrm{log}p(y^{(t)})</script><h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p><strong>REF</strong></p><p></p><div id="refer-anchor-1"></div> [1] <a href="https://arxiv.org/abs/1803.00353v1">Joint Training for Neural Machine Translation Modelswith Monolingual Data</a><p></p>]]></content>
+    
+    
+    <summary type="html">本文是对 Joint Training for Neural Machine Translation Models with Monolingual Data 论文的阅读总结。</summary>
+    
+    
+    
+    
+    <category term="Paper" scheme="https://1.15.86.100/tags/Paper/"/>
+    
+    <category term="Neural Machine Translation" scheme="https://1.15.86.100/tags/Neural-Machine-Translation/"/>
+    
+    <category term="Back Translation" scheme="https://1.15.86.100/tags/Back-Translation/"/>
+    
+    <category term="Semi-supervised Learning" scheme="https://1.15.86.100/tags/Semi-supervised-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx</title>
@@ -394,25 +419,6 @@
     <category term="Python" scheme="https://1.15.86.100/tags/Python/"/>
     
     <category term="Pytorch" scheme="https://1.15.86.100/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Variational Inference</title>
-    <link href="https://1.15.86.100/2019/12/14/Variational-Inference/"/>
-    <id>https://1.15.86.100/2019/12/14/Variational-Inference/</id>
-    <published>2019-12-14T15:19:54.000Z</published>
-    <updated>2019-12-15T04:46:55.567Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Variational-Inference-变分推断"><a href="#Variational-Inference-变分推断" class="headerlink" title="Variational Inference(变分推断)"></a>Variational Inference(变分推断)</h1><h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>$X\quad:observed\ data$</p><p>$Z\quad:latent\ variable+parameter$</p><p>$(X+Z)\quad:complete\ data$</p><p>$$log(P(x))=logP(x,z)-logP(z|x)=log\frac{P(x,z)}{q(z)}-log\frac{P(z|x)}{q(z)}$$</p><p>$$Left=\int_zlogP(x)q(z)dz=logP(x)$$</p><p>$$Right=\int_zq(z)log\frac{P(x,z)}{q(z)}dz-\int_zq(z)log\frac{P(z|x)}{q(z)}dz$$</p><p>$$ELBO(evidence\ lower\ bound)=\int_zq(z)log\frac{P(x,z)}{q(z)}$$</p><p>$$KL(q||p)=-\int_zq(z)log\frac{P(z|x)}{q(z)}dz\ge0$$</p><p>$$\quad\mathscr{L}(q)+KL(q||p)$$</p><p>令 $q(z)=\prod_{i=1}^mq_i(z_i)$</p><p>有 $\mathscr{L}(q)=\int_zq(z)logP(x,z)dz-\int_zq(z)logq(z)dz$</p>]]></content>
-    
-    
-    <summary type="html">An Introduction to Variational Inference</summary>
-    
-    
-    
-    
-    <category term="machine-learning" scheme="https://1.15.86.100/tags/machine-learning/"/>
     
   </entry>
   
