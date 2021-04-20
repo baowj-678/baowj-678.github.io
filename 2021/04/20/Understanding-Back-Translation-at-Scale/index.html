@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="Paper,Back Translation," />
 
 
 
@@ -92,20 +92,23 @@
 
 
 
-<meta name="description" content="LDA">
+<meta name="description" content="本文是对Understanding Back-Translation at Scale论文的阅读总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LDA(Fisher)">
-<meta property="og:url" content="https://1.15.86.100/2020/07/07/LDA-Fisher/index.html">
+<meta property="og:title" content="Understanding Back-Translation at Scale">
+<meta property="og:url" content="https://1.15.86.100/2021/04/20/Understanding-Back-Translation-at-Scale/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="LDA">
+<meta property="og:description" content="本文是对Understanding Back-Translation at Scale论文的阅读总结。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
-<meta property="article:published_time" content="2020-07-07T07:58:22.000Z">
-<meta property="article:modified_time" content="2021-03-27T14:39:47.317Z">
+<meta property="og:image" content="https://1.15.86.100/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420162836335.png">
+<meta property="og:image" content="https://1.15.86.100/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420170028156.png">
+<meta property="og:image" content="https://1.15.86.100/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420164558902.png">
+<meta property="article:published_time" content="2021-04-20T07:45:06.000Z">
+<meta property="article:modified_time" content="2021-04-20T09:07:16.008Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Paper">
+<meta property="article:tag" content="Back Translation">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://1.15.86.100/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png">
+<meta name="twitter:image" content="https://1.15.86.100/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420162836335.png">
 
 
 
@@ -135,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2020/07/07/LDA-Fisher/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/04/20/Understanding-Back-Translation-at-Scale/"/>
 
 
 
 
 
-  <title>LDA(Fisher) | BaoWJ's Blog</title>
+  <title>Understanding Back-Translation at Scale | BaoWJ's Blog</title>
   
 
 
@@ -317,7 +320,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LDA(Fisher)</h2>
+          <h2 class="post-title" itemprop="name headline">Understanding Back-Translation at Scale</h2>
         
 
         <div class="post-meta">
@@ -329,8 +332,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T15:58:22+08:00">
-                2020-07-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-20T15:45:06+08:00">
+                2021-04-20
               </time>
             
 
@@ -354,7 +357,7 @@
 
           
               <div class="post-description">
-                  LDA
+                  本文是对Understanding Back-Translation at Scale论文的阅读总结。
               </div>
           
 
@@ -371,27 +374,62 @@
       
 
       
-        <h1 id="LDA-Fisher"><a href="#LDA-Fisher" class="headerlink" title="LDA(Fisher)"></a>LDA(Fisher)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>LDA(Linear Discriminant Analysis)<strong>，又称</strong>Fisher判别方法</strong>。是一种经典的<strong>线性判别方法</strong>。该方法主要思想是：将样例投影到一维直线上，使得<strong>同类样例</strong>的投影点尽可能<strong>接近</strong>和<strong>密集</strong>；<strong>异类</strong>投影点尽可能<strong>远离</strong>。</p>
-<p><img src="/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png" alt="fisher"></p>
-<h3 id="计算推导"><a href="#计算推导" class="headerlink" title="计算推导"></a>计算推导</h3><p>假设已知样本 $C_1$ 和 $C_2$ ，$|C_1|、|C_2|$ 分别两类样本数据的总数。</p>
-<p>则两类样例的<strong>类中心</strong>分别为：</p>
-<p>$$\mu_1=\frac{1}{|C_1|}\sum_{x\in{C_1}}x$$</p>
-<p>$$\mu_2=\frac{1}{|C_2|}\sum_{x\in{C_2}}x$$</p>
-<p>假设最佳的投影方向为 $w$ 则，样本点 $x$ 投影到 $w$ 上的点的坐标为：$y=w^Tx$</p>
-<p>所以，投影后的<strong>类中心</strong>为：</p>
-<p>$$m_k=\frac{1}{|C_k|}\sum_{x\in{C_k}}w^Tx=w^T\frac{1}{|C_k|}\sum_{x\in{C_k}}x=w^T\mu_k$$</p>
-<h4 id="类间距离"><a href="#类间距离" class="headerlink" title="类间距离"></a>类间距离</h4><p><strong>类中心</strong>的<strong>间距</strong>为：</p>
-<p>$$d_{(1, 2)}=(m_1-m_2)^2=(m_1-m_2)(m_1-m_2)^T=w^T(\mu_1-\mu_2)(\mu_1-\mu_2)^Tw=w^TS_bw$$</p>
-<p>其中，$S_b$ 为<strong>类间散度矩阵</strong>：</p>
-<p>$$S_b=(\mu_1-\mu_2)(\mu_1-\mu_2)^T$$</p>
-<h4 id="类内距离"><a href="#类内距离" class="headerlink" title="类内距离"></a>类内距离</h4><p><strong>类内距离</strong>用类内样本的方差来衡量，对于第 $k$ 个类，方差为：</p>
-<p>$$\begin{split}S_k^2=\sum_{x\in{C_k}}(y-m_k)^2=\sum_{x\in{C_k}}(w^T(x-\mu_k))^2\=\sum_{x\in{C_k}}(w^T(x-\mu_k))((x-\mu_k)^Tw)\=w^T[\sum_{x\in{C_k}}(x-\mu_k)(x-\mu_k)^T]w \end{split}$$</p>
-<p>所有类别<strong>类内距离</strong>之和为：</p>
-<p>$$\sum_{k\in n}S_k^2=w^T[\sum_{k\in n}\sum_{x\in{C_k}}(x-\mu_k)(x-\mu_k)^T]w$$</p>
-<p><strong>类内散度矩阵</strong>为：</p>
-<p>$$S_w=\sum\sum_{x\in{C_k}}(x-\mu_k)(x-\mu_k)^T$$</p>
-<h4 id="最优化"><a href="#最优化" class="headerlink" title="最优化"></a>最优化</h4><p>我们的优化目的是增加<strong>类间距离</strong>，减小<strong>类内距离</strong>，所有可以最大化函数：</p>
-<p>$$J(w)=\frac{(m_1-m_2)^2}{S_1^2+S_2^2}=\frac{w^TS_bw}{w^TS_ww}$$</p>
+        <h1 id="Understanding-Back-Translation-at-Scale"><a href="#Understanding-Back-Translation-at-Scale" class="headerlink" title="Understanding Back-Translation at Scale[*]"></a>Understanding Back-Translation at Scale<a href="#refer-anchor-*"><sup>[*]</sup></a></h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="单语言文本"><a href="#单语言文本" class="headerlink" title="单语言文本"></a>单语言文本</h3><p>单语言文本可以用来提高<strong>统计机器翻译（statistical machine translation）</strong>的流畅度。</p>
+<p>常用的方法有：</p>
+<ul>
+<li><strong>模型融合（language model fusion）</strong><a href="#refer-anchor-1"><sup>[1]</sup></a><a href="#refer-anchor-2"><sup>[2]</sup></a>；</li>
+<li><strong>反向翻译（back translation）</strong><a href="#refer-anchor-3"><sup>[3]</sup></a>；</li>
+<li><strong>结对学习（dual learning）</strong><a href="#refer-anchor-4"><sup>[4]</sup></a>；</li>
+</ul>
+<h3 id="反向翻译"><a href="#反向翻译" class="headerlink" title="反向翻译"></a>反向翻译</h3><p><strong>反向翻译</strong>需要训练一个<strong>目标语言到源语言（target-to-source）</strong>的系统，利用这个系统从<strong>目标语言</strong>的单语言文本来生成额外的<strong>平行语料（synthetic parallel data）</strong>。然后利用这些生成的语料来补充<strong>人工语料（human bitext）</strong>来训练<strong>源语言到目标语言（source-to-target）</strong>的系统【真正需要的】。</p>
+<h2 id="Generating-synthetic-sources"><a href="#Generating-synthetic-sources" class="headerlink" title="Generating synthetic sources"></a>Generating synthetic sources</h2><h3 id="最大后验估计（MAP）"><a href="#最大后验估计（MAP）" class="headerlink" title="最大后验估计（MAP）"></a>最大后验估计（MAP）</h3><p>传统的<strong>MAP</strong>方法可能导致译文的<strong>丰富度（less rich）</strong>降低。</p>
+<p><strong>集束搜索（beam）</strong>和<strong>贪心算法（greedy）</strong>主要关心模型分布的头部样本，这样就会导致生成的语句分布出现偏差。</p>
+<h3 id="采样方法"><a href="#采样方法" class="headerlink" title="采样方法"></a>采样方法</h3><p>该文章提出了两种采样方法以及添加一种噪声的方法。</p>
+<ul>
+<li><strong>非限制性采样（unrestricted sampling）</strong>，从文本中随机采样；</li>
+<li><strong>限制性采样（restricted sampling）</strong>，每步会挑选出可能性最大的<strong>k</strong>个词（token），然后从这些词中随机采样一个作为结果；</li>
+<li><strong>集束搜索+噪声</strong>，向集束搜索得到的句子添加噪声<ul>
+<li>0.1的概率删除一个单词；</li>
+<li>0.1的概率将一个单词替换成<strong>填充单词（filler token）</strong>；</li>
+<li>按均匀分布随机调换两个相隔不超过三个位置的单词；</li>
+</ul>
+</li>
+</ul>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>使用<strong>Transformer</strong>模型进行实验。</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h3 id="合成数据生成方法"><a href="#合成数据生成方法" class="headerlink" title="合成数据生成方法"></a>合成数据生成方法</h3><p>该使用用5种方法分别进行生成<strong>合成数据（synthetic data）</strong>：</p>
+<ul>
+<li><strong>贪心算法</strong>【greedy】；</li>
+<li>k=5的<strong>集束搜索</strong>【beam】；</li>
+<li><strong>非限制采样</strong>【sampling】；</li>
+<li>从k=10个最高可能性中随机采样【top10】；</li>
+<li>在集束搜索上添加噪声【beam+nosing】；</li>
+</ul>
+<p><img src="/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420162836335.png" alt="image-20210420162836335" style="zoom:67%;"></p>
+<p>结果显示<strong>sampling</strong>、<strong>beam+nosing</strong>更好。</p>
+<h4 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h4><p><strong>集束搜索</strong>关注可能性非常大的输出，这就导致文本的<strong>丰富性（richness）</strong>和<strong>多样性（diversity）</strong>降低。</p>
+<p><strong>采样</strong>和<strong>添加噪声</strong>可以比卖你这些问题。</p>
+<h3 id="语料的领域对结果影响"><a href="#语料的领域对结果影响" class="headerlink" title="语料的领域对结果影响"></a>语料的领域对结果影响</h3><h4 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h4><p>分别将下列<strong>sampling</strong>生成的语料添加到 原来<strong>640k</strong>平行语料中，构成不同的训练集来训练相同的翻译器：</p>
+<ul>
+<li>剩下的平行数据【bitext】</li>
+<li>将剩下的平行数据<strong>反向翻译</strong>得到的数据【BT-bitext】</li>
+<li>将<strong>newscrawl</strong>经过<strong>反向翻译</strong>得到的数据【BT-news】</li>
+</ul>
+<p>将训练得到的翻译器在不同验证集实验，实验结果如下：</p>
+<p><img src="/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420170028156.png" alt="image-20210420170028156"></p>
+<p><strong>反向翻译</strong>的<strong>生成数据</strong>对模型有很大提升，特别是当数据领域相同时。</p>
+<h3 id="平行语料缺乏情况"><a href="#平行语料缺乏情况" class="headerlink" title="平行语料缺乏情况"></a>平行语料缺乏情况</h3><h4 id="实验设置-1"><a href="#实验设置-1" class="headerlink" title="实验设置"></a>实验设置</h4><p>从训练数据中随机采样<strong>80K</strong>和<strong>640K</strong>句子对，然后分别添加由<strong>sampling</strong>和<strong>beam</strong>得到的<strong>合成文本</strong>【添加数量根据下图横坐标】。结果如下：</p>
+<p><img src="/2021/04/20/Understanding-Back-Translation-at-Scale/image-20210420164558902.png" alt="image-20210420164558902" style="zoom:67%;"></p>
+<h4 id="结果分析-1"><a href="#结果分析-1" class="headerlink" title="结果分析"></a>结果分析</h4><p>发现<strong>平行文本</strong>为<strong>640k</strong>和<strong>5M</strong>时，<strong>sampling</strong>都比<strong>beam</strong>好，但当<strong>平行文本</strong>是<strong>80k</strong>时相反。</p>
+<p>原因是：</p>
+<p><strong>80k</strong>时，模型训练效果较差，<strong>反向翻译</strong>的噪声会极大影响模型的效果。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p><strong>随机采样</strong>和<strong>集束搜索+噪声</strong>相比<strong>贪心算法</strong>和<strong>集束搜索</strong>效果更好。</p>
+<p><strong>REF</strong>:</p>
+<p></p><div id="refer-anchor-*"></div> [*] <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/327280445_Understanding_Back-Translation_at_Scale">Understanding Back-Translation at Scale</a><p></p>
+<p></p><div id="refer-anchor-1"></div> [1] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.03535">On Using Monolingual Corpora in Neural Machine Translation</a><p></p>
+<p></p><div id="refer-anchor-2"></div> [2] <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1016/j.csl.2017.01.014">On integrating a language model into neural machine translation</a><p></p>
+<p></p><div id="refer-anchor-3"></div> [3] <a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/P16-1009/">Improving Neural Machine Translation Models with Monolingual Data</a><p></p>
+<p></p><div id="refer-anchor-4"></div> [4] <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/335400882_Semi-supervised_Learning_for_Neural_Machine_Translation">Semi-supervised Learning for Neural Machine Translation
+</a><p></p>
 
       
     </div>
@@ -409,7 +447,9 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+            <a href="../../../../tags/Paper/" rel="tag"><i class="fa fa-tag"></i> Paper</a>
+          
+            <a href="../../../../tags/Back-Translation/" rel="tag"><i class="fa fa-tag"></i> Back Translation</a>
           
         </div>
       
@@ -422,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../03/08/PowerShell/" rel="next" title="PowerShell">
-                <i class="fa fa-chevron-left"></i> PowerShell
+              <a href="../../19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/" rel="next" title="Joint Training for Neural Machine Translation Models with Monolingual Data">
+                <i class="fa fa-chevron-left"></i> Joint Training for Neural Machine Translation Models with Monolingual Data
               </a>
             
           </div>
@@ -431,10 +471,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../10/29/SQL-install/" rel="prev" title="SQL-install">
-                SQL-install <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LDA-Fisher"><span class="nav-number">1.</span> <span class="nav-text">LDA(Fisher)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.0.2.</span> <span class="nav-text">计算推导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E9%97%B4%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">类间距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%86%85%E8%B7%9D%E7%A6%BB"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">类内距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BC%98%E5%8C%96"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">最优化</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Understanding-Back-Translation-at-Scale"><span class="nav-number">1.</span> <span class="nav-text">Understanding Back-Translation at Scale[*]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E8%AF%AD%E8%A8%80%E6%96%87%E6%9C%AC"><span class="nav-number">1.1.1.</span> <span class="nav-text">单语言文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E7%BF%BB%E8%AF%91"><span class="nav-number">1.1.2.</span> <span class="nav-text">反向翻译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generating-synthetic-sources"><span class="nav-number">1.2.</span> <span class="nav-text">Generating synthetic sources</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%90%8E%E9%AA%8C%E4%BC%B0%E8%AE%A1%EF%BC%88MAP%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">最大后验估计（MAP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">采样方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">1.3.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">1.4.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.1.</span> <span class="nav-text">合成数据生成方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">结果分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%96%99%E7%9A%84%E9%A2%86%E5%9F%9F%E5%AF%B9%E7%BB%93%E6%9E%9C%E5%BD%B1%E5%93%8D"><span class="nav-number">1.4.2.</span> <span class="nav-text">语料的领域对结果影响</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">实验设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%8C%E8%AF%AD%E6%96%99%E7%BC%BA%E4%B9%8F%E6%83%85%E5%86%B5"><span class="nav-number">1.4.3.</span> <span class="nav-text">平行语料缺乏情况</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE-1"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">实验设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90-1"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">结果分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.5.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
             
 
           </div>
