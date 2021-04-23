@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="Paper,Monolingual Data," />
 
 
 
@@ -92,18 +92,21 @@
 
 
 
-<meta name="description" content="An introduction to the Hidden Markov Algorithm">
+<meta name="description" content="本文是对Triangular Architecture for Rare Language Translation论文的阅读总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HMM-algorithm">
-<meta property="og:url" content="https://1.15.86.100/2020/01/06/HMM-algorithm/index.html">
+<meta property="og:title" content="Triangular Architecture for Rare Language Translation">
+<meta property="og:url" content="https://1.15.86.100/2021/04/23/Triangular-Architecture-for-Rare-Language-Translation/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="An introduction to the Hidden Markov Algorithm">
+<meta property="og:description" content="本文是对Triangular Architecture for Rare Language Translation论文的阅读总结。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-06T03:04:29.000Z">
-<meta property="article:modified_time" content="2020-01-06T03:11:33.528Z">
+<meta property="og:image" content="https://1.15.86.100/2021/04/23/Triangular-Architecture-for-Rare-Language-Translation/image-20210423161225412.png">
+<meta property="article:published_time" content="2021-04-23T07:58:19.000Z">
+<meta property="article:modified_time" content="2021-04-23T08:52:07.727Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Paper">
+<meta property="article:tag" content="Monolingual Data">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/04/23/Triangular-Architecture-for-Rare-Language-Translation/image-20210423161225412.png">
 
 
 
@@ -133,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2020/01/06/HMM-algorithm/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/04/23/Triangular-Architecture-for-Rare-Language-Translation/"/>
 
 
 
 
 
-  <title>HMM-algorithm | BaoWJ's Blog</title>
+  <title>Triangular Architecture for Rare Language Translation | BaoWJ's Blog</title>
   
 
 
@@ -315,7 +318,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">HMM-algorithm</h2>
+          <h2 class="post-title" itemprop="name headline">Triangular Architecture for Rare Language Translation</h2>
         
 
         <div class="post-meta">
@@ -327,8 +330,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-06T11:04:29+08:00">
-                2020-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-23T15:58:19+08:00">
+                2021-04-23
               </time>
             
 
@@ -352,7 +355,7 @@
 
           
               <div class="post-description">
-                  An introduction to the Hidden Markov Algorithm
+                  本文是对Triangular Architecture for Rare Language Translation论文的阅读总结。
               </div>
           
 
@@ -369,8 +372,37 @@
       
 
       
-        <h1 id="隐马尔可夫模型-HMM"><a href="#隐马尔可夫模型-HMM" class="headerlink" title="隐马尔可夫模型(HMM)"></a>隐马尔可夫模型(HMM)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>隐马尔可夫模型(Hidden-Markov-Model)<strong>是一种</strong>概率图</strong>模型，在<strong>深度学习</strong>出现之前，该模型被广泛应用于<em>语音识别，文本标注</em>等方面。</p>
-<p>隐马尔可夫模型是关于时序的概率图模型。</p>
+        <h1 id="Triangular-Architecture-for-Rare-Language-Translation"><a href="#Triangular-Architecture-for-Rare-Language-Translation" class="headerlink" title="Triangular Architecture for Rare Language Translation[*]"></a>Triangular Architecture for Rare Language Translation<a href="#refer-*"><sup>[*]</sup></a></h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者提出了一种引入<strong>（Y，Z），（X，Y）</strong>平行文本，来增强<strong>（X，Z）</strong>语言机器翻译的<strong>三角形结构</strong>模型<strong>TA-NMT</strong>，。</p>
+<p><img src="/2021/04/23/Triangular-Architecture-for-Rare-Language-Translation/image-20210423161225412.png" alt="image-20210423161225412" style="zoom:67%;"></p>
+<p><strong>实线</strong>代表丰富的文本，<strong>虚线</strong>代表少量的文本。</p>
+<p>该论文主要思路是将<script type="math/tex">X\to Y</script>分解成训练两个少量文本的模型<script type="math/tex">X\to Z</script>和<script type="math/tex">Y\to Z</script>。</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><ul>
+<li><p><strong>NMT</strong>首先将输入句子<strong>encode</strong>成<strong>vector</strong>，然后<strong>decoder</strong>在其基础上生成目标句子；</p>
+</li>
+<li><p>为了解决<strong>数据少（data sparsity）</strong>的问题，提出了以下几种方法：</p>
+<ul>
+<li><strong>单语言文本（monolingual data）</strong>；</li>
+<li><strong>反向翻译（back translation）</strong>；</li>
+<li><strong>联合训练（joint training）</strong>；</li>
+<li><strong>对偶学习（dual learning）</strong>；</li>
+</ul>
+</li>
+</ul>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="X-to-Y的loss"><a href="#X-to-Y的loss" class="headerlink" title="X \to Y的loss"></a><script type="math/tex">X \to Y</script>的loss</h3><script type="math/tex; mode=display">L(\Theta;D)=\sum_{(x,y)\in D}\mathrm{log}p(y|x)</script><script type="math/tex; mode=display">=\sum_{(x,y)\in D}\mathrm{log}\sum_z p(z|x)p(y|z)</script><script type="math/tex; mode=display">=\sum_{(x,y)\in D}\mathrm{log}\sum_zQ(z)\frac{p(z|x)p(y|z)}{Q(z)}\tag{1}</script><script type="math/tex; mode=display">\ge \sum_{(x,y)\in D}\sum_zQ(z)\mathrm{log}\frac{p(z|x)p(y|z)}{Q(z)}\ (Jensen's\ Inequation)</script><script type="math/tex; mode=display">=\mathcal{L}(Q)</script><p><strong>其中</strong>：</p>
+<ul>
+<li><script type="math/tex">Q(z)</script>是<script type="math/tex">z</script>的<strong>后验分布</strong>，满足<script type="math/tex">\sum_zQ(z)=1</script>；</li>
+<li><script type="math/tex">p(y|x,z) \approx p(y|z)</script>；</li>
+<li><script type="math/tex">D</script>：整个训练集；</li>
+</ul>
+<h3 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h3><p>用<strong>EM算法</strong>来最大化<strong>下界</strong><script type="math/tex">\mathcal{L}(Q)</script>。</p>
+<p>这里令<script type="math/tex">Q(z)=p(z|x)</script>来近似：</p>
+<h4 id="M步"><a href="#M步" class="headerlink" title="M步"></a>M步</h4><script type="math/tex; mode=display">\Theta_{y|z}=\mathrm{argmax}_{\Theta_{y|x}}\mathcal{L}(Q)</script><script type="math/tex; mode=display">=\mathrm{argmax}_{\Theta_{y|z}}\sum_{(x,y)\in D}\sum_z p(z|x)\mathrm{log}p(y|z)</script><script type="math/tex; mode=display">\mathrm{argmax}_{\Theta_{y|z}}\sum_{(x,y)\in D}E_{z\sim p(z|x)\mathrm{log}p(y|z)} \tag{2}</script><h4 id="E步"><a href="#E步" class="headerlink" title="E步"></a>E步</h4><p>因为：<script type="math/tex">L(\Theta;D)-\mathcal{L}(Q)=\sum_zQ(z)\mathrm{log}\frac{Q(z)}{p(z|y)}</script></p>
+<script type="math/tex; mode=display">=KL(Q(z)||p(z|y))=KL(p(z|x)||p(z|y))</script><p>所以在<strong>E步</strong>，需要最小化上式：</p>
+<script type="math/tex; mode=display">\Theta_{z|x}=\mathrm{argmin}_{\Theta_{z|x}}KL(p(z|x)||p(z|y)) \tag{4}</script><h3 id="双向训练"><a href="#双向训练" class="headerlink" title="双向训练"></a>双向训练</h3><h4 id="X-to-Y方向"><a href="#X-to-Y方向" class="headerlink" title="X\to Y方向"></a><script type="math/tex">X\to Y</script>方向</h4><h5 id="E：最优化-Theta-z-x"><a href="#E：最优化-Theta-z-x" class="headerlink" title="E：最优化\Theta_{z|x}"></a>E：最优化<script type="math/tex">\Theta_{z|x}</script></h5><script type="math/tex; mode=display">\mathrm{argmax}_{\Theta_{z|x}}KL(p(z|x)||p(z|y)) \tag{5}</script><h5 id="M：最优化-Theta-y-z"><a href="#M：最优化-Theta-y-z" class="headerlink" title="M：最优化\Theta_{y|z}"></a>M：最优化<script type="math/tex">\Theta_{y|z}</script></h5><script type="math/tex; mode=display">\mathrm{argmax}_{\Theta_{y|z}}\sum_{(x,y)\in D}E_{z\sim p(z|x)}\mathrm{log}p(y|z) \tag{6}</script><h4 id="Y-to-X方向"><a href="#Y-to-X方向" class="headerlink" title="Y\to X方向"></a><script type="math/tex">Y\to X</script>方向</h4><h5 id="E：最优化-Theta-z-y"><a href="#E：最优化-Theta-z-y" class="headerlink" title="E：最优化\Theta_{z|y}"></a>E：最优化<script type="math/tex">\Theta_{z|y}</script></h5><script type="math/tex; mode=display">\mathrm{argmax}_{\Theta_{z|y}}KL(p(z|y)||p(z|x)) \tag{7}</script><h5 id="M：最优化-Theta-x-z"><a href="#M：最优化-Theta-x-z" class="headerlink" title="M：最优化\Theta_{x|z}"></a>M：最优化<script type="math/tex">\Theta_{x|z}</script></h5><script type="math/tex; mode=display">\mathrm{argmax}_{\Theta_{x|z}}\sum_{(x,y)\in D}E_{z\sim p(z|y)}\mathrm{log}p(x|z) \tag{8}</script><h3 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h3><p>训练过程的难点在于<strong>分解候选词的搜索空间（exponential search space of the translation candidates）</strong>，这里使用<strong>采样</strong>方法。</p>
+<p>将<font color="red">(5)(7)</font>式改写成如下形式：</p>
+<script type="math/tex; mode=display">\bigtriangledown_{\Theta_{z|x}}KL(p(z|x)||p(z|y))</script><script type="math/tex; mode=display">=E_{z\sim p(z|x)}\mathrm{log}\frac{p(z|x)}{p(z|y)}\bigtriangledown_{\Theta_{z|x}}\mathrm{log}p(z|x)\tag{9}</script><script type="math/tex; mode=display">\bigtriangledown_{\Theta_{z|y}}KL(p(z|y)||p(z|x))</script><script type="math/tex; mode=display">=E_{z\sim p(z|y)}\mathrm{log}\frac{p(z|y)}{p(z|x)}\bigtriangledown_{\Theta_{z|y}}\mathrm{log}p(z|y)\tag{10}</script><p>因为数据的<strong>target</strong>是由模型生成的，效果不好，使用不使用<strong>BLEU</strong>，而是使用<strong>IBM</strong>loss函数。</p>
+<p><strong>REF</strong>:</p>
+<p></p><div id="#refer-*"></div>[*]<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.04813">Triangular Architecture for Rare Language Translation</a><p></p>
 
       
     </div>
@@ -388,7 +420,9 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+            <a href="../../../../tags/Paper/" rel="tag"><i class="fa fa-tag"></i> Paper</a>
+          
+            <a href="../../../../tags/Monolingual-Data/" rel="tag"><i class="fa fa-tag"></i> Monolingual Data</a>
           
         </div>
       
@@ -401,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../../2019/12/17/Linux/" rel="next" title="Linux">
-                <i class="fa fa-chevron-left"></i> Linux
+              <a href="../../20/KL-Divergence/" rel="next" title="KL-Divergence">
+                <i class="fa fa-chevron-left"></i> KL-Divergence
               </a>
             
           </div>
@@ -410,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../03/08/PowerShell/" rel="prev" title="PowerShell">
-                PowerShell <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B-HMM"><span class="nav-number">1.</span> <span class="nav-text">隐马尔可夫模型(HMM)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Triangular-Architecture-for-Rare-Language-Translation"><span class="nav-number">1.</span> <span class="nav-text">Triangular Architecture for Rare Language Translation[*]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">1.3.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#X-to-Y%E7%9A%84loss"><span class="nav-number">1.3.1.</span> <span class="nav-text">X \to Y的loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EM%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">EM算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#M%E6%AD%A5"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">M步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E%E6%AD%A5"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">E步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E8%AE%AD%E7%BB%83"><span class="nav-number">1.3.3.</span> <span class="nav-text">双向训练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#X-to-Y%E6%96%B9%E5%90%91"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">X\to Y方向</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#E%EF%BC%9A%E6%9C%80%E4%BC%98%E5%8C%96-Theta-z-x"><span class="nav-number">1.3.3.1.1.</span> <span class="nav-text">E：最优化\Theta_{z|x}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#M%EF%BC%9A%E6%9C%80%E4%BC%98%E5%8C%96-Theta-y-z"><span class="nav-number">1.3.3.1.2.</span> <span class="nav-text">M：最优化\Theta_{y|z}</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Y-to-X%E6%96%B9%E5%90%91"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">Y\to X方向</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#E%EF%BC%9A%E6%9C%80%E4%BC%98%E5%8C%96-Theta-z-y"><span class="nav-number">1.3.3.2.1.</span> <span class="nav-text">E：最优化\Theta_{z|y}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#M%EF%BC%9A%E6%9C%80%E4%BC%98%E5%8C%96-Theta-x-z"><span class="nav-number">1.3.3.2.2.</span> <span class="nav-text">M：最优化\Theta_{x|z}</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E7%BB%86%E8%8A%82"><span class="nav-number">1.3.4.</span> <span class="nav-text">训练细节</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
