@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-04-23T08:52:07.727Z</updated>
+  <updated>2021-04-24T07:54:39.932Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Consistency by Agreement in Zero-shot Neural Machine Translation</title>
+    <link href="https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/"/>
+    <id>https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/</id>
+    <published>2021-04-24T07:30:30.000Z</published>
+    <updated>2021-04-24T07:54:39.932Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation"><a href="#Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation" class="headerlink" title="Consistency by Agreement in Zero-shot Neural Machine Translation[*]"></a>Consistency by Agreement in Zero-shot Neural Machine Translation<a href="#refer-*"><sup>[*]</sup></a></h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>一般对于多语言间（例如<strong>k</strong>中语言）间的互相翻译，需要训练<strong>k*k</strong>个<strong>NMT</strong>。</p><p>后来有人提出<strong>zero-shot translation</strong>，即给定三种语言<strong>German（De）、English（En）、French（Fr）</strong>，然后在<strong>平行文本（De，En）、（En，Fr）</strong>，同时使得该模型能够学得<strong>（De，Fr）</strong>翻译的方法。</p><ul><li><strong>零射学习（zero-shot learning）</strong>：对学习目标不提供任何样本。</li></ul><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="定义【1】（Expected-Zero-shot-Consistency）"><a href="#定义【1】（Expected-Zero-shot-Consistency）" class="headerlink" title="定义【1】（Expected Zero-shot Consistency）"></a>定义【1】（Expected Zero-shot Consistency）</h3><p>令<script type="math/tex">\varepsilon_s\ \varepsilon_0</script>分别表示<strong>监督（supervised）</strong>和<strong>零射（zero-shot）</strong>任务，<script type="math/tex">\mathcal{l(\cdot)}</script>表示非负的<strong>损失函数</strong>，<script type="math/tex">\mathcal{M}</script>是使用<strong>最大期望监督损失（maximum expected supervised loss）</strong>的模型，并满足下列约束：</p><script type="math/tex; mode=display">\mathrm{max}_{(i,j)\in \varepsilon_s}\mathbb{E}_{x_i,x_j}[l(\mathcal{M})]<\epsilon</script><p><strong>REF</strong></p><p></p><div id="#refer-*"></div>[*]<a href="https://www.aclweb.org/anthology/N19-1121/">Consistency by Agreement in Zero-shot Neural Machine Translation</a><p></p>]]></content>
+    
+    
+    <summary type="html">本文是对Consistency by Agreement in Zero-shot Neural Machine Translation论文的阅读总结。</summary>
+    
+    
+    
+    
+    <category term="Paper" scheme="https://1.15.86.100/tags/Paper/"/>
+    
+    <category term="Neural Machine Translation" scheme="https://1.15.86.100/tags/Neural-Machine-Translation/"/>
+    
+    <category term="Zero-shot" scheme="https://1.15.86.100/tags/Zero-shot/"/>
+    
+  </entry>
   
   <entry>
     <title>Triangular Architecture for Rare Language Translation</title>
@@ -408,25 +431,6 @@
     
     
     <category term="SQL" scheme="https://1.15.86.100/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LDA(Fisher)</title>
-    <link href="https://1.15.86.100/2020/07/07/LDA-Fisher/"/>
-    <id>https://1.15.86.100/2020/07/07/LDA-Fisher/</id>
-    <published>2020-07-07T07:58:22.000Z</published>
-    <updated>2021-03-27T14:39:47.317Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="LDA-Fisher"><a href="#LDA-Fisher" class="headerlink" title="LDA(Fisher)"></a>LDA(Fisher)</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>LDA(Linear Discriminant Analysis)<strong>，又称</strong>Fisher判别方法</strong>。是一种经典的<strong>线性判别方法</strong>。该方法主要思想是：将样例投影到一维直线上，使得<strong>同类样例</strong>的投影点尽可能<strong>接近</strong>和<strong>密集</strong>；<strong>异类</strong>投影点尽可能<strong>远离</strong>。</p><p><img src="/2020/07/07/LDA-Fisher/.%5CLDA-Fisher%5Cfisher.png" alt="fisher"></p><h3 id="计算推导"><a href="#计算推导" class="headerlink" title="计算推导"></a>计算推导</h3><p>假设已知样本 $C_1$ 和 $C_2$ ，$|C_1|、|C_2|$ 分别两类样本数据的总数。</p><p>则两类样例的<strong>类中心</strong>分别为：</p><p>$$\mu_1=\frac{1}{|C_1|}\sum_{x\in{C_1}}x$$</p><p>$$\mu_2=\frac{1}{|C_2|}\sum_{x\in{C_2}}x$$</p><p>假设最佳的投影方向为 $w$ 则，样本点 $x$ 投影到 $w$ 上的点的坐标为：$y=w^Tx$</p><p>所以，投影后的<strong>类中心</strong>为：</p><p>$$m_k=\frac{1}{|C_k|}\sum_{x\in{C_k}}w^Tx=w^T\frac{1}{|C_k|}\sum_{x\in{C_k}}x=w^T\mu_k$$</p><h4 id="类间距离"><a href="#类间距离" class="headerlink" title="类间距离"></a>类间距离</h4><p><strong>类中心</strong>的<strong>间距</strong>为：</p><p>$$d_{(1, 2)}=(m_1-m_2)^2=(m_1-m_2)(m_1-m_2)^T=w^T(\mu_1-\mu_2)(\mu_1-\mu_2)^Tw=w^TS_bw$$</p><p>其中，$S_b$ 为<strong>类间散度矩阵</strong>：</p><p>$$S_b=(\mu_1-\mu_2)(\mu_1-\mu_2)^T$$</p><h4 id="类内距离"><a href="#类内距离" class="headerlink" title="类内距离"></a>类内距离</h4><p><strong>类内距离</strong>用类内样本的方差来衡量，对于第 $k$ 个类，方差为：</p><p>$$\begin{split}S_k^2=\sum_{x\in{C_k}}(y-m_k)^2=\sum_{x\in{C_k}}(w^T(x-\mu_k))^2\=\sum_{x\in{C_k}}(w^T(x-\mu_k))((x-\mu_k)^Tw)\=w^T[\sum_{x\in{C_k}}(x-\mu_k)(x-\mu_k)^T]w \end{split}$$</p><p>所有类别<strong>类内距离</strong>之和为：</p><p>$$\sum_{k\in n}S_k^2=w^T[\sum_{k\in n}\sum_{x\in{C_k}}(x-\mu_k)(x-\mu_k)^T]w$$</p><p><strong>类内散度矩阵</strong>为：</p><p>$$S_w=\sum\sum_{x\in{C_k}}(x-\mu_k)(x-\mu_k)^T$$</p><h4 id="最优化"><a href="#最优化" class="headerlink" title="最优化"></a>最优化</h4><p>我们的优化目的是增加<strong>类间距离</strong>，减小<strong>类内距离</strong>，所有可以最大化函数：</p><p>$$J(w)=\frac{(m_1-m_2)^2}{S_1^2+S_2^2}=\frac{w^TS_bw}{w^TS_ww}$$</p>]]></content>
-    
-    
-    <summary type="html">LDA</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
     
   </entry>
   
