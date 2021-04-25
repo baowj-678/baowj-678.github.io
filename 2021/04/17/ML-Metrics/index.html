@@ -101,7 +101,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://1.15.86.100/2021/04/17/ML-Metrics/image-20210418230321354.png">
 <meta property="article:published_time" content="2021-04-17T02:12:13.000Z">
-<meta property="article:modified_time" content="2021-04-18T15:04:14.803Z">
+<meta property="article:modified_time" content="2021-04-25T08:20:05.139Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Metrics">
@@ -373,7 +373,34 @@
 
       
         <h1 id="ML-Metrics"><a href="#ML-Metrics" class="headerlink" title="ML Metrics"></a>ML Metrics</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="Classification-Metrics"><a href="#Classification-Metrics" class="headerlink" title="Classification Metrics"></a>Classification Metrics</h2><h3 id="confusion-matrix"><a href="#confusion-matrix" class="headerlink" title="confusion matrix"></a>confusion matrix</h3><p><img src="/2021/04/17/ML-Metrics/image-20210418230321354.png" alt="image-20210418230321354" style="zoom: 50%;"></p>
-<h3 id="accuracy"><a href="#accuracy" class="headerlink" title="accuracy"></a>accuracy</h3><h3 id="recall"><a href="#recall" class="headerlink" title="recall"></a>recall</h3><h3 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h3><h2 id="Regression-Metrics"><a href="#Regression-Metrics" class="headerlink" title="Regression Metrics"></a>Regression Metrics</h2><p><strong>REF</strong></p>
+<ul>
+<li><strong>TP（真正例）</strong>：将<strong>正类</strong>样本预测<strong>正确（为正）</strong>；</li>
+<li><strong>FN（假反例）</strong>：将<strong>正例</strong>样本预测<strong>错误（为反）</strong>；</li>
+<li><strong>FP（假正例）</strong>：将<strong>反例</strong>样本预测<strong>错误（为正）</strong>；</li>
+<li><strong>TN（真反例）</strong>：将<strong>反例</strong>样本预测<strong>正确（为反）</strong>；</li>
+</ul>
+<h3 id="Accuracy"><a href="#Accuracy" class="headerlink" title="Accuracy"></a>Accuracy</h3><p><strong>准确率</strong></p>
+<p><strong>预测正确</strong>的样本数占<strong>样本总数</strong>的比例。</p>
+<script type="math/tex; mode=display">ACC=\frac{TP+TN}{TP+FN+FP+TN}</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.accuracy_score(y_true, y_pred, *, normalize=<span class="literal">True</span>, sample_weight=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Error-rate"><a href="#Error-rate" class="headerlink" title="Error rate"></a>Error rate</h3><p><strong>错误率</strong></p>
+<p><strong>预测错误</strong>的样本数占<strong>样本总数</strong>的比例。</p>
+<script type="math/tex; mode=display">Error=\frac{FP+FN}{TP+FN+FP+TN}</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - sklearn.metrics.accuracy_score(y_true, y_pred, *, normalize=<span class="literal">True</span>, sample_weight=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h3><p><strong>召回率、查全率</strong></p>
+<p><strong>灵敏度（sensitivity）</strong></p>
+<p><strong>真阳性率</strong></p>
+<p><strong>真实为正</strong>中<strong>预测为正</strong>的比例。</p>
+<script type="math/tex; mode=display">Recall=\frac{TP}{TP+FN}</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.recall_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Precision"><a href="#Precision" class="headerlink" title="Precision"></a>Precision</h3><p><strong>精确度、查准率</strong></p>
+<p><strong>预测为正</strong>中<strong>真实为正</strong>的比例。</p>
+<script type="math/tex; mode=display">Precision=\frac{TP}{TP+FP}</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.precision_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h3><p><strong>特异度</strong></p>
+<p><strong>真阴性率</strong></p>
+<p><strong>真实为反</strong>中<strong>预测为反</strong>的比例。</p>
+<script type="math/tex; mode=display">Sepcificity=\frac{TN}{TN+FP}</script><h3 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h3><h2 id="Regression-Metrics"><a href="#Regression-Metrics" class="headerlink" title="Regression Metrics"></a>Regression Metrics</h2><p><strong>REF</strong></p>
 <p></p><div id="refer-anchor-1"></div> [1] <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metric#module-sklearn.metrics">sklearn.metrics</a><p></p>
 
       
@@ -581,7 +608,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Metrics"><span class="nav-number">1.</span> <span class="nav-text">ML Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Metrics"><span class="nav-number">1.2.</span> <span class="nav-text">Classification Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#confusion-matrix"><span class="nav-number">1.2.1.</span> <span class="nav-text">confusion matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accuracy"><span class="nav-number">1.2.2.</span> <span class="nav-text">accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recall"><span class="nav-number">1.2.3.</span> <span class="nav-text">recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F1"><span class="nav-number">1.2.4.</span> <span class="nav-text">F1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Metrics"><span class="nav-number">1.3.</span> <span class="nav-text">Regression Metrics</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Metrics"><span class="nav-number">1.</span> <span class="nav-text">ML Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Metrics"><span class="nav-number">1.2.</span> <span class="nav-text">Classification Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#confusion-matrix"><span class="nav-number">1.2.1.</span> <span class="nav-text">confusion matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accuracy"><span class="nav-number">1.2.2.</span> <span class="nav-text">Accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-rate"><span class="nav-number">1.2.3.</span> <span class="nav-text">Error rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recall"><span class="nav-number">1.2.4.</span> <span class="nav-text">Recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precision"><span class="nav-number">1.2.5.</span> <span class="nav-text">Precision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Specificity"><span class="nav-number">1.2.6.</span> <span class="nav-text">Specificity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F1"><span class="nav-number">1.2.7.</span> <span class="nav-text">F1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Metrics"><span class="nav-number">1.3.</span> <span class="nav-text">Regression Metrics</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -622,7 +649,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19.5k字</span>
+  <span class="post-count">博客全站共19.8k字</span>
 </div>
         
 
