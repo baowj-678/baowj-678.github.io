@@ -99,13 +99,18 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="本文是对Consistency by Agreement in Zero-shot Neural Machine Translation论文的阅读总结。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426201028430.png">
+<meta property="og:image" content="https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426233520953.png">
+<meta property="og:image" content="https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426234435972.png">
+<meta property="og:image" content="https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426234553607.png">
 <meta property="article:published_time" content="2021-04-24T07:30:30.000Z">
-<meta property="article:modified_time" content="2021-04-24T07:54:39.932Z">
+<meta property="article:modified_time" content="2021-04-26T15:52:01.644Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Paper">
 <meta property="article:tag" content="Neural Machine Translation">
 <meta property="article:tag" content="Zero-shot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426201028430.png">
 
 
 
@@ -377,7 +382,41 @@
 <li><strong>零射学习（zero-shot learning）</strong>：对学习目标不提供任何样本。</li>
 </ul>
 <h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="定义【1】（Expected-Zero-shot-Consistency）"><a href="#定义【1】（Expected-Zero-shot-Consistency）" class="headerlink" title="定义【1】（Expected Zero-shot Consistency）"></a>定义【1】（Expected Zero-shot Consistency）</h3><p>令<script type="math/tex">\varepsilon_s\ \varepsilon_0</script>分别表示<strong>监督（supervised）</strong>和<strong>零射（zero-shot）</strong>任务，<script type="math/tex">\mathcal{l(\cdot)}</script>表示非负的<strong>损失函数</strong>，<script type="math/tex">\mathcal{M}</script>是使用<strong>最大期望监督损失（maximum expected supervised loss）</strong>的模型，并满足下列约束：</p>
-<script type="math/tex; mode=display">\mathrm{max}_{(i,j)\in \varepsilon_s}\mathbb{E}_{x_i,x_j}[l(\mathcal{M})]<\epsilon</script><p><strong>REF</strong></p>
+<script type="math/tex; mode=display">\mathrm{max}_{(i,j)\in \varepsilon_s}\mathbb{E}_{x_i,x_j}[l(\mathcal{M})]<\epsilon</script><p>当对于<script type="math/tex">k(\epsilon)>0</script>满足：</p>
+<script type="math/tex; mode=display">\max_{(i,j)\in \varepsilon_0}\mathbb{E}_{x_i,x_j}[l(M)]<k(\epsilon)</script><p>且当<script type="math/tex">\epsilon\to0</script>时，<script type="math/tex">k(\epsilon)\to 0</script></p>
+<p>直观上说明，就是如果<strong>监督任务上的低loss会使零射任务上的loss降低</strong>则称<strong>zero-shot consistent</strong>。</p>
+<h3 id="新方法"><a href="#新方法" class="headerlink" title="新方法"></a>新方法</h3><p>考虑对于四种语言（En，Es，Fr，Ru）的任务：</p>
+<p><img src="/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426201028430.png" alt="image-20210426201028430" style="zoom:67%;"></p>
+<p>考虑对<strong>En-Fr</strong>的联合似然：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{EnFr}^{ind}(\theta)=\log[\mathbb{P}_\theta(\mathrm{x}_{Fr}|\mathrm{x}_{En})\mathbb{P}_\theta(\mathrm{x}_{En}|\mathrm{x}_{Fr})]</script><script type="math/tex; mode=display">=\log[\sum_{z'_{Es},z'_{Ru}}\mathbb{P}_\theta(\mathrm{x}_{Fr},\mathrm{z}'_{Es},\mathrm{z}'_{Ru}|\mathrm{x}_{En})]\times</script><script type="math/tex; mode=display">\sum_{z''_{Es},z''_{Ru}}\mathbb{P}_\theta(\mathrm{x}_{En},\mathrm{z}''_{Es},\mathrm{z}''_{Ru}|\mathrm{x}_{Fr})</script><p>其中<strong>Es，Ru</strong>是<strong>隐译文（latent translations）</strong>，同时这里假设<script type="math/tex">En\to Fr</script>和<script type="math/tex">Fr\to En</script>是<strong>相互独立</strong>的。</p>
+<p>为了简便起见，令<script type="math/tex">\mathrm{z}:=(\mathrm{z}_{Es},\mathrm{z}_{Ru})</script></p>
+<p>于是得到下面简化的公式：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{EnFr}^{agree}(\theta)=\log\sum_\mathrm{z}[\mathbb{P}_\theta(\mathrm{x}_{Fr},\mathrm{z}|\mathrm{x}_{En})\mathbb{P}_\theta(\mathrm{x}_{En},\mathrm{z}|\mathrm{x}_{Fr})] \tag{2}</script><p>接着利用下列公式：</p>
+<script type="math/tex; mode=display">\mathbb{P}(x,z|y)=\mathbb{P}(x|z,y)\mathbb{P}(z|y)</script><script type="math/tex; mode=display">\mathbb{P}(x_{Fr}|z,x_{En})\approx \mathbb{P}(x_{Fr}|x_{En})</script><p>将<font color="red">(2)</font>式变形为：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{EnFr}(\theta)\approx \tag{3}</script><script type="math/tex; mode=display">\log \mathbb{P}_\theta(\mathrm{x}_{Fr}|\mathrm{x}_{En})+\log\mathbb{P}_\theta(\mathrm{x}_{En}|\mathrm{x}_{Fr})+\  (composite\ likelihood\ terms)</script><script type="math/tex; mode=display">\log\sum_\mathrm{z}\mathbb{P}_\theta(\mathrm{z}|\mathrm{x}_{En})\mathbb{P}_\theta(\mathrm{z}|\mathrm{x}_{Fr})\ (agreement\ term)</script><h4 id="Lower-bound"><a href="#Lower-bound" class="headerlink" title="Lower bound"></a>Lower bound</h4><p>对上式的<strong>(agreement term)</strong>利用<strong>Jensen不等式</strong>得到下面不等式：</p>
+<script type="math/tex; mode=display">\log\sum_\mathrm{z}\mathbb{P}_\theta(\mathrm{z}|\mathrm{x}_{En})\mathbb{P}_\theta(\mathrm{z}|\mathrm{x}_{Fr})</script><script type="math/tex; mode=display">\ge \mathbb{E}_{\mathrm{z}_{Es}|\mathrm{x}_{En}}[\log \mathbb{P}_\theta(\mathrm{z}_{Es}|\mathrm{x}_{Fr})]+</script><script type="math/tex; mode=display">\mathbb{E}_{\mathrm{z}_{Ru}|\mathrm{x}_{En}}[\log\mathbb{P}_\theta(\mathrm{z}_{Ru}|\mathrm{x}_{Fr})]</script><h3 id="定理【2】（Agreement-Zero-shot-Consistency）"><a href="#定理【2】（Agreement-Zero-shot-Consistency）" class="headerlink" title="定理【2】（Agreement Zero-shot Consistency）"></a>定理【2】（Agreement Zero-shot Consistency）</h3><script type="math/tex; mode=display">L_1,L_2,L_3$$是三种语言，其中$$L_1 \leftrightarrow L_2,L_2\leftrightarrow L_3$$是监督学习，$$L_1\leftrightarrow L_3$$是零射学习的内容。
+
+如果$$\mathbb{E}_{\mathrm{x_1,x_2,x_3}}[\mathcal{L}_{12}^{agree}(\theta)+\mathcal{L}_{23}^{agree}{(\theta)}]$$存在边界$$\epsilon>0$$，则：
+
+$$\mathbb{E}_{\mathrm{x_1,x_3}}[-\log\mathbb{P}_\theta(\mathrm{x_3}|\mathrm{x_1})]\le k(\epsilon)\ where \ k(\epsilon)\to 0\ as \ \epsilon\to 0</script><h3 id="模型总体结构"><a href="#模型总体结构" class="headerlink" title="模型总体结构"></a>模型总体结构</h3><p>给定平行句子<script type="math/tex">\mathrm{x_{En},x_{Fr}}</script>，以及辅助语言<script type="math/tex">\mathrm{x_{Es}}</script>。</p>
+<h4 id="agreement-term"><a href="#agreement-term" class="headerlink" title="agreement term"></a>agreement term</h4><p><font color="red">(3)</font>式的<strong>agreement term</strong>按下列步骤计算：</p>
+<p>首先将<strong>Es标签</strong>连接（concatenate）到<script type="math/tex">\mathrm{x_{En},x_{Fr}}</script>句子上，然后<strong>编码（encode）</strong>这些句子，使之翻译成<strong>Es</strong>语言</p>
+<p><img src="/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426233520953.png" alt="image-20210426233520953" style="zoom:67%;"></p>
+<p>然后，对编码的句子进行<strong>解码（decode）</strong>，得到辅助语言的翻译内容<script type="math/tex">\mathrm{z_{Es}(x_{En}),z_{Es}(x_{Fr})}</script>。</p>
+<p>接着，用<script type="math/tex">\mathrm{(x_{Fr},z_{Es}(x_{En})),(x_{En},z_{Es}(x_{Fr}))}</script>分别作为两个<strong>平行语料</strong>训练<script type="math/tex">\mathrm{En\to Es,Fr\to Es}</script>两个翻译器，可以计算出：</p>
+<script type="math/tex; mode=display">\log\mathbb{P}_\theta(\mathrm{z_{Es}(x_{Fr})|x_{En}})</script><script type="math/tex; mode=display">\log\mathbb{P}_\theta(\mathrm{z_{Es}(x_{En})|x_{Fr}})</script><p><img src="/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426234435972.png" alt="image-20210426234435972" style="zoom:67%;"></p>
+<h4 id="算法流程如下："><a href="#算法流程如下：" class="headerlink" title="算法流程如下："></a>算法流程如下：</h4><p><img src="/2021/04/24/Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation/image-20210426234553607.png" alt="image-20210426234553607" style="zoom:67%;"></p>
+<p>在每一轮迭代中，我们希望：</p>
+<ol>
+<li>提高梯度下降对<strong>zero-shot</strong>的影响；</li>
+<li>降低梯度下降对<strong>监督学习</strong>的影响；</li>
+</ol>
+<p>为此分别使用：</p>
+<ol>
+<li><strong>连续贪心解码（greedy continuous decoding）</strong></li>
+<li><strong>停止梯度下降（stop-gradient）</strong></li>
+</ol>
+<p><strong>REF</strong></p>
 <p></p><div id="#refer-*"></div>[*]<a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/N19-1121/">Consistency by Agreement in Zero-shot Neural Machine Translation</a><p></p>
 
       
@@ -583,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation"><span class="nav-number">1.</span> <span class="nav-text">Consistency by Agreement in Zero-shot Neural Machine Translation[*]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">1.2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E3%80%901%E3%80%91%EF%BC%88Expected-Zero-shot-Consistency%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义【1】（Expected Zero-shot Consistency）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Consistency-by-Agreement-in-Zero-shot-Neural-Machine-Translation"><span class="nav-number">1.</span> <span class="nav-text">Consistency by Agreement in Zero-shot Neural Machine Translation[*]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">1.2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E3%80%901%E3%80%91%EF%BC%88Expected-Zero-shot-Consistency%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义【1】（Expected Zero-shot Consistency）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">新方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lower-bound"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Lower bound</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E3%80%902%E3%80%91%EF%BC%88Agreement-Zero-shot-Consistency%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">定理【2】（Agreement Zero-shot Consistency）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.4.</span> <span class="nav-text">模型总体结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#agreement-term"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">agreement term</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">算法流程如下：</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -624,7 +663,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19.8k字</span>
+  <span class="post-count">博客全站共20.1k字</span>
 </div>
         
 
