@@ -100,8 +100,9 @@
 <meta property="og:description" content="本文主要介绍机器学习性能度量方法（主要依赖sklearn.metrics）">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://1.15.86.100/2021/04/17/ML-Metrics/image-20210418230321354.png">
+<meta property="og:image" content="https://1.15.86.100/2021/04/17/ML-Metrics/sphx_glr_plot_roc_0011.png">
 <meta property="article:published_time" content="2021-04-17T02:12:13.000Z">
-<meta property="article:modified_time" content="2021-05-16T08:00:59.079Z">
+<meta property="article:modified_time" content="2021-05-16T08:29:38.142Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Metrics">
@@ -403,22 +404,41 @@
 <p><strong>真实为反</strong>中<strong>预测为反</strong>的比例。</p>
 <script type="math/tex; mode=display">Sepcificity=\frac{TN}{TN+FP}</script><hr>
 <h3 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h3><p>可以看成对<strong>精确度</strong>和<strong>召回率</strong>的加权平均。</p>
-<script type="math/tex; mode=display">F1=2\cdot \frac{recall\cdot precision}{recall + precision}</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.f1_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<script type="math/tex; mode=display">F1=2\cdot \frac{recall\cdot precision}{recall + precision}</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.f1_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="ROC"><a href="#ROC" class="headerlink" title="ROC"></a>ROC</h3><p><strong>受试者工作特征曲线</strong>。</p>
+<ul>
+<li><strong>横坐标</strong>：假阳性率（FPR）【真实正样本被预测为负/真实正样本】</li>
+<li><strong>纵坐标</strong>：真阳性率（TPR）【真实正样本被预测为正/真实正样本】</li>
+</ul>
+<p><img src="/2021/04/17/ML-Metrics/sphx_glr_plot_roc_0011.png" alt="../_images/sphx_glr_plot_roc_0011.png"></p>
+<p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.roc_curve(y_true, y_score, *, pos_label=<span class="literal">None</span>, sample_weight=<span class="literal">None</span>, drop_intermediate=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h3 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h3><p><strong>ROC曲线下方面积</strong>。</p>
+<p>面积越大的分类器越好。</p>
+<p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.roc_auc_score(y_true, y_score, *, average=<span class="string">'macro'</span>, sample_weight=<span class="literal">None</span>, max_fpr=<span class="literal">None</span>, multi_class=<span class="string">'raise'</span>, labels=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h2 id="Regression-Metrics（回归）"><a href="#Regression-Metrics（回归）" class="headerlink" title="Regression Metrics（回归）"></a>Regression Metrics（回归）</h2><h3 id="MSE"><a href="#MSE" class="headerlink" title="MSE"></a>MSE</h3><p><strong>均方差</strong>误差。</p>
-<script type="math/tex; mode=display">\mathrm{MSE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(y_i-\hat{y_i})^2</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_squared_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>, squared=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+<script type="math/tex; mode=display">\mathrm{MSE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(y_i-\hat{y_i})^2</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_squared_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>, squared=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h3 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h3><p><strong>平均绝对值误差</strong>。</p>
-<script type="math/tex; mode=display">\mathrm{MAE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N|y_i-\hat{y_i}|</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_absolute_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<script type="math/tex; mode=display">\mathrm{MAE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N|y_i-\hat{y_i}|</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_absolute_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h3 id="MSLE"><a href="#MSLE" class="headerlink" title="MSLE"></a>MSLE</h3><p><strong>对数均方误差</strong>。</p>
-<script type="math/tex; mode=display">\mathrm{MSLE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(\ln(1+y_i)-\ln(1+\hat{y_i}))^2</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_squared_log_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<script type="math/tex; mode=display">\mathrm{MSLE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(\ln(1+y_i)-\ln(1+\hat{y_i}))^2</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_squared_log_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h3 id="Max-Error"><a href="#Max-Error" class="headerlink" title="Max Error"></a>Max Error</h3><p><strong>最大误差</strong>。</p>
-<script type="math/tex; mode=display">\mathrm{Max\_Error}(y,\hat{y})=\max(|y_i-\hat{y_i}|)</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.max_error(y_true, y_pred)</span><br></pre></td></tr></tbody></table></figure>
+<script type="math/tex; mode=display">\mathrm{Max\_Error}(y,\hat{y})=\max(|y_i-\hat{y_i}|)</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.max_error(y_true, y_pred)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h3 id="R-2"><a href="#R-2" class="headerlink" title="R^2"></a><script type="math/tex">R^2</script></h3><p><strong>决定系数</strong>。</p>
-<script type="math/tex; mode=display">R^2(y,\hat{y_i})=1-\frac{\sum_{i=1}^N(y_i-\hat{y_i})^2}{\sum_{i=1}^N(y_i-\bar{y})^2}</script><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.r2_score(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<script type="math/tex; mode=display">R^2(y,\hat{y_i})=1-\frac{\sum_{i=1}^N(y_i-\hat{y_i})^2}{\sum_{i=1}^N(y_i-\bar{y})^2}</script><p><strong>Code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.r2_score(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <p><strong>REF</strong></p>
 <p></p><div id="refer-anchor-1"></div> [1] <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/classes.html?highlight=metric#module-sklearn.metrics">sklearn.metrics</a><p></p>
 
@@ -559,7 +579,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -627,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Metrics"><span class="nav-number">1.</span> <span class="nav-text">ML Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Metrics%EF%BC%88%E5%88%86%E7%B1%BB%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Classification Metrics（分类）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#confusion-matrix"><span class="nav-number">1.2.1.</span> <span class="nav-text">confusion matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accuracy"><span class="nav-number">1.2.2.</span> <span class="nav-text">Accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-rate"><span class="nav-number">1.2.3.</span> <span class="nav-text">Error rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recall"><span class="nav-number">1.2.4.</span> <span class="nav-text">Recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precision"><span class="nav-number">1.2.5.</span> <span class="nav-text">Precision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Specificity"><span class="nav-number">1.2.6.</span> <span class="nav-text">Specificity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F1"><span class="nav-number">1.2.7.</span> <span class="nav-text">F1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Metrics%EF%BC%88%E5%9B%9E%E5%BD%92%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">Regression Metrics（回归）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MSE"><span class="nav-number">1.3.1.</span> <span class="nav-text">MSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAE"><span class="nav-number">1.3.2.</span> <span class="nav-text">MAE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MSLE"><span class="nav-number">1.3.3.</span> <span class="nav-text">MSLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Max-Error"><span class="nav-number">1.3.4.</span> <span class="nav-text">Max Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#R-2"><span class="nav-number">1.3.5.</span> <span class="nav-text">R^2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ML-Metrics"><span class="nav-number">1.</span> <span class="nav-text">ML Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Metrics%EF%BC%88%E5%88%86%E7%B1%BB%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Classification Metrics（分类）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#confusion-matrix"><span class="nav-number">1.2.1.</span> <span class="nav-text">confusion matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accuracy"><span class="nav-number">1.2.2.</span> <span class="nav-text">Accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-rate"><span class="nav-number">1.2.3.</span> <span class="nav-text">Error rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recall"><span class="nav-number">1.2.4.</span> <span class="nav-text">Recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precision"><span class="nav-number">1.2.5.</span> <span class="nav-text">Precision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Specificity"><span class="nav-number">1.2.6.</span> <span class="nav-text">Specificity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F1"><span class="nav-number">1.2.7.</span> <span class="nav-text">F1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC"><span class="nav-number">1.2.8.</span> <span class="nav-text">ROC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUC"><span class="nav-number">1.2.9.</span> <span class="nav-text">AUC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Metrics%EF%BC%88%E5%9B%9E%E5%BD%92%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">Regression Metrics（回归）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MSE"><span class="nav-number">1.3.1.</span> <span class="nav-text">MSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAE"><span class="nav-number">1.3.2.</span> <span class="nav-text">MAE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MSLE"><span class="nav-number">1.3.3.</span> <span class="nav-text">MSLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Max-Error"><span class="nav-number">1.3.4.</span> <span class="nav-text">Max Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#R-2"><span class="nav-number">1.3.5.</span> <span class="nav-text">R^2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -668,7 +688,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22.1k字</span>
+  <span class="post-count">博客全站共23k字</span>
 </div>
         
 
