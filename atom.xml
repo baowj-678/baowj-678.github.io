@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-05-17T12:46:06.913Z</updated>
+  <updated>2021-05-20T15:57:03.655Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Socket</title>
+    <link href="https://1.15.86.100/2021/05/20/Socket/"/>
+    <id>https://1.15.86.100/2021/05/20/Socket/</id>
+    <published>2021-05-20T15:25:26.000Z</published>
+    <updated>2021-05-20T15:57:03.655Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h1><h2 id="Socket-API"><a href="#Socket-API" class="headerlink" title="Socket API"></a>Socket API</h2><h4 id="WSAStartup"><a href="#WSAStartup" class="headerlink" title="WSAStartup"></a>WSAStartup</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">WSAStartup</span><span class="params">(WORD wVersionRequested, LPWSADATA IpWSAData)</span></span>;</span><br></pre></td></tr></tbody></table></figure><ul><li><p>使用<strong>Socket</strong>应用程序之前，必须调用<strong>WSAStartup</strong>；</p></li><li><p>参数：</p><ul><li><p><strong>WORD wVersionRequested</strong>，指明程序请求使用的<strong>WinSock</strong>版本，<strong>高位字节</strong>指明<strong>副版本</strong>，<strong>低位字节</strong>指明<strong>主版本</strong>；</p><p>  例如：<strong>0x102</strong>表示<strong>2.1</strong>版；</p></li><li><p><strong>LPWSADATA IpWSAData</strong>，指向<strong>WSADATA</strong>的指针，保存返回的实际的<strong>WinSock</strong>的版本信息；</p></li></ul></li></ul><h4 id="WSACleanup"><a href="#WSACleanup" class="headerlink" title="WSACleanup"></a>WSACleanup</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">WSACleanup</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure><ul><li>应用程序在完成<strong>Socket</strong>使用后调用；</li><li>解除与<strong>Socket</strong>库的绑定；</li><li>释放<strong>Socket</strong>系统资源；</li></ul><h4 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> protofamily, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br></pre></td></tr></tbody></table></figure><ul><li><p>创建<strong>套接字</strong>；</p></li><li><p>返回<strong>套接字</strong>描述符；</p></li><li><p>参数：</p><ul><li><p><strong>int protofamily</strong>：指明<strong>协议族</strong>，</p><p>  <strong>PF_INET</strong>——<strong>TCP/IP</strong></p></li><li><p><strong>int type</strong>：指明套接字类型，</p><p>  <strong>SOCK_STREAM</strong>：应用层到传输层（TCP）；</p><p>  <strong>SOCK_DGRAM</strong>：应用层到传输层（UDP）；</p><p>  <strong>SOCK_RAM</strong>：应用层到网络层；</p></li><li><p><strong>int protocol</strong>：指明协议号，0为默认；</p></li></ul></li></ul><h4 id="closesocket"><a href="#closesocket" class="headerlink" title="closesocket"></a>closesocket</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">closesocket</span><span class="params">(SOCKET sd)</span></span>;</span><br></pre></td></tr></tbody></table></figure><ul><li>关闭一个<strong>套接字</strong>；</li><li>如果多个进程共享一个套接字，调用<strong>closesocket</strong>将套接字<strong>引用计数</strong>减1，减至0才关闭该套接字；</li><li>一个进程中的多个线程对一个套接字的使用没有<strong>计数</strong>功能；</li><li>参数：<ul><li><strong>SOCKET sd</strong>：套接字描述符；</li></ul></li><li>返回：0——成功，<strong>SOCKET_ERROR</strong>——失败；</li></ul><h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr, <span class="keyword">socklen_t</span> addrlen)</span></span>;</span><br></pre></td></tr></tbody></table></figure><ul><li><p>绑定<strong>套接字</strong>本地<strong>端点地址</strong>；</p></li><li><p>客户端一般不用调用，服务器端需要；</p></li><li><p>参数：</p><ul><li><strong>int sockfd</strong>：套接字描述符；</li><li><strong>const struct sockaddr *addr</strong>：本地端口地址（IP地址+端口号），地址通配符<strong>INADDR_ANY</strong>可以绑定所有端口；</li><li><strong>socklen_t addrlen</strong>：地址大小；</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">关于计算机网络套接字Socket。</summary>
+    
+    
+    
+    
+    <category term="Computer Network" scheme="https://1.15.86.100/tags/Computer-Network/"/>
+    
+    <category term="Socket" scheme="https://1.15.86.100/tags/Socket/"/>
+    
+  </entry>
   
   <entry>
     <title>A Frustratingly Easy Approach for Joint Entity and Relation Extraction</title>
@@ -428,25 +449,6 @@
     <category term="Feature Engineering" scheme="https://1.15.86.100/tags/Feature-Engineering/"/>
     
     <category term="LVW" scheme="https://1.15.86.100/tags/LVW/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Server</title>
-    <link href="https://1.15.86.100/2021/04/02/Server/"/>
-    <id>https://1.15.86.100/2021/04/02/Server/</id>
-    <published>2021-04-02T09:29:32.000Z</published>
-    <updated>2021-04-02T09:31:07.237Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="服务器管理"><a href="#服务器管理" class="headerlink" title="服务器管理"></a>服务器管理</h1><h3 id="查看IP登录情况"><a href="#查看IP登录情况" class="headerlink" title="查看IP登录情况"></a>查看IP登录情况</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -n 指定登录次数前多少名</span></span><br><span class="line">awk '{print $1}' blog-log |sort |uniq -c|sort -nr|head -n 10000</span><br></pre></td></tr></tbody></table></figure>]]></content>
-    
-    
-    <summary type="html">服务器管理云云</summary>
-    
-    
-    
-    
-    <category term="Server" scheme="https://1.15.86.100/tags/Server/"/>
     
   </entry>
   

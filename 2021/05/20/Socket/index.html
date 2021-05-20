@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,Cluser,K-means," />
+  <meta name="keywords" content="Computer Network,Socket," />
 
 
 
@@ -92,22 +92,19 @@
 
 
 
-<meta name="description" content="对K-means聚类算法的介绍。">
+<meta name="description" content="关于计算机网络套接字Socket。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="K-means">
-<meta property="og:url" content="https://1.15.86.100/2021/05/15/K-means/index.html">
+<meta property="og:title" content="Socket">
+<meta property="og:url" content="https://1.15.86.100/2021/05/20/Socket/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="对K-means聚类算法的介绍。">
+<meta property="og:description" content="关于计算机网络套接字Socket。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://1.15.86.100/2021/05/15/K-means/sphx_glr_plot_kmeans_assumptions_001.png">
-<meta property="article:published_time" content="2021-05-15T08:10:22.000Z">
-<meta property="article:modified_time" content="2021-05-16T15:29:16.690Z">
+<meta property="article:published_time" content="2021-05-20T15:25:26.000Z">
+<meta property="article:modified_time" content="2021-05-20T15:57:03.655Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="Machine Learning">
-<meta property="article:tag" content="Cluser">
-<meta property="article:tag" content="K-means">
+<meta property="article:tag" content="Computer Network">
+<meta property="article:tag" content="Socket">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://1.15.86.100/2021/05/15/K-means/sphx_glr_plot_kmeans_assumptions_001.png">
 
 
 
@@ -137,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2021/05/15/K-means/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/05/20/Socket/"/>
 
 
 
 
 
-  <title>K-means | BaoWJ's Blog</title>
+  <title>Socket | BaoWJ's Blog</title>
   
 
 
@@ -319,7 +316,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">K-means</h2>
+          <h2 class="post-title" itemprop="name headline">Socket</h2>
         
 
         <div class="post-meta">
@@ -331,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-15T16:10:22+08:00">
-                2021-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-20T23:25:26+08:00">
+                2021-05-20
               </time>
             
 
@@ -356,7 +353,7 @@
 
           
               <div class="post-description">
-                  对K-means聚类算法的介绍。
+                  关于计算机网络套接字Socket。
               </div>
           
 
@@ -373,67 +370,71 @@
       
 
       
-        <h1 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h1><h2 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>K-means</strong>聚类算法是一种简单的<strong>无监督</strong>聚类方法。</p>
-<h3 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h3><p><strong>输入</strong>：类数<strong>K</strong>，训练数据<strong>D</strong>。</p>
+        <h1 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h1><h2 id="Socket-API"><a href="#Socket-API" class="headerlink" title="Socket API"></a>Socket API</h2><h4 id="WSAStartup"><a href="#WSAStartup" class="headerlink" title="WSAStartup"></a>WSAStartup</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">WSAStartup</span><span class="params">(WORD wVersionRequested, LPWSADATA IpWSAData)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
-<li>选择（一般随机）<strong>K</strong>个点作为初始<strong>簇中心</strong>；</li>
-<li>将每个点指派到<strong>最近的簇中心</strong>形成<strong>K个簇</strong>；</li>
-<li>重新计算每个<strong>簇</strong>的簇中心；</li>
-<li>重复上述步骤直到<strong>簇中心不发生变化</strong>；</li>
-</ul>
-<p><strong>算法特点</strong>：</p>
-<ul>
-<li>简单、直观；</li>
-<li>聚类结果依赖于<strong>𝐾</strong>个初始簇中心的选择；</li>
-<li>容易陷入局部最优，不易处理非簇状数据；</li>
-<li>聚类结果容易受离群值影响；</li>
-</ul>
-<p><strong>时间复杂度</strong>：</p>
-<script type="math/tex; mode=display">O(mnkt)</script><p>其中，<script type="math/tex">m</script>：数据维度；<script type="math/tex">n</script>：样本个数；<script type="math/tex">k</script>：类别数；<script type="math/tex">t</script>：迭代次数。</p>
-<p><img src="/2021/05/15/K-means/sphx_glr_plot_kmeans_assumptions_001.png" alt="Incorrect Number of Blobs, Anisotropicly Distributed Blobs, Unequal Variance, Unevenly Sized Blobs"></p>
-<h2 id="改进模型"><a href="#改进模型" class="headerlink" title="改进模型"></a>改进模型</h2><h3 id="K-medoids"><a href="#K-medoids" class="headerlink" title="K-medoids"></a>K-medoids</h3><p><strong>K-medoids</strong>改进方法：</p>
-<ul>
-<li>选取每个簇中到<strong>簇内其他点</strong>的<strong>距离和最小</strong>的样本作为簇的中心。</li>
-</ul>
-<h3 id="二分K-means"><a href="#二分K-means" class="headerlink" title="二分K-means"></a>二分K-means</h3><p><strong>Bi K-means</strong>改进方法：</p>
-<ul>
-<li>每次从所有簇中选择能最大限度降低<strong>损失函数</strong>的簇，然后将该簇<strong>划分为两个簇</strong>，重复该过程，直至簇集合中含有<strong>𝐾</strong>个簇；</li>
-</ul>
-<h3 id="K-median"><a href="#K-median" class="headerlink" title="K-median"></a>K-median</h3><p><strong>K-median</strong>改进方法：</p>
-<ul>
-<li>距离度量使用<strong>曼哈顿距离</strong>；</li>
-<li>每次<strong>簇中心</strong>使用簇的中位数；</li>
-</ul>
-<h2 id="评价标准"><a href="#评价标准" class="headerlink" title="评价标准"></a>评价标准</h2><h3 id="内部指标"><a href="#内部指标" class="headerlink" title="内部指标"></a>内部指标</h3><ul>
-<li><strong>紧凑度</strong>：衡量簇内样本之间是否足够紧凑；</li>
-<li><strong>分离度</strong>：衡量不同簇之间距离是否足够远；</li>
-</ul>
-<h3 id="外部指标"><a href="#外部指标" class="headerlink" title="外部指标"></a>外部指标</h3><ul>
-<li>将<strong>聚类</strong>结果与其他模型进行比较；</li>
-</ul>
-<h3 id="轮廓系数"><a href="#轮廓系数" class="headerlink" title="轮廓系数"></a>轮廓系数</h3><p><strong>轮廓系数</strong>是聚类效果好坏的一种评价方式。它结合<strong>紧凑度</strong>和<strong>分离度</strong>两种因素。可以用来在相同原始数据的基础上用来评价不同算法，或者算法不同运行方式对聚类结果所产生的影响。</p>
-<h4 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h4><ul>
-<li><p><strong>簇内不相似度</strong>：计算样本<script type="math/tex">x_i</script>到同簇其他样本的平均距离<script type="math/tex">a_i</script>，称为样本<script type="math/tex">x_i</script>的<strong>簇内不相似度</strong>。</p>
-<script type="math/tex; mode=display">a_i=\frac{1}{N-1}\sum_{j \ne i}d(x_i,x_j)</script><p>  <script type="math/tex">a_i</script>越小，说明样本<script type="math/tex">x_i</script>越应该被聚类到该簇。</p>
+<li><p>使用<strong>Socket</strong>应用程序之前，必须调用<strong>WSAStartup</strong>；</p>
 </li>
-<li><p><strong>簇不相似度</strong>：簇<strong>C</strong>中所有样本的<strong>簇内不相似度</strong>的<strong>均值</strong>。</p>
+<li><p>参数：</p>
+<ul>
+<li><p><strong>WORD wVersionRequested</strong>，指明程序请求使用的<strong>WinSock</strong>版本，<strong>高位字节</strong>指明<strong>副版本</strong>，<strong>低位字节</strong>指明<strong>主版本</strong>；</p>
+<p>  例如：<strong>0x102</strong>表示<strong>2.1</strong>版；</p>
 </li>
-<li><p><strong>不相似度</strong>：样本<script type="math/tex">x_i</script>到其他某簇<script type="math/tex">C_j</script>的<strong>所有样本</strong>的<strong>平均距离</strong><script type="math/tex">b_{iC_j}</script>，称为样本<script type="math/tex">x_i</script>与簇<script type="math/tex">C_j</script>的<strong>不相似度</strong>。</p>
-<script type="math/tex; mode=display">b_{iC_j}=\frac{1}{N_{C_j}}\sum_{x\in C_j}d(x_i,x)</script></li>
-<li><p><strong>簇间不相似度</strong>：样本<script type="math/tex">x_i</script>与其他簇的<strong>不相似度</strong>的<strong>最小值</strong><script type="math/tex">b_i</script>。</p>
-<script type="math/tex; mode=display">b_i=\min(b_1,\cdots,b_N)</script><p>  <script type="math/tex">b_i</script>越大，说明样本<script type="math/tex">x_i</script>越不属于其他簇。</p>
+<li><p><strong>LPWSADATA IpWSAData</strong>，指向<strong>WSADATA</strong>的指针，保存返回的实际的<strong>WinSock</strong>的版本信息；</p>
 </li>
-<li><p><strong>轮廓系数</strong>：</p>
-<script type="math/tex; mode=display">s(x_i)=\frac{b_i-a_i}{\max(a_i,b_i)}</script></li>
 </ul>
-<h4 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h4><ul>
-<li><script type="math/tex">s(x_i)</script>越接近<strong>1</strong>，则说明样本<script type="math/tex">x_i</script>聚类越合理；</li>
-<li><script type="math/tex">s(x_i)</script>越接近<strong>-1</strong>，则说明样本<script type="math/tex">x_i</script>越应该分类到另外的簇；</li>
-<li><script type="math/tex">s(x_i)</script>近似为<strong>0</strong>，则说明样本<script type="math/tex">x_i</script>在两个簇的<strong>边界</strong>上。</li>
+</li>
 </ul>
-<h3 id="兰德指数"><a href="#兰德指数" class="headerlink" title="兰德指数"></a>兰德指数</h3><p><strong>兰德指数（Rand index）</strong>需要给定<strong>实际标签C</strong>，假设<script type="math/tex">y_i,y_j</script>是<script type="math/tex">x_i,x_j</script>聚类结果，<script type="math/tex">y_i^*,y_j^*</script>是实际类别。则，<script type="math/tex">a</script>表示<script type="math/tex">y_i^*=y_j^*\and y_i=y_j</script>的对数，<script type="math/tex">b</script>表示<script type="math/tex">y_i^*\ne y_j^*\and y_i\ne y_j</script>的对数：</p>
-<script type="math/tex; mode=display">\mathrm{RI}=\frac{a + b}{C_{|C|}^2}</script><h4 id="判断方法-1"><a href="#判断方法-1" class="headerlink" title="判断方法"></a>判断方法</h4><ul>
-<li><strong>兰德指数</strong>取值范围为<strong>[0, 1]</strong>，值越大意味着聚类结果与真实情况越吻合；</li>
+<h4 id="WSACleanup"><a href="#WSACleanup" class="headerlink" title="WSACleanup"></a>WSACleanup</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">WSACleanup</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>应用程序在完成<strong>Socket</strong>使用后调用；</li>
+<li>解除与<strong>Socket</strong>库的绑定；</li>
+<li>释放<strong>Socket</strong>系统资源；</li>
+</ul>
+<h4 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> protofamily, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>创建<strong>套接字</strong>；</p>
+</li>
+<li><p>返回<strong>套接字</strong>描述符；</p>
+</li>
+<li><p>参数：</p>
+<ul>
+<li><p><strong>int protofamily</strong>：指明<strong>协议族</strong>，</p>
+<p>  <strong>PF_INET</strong>——<strong>TCP/IP</strong></p>
+</li>
+<li><p><strong>int type</strong>：指明套接字类型，</p>
+<p>  <strong>SOCK_STREAM</strong>：应用层到传输层（TCP）；</p>
+<p>  <strong>SOCK_DGRAM</strong>：应用层到传输层（UDP）；</p>
+<p>  <strong>SOCK_RAM</strong>：应用层到网络层；</p>
+</li>
+<li><p><strong>int protocol</strong>：指明协议号，0为默认；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="closesocket"><a href="#closesocket" class="headerlink" title="closesocket"></a>closesocket</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">closesocket</span><span class="params">(SOCKET sd)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>关闭一个<strong>套接字</strong>；</li>
+<li>如果多个进程共享一个套接字，调用<strong>closesocket</strong>将套接字<strong>引用计数</strong>减1，减至0才关闭该套接字；</li>
+<li>一个进程中的多个线程对一个套接字的使用没有<strong>计数</strong>功能；</li>
+<li>参数：<ul>
+<li><strong>SOCKET sd</strong>：套接字描述符；</li>
+</ul>
+</li>
+<li>返回：0——成功，<strong>SOCKET_ERROR</strong>——失败；</li>
+</ul>
+<h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr, <span class="keyword">socklen_t</span> addrlen)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>绑定<strong>套接字</strong>本地<strong>端点地址</strong>；</p>
+</li>
+<li><p>客户端一般不用调用，服务器端需要；</p>
+</li>
+<li><p>参数：</p>
+<ul>
+<li><strong>int sockfd</strong>：套接字描述符；</li>
+<li><strong>const struct sockaddr *addr</strong>：本地端口地址（IP地址+端口号），地址通配符<strong>INADDR_ANY</strong>可以绑定所有端口；</li>
+<li><strong>socklen_t addrlen</strong>：地址大小；</li>
+</ul>
+</li>
 </ul>
 
       
@@ -452,11 +453,9 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+            <a href="../../../../tags/Computer-Network/" rel="tag"><i class="fa fa-tag"></i> Computer Network</a>
           
-            <a href="../../../../tags/Cluser/" rel="tag"><i class="fa fa-tag"></i> Cluser</a>
-          
-            <a href="../../../../tags/K-means/" rel="tag"><i class="fa fa-tag"></i> K-means</a>
+            <a href="../../../../tags/Socket/" rel="tag"><i class="fa fa-tag"></i> Socket</a>
           
         </div>
       
@@ -469,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../Discretization/" rel="next" title="Discretization">
-                <i class="fa fa-chevron-left"></i> Discretization
+              <a href="../../16/A-Frustratingly-Easy-Approach-for-Joint-Entity-and-Relation-Extraction/" rel="next" title="A Frustratingly Easy Approach for Joint Entity and Relation Extraction">
+                <i class="fa fa-chevron-left"></i> A Frustratingly Easy Approach for Joint Entity and Relation Extraction
               </a>
             
           </div>
@@ -478,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../Decision-Tree/" rel="prev" title="Decision Tree">
-                Decision Tree <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -643,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#K-means"><span class="nav-number">1.</span> <span class="nav-text">K-means</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">基础模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">算法过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">改进模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#K-medoids"><span class="nav-number">1.2.1.</span> <span class="nav-text">K-medoids</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86K-means"><span class="nav-number">1.2.2.</span> <span class="nav-text">二分K-means</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-median"><span class="nav-number">1.2.3.</span> <span class="nav-text">K-median</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E6%A0%87%E5%87%86"><span class="nav-number">1.3.</span> <span class="nav-text">评价标准</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E6%8C%87%E6%A0%87"><span class="nav-number">1.3.1.</span> <span class="nav-text">内部指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E6%8C%87%E6%A0%87"><span class="nav-number">1.3.2.</span> <span class="nav-text">外部指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E5%BB%93%E7%B3%BB%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">轮廓系数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">判断方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B0%E5%BE%B7%E6%8C%87%E6%95%B0"><span class="nav-number">1.3.4.</span> <span class="nav-text">兰德指数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95-1"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">判断方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket"><span class="nav-number">1.</span> <span class="nav-text">Socket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket-API"><span class="nav-number">1.1.</span> <span class="nav-text">Socket API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WSAStartup"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">WSAStartup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WSACleanup"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">WSACleanup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">socket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#closesocket"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">closesocket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">bind</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
