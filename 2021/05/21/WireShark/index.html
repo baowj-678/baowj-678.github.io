@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://1.15.86.100/2021/05/21/WireShark/p2.png">
 <meta property="og:image" content="https://1.15.86.100/2021/05/21/WireShark/p3.png">
 <meta property="article:published_time" content="2021-05-21T06:46:05.000Z">
-<meta property="article:modified_time" content="2021-05-21T09:21:52.057Z">
+<meta property="article:modified_time" content="2021-05-21T15:12:23.541Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Computer Network">
 <meta name="twitter:card" content="summary">
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="%20" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -405,7 +405,7 @@
 <ul>
 <li><strong>目的硬件地址（Destination Hardware Address）</strong>：占 48 bit；</li>
 <li><strong>源硬件地址（Source Hardware Address）</strong>：占 48 bit；</li>
-<li><strong>协议类别（Type）</strong>：占 4 bit；</li>
+<li><strong>协议类别（Type）</strong>：占 16 bit；</li>
 </ul>
 <h3 id="网络层封装"><a href="#网络层封装" class="headerlink" title="网络层封装"></a>网络层封装</h3><p>共占<strong>8*20=160</strong> bit。</p>
 <p><img src="/2021/05/21/WireShark/p2.png" alt="network" style="zoom:80%;"></p>
@@ -429,20 +429,23 @@
 </ul>
 <h3 id="传输层封装（TCP）"><a href="#传输层封装（TCP）" class="headerlink" title="传输层封装（TCP）"></a>传输层封装（TCP）</h3><p>共占 <strong>8*32=256</strong> bit。</p>
 <p><img src="/2021/05/21/WireShark/p3.png" alt="TCP"></p>
-<p>273-288 bit为源端口号；</p>
-<p>288-304 bit为目的端口号；</p>
-<p>305-336 bit为序列号，即TCP三次握手中的seq；</p>
-<p>337-368 bit为应答码，即TCP三次握手中的ack；</p>
-<p>369-384 bit为SYN标志位，即TCP三次握手中的SYN；</p>
-<p>385-400 bit为窗口大小；</p>
-<p>401-416 bit为校验和；</p>
-<p>417-432 bit为URG位，urgent机制，是用于通知应用层需要接收urgent data，在urgent data接收完成后，通知应用层urgent data数据接收完毕；</p>
-<p>433-592 bit为20bytes的各类options，其中：</p>
-<p>433-464 bit为MMS相关项，包含8 bit的类型（2为Maxium Segment Size，TCP一次传输发送的最大数据段长度），8 bit的长度，16bit的MMS值；</p>
-<p>465-472 bit为MOP相关项；</p>
-<p>473-496 bit为滑动窗口项；</p>
-<p>497-512 bit为允许SACK项（选择确认，TCP收到乱序数据后，会将其放入乱序队列中，然后发送重复ACK给对端。对端收到多个重复的ACK后，就会推测到可能发生了数据丢失，再重传数据。如果乱序的数据比较零散，则这种机制的效率会很低。使用SACK选项可以告知发包方收到了哪些数据，发包方收到这些信息后就会知道哪些数据丢失，然后立即重传缺失部分即可。这就大大提高了数据重传的速度。）</p>
-<p>513-592 bit为时间戳项，包含报文发送时间TSvla和接收端接收时间TSecr。（当发送端收到ACK Segment后，取出TSscr，和当前时间做算术差，即可完成一次RTT的测量。若非通过Timestamp Option来计算RTT，大部分TCP实现只会以“每个Window采样一次”的频率来测算RTT。因此通过Timestamp Option，可以实现更密集的RTT采样，使RTT的测算更精确。）</p>
+<ul>
+<li><p><strong>源端口号（Source Port）</strong>：占 16 bit；</p>
+</li>
+<li><p><strong>目的端口号（Destination Port）</strong>：占 16 bit；</p>
+</li>
+<li><p><strong>序列号字段（Sequence Number）</strong>：占 32 bt；</p>
+</li>
+<li><p><strong>确认号字段（Acknowledgement Number）</strong>：占 32 bit；</p>
+</li>
+<li><p><strong>数据偏移字段（Header Length）</strong>：占 4 bit；</p>
+</li>
+<li><strong>标志字段（Flags）</strong>：占 12 bit；</li>
+<li><strong>窗口大小字段（Window）</strong>：占 16 bit；</li>
+<li><strong>校验和字段（Checksum）</strong>：占16 bit；</li>
+<li><strong>紧急指针字段（Urgent Pointer）</strong>：占16 bit；</li>
+<li><strong>可选字段（Option）</strong>：长度不定；</li>
+</ul>
 
       
     </div>
@@ -569,7 +572,7 @@
               
                 <a href="../../../../archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -591,7 +594,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -718,7 +721,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.7k字</span>
+  <span class="post-count">博客全站共26.5k字</span>
 </div>
         
 <div class="busuanzi-count">
