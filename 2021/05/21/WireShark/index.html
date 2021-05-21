@@ -99,11 +99,15 @@
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="关于抓包软件WireShark的使用。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://1.15.86.100/2021/05/21/WireShark/p1.png">
+<meta property="og:image" content="https://1.15.86.100/2021/05/21/WireShark/p2.png">
+<meta property="og:image" content="https://1.15.86.100/2021/05/21/WireShark/p3.png">
 <meta property="article:published_time" content="2021-05-21T06:46:05.000Z">
-<meta property="article:modified_time" content="2021-05-21T07:05:36.130Z">
+<meta property="article:modified_time" content="2021-05-21T09:21:52.057Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Computer Network">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.15.86.100/2021/05/21/WireShark/p1.png">
 
 
 
@@ -391,7 +395,50 @@
       
 
       
-        <h1 id="WireShark"><a href="#WireShark" class="headerlink" title="WireShark"></a>WireShark</h1><h2 id="WireShark显示界面"><a href="#WireShark显示界面" class="headerlink" title="WireShark显示界面"></a>WireShark显示界面</h2>
+        <h1 id="WireShark"><a href="#WireShark" class="headerlink" title="WireShark"></a>WireShark</h1><h2 id="WireShark抓包内容分析"><a href="#WireShark抓包内容分析" class="headerlink" title="WireShark抓包内容分析"></a>WireShark抓包内容分析</h2><h3 id="链路层封装"><a href="#链路层封装" class="headerlink" title="链路层封装"></a>链路层封装</h3><p>共占<strong>8*14=112</strong> bit。</p>
+<p><img src="/2021/05/21/WireShark/p1.png" alt="p1" style="zoom: 80%;"></p>
+<ul>
+<li><strong>目的硬件地址（Destination Hardware Address）</strong>：占 48 bit；</li>
+<li><strong>源硬件地址（Source Hardware Address）</strong>：占 48 bit；</li>
+<li><strong>协议类别（Type）</strong>：占 4 bit；</li>
+</ul>
+<h3 id="网络层封装"><a href="#网络层封装" class="headerlink" title="网络层封装"></a>网络层封装</h3><p>共占<strong>8*20=160</strong> bit。</p>
+<p><img src="/2021/05/21/WireShark/p2.png" alt="network" style="zoom:80%;"></p>
+<ul>
+<li><strong>版本号（Version）</strong>：占 4 bit，<strong>ipv4</strong>版本号；</li>
+<li><strong>报文头长度（Header length）</strong>：占 4 bit，表示报文头长度【单位：字节（byte）】；</li>
+<li><strong>区分服务域（Differentiated Services Field）</strong>：占 8 bit，<ul>
+<li><strong>区分服务代码点（Differentiated Services Codepoints）</strong>：占 6 bit，DS标记值；</li>
+<li><strong>显示拥塞通知（Explicit Congestion Notification）</strong>：占 2 bit；</li>
+</ul>
+</li>
+<li><strong>总长度（Total Length）</strong>：占 16 bit；</li>
+<li><strong>标识符（Identification）</strong>：占 16 bit；</li>
+<li><strong>标志位（Flags）</strong>：占 3 bit；</li>
+<li><strong>片位移（Fragment Offset）</strong>：占 13 bit；</li>
+<li><strong>TTL（Time to Live）</strong>：占 8 bit；</li>
+<li><strong>内层封装协议（Protocol）</strong>：占 8 bit；</li>
+<li><strong>头部校验和（Header Checksum）</strong>：占 16 bit；</li>
+<li><strong>源地址（Source Address）</strong>：占 32 bit；</li>
+<li><strong>目标地址（Destination Address）</strong>：占 32 bit，即<strong>ip地址</strong>；</li>
+</ul>
+<h3 id="传输层封装（TCP）"><a href="#传输层封装（TCP）" class="headerlink" title="传输层封装（TCP）"></a>传输层封装（TCP）</h3><p>共占 <strong>8*32=256</strong> bit。</p>
+<p><img src="/2021/05/21/WireShark/p3.png" alt="TCP"></p>
+<p>273-288 bit为源端口号；</p>
+<p>288-304 bit为目的端口号；</p>
+<p>305-336 bit为序列号，即TCP三次握手中的seq；</p>
+<p>337-368 bit为应答码，即TCP三次握手中的ack；</p>
+<p>369-384 bit为SYN标志位，即TCP三次握手中的SYN；</p>
+<p>385-400 bit为窗口大小；</p>
+<p>401-416 bit为校验和；</p>
+<p>417-432 bit为URG位，urgent机制，是用于通知应用层需要接收urgent data，在urgent data接收完成后，通知应用层urgent data数据接收完毕；</p>
+<p>433-592 bit为20bytes的各类options，其中：</p>
+<p>433-464 bit为MMS相关项，包含8 bit的类型（2为Maxium Segment Size，TCP一次传输发送的最大数据段长度），8 bit的长度，16bit的MMS值；</p>
+<p>465-472 bit为MOP相关项；</p>
+<p>473-496 bit为滑动窗口项；</p>
+<p>497-512 bit为允许SACK项（选择确认，TCP收到乱序数据后，会将其放入乱序队列中，然后发送重复ACK给对端。对端收到多个重复的ACK后，就会推测到可能发生了数据丢失，再重传数据。如果乱序的数据比较零散，则这种机制的效率会很低。使用SACK选项可以告知发包方收到了哪些数据，发包方收到这些信息后就会知道哪些数据丢失，然后立即重传缺失部分即可。这就大大提高了数据重传的速度。）</p>
+<p>513-592 bit为时间戳项，包含报文发送时间TSvla和接收端接收时间TSecr。（当发送端收到ACK Segment后，取出TSscr，和当前时间做算术差，即可完成一次RTT的测量。若非通过Timestamp Option来计算RTT，大部分TCP实现只会以“每个Window采样一次”的频率来测算RTT。因此通过Timestamp Option，可以实现更密集的RTT采样，使RTT的测算更精确。）</p>
+
       
     </div>
     
@@ -430,6 +477,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="../TCP-IP/" rel="prev" title="TCP/IP">
+                TCP/IP <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -510,7 +561,7 @@
               
                 <a href="../../../../archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -532,7 +583,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -565,9 +616,9 @@
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="https://www.zhihu.com/people/baowj_678" target="_blank" title="Zhihu">
+                    <a href="https://www.zhihu.com/people/baowj_678" target="_blank" title="知乎">
                       
-                        <i class="fa fa-fw fa-address-book"></i>Zhihu</a>
+                        <i class="fa fa-fw fa-address-book"></i>知乎</a>
                   </span>
                 
                   <span class="links-of-author-item">
@@ -614,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WireShark"><span class="nav-number">1.</span> <span class="nav-text">WireShark</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WireShark%E6%98%BE%E7%A4%BA%E7%95%8C%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">WireShark显示界面</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WireShark"><span class="nav-number">1.</span> <span class="nav-text">WireShark</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WireShark%E6%8A%93%E5%8C%85%E5%86%85%E5%AE%B9%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">WireShark抓包内容分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E5%B0%81%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">链路层封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%B0%81%E8%A3%85"><span class="nav-number">1.1.2.</span> <span class="nav-text">网络层封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E5%B0%81%E8%A3%85%EF%BC%88TCP%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">传输层封装（TCP）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -655,7 +706,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25k字</span>
+  <span class="post-count">博客全站共26.7k字</span>
 </div>
         
 

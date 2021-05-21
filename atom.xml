@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-05-21T07:05:36.130Z</updated>
+  <updated>2021-05-21T11:21:15.535Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -17,13 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>TCP/IP</title>
+    <link href="https://1.15.86.100/2021/05/21/TCP-IP/"/>
+    <id>https://1.15.86.100/2021/05/21/TCP-IP/</id>
+    <published>2021-05-21T07:45:45.000Z</published>
+    <updated>2021-05-21T11:21:15.535Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h1><h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p><img src="/2021/05/21/TCP-IP/6-19110Q62344I5.gif" alt="img"></p><h3 id="字段含义"><a href="#字段含义" class="headerlink" title="字段含义"></a>字段含义</h3><ul><li><strong>源端口</strong>：源计算机上的应用程序的端口号，占 16 位；</li><li><strong>目的端口</strong>：目标计算机的应用程序端口号，占 16 位；</li><li><strong>序列号字段</strong>：占 32 位。它表示本报文段所发送数据的第一个字节的编号。在 TCP 连接中，所传送的字节流的每一个字节都会按顺序编号；</li><li><strong>确认号字段</strong>：占 32 位。它表示接收方期望收到发送方下一个报文段的第一个字节数据的编号。其值是接收计算机即将接收到的下一个序列号，也就是下一个接收到的字节的序列号加1；</li><li><strong>数据偏移字段（Header Length）</strong>：占 4 位，数据段中的<strong>数据</strong>部分起始处，距离 TCP 数据段起始处的字节偏移量；</li><li><strong>保留字段（Resv）</strong>：占 4 位，为 TCP 将来的发展预留空间，目前必须全部为 0；</li><li><strong>标志字段</strong>：占 8 位，<ul><li><strong>CWR（Congestion Window Reduce）</strong>：拥塞窗口减少标志，用来表明它接收到了设置 ECE 标志的 TCP 包。并且，发送方收到消息之后，通过减小发送窗口的大小来降低发送速率；</li><li><strong>ECE（ECN Echo）</strong>：用来在 TCP 三次握手时表明一个 TCP 端是具备 ECN 功能的。在数据传输过程中，它也用来表明接收到的 TCP 包的 IP 头部的 ECN 被设置为 11，即网络线路拥堵；</li><li><strong>URG（Urgent）</strong>：表示本报文段中发送的数据是否包含紧急数据。URG=1 时表示有紧急数据。当 URG=1 时，后面的紧急指针字段才有效；</li><li><strong>ACK</strong>：表示前面的<strong>确认号</strong>字段是否有效。ACK=1 时表示有效。只有当 ACK=1 时，前面的确认号字段才有效。TCP 规定，连接建立后，ACK 必须为 1。</li><li><strong>PSH（Push）</strong>：告诉对方收到该报文段后是否立即把数据推送给上层。如果值为 1，表示应当立即把数据提交给上层，而不是缓存起来；</li><li><strong>RST</strong>：表示是否重置连接。如果 RST=1，说明 TCP 连接出现了严重错误（如主机崩溃），必须释放连接，然后再重新建立连接；</li><li><strong>SYN</strong>：在建立连接时使用，用来同步序号。当 <strong>SYN=1，ACK=0</strong> 时，表示这是一个请求建立连接的报文段；当 <strong>SYN=1，ACK=1</strong> 时，表示对方同意建立连接。SYN=1 时，说明这是一个请求建立连接或同意建立连接的报文。只有在前两次握手中 SYN 才为 1；</li><li><strong>FIN</strong>：标记数据是否发送完毕。如果 FIN=1，表示数据已经发送完成，可以释放连接；</li></ul></li><li><strong>窗口大小字段（Window Size）</strong>：占 16 位，它表示从<strong>确认号</strong>开始还可以接收多少字节的数据量，也表示当前接收端的接收窗口还有多少剩余空间，该字段可以用于 TCP 的流量控制；</li><li><strong>TCP 校验和字段（TCP Checksum）</strong>：占 16 位，它用于确认传输的数据是否有损坏。发送端基于数据内容校验生成一个数值，接收端根据接收的数据校验生成一个值。两个值必须相同，才能证明数据是有效的。如果两个值不同，则丢掉这个数据包。Checksum 是根据伪头 + TCP 头 + TCP 数据三部分进行计算的；</li><li><strong>紧急指针字段（Urgent Pointer）</strong>：占16位，仅当前面的 URG 控制位为 1 时才有意义。它指出本数据段中为紧急数据的字节数，占 16 位。当所有紧急数据处理完后，TCP 就会告诉应用程序恢复到正常操作。即使当前窗口大小为 0，也是可以发送紧急数据的，因为紧急数据无须缓存；</li><li><strong>可选字段（Options）</strong>：长度不定，但长度必须是 32bits 的整数倍。</li></ul><h2 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h2><h3 id="ipv4"><a href="#ipv4" class="headerlink" title="ipv4"></a>ipv4</h3><p><img src="/2021/05/21/TCP-IP/p1.png" alt="ipv4" style="zoom: 60%;"></p><h3 id="ipv6"><a href="#ipv6" class="headerlink" title="ipv6"></a>ipv6</h3><p><img src="/2021/05/21/TCP-IP/p2.png" alt="ipv6" style="zoom:80%;"></p>]]></content>
+    
+    
+    <summary type="html">对TCP/IP的报文结构分析。</summary>
+    
+    
+    
+    <category term="Computer Network" scheme="https://1.15.86.100/categories/Computer-Network/"/>
+    
+    
+    <category term="TCP" scheme="https://1.15.86.100/tags/TCP/"/>
+    
+    <category term="IP" scheme="https://1.15.86.100/tags/IP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>WireShark</title>
     <link href="https://1.15.86.100/2021/05/21/WireShark/"/>
     <id>https://1.15.86.100/2021/05/21/WireShark/</id>
     <published>2021-05-21T06:46:05.000Z</published>
-    <updated>2021-05-21T07:05:36.130Z</updated>
+    <updated>2021-05-21T09:21:52.057Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="WireShark"><a href="#WireShark" class="headerlink" title="WireShark"></a>WireShark</h1><h2 id="WireShark显示界面"><a href="#WireShark显示界面" class="headerlink" title="WireShark显示界面"></a>WireShark显示界面</h2>]]></content>
+    <content type="html"><![CDATA[<h1 id="WireShark"><a href="#WireShark" class="headerlink" title="WireShark"></a>WireShark</h1><h2 id="WireShark抓包内容分析"><a href="#WireShark抓包内容分析" class="headerlink" title="WireShark抓包内容分析"></a>WireShark抓包内容分析</h2><h3 id="链路层封装"><a href="#链路层封装" class="headerlink" title="链路层封装"></a>链路层封装</h3><p>共占<strong>8*14=112</strong> bit。</p><p><img src="/2021/05/21/WireShark/p1.png" alt="p1" style="zoom: 80%;"></p><ul><li><strong>目的硬件地址（Destination Hardware Address）</strong>：占 48 bit；</li><li><strong>源硬件地址（Source Hardware Address）</strong>：占 48 bit；</li><li><strong>协议类别（Type）</strong>：占 4 bit；</li></ul><h3 id="网络层封装"><a href="#网络层封装" class="headerlink" title="网络层封装"></a>网络层封装</h3><p>共占<strong>8*20=160</strong> bit。</p><p><img src="/2021/05/21/WireShark/p2.png" alt="network" style="zoom:80%;"></p><ul><li><strong>版本号（Version）</strong>：占 4 bit，<strong>ipv4</strong>版本号；</li><li><strong>报文头长度（Header length）</strong>：占 4 bit，表示报文头长度【单位：字节（byte）】；</li><li><strong>区分服务域（Differentiated Services Field）</strong>：占 8 bit，<ul><li><strong>区分服务代码点（Differentiated Services Codepoints）</strong>：占 6 bit，DS标记值；</li><li><strong>显示拥塞通知（Explicit Congestion Notification）</strong>：占 2 bit；</li></ul></li><li><strong>总长度（Total Length）</strong>：占 16 bit；</li><li><strong>标识符（Identification）</strong>：占 16 bit；</li><li><strong>标志位（Flags）</strong>：占 3 bit；</li><li><strong>片位移（Fragment Offset）</strong>：占 13 bit；</li><li><strong>TTL（Time to Live）</strong>：占 8 bit；</li><li><strong>内层封装协议（Protocol）</strong>：占 8 bit；</li><li><strong>头部校验和（Header Checksum）</strong>：占 16 bit；</li><li><strong>源地址（Source Address）</strong>：占 32 bit；</li><li><strong>目标地址（Destination Address）</strong>：占 32 bit，即<strong>ip地址</strong>；</li></ul><h3 id="传输层封装（TCP）"><a href="#传输层封装（TCP）" class="headerlink" title="传输层封装（TCP）"></a>传输层封装（TCP）</h3><p>共占 <strong>8*32=256</strong> bit。</p><p><img src="/2021/05/21/WireShark/p3.png" alt="TCP"></p><p>273-288 bit为源端口号；</p><p>288-304 bit为目的端口号；</p><p>305-336 bit为序列号，即TCP三次握手中的seq；</p><p>337-368 bit为应答码，即TCP三次握手中的ack；</p><p>369-384 bit为SYN标志位，即TCP三次握手中的SYN；</p><p>385-400 bit为窗口大小；</p><p>401-416 bit为校验和；</p><p>417-432 bit为URG位，urgent机制，是用于通知应用层需要接收urgent data，在urgent data接收完成后，通知应用层urgent data数据接收完毕；</p><p>433-592 bit为20bytes的各类options，其中：</p><p>433-464 bit为MMS相关项，包含8 bit的类型（2为Maxium Segment Size，TCP一次传输发送的最大数据段长度），8 bit的长度，16bit的MMS值；</p><p>465-472 bit为MOP相关项；</p><p>473-496 bit为滑动窗口项；</p><p>497-512 bit为允许SACK项（选择确认，TCP收到乱序数据后，会将其放入乱序队列中，然后发送重复ACK给对端。对端收到多个重复的ACK后，就会推测到可能发生了数据丢失，再重传数据。如果乱序的数据比较零散，则这种机制的效率会很低。使用SACK选项可以告知发包方收到了哪些数据，发包方收到这些信息后就会知道哪些数据丢失，然后立即重传缺失部分即可。这就大大提高了数据重传的速度。）</p><p>513-592 bit为时间戳项，包含报文发送时间TSvla和接收端接收时间TSecr。（当发送端收到ACK Segment后，取出TSscr，和当前时间做算术差，即可完成一次RTT的测量。若非通过Timestamp Option来计算RTT，大部分TCP实现只会以“每个Window采样一次”的频率来测算RTT。因此通过Timestamp Option，可以实现更密集的RTT采样，使RTT的测算更精确。）</p>]]></content>
     
     
     <summary type="html">关于抓包软件WireShark的使用。</summary>
@@ -424,29 +447,6 @@
     
     
     <category term="Feature Engineering" scheme="https://1.15.86.100/tags/Feature-Engineering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Feature Selection: Embedding</title>
-    <link href="https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/"/>
-    <id>https://1.15.86.100/2021/04/02/Feature-Selection-Embedding/</id>
-    <published>2021-04-02T12:28:50.000Z</published>
-    <updated>2021-04-03T13:18:00.392Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="嵌入式特征选择"><a href="#嵌入式特征选择" class="headerlink" title="嵌入式特征选择"></a>嵌入式特征选择</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>嵌入式特征选择（Embedding）</strong>是将特征选择和模型训练融为一体，也就是模型中包括了特征选择的过程，而训练时只需将原始数据全部输入到模型中即可。</p><h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>给定数据集</p><script type="math/tex; mode=display">D=\{(x_1,y_1),(x_2,y_2),\dots,(x_m,y_m)\}</script><script type="math/tex; mode=display">x_i\in \mathbb{R}^d</script><script type="math/tex; mode=display">y_i\in \mathbb{R}</script><p>如果使用<strong>线性回归模型</strong>，则优化目标为：</p><script type="math/tex; mode=display">\mathrm{min}_{w}\sum_{i=1}^m(y_i-w^Tx_i)^2,w\in\mathbb{R}^d</script><p>而上述模型可能会陷入<strong>过拟合（over fitting）</strong>，为了解决这个问题，会引入<strong>L1正则化</strong>和<strong>L2正则化</strong>；</p><h3 id="L2正则化"><a href="#L2正则化" class="headerlink" title="L2正则化"></a>L2正则化</h3><p><strong>L2正则化</strong>将优化目标修改为：</p><script type="math/tex; mode=display">\mathrm{min}_{w}\sum_{i=1}^m(y_i-w^Tx_i)^2,w\in\mathbb{R}^d+\lambda||w||_2^2,\lambda>0</script><p>该模型称为<strong>岭回归</strong>，能降低过拟合风险。</p><h3 id="L1正则化"><a href="#L1正则化" class="headerlink" title="L1正则化"></a>L1正则化</h3><p>将<strong>L2正则化</strong>的<strong>2范数</strong>替换成<strong>1范数</strong>，就得到<strong>L1正则化</strong>：</p><script type="math/tex; mode=display">\mathrm{min}_{w}\sum_{i=1}^m(y_i-w^Tx_i)^2,w\in\mathbb{R}^d+\lambda||w||_1,\lambda>0</script><p>该模型称为<strong>LASSO</strong>。</p><p><strong>L1正则化</strong>除了能降低<strong>过拟合</strong>风险，而且该模型还会倾向于<strong>”稀疏解“</strong>，即该模型倾向于只使用原数据的某些<strong>子属性</strong>，这就间接等同于进行了<strong>特征选择</strong>。</p><p>下面介绍为何会倾向<strong>稀疏解</strong>。</p><p><img src="/2021/04/02/Feature-Selection-Embedding/p1.png" alt="image-20210403211035916"></p><p>假设该模型只有两个参数<script type="math/tex">w_1,w_2</script>，则其<strong>L1范数</strong>和<strong>L2范数</strong>等值线如图所示。<strong>平方项</strong>（即原始的最优化目标）等值线近似如图所示。可以发现，平方误差加上范数误差，对于<strong>L1范数</strong>来说，最小值易在<strong>两个坐标轴上取的</strong>，而<strong>L2范数</strong>偏向在<strong>第一象限取的</strong>。当最优值在坐标轴取的时，<script type="math/tex">w_1,w_2</script>其中一个值就为0，也就是该特征被剔除了，所以易得到<strong>稀疏解</strong>。</p><p><strong>REF</strong>：</p><p>周志华.2015.机器学习.北京.清华大学出版社.p253</p>]]></content>
-    
-    
-    <summary type="html">介绍嵌入式(Embedding)特征选择的方法和L1正则化相关问题。</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
-    
-    <category term="Feature Engineering" scheme="https://1.15.86.100/tags/Feature-Engineering/"/>
-    
-    <category term="L1" scheme="https://1.15.86.100/tags/L1/"/>
     
   </entry>
   
