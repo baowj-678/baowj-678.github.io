@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-05-21T14:58:34.690Z</updated>
+  <updated>2021-05-25T03:41:43.846Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RSA</title>
+    <link href="https://1.15.86.100/2021/05/25/RSA/"/>
+    <id>https://1.15.86.100/2021/05/25/RSA/</id>
+    <published>2021-05-25T03:40:20.000Z</published>
+    <updated>2021-05-25T03:41:43.846Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1>]]></content>
+    
+    
+    <summary type="html">对RSA加密算法的简单介绍。</summary>
+    
+    
+    
+    <category term="算法" scheme="https://1.15.86.100/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="加密算法" scheme="https://1.15.86.100/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dilworth定理</title>
+    <link href="https://1.15.86.100/2021/05/24/Dilworth%E5%AE%9A%E7%90%86/"/>
+    <id>https://1.15.86.100/2021/05/24/Dilworth%E5%AE%9A%E7%90%86/</id>
+    <published>2021-05-24T12:04:37.000Z</published>
+    <updated>2021-05-24T16:17:06.332Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Dilworth定理"><a href="#Dilworth定理" class="headerlink" title="Dilworth定理"></a>Dilworth定理</h1><h2 id="概念定义"><a href="#概念定义" class="headerlink" title="概念定义"></a>概念定义</h2><ul><li><strong>自反性</strong>：对于集合<strong>A</strong>上的<strong>二元关系R</strong>，<script type="math/tex">xRx,\forall x\in A</script>；</li><li><strong>反对称性</strong>：对于集合<strong>A</strong>上的<strong>二元关系R</strong>，对于 <script type="math/tex">xRy\ \ and\ \ yRx,\forall x,y\in A</script>，有<script type="math/tex">x=y</script>；</li><li><strong>传递性</strong>：对于集合<strong>A</strong>上的<strong>二元关系R</strong>，对于 <script type="math/tex">xRy\ \ and\ \ yRz,\forall x,y,z\in A</script>，有<script type="math/tex">xRz</script>；</li><li><strong>偏序关系</strong>：满足<strong>自反性</strong>、<strong>反对称性</strong>、<strong>传递性</strong>的二元关系；</li><li><strong>偏序集</strong>：<script type="math/tex">(S,\precsim)</script>，集合<strong>S</strong>中任意两个元素之间都存在偏序关系；</li><li><strong>链</strong>：对于一个有序序列<script type="math/tex">(x_1,x_2,\cdots,x_n)</script>，如果<script type="math/tex">x_i\precsim x_j \forall i \le j</script>，则称该序列为<strong>链</strong>；</li><li><strong>反链</strong>：对于一个有序序列<script type="math/tex">(x_1,x_2,\cdots,x_n)</script>，如果<script type="math/tex">\forall i \le j,x_1,x_j</script>都不满足偏序关系<script type="math/tex">\precsim</script>，则称该序列为<strong>反链</strong>；</li></ul><h2 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h2><p>偏序集的<strong>最少</strong>的链的划分数等于其<strong>最长</strong>反链长度。</p><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p><strong>数学归纳法</strong>：</p><p>设<strong>m</strong>表示<strong>偏序集</strong><script type="math/tex">(S,\precsim)</script>中元素个数。</p><ul><li><p>对于<strong>m=0，1</strong>，命题成立；</p></li><li><p>假设对于<script type="math/tex">m<n(n\in\mathbb{N}^+)</script>时命题成立，下面讨论<strong>m=n</strong>情况：</p><p>  设 <script type="math/tex">a</script> 为 <script type="math/tex">S</script> 中的一个<strong>极大元</strong>，构建偏序集 <script type="math/tex">S':=S-\{a\}</script>，由<strong>假设</strong>，<script type="math/tex">(S’,\precsim)</script> 满足该定理；</p><p>  假设 <script type="math/tex">S'</script> <strong>最小的链划分数</strong>以及<strong>最长反链长度</strong>为 <script type="math/tex">k</script>，划分为 <script type="math/tex">C_1,C_2\cdots,C_k</script> 这些不相交的链，长度为 <script type="math/tex">k</script> 的<strong>反链</strong>为 <script type="math/tex">a_1,a_2,\cdots,a_k</script>。</p><p>  记 <script type="math/tex">b_i</script> 为 <script type="math/tex">C_i</script> 中所有属于长为 <script type="math/tex">k</script> 的<strong>反链</strong>的元素中的<strong>最大元</strong>，构造<script type="math/tex">B:=\{b_1,b_2,\cdots,b_k\}</script>。在 <script type="math/tex">B</script> 中，易知 <script type="math/tex">B</script> 是<strong>反链</strong>，且 <script type="math/tex">C_i</script> 中的不可能存在多余一个元素都在<strong>反链</strong>上，也不会少于1个。</p><p>  下面考虑偏序集 <script type="math/tex">S</script>：</p><ul><li>因为 <script type="math/tex">a</script> 为 <script type="math/tex">S</script> 的<strong>极大元</strong>，那么 <script type="math/tex">\{a,b_1,b_2\cdots,b_k\}</script> 是一条长为 <script type="math/tex">k+1</script> 的<strong>反链</strong>。</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">对Dilworth定理的介绍和证明。</summary>
+    
+    
+    
+    <category term="组合数学" scheme="https://1.15.86.100/categories/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>以太网帧</title>
@@ -409,46 +449,6 @@
     <category term="Back Translation" scheme="https://1.15.86.100/tags/Back-Translation/"/>
     
     <category term="Semi-supervised Learning" scheme="https://1.15.86.100/tags/Semi-supervised-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx</title>
-    <link href="https://1.15.86.100/2021/04/18/Nginx/"/>
-    <id>https://1.15.86.100/2021/04/18/Nginx/</id>
-    <published>2021-04-18T08:17:19.000Z</published>
-    <updated>2021-04-18T09:00:32.020Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="配置文件位置"><a href="#配置文件位置" class="headerlink" title="配置文件位置"></a>配置文件位置</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/nginx/conf.d</span><br></pre></td></tr></tbody></table></figure><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx start</span><br></pre></td></tr></tbody></table></figure><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx stop</span><br></pre></td></tr></tbody></table></figure><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx [restart|reload|force-reload|status|configtest|rotate|upgrade]</span><br></pre></td></tr></tbody></table></figure>]]></content>
-    
-    
-    <summary type="html">Nginx相关操作</summary>
-    
-    
-    
-    
-    <category term="Nginx, Linux" scheme="https://1.15.86.100/tags/Nginx-Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ML Metrics</title>
-    <link href="https://1.15.86.100/2021/04/17/ML-Metrics/"/>
-    <id>https://1.15.86.100/2021/04/17/ML-Metrics/</id>
-    <published>2021-04-17T02:12:13.000Z</published>
-    <updated>2021-05-16T08:29:38.142Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ML-Metrics"><a href="#ML-Metrics" class="headerlink" title="ML Metrics"></a>ML Metrics</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="Classification-Metrics（分类）"><a href="#Classification-Metrics（分类）" class="headerlink" title="Classification Metrics（分类）"></a>Classification Metrics（分类）</h2><h3 id="confusion-matrix"><a href="#confusion-matrix" class="headerlink" title="confusion matrix"></a>confusion matrix</h3><p><img src="/2021/04/17/ML-Metrics/image-20210418230321354.png" alt="image-20210418230321354" style="zoom: 50%;"></p><ul><li><strong>TP（真正例）</strong>：将<strong>正类</strong>样本预测<strong>正确（为正）</strong>；</li><li><strong>FN（假反例）</strong>：将<strong>正例</strong>样本预测<strong>错误（为反）</strong>；</li><li><strong>FP（假正例）</strong>：将<strong>反例</strong>样本预测<strong>错误（为正）</strong>；</li><li><strong>TN（真反例）</strong>：将<strong>反例</strong>样本预测<strong>正确（为反）</strong>；</li></ul><h3 id="Accuracy"><a href="#Accuracy" class="headerlink" title="Accuracy"></a>Accuracy</h3><p><strong>准确率</strong></p><p><strong>预测正确</strong>的样本数占<strong>样本总数</strong>的比例。</p><script type="math/tex; mode=display">ACC=\frac{TP+TN}{TP+FN+FP+TN}</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.accuracy_score(y_true, y_pred, *, normalize=<span class="literal">True</span>, sample_weight=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="Error-rate"><a href="#Error-rate" class="headerlink" title="Error rate"></a>Error rate</h3><p><strong>错误率</strong></p><p><strong>预测错误</strong>的样本数占<strong>样本总数</strong>的比例。</p><script type="math/tex; mode=display">Error=\frac{FP+FN}{TP+FN+FP+TN}</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - sklearn.metrics.accuracy_score(y_true, y_pred, *, normalize=<span class="literal">True</span>, sample_weight=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h3><p><strong>召回率、查全率</strong>、<strong>灵敏度（sensitivity）</strong>、<strong>真阳性率</strong></p><p><strong>真实为正</strong>中<strong>预测为正</strong>的比例。</p><script type="math/tex; mode=display">Recall=\frac{TP}{TP+FN}</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.recall_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="Precision"><a href="#Precision" class="headerlink" title="Precision"></a>Precision</h3><p><strong>精确度、查准率</strong></p><p><strong>预测为正</strong>中<strong>真实为正</strong>的比例。</p><script type="math/tex; mode=display">Precision=\frac{TP}{TP+FP}</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.precision_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h3><p><strong>特异度</strong>、<strong>真阴性率</strong></p><p><strong>真实为反</strong>中<strong>预测为反</strong>的比例。</p><script type="math/tex; mode=display">Sepcificity=\frac{TN}{TN+FP}</script><hr><h3 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h3><p>可以看成对<strong>精确度</strong>和<strong>召回率</strong>的加权平均。</p><script type="math/tex; mode=display">F1=2\cdot \frac{recall\cdot precision}{recall + precision}</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.f1_score(y_true, y_pred, *, labels=<span class="literal">None</span>, pos_label=<span class="number">1</span>, average=<span class="string">'binary'</span>, sample_weight=<span class="literal">None</span>, zero_division=<span class="string">'warn'</span>)</span><br></pre></td></tr></tbody></table></figure><h3 id="ROC"><a href="#ROC" class="headerlink" title="ROC"></a>ROC</h3><p><strong>受试者工作特征曲线</strong>。</p><ul><li><strong>横坐标</strong>：假阳性率（FPR）【真实正样本被预测为负/真实正样本】</li><li><strong>纵坐标</strong>：真阳性率（TPR）【真实正样本被预测为正/真实正样本】</li></ul><p><img src="/2021/04/17/ML-Metrics/sphx_glr_plot_roc_0011.png" alt="../_images/sphx_glr_plot_roc_0011.png"></p><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.roc_curve(y_true, y_score, *, pos_label=<span class="literal">None</span>, sample_weight=<span class="literal">None</span>, drop_intermediate=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h3><p><strong>ROC曲线下方面积</strong>。</p><p>面积越大的分类器越好。</p><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.roc_auc_score(y_true, y_score, *, average=<span class="string">'macro'</span>, sample_weight=<span class="literal">None</span>, max_fpr=<span class="literal">None</span>, multi_class=<span class="string">'raise'</span>, labels=<span class="literal">None</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h2 id="Regression-Metrics（回归）"><a href="#Regression-Metrics（回归）" class="headerlink" title="Regression Metrics（回归）"></a>Regression Metrics（回归）</h2><h3 id="MSE"><a href="#MSE" class="headerlink" title="MSE"></a>MSE</h3><p><strong>均方差</strong>误差。</p><script type="math/tex; mode=display">\mathrm{MSE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(y_i-\hat{y_i})^2</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_squared_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>, squared=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h3><p><strong>平均绝对值误差</strong>。</p><script type="math/tex; mode=display">\mathrm{MAE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N|y_i-\hat{y_i}|</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_absolute_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="MSLE"><a href="#MSLE" class="headerlink" title="MSLE"></a>MSLE</h3><p><strong>对数均方误差</strong>。</p><script type="math/tex; mode=display">\mathrm{MSLE}(y,\hat{y})=\frac{1}{N}\sum_{i=1}^N(\ln(1+y_i)-\ln(1+\hat{y_i}))^2</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.mean_squared_log_error(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="Max-Error"><a href="#Max-Error" class="headerlink" title="Max Error"></a>Max Error</h3><p><strong>最大误差</strong>。</p><script type="math/tex; mode=display">\mathrm{Max\_Error}(y,\hat{y})=\max(|y_i-\hat{y_i}|)</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.max_error(y_true, y_pred)</span><br></pre></td></tr></tbody></table></figure><hr><h3 id="R-2"><a href="#R-2" class="headerlink" title="R^2"></a><script type="math/tex">R^2</script></h3><p><strong>决定系数</strong>。</p><script type="math/tex; mode=display">R^2(y,\hat{y_i})=1-\frac{\sum_{i=1}^N(y_i-\hat{y_i})^2}{\sum_{i=1}^N(y_i-\bar{y})^2}</script><p><strong>Code</strong></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.metrics.r2_score(y_true, y_pred, *, sample_weight=<span class="literal">None</span>, multioutput=<span class="string">'uniform_average'</span>)</span><br></pre></td></tr></tbody></table></figure><p><strong>REF</strong></p><p></p><div id="refer-anchor-1"></div> [1] <a href="https://scikit-learn.org/stable/modules/classes.html?highlight=metric#module-sklearn.metrics">sklearn.metrics</a><p></p>]]></content>
-    
-    
-    <summary type="html">本文主要介绍机器学习性能度量方法（主要依赖sklearn.metrics）</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
-    
-    <category term="Metrics" scheme="https://1.15.86.100/tags/Metrics/"/>
     
   </entry>
   
