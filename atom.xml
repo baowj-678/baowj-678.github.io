@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-05-25T03:41:43.846Z</updated>
+  <updated>2021-05-26T12:28:45.165Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>卡特兰数</title>
+    <link href="https://1.15.86.100/2021/05/26/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/"/>
+    <id>https://1.15.86.100/2021/05/26/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/</id>
+    <published>2021-05-26T11:58:21.000Z</published>
+    <updated>2021-05-26T12:28:45.165Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>将<script type="math/tex">1,2,\cdots,N</script>，<strong>N</strong>个数依次进行入栈出栈操作，求输出的<strong>不同排列顺序的序列</strong>的个数。</p><p>假设<script type="math/tex">f(x)</script>表示<strong>x</strong>个数的序列个数，则对于<strong>N</strong>个数的数列，设<strong>i</strong>是最后出栈的数字，则比<strong>i</strong>小的数有<strong>i-1</strong>个，比<strong>i</strong>大的数有<strong>N-i</strong>个，所以<strong>递归公式</strong>为：</p><script type="math/tex; mode=display">f(N)=\sum_{i=1}^{N}f(i-1)\cdot f(N-i) \tag{*}</script><h2 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h2><script type="math/tex; mode=display">f(N)=\frac{4N-2}{n+1}f(N-1)</script><h2 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h2><script type="math/tex; mode=display">f(N)=\frac{C_{2N}^N}{N+1}</script>]]></content>
+    
+    
+    <summary type="html">对卡特兰数的介绍。</summary>
+    
+    
+    
+    <category term="组合数学" scheme="https://1.15.86.100/categories/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>RSA</title>
@@ -424,31 +443,6 @@
     <category term="Paper" scheme="https://1.15.86.100/tags/Paper/"/>
     
     <category term="Back Translation" scheme="https://1.15.86.100/tags/Back-Translation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Joint Training for Neural Machine Translation Models with Monolingual Data</title>
-    <link href="https://1.15.86.100/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/"/>
-    <id>https://1.15.86.100/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/</id>
-    <published>2021-04-19T13:20:51.000Z</published>
-    <updated>2021-04-20T13:30:04.861Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data1"><a href="#Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data1" class="headerlink" title="Joint Training for Neural Machine Translation Models with Monolingual Data1"></a>Joint Training for Neural Machine Translation Models with Monolingual Data<a href="#refer-anchor-1"><sup>1</sup></a></h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="背景关键词"><a href="#背景关键词" class="headerlink" title="背景关键词"></a>背景关键词</h3><ul><li><strong>encoder-decoder</strong></li><li><strong>NMT</strong></li></ul><h3 id="传统NMT面临的问题"><a href="#传统NMT面临的问题" class="headerlink" title="传统NMT面临的问题"></a>传统NMT面临的问题</h3><ul><li>传统<strong>NMT</strong>所需要的<strong>平行文本（parallel data）</strong>缺乏；</li><li>传统<strong>NMT</strong>高度依赖高质量的<strong>平行文本</strong>，并且在<strong>平行文本</strong>缺乏和<strong>特定领域（domain-specific）</strong>的任务上表现很差；</li><li>但<strong>单语言（Monolingual Data）</strong>【即该语言文本没有对应的译文数据】文本丰富，易收集且多样；</li></ul><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本模型采用<strong>联合训练（Joint Training）</strong>和<strong>反向翻译（Back Translation）</strong>的方式，提出一种新的<strong>联合训练</strong>方法。</p><p>该模型使用两个<strong>NMT</strong>模型来<strong>联合训练</strong>：</p><p><strong>A-model</strong>：从<strong>源语言</strong>到<strong>目标语言（source-to-target）</strong>的<strong>NMT</strong>模型；</p><p><strong>B-model</strong>：从<strong>目标语言</strong>到<strong>源语言（target-to-source）</strong>的<strong>NMT</strong>模型；</p><h3 id="联合训练方法"><a href="#联合训练方法" class="headerlink" title="联合训练方法"></a>联合训练方法</h3><p>在模型开始时，利用少量的<strong>平行文本D</strong>训练出两个翻译器<strong>A-model</strong>和<strong>B-model</strong>。</p><p>然后，该模型的<strong>联合训练</strong>是采用<strong>迭代训练（iterative）</strong>的过程【如下图】。在每个迭代中：</p><ul><li><strong>B-model</strong>利用<strong>目标语言</strong>的单文本得到对应的<strong>源语言</strong>文本，该生成的平行文本再加上平行文本D作为<strong>A-model</strong>的<strong>伪训练数据（pseudo-training data）</strong>。即<strong>A-model</strong>利用<strong>B-model</strong>生成的<strong>源语言</strong>文本作为输入，而原来的单文本作为目标，进行训练；</li><li>同理，<strong>A-model</strong>利用<strong>源语言</strong>的单文本得到对应的<strong>目标语言</strong>文本，该生成的平行文本再加上平行文本D作为<strong>B-model</strong>的<strong>伪训练数据</strong>。</li></ul><p><img src="/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/image-20210419233220188.png" alt="image-20210419233220188"></p><p><strong>图中</strong>：</p><p>在第一轮迭代之前：<script type="math/tex">M^0_{x\to y},M^0_{y\to x}</script>，都是利用<strong>平行文本</strong><script type="math/tex">D=\{x^n,y^n\}</script>预训练得到；</p><p>在每一轮迭代中：</p><ul><li><script type="math/tex">M^i_{x\to y}</script>利用<script type="math/tex">X={x^{(s)}}</script>，得到翻译后的文本<script type="math/tex">Y'_i={y_i^{(s)}}</script>；</li><li><script type="math/tex">M^i_{y\to x}</script>利用<script type="math/tex">Y={y^{(s)}}</script>，得到翻译后的文本<script type="math/tex">X'_i={x_i^{(s)}}</script>；</li><li>利用<script type="math/tex">\{X_i',Y\}\cup D</script>训练模型<script type="math/tex">M^i_{x\to y}</script>；</li><li>利用<script type="math/tex">\{Y_i',X\}\cup D</script>训练模型<script type="math/tex">M^i_{y\to x}</script>；</li></ul><h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p><img src="/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/image-20210419234535538.png" alt="image-20210419234535538"></p><h2 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective"></a>Training Objective</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul><li><strong>平行语料</strong>：<script type="math/tex">D=\{(x^{(n)}, y^{(n)})\}_{n=1}^N</script></li><li><strong>目标语言的单语言语料</strong>：<script type="math/tex">Y=\{y^{(t)}\}_{t=1}^T</script></li></ul><h3 id="优化过程"><a href="#优化过程" class="headerlink" title="优化过程"></a>优化过程</h3><p>优化目标如下：</p><script type="math/tex; mode=display">L^*(\theta_{x\to y})=\sum_{n=1}^N\mathrm{log}p(y^{(n)}|x^{(n)})+\sum_{t=1}^T\mathrm{log}p(y^{(t)}) \tag{1}</script><p>右边第一项是<strong>平行语料</strong>训练的<strong>似然</strong>，第二项是单语言中<strong>目标语言一边</strong>的<strong>似然</strong>。</p><p>接着，我们引入另一模型将<strong>目标语言</strong>文本 翻译成的<strong>源语言</strong>文本 作为<strong>目标语言</strong>的<strong>隐状态（hidden state）</strong>。</p><p>然后，将<script type="math/tex">\mathrm{log}p(y^{(t)})</script>进行分解，得到下列公式：</p><script type="math/tex; mode=display">\mathrm{log}p(y^{(t)})=\mathrm{log}\sum_xp(x,y^{(t)})=\mathrm{log}\sum_xQ(x)\frac{p(x,y^{(t)})}{Q(x)}</script><script type="math/tex; mode=display">\ge \sum_xQ(x)\mathrm{log}\frac{p(x, y^{(t)})}{Q(x)}\ \  (\bold{Jensen's\ inequality})</script><script type="math/tex; mode=display">= \sum_x[Q(x)\mathrm{log}p(y^{(t)}|x)-KL(Q(x)||p(x))] \tag{2}</script><p>其中：</p><ul><li><script type="math/tex">x</script>：目标文本对应的源文本；</li><li><script type="math/tex">Q(x)</script>：<script type="math/tex">x</script>的分布的估计；</li><li><script type="math/tex">p(x)</script>：<script type="math/tex">x</script>的<strong>边缘分布（marginal distribution）</strong>；</li><li><script type="math/tex">KL(\cdot|\cdot)</script>：<a href="http://1.15.86.100/2021/04/20/KL-Divergence/"><strong>KL散度（Kullback-Leibler Divergence）</strong></a></li></ul><p>为了使得式<font color="red">(2)</font>的等号成立，<script type="math/tex">Q(x)</script>必须满足下列条件：</p><script type="math/tex; mode=display">\frac{p(x,y^{(t)})}{Q(x)}=c\ (constant) \tag{3}</script><p>同时，对上式变形得到：</p><script type="math/tex; mode=display">Q(x)=\frac{p(x,y^{(t)})}{c}=\frac{p(x,y^{(t)})}{\sum_xp(x,y^{(t)})}=p^*(x|y^{(t)})</script><p>其中<script type="math/tex">p^*(x|y^{(t)})</script>表示真实的<strong>目标语言到源语言（target-to-source）</strong>的概率，但实际上难以求出，因此使用<strong>机器翻译模型</strong>计算的<script type="math/tex">p(x|y^{(t)})</script>作为替代。</p><p>同时，<strong>KL散度</strong>可以忽略，所以有：</p><script type="math/tex; mode=display">L(\theta_{x\to y})=\sum_{n=1}^N\mathrm{log}p(y^{(n)}|x^{(n)})+\sum_{t=1}^T\sum_xp(x|y^{(t)})\mathrm{log}p(y^{(t)}|x) \tag{4}</script><p>其中第一部分是<strong>极大似然估计（MLE）</strong>，第二部分可以用<strong>EM算法</strong>估计。</p><p>综上：</p><p>对于<script type="math/tex">M_{x\to y}</script>，优化目标为：</p><script type="math/tex; mode=display">L(\theta_{x\to y})=\sum_{n=1}^N\mathrm{log}p(y^{(n)|}|x^{(n)})+\sum_{t=1}^T\mathrm{log}p(y^{(t)}|M_{y\to x}(y^{t}))</script><p>对于<script type="math/tex">M_{y\to x}</script>，优化目标为：</p><script type="math/tex; mode=display">L(\theta_{y\to x})=\sum_{n=1}^N\mathrm{log}p(x^{(n)|}|y^{(n)})+\sum_{t=1}^T\mathrm{log}p(x^{(t)}|M_{x\to y}(x^{t}))</script><p>总的优化目标为：</p><script type="math/tex; mode=display">L(\theta)=L(\theta_{x\to y})+L(\theta_{y\to x})</script><h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p><img src="/2021/04/19/Joint-Training-for-Neural-Machine-Translation-Models-with-Monolingual-Data/image-20210420212934733.png" alt="image-20210420212934733"></p><p><strong>JT-NMT</strong>是本模型。</p><p><strong>REF</strong></p><p></p><div id="refer-anchor-1"></div> [1] <a href="https://arxiv.org/abs/1803.00353v1">Joint Training for Neural Machine Translation Modelswith Monolingual Data</a><p></p>]]></content>
-    
-    
-    <summary type="html">本文是对 Joint Training for Neural Machine Translation Models with Monolingual Data 论文的阅读总结。</summary>
-    
-    
-    
-    
-    <category term="Paper" scheme="https://1.15.86.100/tags/Paper/"/>
-    
-    <category term="Neural Machine Translation" scheme="https://1.15.86.100/tags/Neural-Machine-Translation/"/>
-    
-    <category term="Back Translation" scheme="https://1.15.86.100/tags/Back-Translation/"/>
-    
-    <category term="Semi-supervised Learning" scheme="https://1.15.86.100/tags/Semi-supervised-Learning/"/>
     
   </entry>
   

@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,Decision Tree,Random Forest," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -92,30 +92,18 @@
 
 
 
-<meta name="description" content="用深度神经网络(DNN)的思路来组织随机森(RF)，可以极大地提高了随机森林的准确率。">
+<meta name="description" content="对卡特兰数的介绍。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Deep Forest">
-<meta property="og:url" content="https://1.15.86.100/2021/04/02/Deep-Forest/index.html">
+<meta property="og:title" content="卡特兰数">
+<meta property="og:url" content="https://1.15.86.100/2021/05/26/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="用深度神经网络(DNN)的思路来组织随机森(RF)，可以极大地提高了随机森林的准确率。">
+<meta property="og:description" content="对卡特兰数的介绍。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f384.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f3ab.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26b1.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4c3.png?v8">
-<meta property="og:image" content="https://1.15.86.100/2021/04/02/Deep-Forest/p1.png">
-<meta property="og:image" content="https://1.15.86.100/2021/04/02/Deep-Forest/p2.png">
-<meta property="og:image" content="https://1.15.86.100/2021/04/02/Deep-Forest/p3.png">
-<meta property="og:image" content="https://1.15.86.100/2021/04/02/Deep-Forest/p4.png">
-<meta property="article:published_time" content="2021-04-02T08:56:45.000Z">
-<meta property="article:modified_time" content="2021-04-02T09:12:19.289Z">
+<meta property="article:published_time" content="2021-05-26T11:58:21.000Z">
+<meta property="article:modified_time" content="2021-05-26T12:28:45.165Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="Machine Learning">
-<meta property="article:tag" content="Decision Tree">
-<meta property="article:tag" content="Random Forest">
+<meta property="article:tag" content="will">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f384.png?v8">
 
 
 
@@ -145,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2021/04/02/Deep-Forest/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/05/26/卡特兰数/"/>
 
 
 
 
 
-  <title>Deep Forest | BaoWJ's Blog</title>
+  <title>卡特兰数 | BaoWJ's Blog</title>
   
 
 
@@ -317,7 +305,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Deep Forest</h2>
+          <h2 class="post-title" itemprop="name headline">卡特兰数</h2>
         
 
         <div class="post-meta">
@@ -329,8 +317,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-02T16:56:45+08:00">
-                2021-04-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-26T19:58:21+08:00">
+                2021-05-26
               </time>
             
 
@@ -339,6 +327,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../../../categories/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">组合数学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -369,7 +379,7 @@
 
           
               <div class="post-description">
-                  用深度神经网络(DNN)的思路来组织随机森(RF)，可以极大地提高了随机森林的准确率。
+                  对卡特兰数的介绍。
               </div>
           
 
@@ -386,120 +396,9 @@
       
 
       
-        <h1 id="Deep-Forest-christmas-tree"><a href="#Deep-Forest-christmas-tree" class="headerlink" title="Deep Forest:christmas_tree:"></a>Deep Forest<span class="github-emoji"><span>🎄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f384.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1><h3 id="简介-ticket"><a href="#简介-ticket" class="headerlink" title="简介:ticket:"></a>简介<span class="github-emoji"><span>🎫</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f3ab.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h3><p>用<strong>深度神经网络(DNN)</strong>的思路来组织<strong>随机森林(RF)</strong>，极大地提高了随机森林的准确率。</p>
-<h3 id="安装-wrench"><a href="#安装-wrench" class="headerlink" title="安装:wrench:"></a>安装<span class="github-emoji"><span>🔧</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install deep-forest</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="函数-funeral-urn"><a href="#函数-funeral-urn" class="headerlink" title="函数:funeral_urn:"></a>函数<span class="github-emoji"><span>⚱</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26b1.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h3><p>用法详见<strong>测试代码</strong></p>
-<ul>
-<li><p><strong>deepforest.CascadeForestClassifier</strong>：对<strong>Deep Forest</strong>的实现；</p>
-</li>
-<li><p><strong>deepforest.DecisionTreeClassifier</strong>：<strong>Deep Forest</strong>的树的实现；</p>
-<p>​    </p>
-</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>分类的类别需从<strong>0</strong>开始标记，即<strong>label={0,1,2…}</strong></p>
-<h3 id="原论文阅读-page-with-curl"><a href="#原论文阅读-page-with-curl" class="headerlink" title="原论文阅读:page_with_curl:"></a>原<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1702.08835.pdf">论文</a>阅读<span class="github-emoji"><span>📃</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h3><h4 id="background"><a href="#background" class="headerlink" title="background"></a>background</h4><ul>
-<li><p>对<strong>深度神经网络(DNN)</strong>成功的原因分析：</p>
-<ol>
-<li>一层一层的堆叠（<em>layer-by-layer processing</em>）；</li>
-<li>模型内部的数据表征方式的转变【例如LSTM中<strong>词向量</strong>的传递和维度变化】（<em>in-model feature transformation</em>）；</li>
-<li>足够的模型复杂度（<em>sufficient model complexity</em>）；</li>
-</ol>
-</li>
-<li><p><strong>DNN</strong>的缺陷：</p>
-<ol>
-<li>超参数太多（too many hyper-parameters），模型表现十分依赖参数选择和训练（parameter tuning）；</li>
-<li>需要大量训练数据（a huge amount of training data）；</li>
-<li><strong>黑箱系统</strong>（玄学），很难进行理论分析（theoretical analysis）；</li>
-<li>模型结构的确定先于模型训练；</li>
-</ol>
-</li>
-</ul>
-<h4 id="inspiration"><a href="#inspiration" class="headerlink" title="inspiration"></a>inspiration</h4><p><strong>从DNN</strong>：</p>
-<ul>
-<li><p>从<strong>DNN</strong>中观察到，在<strong>DNN</strong>每层的传播中，<strong>数据特征（feature）</strong>越来越集中，越来越抽象。</p>
-</li>
-<li><p><strong>DNN</strong>的成功和<strong>模型复杂度</strong>关系不大，否则<em>为什么无限扩大模型参数量并不能提升模型效果？</em>；</p>
-</li>
-<li><strong>DNN</strong>的层次性和<strong>决策树</strong>的层次性不一样：<ul>
-<li><strong>决策树</strong>始终利用的是输入的数据，并没有对<strong>数据表征（feature）</strong>做出任何改变（work on the original feature representation），没有出现（<em>in-model feature transformation</em>）；</li>
-<li><strong>DNN</strong>每一层的输出都会对<strong>数据表征（feature）</strong>做出改变；</li>
-</ul>
-</li>
-</ul>
-<p><strong>从集成学习（Ensemble Learning）</strong></p>
-<ul>
-<li><p>要做好集成学习，每个<strong>学习单元（learner）</strong>要做到<strong>准确（accurate）</strong> <strong>多样（diverse）</strong>；</p>
-</li>
-<li><p>实践中常常会通过技巧提高模型的<strong>多样性</strong>：</p>
-<ul>
-<li><p><strong>数据采样（data sample manipulation）</strong>：</p>
-<p>  从原始数据集中采样出不同的<strong>子训练集</strong>来训练不同的<strong>学习单元（learner）</strong>；</p>
-<p>  例如：</p>
-<p>  <strong>Bagging</strong>中的<strong>bootstrap sampling</strong>；</p>
-<p>  <strong>AdaBoost</strong>中的<strong>sequential importance sampling</strong>；</p>
-</li>
-<li><p><strong>输入特征采样（input feature manipulation）</strong>：</p>
-<p>  从原始的数据特征中采样出不同的子特征（feature）生成<strong>子空间（subspace）</strong>，训练不同的<strong>学习单元（learner）</strong>；</p>
-</li>
-<li><p><strong>学习参数区别（learning parameter manipulation）</strong>：</p>
-<p>  不同的<strong>学习单元（learner）</strong>采用不同的参数训练；</p>
-</li>
-<li><p><strong>输出表征区别（output representation manipulation）</strong>：</p>
-<p>  对不同的学习单元使用不同的<strong>表征（representation）</strong>；</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="gcForest"><a href="#gcForest" class="headerlink" title="gcForest"></a>gcForest</h4><p><strong>层次森林结构（Cascade Forest Structure）</strong></p>
-<p><img src="/2021/04/02/Deep-Forest/p1.png" alt="pic"></p>
-<ul>
-<li><p>每一层从其前面的层获取数据，再将数据传递到下一层；</p>
-</li>
-<li><p>每一层都是<strong>随机森林</strong>的集成；</p>
-</li>
-<li><p>每个森林中的树个数作为超参数；</p>
-</li>
-<li><p>图中：</p>
-<ul>
-<li><p>黑色森林是<strong>随机森林（random forest）</strong>；</p>
-<p>  每个森林包括500棵<strong>随机树</strong>，树的每个节点从随机选择的$\sqrt{d}$（d是特征个数）个<strong>候选特征</strong>中按照<strong>gini</strong>系数选择一个特征来切分；</p>
-</li>
-<li><p>蓝色森林是<strong>完全随机树森林（completely-random tree forest）</strong>；</p>
-<p>  每个森林包括500棵<strong>完全随机树</strong>，树的每个节点会从<strong>所有的特征</strong>中选择一个特征切分出来，树生长直到完全是叶子；</p>
-</li>
-<li><p>假设数据分为三类，每个<strong>随机森林</strong>将输出<strong>三维向量</strong>，然后将所有向量连接（concatenate）作为输出；</p>
-</li>
-</ul>
-</li>
-<li><p>每个<strong>随机森林</strong>的输出是所有树的平均，如下图：<img src="/2021/04/02/Deep-Forest/p2.png" alt="pic"></p>
-</li>
-<li><p>为了减小<strong>过拟合（overfitting）</strong>风险，每个<strong>随机森林</strong>的输出都使用<strong>K折交叉验证（k-fold cross validation）</strong>：</p>
-<ul>
-<li>每个条数据会被训练<em>k-1</em>次，生成<em>k-1</em>个向量，然后平均作为该树的输出；</li>
-<li>交叉验证的结果作为判定条件，如果模型效果相对上一层有提高则继续扩展下一层，否则结束；</li>
-</ul>
-</li>
-</ul>
-<p><strong>卷积特征提取（Multi-Grained Scanning）</strong></p>
-<p><img src="/2021/04/02/Deep-Forest/p3.png" alt="pic"></p>
-<ul>
-<li><p>用一个一维或者二维的窗口扫描原数据，将窗口数据提取出来作为<strong>新特征</strong>；</p>
-</li>
-<li><p>将<strong>新特征</strong>送入训练，再将结果连接起来，作为最终的输出结果；</p>
-</li>
-<li><p>有可能某些<strong>新特征</strong>与结果丝毫没有关系（例如：需要识别一张图片的<em>汽车</em>，但提取出来的小片段不包含任何相关内容），这时，可以把<strong>新特征</strong>看成一种<strong>output representation manipulation</strong>，可以提高模型的多样性；</p>
-</li>
-<li><p>当<strong>新特征</strong>太多时，可以对其进行<strong>采样</strong>；</p>
-</li>
-<li><p>模型中通常使用不同大小的窗口进行特征提取，如下图：</p>
-<p>  <img src="/2021/04/02/Deep-Forest/p4.png" alt="pic"></p>
-</li>
-</ul>
-<p><strong>Code</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/baowj-678/Machine-Learning/tree/master/Deep-Forest">github:baowj-678</a></p>
-<p><strong>REF</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1702.08835.pdf">arXiv:1702.08835 [cs.LG]</a></p>
-
+        <h1 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>将<script type="math/tex">1,2,\cdots,N</script>，<strong>N</strong>个数依次进行入栈出栈操作，求输出的<strong>不同排列顺序的序列</strong>的个数。</p>
+<p>假设<script type="math/tex">f(x)</script>表示<strong>x</strong>个数的序列个数，则对于<strong>N</strong>个数的数列，设<strong>i</strong>是最后出栈的数字，则比<strong>i</strong>小的数有<strong>i-1</strong>个，比<strong>i</strong>大的数有<strong>N-i</strong>个，所以<strong>递归公式</strong>为：</p>
+<script type="math/tex; mode=display">f(N)=\sum_{i=1}^{N}f(i-1)\cdot f(N-i) \tag{*}</script><h2 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h2><script type="math/tex; mode=display">f(N)=\frac{4N-2}{n+1}f(N-1)</script><h2 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h2><script type="math/tex; mode=display">f(N)=\frac{C_{2N}^N}{N+1}</script>
       
     </div>
     
@@ -514,16 +413,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="../../../../tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
-          
-            <a href="../../../../tags/Decision-Tree/" rel="tag"><i class="fa fa-tag"></i> Decision Tree</a>
-          
-            <a href="../../../../tags/Random-Forest/" rel="tag"><i class="fa fa-tag"></i> Random Forest</a>
-          
-        </div>
-      
 
       
       
@@ -533,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../Windows-Terminal%E6%B7%BB%E5%8A%A0%E7%99%BB%E5%BD%95%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="Windows Terminal添加登录腾讯云服务器">
-                <i class="fa fa-chevron-left"></i> Windows Terminal添加登录腾讯云服务器
+              <a href="../../25/RSA/" rel="next" title="RSA">
+                <i class="fa fa-chevron-left"></i> RSA
               </a>
             
           </div>
@@ -542,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../Server/" rel="prev" title="Server">
-                Server <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -737,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Forest-christmas-tree"><span class="nav-number">1.</span> <span class="nav-text">Deep Forest🎄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-ticket"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介🎫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-wrench"><span class="nav-number">1.0.2.</span> <span class="nav-text">安装🔧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-funeral-urn"><span class="nav-number">1.0.3.</span> <span class="nav-text">函数⚱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.0.4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-page-with-curl"><span class="nav-number">1.0.5.</span> <span class="nav-text">原论文阅读📃</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#background"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inspiration"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">inspiration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gcForest"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">gcForest</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">卡特兰数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">递推公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%A1%B9%E5%85%AC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">通项公式</span></a></li></ol></li></ol></div>
             
 
           </div>
