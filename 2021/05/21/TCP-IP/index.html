@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://1.15.86.100/2021/05/21/TCP-IP/p1.png">
 <meta property="og:image" content="https://1.15.86.100/2021/05/21/TCP-IP/p2.png">
 <meta property="article:published_time" content="2021-05-21T07:45:45.000Z">
-<meta property="article:modified_time" content="2021-05-21T15:12:34.180Z">
+<meta property="article:modified_time" content="2021-05-30T15:13:45.572Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="TCP">
 <meta property="article:tag" content="IP">
@@ -401,7 +401,7 @@
       
 
       
-        <h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h1><h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p><img src="/2021/05/21/TCP-IP/6-19110Q62344I5.gif" alt="img"></p>
+        <h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h1><h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><h2 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h2><p><img src="/2021/05/21/TCP-IP/6-19110Q62344I5.gif" alt="img"></p>
 <h3 id="字段含义"><a href="#字段含义" class="headerlink" title="字段含义"></a>字段含义</h3><ul>
 <li><strong>源端口（Source Port）</strong>：源计算机上的应用程序的端口号，占 16 位；</li>
 <li><strong>目的端口（Destination Port）</strong>：目标计算机的应用程序端口号，占 16 位；</li>
@@ -425,8 +425,57 @@
 <li><strong>紧急指针字段（Urgent Pointer）</strong>：占16位，仅当前面的 URG 控制位为 1 时才有意义。它指出本数据段中为紧急数据的字节数，占 16 位。当所有紧急数据处理完后，TCP 就会告诉应用程序恢复到正常操作。即使当前窗口大小为 0，也是可以发送紧急数据的，因为紧急数据无须缓存；</li>
 <li><strong>可选字段（Options）</strong>：长度不定，但长度必须是 32bits 的整数倍。</li>
 </ul>
-<h2 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h2><h3 id="ipv4"><a href="#ipv4" class="headerlink" title="ipv4"></a>ipv4</h3><p><img src="/2021/05/21/TCP-IP/p1.png" alt="ipv4" style="zoom: 60%;"></p>
+<h2 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h2><h3 id="ipv4"><a href="#ipv4" class="headerlink" title="ipv4"></a>ipv4</h3><p><img src="/2021/05/21/TCP-IP/p1.png" alt="ipv4" style="zoom: 60%;"></p>
+<ul>
+<li><strong>版本（Version）</strong>：包含一个 4 位二进制值 0100，用于标识这是 IPv4 数据包。</li>
+</ul>
+<ul>
+<li><p><strong>区分服务（DS）</strong>：以前称为服务类型 (ToS) 字段，DS 字段是一个用于确定每个数据包优先级的 8 位字段。DiffServ 字段的六个最高有效位是区分服务代码点 (DSCP)，而后两位是显式拥塞通知 (ECN) 位。</p>
+</li>
+<li><p><strong>生存时间 （TTL）</strong>：包含用于限制数据包寿命的一个 8 位二进制值。数据包发送方设置初始 TTL 值，数据包每经过一次路由器处理，数值就减少一。如果 TTL 字段的值减为零，则路由器将丢弃该数据包并向源 IP 地址发送 Internet 控制消息协议 (ICMP) 超时消息。</p>
+</li>
+<li><p><strong>协议（Protocol）</strong>：字段用于确定下一级协议。此 8 位二进制值表示数据包包含的数据负载类型，使网络层将数据传送到相应的上层协议。常用的值包括 <strong>ICMP (1)</strong>、<strong>TCP (6)</strong> 和 <strong>UDP (17)</strong>。</p>
+</li>
+<li><p><strong>源 IPv4 地址（Source Address）</strong>：包含表示数据包源 IPv4 地址的 32 位二进制值。源 IPv4 地址始终为单播地址。</p>
+</li>
+<li><p><strong>目的 IPv4 地址（Destination Address）</strong>：包含表示数据包目的 IPv4 地址的 32 位二进制值。目的 IPv4 地址为单播、组播或广播地址。</p>
+</li>
+</ul>
+<ul>
+<li><strong>互联网报头长度 (IHL)</strong>、<strong>总长度</strong>和<strong>报头校验和</strong>字段用于识别和验证数据包。</li>
+</ul>
 <h3 id="ipv6"><a href="#ipv6" class="headerlink" title="ipv6"></a>ipv6</h3><p><img src="/2021/05/21/TCP-IP/p2.png" alt="ipv6" style="zoom:80%;"></p>
+<ul>
+<li><p><strong>版本（Version）</strong>：此字段包含一个 4 位二进制值 0110，用于标识这是 IPv6 数据包；</p>
+</li>
+<li><p><strong>流量类别（Traffic Class）</strong>：此 8 位字段相当于<strong>IPv4 区分服务 (DS)</strong>字段；</p>
+</li>
+<li><p><strong>流量号（Flow Label）</strong>：此 20 位字段建议带有相同流量标签的所有数据包收到路由器的相同处理；</p>
+</li>
+<li><p><strong>有效负载长度（Payload Length）</strong>：此 16 位字段表示 IPv6 数据包的数据部分或负载的长度；</p>
+</li>
+<li><p><strong>下一首部（Next Header）</strong>：此 8 位字段相当于<strong>IPv4 协议</strong>字段。它表示数据包传送的数据负载类型，使网络层将数据传送到相应的上层协议；</p>
+</li>
+<li><p><strong>跳数限制（Hop Limit）</strong>：此 8 位字段取代 IPv4 的 TTL 字段。每个转发数据包的路由器均会使此数值减一。当跳数达到 0 时，会丢弃此数据包，并且会向发送主机转发 ICMPv6 超时消息来指明数据包未到达目的地，因为超过跳数限制。</p>
+</li>
+<li><p><strong>源 IPv6 地址 </strong>：此 128 位字段用于确定发送主机的 IPv6 地址；</p>
+</li>
+<li><p><strong>目的 IPv6 地址</strong>：此 128 位字段用于确定接收主机的 IPv6 地址；</p>
+</li>
+</ul>
+<h2 id="网络字节顺序"><a href="#网络字节顺序" class="headerlink" title="网络字节顺序"></a>网络字节顺序</h2><p><strong>TCP/IP</strong>定义了标准的用于<strong>协议头</strong>中的二进制整数表示：<strong>网络字节顺序（Network Byte Order）</strong>。</p>
+<h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><h4 id="htons"><a href="#htons" class="headerlink" title="htons"></a>htons</h4><ul>
+<li>本地字节顺序 <script type="math/tex">\rightarrow</script> 网络字节顺序 【16bits】</li>
+</ul>
+<h4 id="ntohs"><a href="#ntohs" class="headerlink" title="ntohs"></a>ntohs</h4><ul>
+<li>网络字节顺序 <script type="math/tex">\rightarrow</script> 本地字节顺序 【16bits】</li>
+</ul>
+<h4 id="htonl"><a href="#htonl" class="headerlink" title="htonl"></a>htonl</h4><ul>
+<li>本地字节顺序 <script type="math/tex">\rightarrow</script> 网络字节顺序 【32bits】</li>
+</ul>
+<h4 id="ntohl"><a href="#ntohl" class="headerlink" title="ntohl"></a>ntohl</h4><ul>
+<li>网络字节顺序 <script type="math/tex">\rightarrow</script> 本地字节顺序 【32bits】</li>
+</ul>
 
       
     </div>
@@ -577,7 +626,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -663,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP"><span class="nav-number">1.</span> <span class="nav-text">TCP&#x2F;IP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">总体结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">1.2.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E5%90%AB%E4%B9%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">字段含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP"><span class="nav-number">1.3.</span> <span class="nav-text">IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv4"><span class="nav-number">1.3.1.</span> <span class="nav-text">ipv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv6"><span class="nav-number">1.3.2.</span> <span class="nav-text">ipv6</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP"><span class="nav-number">1.</span> <span class="nav-text">TCP&#x2F;IP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">总体结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.2.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E5%90%AB%E4%B9%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">字段含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.3.</span> <span class="nav-text">IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv4"><span class="nav-number">1.3.1.</span> <span class="nav-text">ipv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv6"><span class="nav-number">1.3.2.</span> <span class="nav-text">ipv6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%AD%97%E8%8A%82%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.4.</span> <span class="nav-text">网络字节顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.1.</span> <span class="nav-text">转换函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#htons"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">htons</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ntohs"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">ntohs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#htonl"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">htonl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ntohl"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">ntohl</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -704,7 +753,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.9k字</span>
+  <span class="post-count">博客全站共27.8k字</span>
 </div>
         
 <div class="busuanzi-count">
