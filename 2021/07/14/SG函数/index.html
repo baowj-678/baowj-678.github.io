@@ -92,15 +92,15 @@
 
 
 
-<meta name="description" content="对SG函数的简单介绍和代码实现。">
+<meta name="description" content="对SG函数、SG定理的简述和证明。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SG函数">
 <meta property="og:url" content="https://1.15.86.100/2021/07/14/SG%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="对SG函数的简单介绍和代码实现。">
+<meta property="og:description" content="对SG函数、SG定理的简述和证明。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-14T09:15:40.000Z">
-<meta property="article:modified_time" content="2021-07-14T09:22:42.513Z">
+<meta property="article:modified_time" content="2021-08-10T08:00:34.852Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -379,7 +379,7 @@
 
           
               <div class="post-description">
-                  对SG函数的简单介绍和代码实现。
+                  对SG函数、SG定理的简述和证明。
               </div>
           
 
@@ -396,7 +396,78 @@
       
 
       
-        <h1 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>任何一个公平组合游戏都可以通过把每个<strong>局面（状态）</strong>看成一个<strong>顶点</strong>，对每个局面和它的子局面连一条有向边来抽象成一个<strong>有向图</strong>，游戏过程就是状态沿着顶点移动的过程，而<strong>SG函数</strong>就是定义在该<strong>有向图</strong>上的函数。</p>
+        <h1 id="SG-Sprague–Grundy-函数"><a href="#SG-Sprague–Grundy-函数" class="headerlink" title="SG(Sprague–Grundy)函数"></a>SG(Sprague–Grundy)函数</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在<strong>博弈论</strong>中，任何一个<strong>公平组合游戏</strong>都可以通过把每个<strong>局面（状态）</strong>看成一个<strong>顶点</strong>，对每个局面和它的子局面连一条有向边来抽象成一个<strong>有向图</strong>，游戏过程就是状态沿着顶点移动的过程，而<strong>SG函数</strong>就是定义在该<strong>有向图</strong>上的函数。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>组合游戏</strong>需要以下条件：</p>
+<ul>
+<li><p>游戏有且只有<strong>两个玩家</strong>；</p>
+</li>
+<li><p>游戏由两个玩家<strong>交替执行步骤</strong>，并且两位玩家都掌握<strong>完全信息</strong>。</p>
+</li>
+<li><p>游戏满足<strong>结束条件（ending condition）</strong>：</p>
+<ul>
+<li>所有的状态最终都会达到结束；</li>
+<li>所有转移的步骤是有限的；</li>
+</ul>
+</li>
+<li><p>游戏满足<strong>普通条件（normal play condition）</strong>：</p>
+<p>  <strong>不能移动</strong>的玩家<strong>失败</strong>；</p>
+</li>
+</ul>
+<h4 id="必胜点（P点）"><a href="#必胜点（P点）" class="headerlink" title="必胜点（P点）"></a>必胜点（P点）</h4><p>任何处于该点的玩家最终必胜；</p>
+<h4 id="必败点（N点）"><a href="#必败点（N点）" class="headerlink" title="必败点（N点）"></a>必败点（N点）</h4><p>任何处于该点的玩家最终必败；</p>
+<h4 id="相关性质"><a href="#相关性质" class="headerlink" title="相关性质"></a>相关性质</h4><ol>
+<li>所有终结点是<strong>必败点</strong>；</li>
+<li>从任何<strong>必胜点</strong>操作，至少有一种方式可以进入<strong>必败点</strong>；</li>
+<li>无论如何操作，<strong>必败点</strong>只能进入<strong>必胜点</strong>；</li>
+</ol>
+<h3 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h3><h4 id="mex-minimal-excludant-运算"><a href="#mex-minimal-excludant-运算" class="headerlink" title="mex(minimal excludant)运算"></a>mex(minimal excludant)运算</h4><p>在集合上的一个运算，表示<strong>最小</strong>的<strong>不属于</strong>这个集合的<strong>非负整数</strong>。</p>
+<p>例如：</p>
+<ul>
+<li>mex{0, 1, 2, 4} = 3；</li>
+<li>mex{2, 4} = 0；</li>
+<li>mex{} = 0；</li>
+</ul>
+<h4 id="SG-x-函数"><a href="#SG-x-函数" class="headerlink" title="SG(x)函数"></a>SG(x)函数</h4><p>对于任意状态<strong>x</strong>，<strong>SG(x) = mex(S)</strong>。</p>
+<p>其中，<strong>S</strong>表示<strong>x</strong>后继状态的<strong>SG</strong>函数值的集合。</p>
+<p>当<strong>SG函数值=0</strong>时，当前先手玩家必败，否则先手玩家必胜。</p>
+<h4 id="取石子问题"><a href="#取石子问题" class="headerlink" title="取石子问题"></a>取石子问题</h4><blockquote>
+<p>现在你有 <strong>n</strong> 个石子，每次可以取走 <script type="math/tex">a(a\in\{1,2\})</script>​​ 个，两个人轮流取，谁取完了谁就获胜，问先手是否必胜。</p>
+</blockquote>
+<p>首先，0个石子肯定是<strong>必败点</strong>，所以有：<script type="math/tex">SG(0)=0</script>；</p>
+<p>有1个石子时，后继状态只有0，所以有：<script type="math/tex">SG(1) = mex\{SG(0)\}=1</script>；</p>
+<p>有2个石子时，后继状态有0，1，所以有：<script type="math/tex">SG(2)=mex\{SG(1),SG(0)\}=2</script>​</p>
+<p>有3个石子时，后继状态有1，2，所以有：<script type="math/tex">SG(3)=mex\{SG(1),SG(2)\}=0</script></p>
+<p>有4个石子时，后继状态有2，3，所以有：<script type="math/tex">SG(4)=mex\{SG(2),SG(3)\}=1</script>​</p>
+<p>有5个石子时，后继状态有3，4，所以有：<script type="math/tex">SG(5)=mex\{SG(3),SG(4)\}=2</script></p>
+<p>有6个石子时，后继状态有4，5，所以有：<script type="math/tex">SG(6)=mex\{SG(4),SG(5)\}=0</script></p>
+<p>……</p>
+<p>容易发现：<script type="math/tex">SG(x)>0,if\ x>0</script>​，所以<strong>不一定先手必胜</strong>。</p>
+<h3 id="证明（SG-0必败，否则必胜的证明）"><a href="#证明（SG-0必败，否则必胜的证明）" class="headerlink" title="证明（SG=0必败，否则必胜的证明）"></a>证明（SG=0必败，否则必胜的证明）</h3><p>首先，对于<strong>终结点</strong> <script type="math/tex">x</script>，此使令<script type="math/tex">SG(x)=0</script>，且必定属于<strong>必败点</strong>；</p>
+<p>对于 <script type="math/tex">SG(x)= 0</script>​ 的<strong>非终结点</strong> <script type="math/tex">x</script>​：</p>
+<ul>
+<li>因为 <script type="math/tex">SG(x) =0</script>，所以，其<strong>子状态</strong>的<strong>SG值</strong>都不为0，即 <script type="math/tex">SG(y)\neq 0,if\ y\in\ sub(x)</script>；</li>
+<li>而，对于<script type="math/tex">SG(y)\neq 0</script> 的状态 <script type="math/tex">y</script>​，其<strong>子状态集合</strong>中必包含<strong>SG值</strong>为0的状态，即 <script type="math/tex">\exist z,SG(z)=0,if\ z\in\ sub(y)</script>；</li>
+<li>所以，处于 <script type="math/tex">x</script>​ 状态时，先手任意选择，后手选择<strong>到达 <script type="math/tex">z</script>状态</strong>的操作即可到达另一使先手<strong>SG值</strong>为0的状态；</li>
+<li>又，该<strong>游戏图</strong>是<strong>有向无环图</strong>，且<strong>叶结点（终结点）</strong>都为必败点，所以<strong>SG=0</strong>的点必为必败点；</li>
+</ul>
+<p>对于 <script type="math/tex">SG(x) \neq 0</script>的点 <script type="math/tex">x</script>：</p>
+<ul>
+<li>其<strong>子状态集合</strong>中必包含<strong>SG值</strong>为0的状态，即 <script type="math/tex">\exist y,SG(y)=0,if\ y\in\ sub(x)</script>​​；</li>
+<li>选择可以到达<strong>y</strong>状态的路径即可；</li>
+</ul>
+<h3 id="SG定理"><a href="#SG定理" class="headerlink" title="SG定理"></a>SG定理</h3><blockquote>
+<p>游戏和的<strong>SG函数</strong>等于各个游戏SG函数值的<strong>Nim和</strong>。这样就可以将每一个子游戏<strong>分而治之</strong>，从而简化了问题。</p>
+</blockquote>
+<h4 id="Nim和"><a href="#Nim和" class="headerlink" title="Nim和"></a>Nim和</h4><p>将各个数<strong>异或</strong>的结果。</p>
+<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><ul>
+<li>设 <strong>#S</strong> 是所有子游戏的<strong>Nim和</strong>；</li>
+<li>假设 <strong>#S</strong> 不为0，且最高位为1（假设为第 <strong>k</strong>位）的对应的其中一个子游戏的<strong>SG值</strong>为 <strong>#s</strong>；</li>
+<li>令 <strong>#A</strong> 表示除去 <strong>#s</strong> 后，剩下的所有子游戏的 <strong>Nim和</strong>，则有：<strong>#S = #s ^ #A</strong>；</li>
+<li>令 <strong>#a = #s ^ #S</strong>，既该轮的先手将一个子游戏的<strong>SG值</strong>由<strong>#s</strong>变为<strong>#a</strong>，因为<strong>#S，#s</strong>第 <strong>k</strong>位都为1，所以异或后为0，所以<strong>#a &lt; #s</strong>；</li>
+<li>则有：<strong>#A ^ #a = #A ^ #s ^ #S = #A ^ #s ^ #s ^#A = 0</strong>；</li>
+<li>综上如果 <strong>#S</strong> 不为0，先手总可以使 <strong>#S</strong>变为0，并且各堆的<strong>SG值</strong>是单调递减的，所以最终后手局时各堆 <strong>SG值</strong>都变为0，先手必胜；</li>
+<li>同上如果 <strong>#S</strong>为0，先手必输；</li>
+</ul>
 
       
     </div>
@@ -627,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SG%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">SG函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SG-Sprague%E2%80%93Grundy-%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">SG(Sprague–Grundy)函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.0.2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%85%E8%83%9C%E7%82%B9%EF%BC%88P%E7%82%B9%EF%BC%89"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">必胜点（P点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%85%E8%B4%A5%E7%82%B9%EF%BC%88N%E7%82%B9%EF%BC%89"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">必败点（N点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">相关性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SG%E5%87%BD%E6%95%B0"><span class="nav-number">1.0.3.</span> <span class="nav-text">SG函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mex-minimal-excludant-%E8%BF%90%E7%AE%97"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">mex(minimal excludant)运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SG-x-%E5%87%BD%E6%95%B0"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">SG(x)函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E7%9F%B3%E5%AD%90%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">取石子问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%EF%BC%88SG-0%E5%BF%85%E8%B4%A5%EF%BC%8C%E5%90%A6%E5%88%99%E5%BF%85%E8%83%9C%E7%9A%84%E8%AF%81%E6%98%8E%EF%BC%89"><span class="nav-number">1.0.4.</span> <span class="nav-text">证明（SG&#x3D;0必败，否则必胜的证明）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SG%E5%AE%9A%E7%90%86"><span class="nav-number">1.0.5.</span> <span class="nav-text">SG定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Nim%E5%92%8C"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">Nim和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%81%E6%98%8E"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">证明</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -668,7 +739,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共28.4k字</span>
+  <span class="post-count">博客全站共29.4k字</span>
 </div>
         
 <div class="busuanzi-count">
