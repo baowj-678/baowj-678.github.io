@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-08-10T14:17:10.071Z</updated>
+  <updated>2021-08-11T09:57:26.312Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>组合数学-排列组合</title>
+    <link href="https://1.15.86.100/2021/08/11/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"/>
+    <id>https://1.15.86.100/2021/08/11/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/</id>
+    <published>2021-08-11T08:00:21.000Z</published>
+    <updated>2021-08-11T09:57:26.312Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a>排列组合</h1><h2 id="多重排列"><a href="#多重排列" class="headerlink" title="多重排列"></a>多重排列</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>对于若干个元素，<script type="math/tex">r_1</script>个1，<script type="math/tex">r_2</script>个2，……<script type="math/tex">r_t</script>个t，元素个数之和为<strong>n</strong>，即<script type="math/tex">\sum_{i=1}^{t}r_i = n</script>​，那么其**全排列记为：<script type="math/tex">P(n;r_1,r_2,\cdots,r_t)</script>​。​</p><h4 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">P(n;r_1,r_2,\cdots,r_t)=\frac{n!}{r_1!r_2!\cdots r_t!}</script><h2 id="无重组合"><a href="#无重组合" class="headerlink" title="无重组合"></a>无重组合</h2><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>从 <strong>n</strong> 个不同的元素中，取 <strong>r</strong> 个不重复的元素，组成一个子集，不考虑顺序，记为：<script type="math/tex">C(n,r)</script>​</p><h4 id="计算公式-1"><a href="#计算公式-1" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">C(n,r)=\frac{n!}{(n-r)!r!}</script><h2 id="无重排列"><a href="#无重排列" class="headerlink" title="无重排列"></a>无重排列</h2><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>从 <strong>n</strong> 个不同的元素中，取 <strong>r</strong> 个不重复的元素，按次序排列，记为：<script type="math/tex">P(n,r)</script></p><h4 id="计算公式-2"><a href="#计算公式-2" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">P(n,r)=\frac{n!}{(n-r)!}</script><h2 id="可重组合"><a href="#可重组合" class="headerlink" title="可重组合"></a>可重组合</h2><h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><p>从n个不同的元素中，取r个元素，可以重复选取，记为：<script type="math/tex">\bar{C}(n,r)</script>​</p><h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><p>取 <script type="math/tex">r</script>​ 个无标志的球，放入 <script type="math/tex">n</script>​​ 个有区别的盒子中，可以放0个或多余1个。</p><h4 id="计算公式-3"><a href="#计算公式-3" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">\bar{C}(n,r)=C(n+r-1, r)</script><h2 id="可重排列"><a href="#可重排列" class="headerlink" title="可重排列"></a>可重排列</h2><h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><p>从n个不同的元素中，取r个进行排列，可以重复选取，记为：<script type="math/tex">P(n,r)</script></p><h4 id="计算公式-4"><a href="#计算公式-4" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">P(n,r)=n^r</script><h2 id="不相邻组合"><a href="#不相邻组合" class="headerlink" title="不相邻组合"></a>不相邻组合</h2><h4 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h4><p>从<script type="math/tex">A=\{1,2,3,\cdots,n\}</script>中取<strong>r</strong>个不相邻的数进行组合，即不存在相邻的两个数<script type="math/tex">j,j+1</script>​的组合。</p><h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><script type="math/tex; mode=display">C(n-r+1, r)</script><h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>设<script type="math/tex">B=\{b_1,b_2,\cdots,b_r\}</script>是一组不相邻的组合；</p><p>让<strong>B</strong>序列元素分别减去其序号，构造<strong>C</strong>序列：<script type="math/tex">C=\{b_1-0,b_2-1,\cdots,b_r-(r-1)\}</script>​;</p><p>因为，<strong>B</strong>是不相邻的组合，所以：</p><script type="math/tex; mode=display">b_i<b_{i+1} - 1\to b_i-i+1<b_{i+1}-i+2</script><p>所以：</p><script type="math/tex; mode=display">c_1<c_2<\cdots c_r</script><p>又因为：<script type="math/tex">c_1=b_1-0\ge 1,c_r=b_r-r+1\le n-r+1</script></p><p>所以，组合数为：<script type="math/tex">C(n-r+1, r)</script>​</p><h4 id="REF"><a href="#REF" class="headerlink" title="REF"></a>REF</h4><p><a href="https://www.bilibili.com/video/BV1vZ4y1j7gf?p=22&amp;spm_id_from=pageDriver">【学堂在线】组合数学_哔哩哔哩_bilibili</a></p>]]></content>
+    
+    
+    <summary type="html">排列组合基本概念公式、多重全排列等。</summary>
+    
+    
+    
+    <category term="组合数学" scheme="https://1.15.86.100/categories/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="排列组合" scheme="https://1.15.86.100/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>SG函数</title>
@@ -416,27 +437,6 @@
     <category term="Paper" scheme="https://1.15.86.100/tags/Paper/"/>
     
     <category term="Monolingual Data" scheme="https://1.15.86.100/tags/Monolingual-Data/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KL-Divergence</title>
-    <link href="https://1.15.86.100/2021/04/20/KL-Divergence/"/>
-    <id>https://1.15.86.100/2021/04/20/KL-Divergence/</id>
-    <published>2021-04-20T12:44:22.000Z</published>
-    <updated>2021-04-20T12:58:43.752Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence"></a>KL Divergence</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="连续形式"><a href="#连续形式" class="headerlink" title="连续形式"></a>连续形式</h3><script type="math/tex; mode=display">\mathrm{KL}(P||Q)=\int_x P(x)\mathrm{log}\frac{P(x)}{Q(x)}</script><h3 id="离散形式"><a href="#离散形式" class="headerlink" title="离散形式"></a>离散形式</h3><script type="math/tex; mode=display">\mathrm{KL}(P||Q)=\sum_{i=1}^N P(x_i)\mathrm{log}\frac{P(x_i)}{Q(x_i)}</script><h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>只有在<script type="math/tex">P(x)=Q(x)</script>时等于0，其他任何时候都大于0。</p>]]></content>
-    
-    
-    <summary type="html">本文主要介绍KL散度概念</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
-    
-    <category term="Math" scheme="https://1.15.86.100/tags/Math/"/>
     
   </entry>
   
