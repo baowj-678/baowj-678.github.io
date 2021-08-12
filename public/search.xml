@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>组合数学-整数拆分数</title>
+      <link href="/2021/08/12/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86%E6%95%B0/"/>
+      <url>/2021/08/12/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="整数拆分数"><a href="#整数拆分数" class="headerlink" title="整数拆分数"></a>整数拆分数</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>整数拆分</strong>即将一个整数拆分成其他整数（大于0）之和，要求计算其拆分种类个数。</p><h2 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h2><h3 id="欧拉方法"><a href="#欧拉方法" class="headerlink" title="欧拉方法"></a>欧拉方法</h3><p>令：<script type="math/tex">G(x)=(1+x+x^2+\cdots)(1+x^2+x^4+\cdots)\cdots(1+x^m+x^{2m}+\cdots)</script></p><p>则<strong>整数拆分数</strong>等于 <script type="math/tex">x^n</script> 的系数。</p><h3 id="Ferrers图"><a href="#Ferrers图" class="headerlink" title="Ferrers图"></a>Ferrers图</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p><img src="/2021/08/12/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86%E6%95%B0/image-20210812161257896.png" alt="image-20210812161257896"></p><p><img src="/2021/08/12/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86%E6%95%B0/image-20210812161655726.png" alt="image-20210812161655726"></p><p><strong>Ferrers图像</strong>中，格子总数表示<strong>待拆分的整数</strong>，其格子按照行数<strong>从大到小</strong>的阶梯状排序，其<strong>列数</strong>表示拆分成的整数个数，其<strong>行数</strong>表示拆分成的整数值。</p><p>将<strong>Ferrers图像</strong>翻转的到的图像称为<strong>共轭Ferrers图像</strong>。</p><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>整数 <strong>n</strong> 拆分成<strong>最大数为k</strong>的拆分数，和，拆分成<strong>k个数的和</strong>的拆分数是相等的。</p><h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>利用<strong>Ferrers图像</strong>和<strong>共轭Ferrers图像</strong>可以证明。</p><h2 id="REF"><a href="#REF" class="headerlink" title="REF"></a>REF</h2><p><a href="https://www.bilibili.com/video/BV1vZ4y1j7gf?p=26">【学堂在线】组合数学_哔哩哔哩_bilibili</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 组合数学 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>组合数学-母函数</title>
       <link href="/2021/08/11/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%AF%8D%E5%87%BD%E6%95%B0/"/>
       <url>/2021/08/11/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%AF%8D%E5%87%BD%E6%95%B0/</url>
