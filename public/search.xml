@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>TF-IDF</title>
+      <link href="/2021/08/12/TF-IDF/"/>
+      <url>/2021/08/12/TF-IDF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>TF-IDF（Term Frequency-Inverse Document Frequency，词频-逆文档频率）</strong>算法，是信息检索中常用得统计算法。其主要目的是，反应文档或者语句中某些字词得重要程度。某篇文章中字词 <strong>A</strong> 的<strong>TF-IDF</strong>值随着 <strong>A</strong> 在该文档中出现的次数增多而增加，随着 <strong>A</strong> 在其他文档中出现的次数的增多而减少。</p><h2 id="TF"><a href="#TF" class="headerlink" title="TF"></a>TF</h2><p><strong>TF（Term Frequency）</strong>即词频，表示<strong>某个字词</strong>在某个文档中出现的次数占该文档中<strong>所有出现字词</strong>的比例。</p><h4 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">\mathrm{tf}(t,d)=\frac{f_{t,d}}{\sum_{t'\in d}f_{t',d}}</script><p>其中：</p><ul><li><script type="math/tex">f_{t,d}</script>​：表示字词 <strong>t</strong> 在文档 <strong>d</strong> 中出现的次数；</li></ul><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>TF的值，<script type="math/tex">\mathrm{tf}(t,d)</script>​​ 还有其他<strong>定义方式</strong>：</p><ul><li>仅仅表示<strong>词频</strong>：<script type="math/tex">\mathrm{tf}(t,d)=f_{t,d}</script>；</li><li>布尔型：<script type="math/tex">\begin{equation}\mathrm{tf}(t,d)=\left\{ \begin{aligned} 1\ \ if\ t\in d\\ 0\ \ else \end{aligned} \right. \end{equation}</script>​</li><li><strong>对数放缩</strong>：<script type="math/tex">\mathrm{tf}(t,d)=\log{(1+f_{t,d})}</script></li><li><strong>增强频率</strong>（避免长文档的偏差）​：<script type="math/tex">\mathrm{tf}(t,d)=0.5+0.5\cdot \frac{f_{t,d}}{\max{(f_{t',d}:t'\in d)}}</script></li></ul><h2 id="IDF"><a href="#IDF" class="headerlink" title="IDF"></a>IDF</h2><p><strong>IDF（Inverse Document Frequency）</strong>即<strong>逆文档频率</strong>，表示该字词的重要性，如果该字词在该文档出现频率高而很少出现在其他文档则表示该字词更重要。</p><h4 id="计算公式-1"><a href="#计算公式-1" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">\mathrm{idf}(t,D)=\log{\frac{N}{|\{d\in D:t\in d\}|}}$$​其中：* **N**：表示**语料库**中**文档**总数：$$N=|D|$$；* $$|\{d\in D:t\in d\}|$$​：包含 **t** 字词的文档个数；#### 补充* 平滑**IDF**：$$\mathrm{idf}(t,D)=\log{(\frac{N}{1+n_t})}+1$$；* 仅仅使用频率：$$\mathrm{idf}(t,D)=N$$；* 最大**IDF**：$$\mathrm{idf}(t,D)=\log{\frac{\max_{\{t'\in d\}}n_{t'}}{1+n_t}}</script><ul><li>概率<strong>IDF</strong>：<script type="math/tex">\mathrm{idf}(t,D)=\log{\frac{N-n_t}{n_t}}</script></li></ul><h2 id="TF-IDF-1"><a href="#TF-IDF-1" class="headerlink" title="TF-IDF"></a>TF-IDF</h2><h4 id="计算公式-2"><a href="#计算公式-2" class="headerlink" title="计算公式"></a>计算公式</h4><script type="math/tex; mode=display">\mathrm{tfidf}(t,d,D)=\mathrm{tf}(t,d)\cdot \mathrm{idf}(t, D)</script><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://en.wikipedia.org/wiki/Tf–idf">维基百科：TF-IDF</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> NLP </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>组合数学-整数拆分数</title>
       <link href="/2021/08/12/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86%E6%95%B0/"/>
       <url>/2021/08/12/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86%E6%95%B0/</url>
