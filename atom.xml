@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-08-12T11:37:49.633Z</updated>
+  <updated>2021-08-14T12:50:45.872Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux-用户管理</title>
+    <link href="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/"/>
+    <id>https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/</id>
+    <published>2021-08-14T08:44:51.000Z</published>
+    <updated>2021-08-14T12:50:45.872Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><h2 id="etc-passwd【用户信息文件】"><a href="#etc-passwd【用户信息文件】" class="headerlink" title="/etc/passwd【用户信息文件】"></a>/etc/passwd【用户信息文件】</h2><p>可以使用<code>man 5 passwd</code>查看配置信息。</p><h4 id="配置信息详情"><a href="#配置信息详情" class="headerlink" title="配置信息详情"></a>配置信息详情</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理\image-20210814165205912.png" alt="image-20210814165205912"></p><p>每个字段用 <strong>:</strong> 分割。</p><ul><li><p>第1字段：用户名称；</p></li><li><p>第2字段：密码标志 ；</p></li><li><p>第3字段：UID（用户ID） ；</p></li><li><ul><li>0：   超级用户 ；<ul><li>1-499：  系统用户（伪用户）；</li><li>500-65535： 普通用户(centos7 从1000开始计算)；</li></ul></li></ul></li><li><p>第4字段：GID（用户初始组ID）[不推荐修改初始组]；</p></li><li><p>第5字段：用户说明 ；</p></li><li><p>第6字段：家目录 ；</p></li><li><ul><li>普通用户：/home/用户名/； <ul><li>超级用户：/root/ ；</li></ul></li></ul></li><li><p>第7字段：登录之后的Shell；</p></li></ul><h2 id="etc-shadow【影子文件】"><a href="#etc-shadow【影子文件】" class="headerlink" title="/etc/shadow【影子文件】"></a>/etc/shadow【影子文件】</h2><p>可以使用<code>man 5 shadow</code>查看配置信息。</p><h4 id="详细配置信息"><a href="#详细配置信息" class="headerlink" title="详细配置信息"></a>详细配置信息</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理\image-20210814170742873.png" alt="image-20210814170742873"></p><ul><li><p>第1字段：用户名；</p></li><li><p>第2字段：加密密码 ；</p></li><li><ul><li>加密算法升级为SHA512散列加密算法；<ul><li>如果密码位是<strong>“!!”</strong>或<strong>“*”</strong>代表没有密码，不能登录；</li></ul></li></ul></li><li><p>第3字段：密码最后一次修改日期；</p></li><li><ul><li>使用1970年1月1日作为标准时间，每过一天时间戳加1；</li></ul></li><li><p>第4字段：两次密码的修改间隔时间（和第3字段相比）；</p></li><li>第5字段：密码有效期（和第3字段相比）；</li><li><p>第6字段：密码修改到期前的警告天数（和第5字段相比）；</p></li><li><p>第7字段：密码过期后的宽限天数（和第5 字段相比）；</p></li><li><ul><li>0：代表密码过期后立即失效；<ul><li>-1：则代表密码永远不会失效； </li></ul></li></ul></li><li><p>第8字段：账号失效时间；</p></li><li><ul><li>要用时间戳表示 </li></ul></li><li><p>第9字段：保留</p></li></ul><h2 id="etc-group【组信息文件】"><a href="#etc-group【组信息文件】" class="headerlink" title="/etc/group【组信息文件】"></a>/etc/group【组信息文件】</h2><p>可以使用<code>man 5 group</code>查看配置信息。</p><h4 id="详细信息"><a href="#详细信息" class="headerlink" title="详细信息"></a>详细信息</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理\image-20210814171614809.png" alt="image-20210814171614809"></p><ul><li>第一字段：组名；</li><li>第二字段：组密码标志；</li><li>第三字段：GID；</li><li>第四字段：组中附加用户；</li></ul>]]></content>
+    
+    
+    <summary type="html">Linux用户管理配置：用户信息文件、影子文件、组信息文件。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://1.15.86.100/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-软件包管理</title>
+    <link href="https://1.15.86.100/2021/08/14/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/"/>
+    <id>https://1.15.86.100/2021/08/14/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</id>
+    <published>2021-08-14T07:57:13.000Z</published>
+    <updated>2021-08-14T08:03:38.246Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h1><h2 id="软件包分类"><a href="#软件包分类" class="headerlink" title="软件包分类"></a>软件包分类</h2><h4 id="源码包"><a href="#源码包" class="headerlink" title="源码包"></a>源码包</h4><p>源码包的<strong>优点</strong>： </p><ul><li><p>开源，如果有足够的能力，可以修改源代码 ；</p></li><li><p>可以自由选择所需的功能 ；</p></li><li><p>软件是编译安装，所以更加适合自己的系统，更加稳定也效率更高 ；</p></li><li><p>卸载方便；</p></li></ul><p>源码包的<strong>缺点</strong>： </p><ul><li><p>安装过程步骤较多，尤其安装较大的软件集合时（如LAMP环境搭建），容易出现拼写错误；</p></li><li><p>编译过程时间较长，安装比二进制安装时间长 ；</p></li><li><p>因为是编译安装，安装过程中一旦报错新手很难解决；</p></li></ul><h4 id="RPM包（二进制）"><a href="#RPM包（二进制）" class="headerlink" title="RPM包（二进制）"></a>RPM包（二进制）</h4><p>二进制包的<strong>优点</strong> </p><ul><li><p>包管理系统简单，只通过几个命令就可以实现包的安装、升级、查询和卸载 ；</p></li><li><p>安装速度比源码包安装快的多；</p></li></ul><p>二进制包<strong>缺点</strong>：</p><ul><li>经过编译，不再可以看到源代码； </li><li>功能选择不如源码包灵活 ；</li><li>依赖性；</li></ul>]]></content>
+    
+    
+    <summary type="html">Linux软件包的介绍、安装等操作。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://1.15.86.100/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>TF-IDF</title>
@@ -381,50 +419,6 @@
     <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
     
     <category term="Decision Tree" scheme="https://1.15.86.100/tags/Decision-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>K-means</title>
-    <link href="https://1.15.86.100/2021/05/15/K-means/"/>
-    <id>https://1.15.86.100/2021/05/15/K-means/</id>
-    <published>2021-05-15T08:10:22.000Z</published>
-    <updated>2021-05-16T15:29:16.690Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h1><h2 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>K-means</strong>聚类算法是一种简单的<strong>无监督</strong>聚类方法。</p><h3 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h3><p><strong>输入</strong>：类数<strong>K</strong>，训练数据<strong>D</strong>。</p><ul><li>选择（一般随机）<strong>K</strong>个点作为初始<strong>簇中心</strong>；</li><li>将每个点指派到<strong>最近的簇中心</strong>形成<strong>K个簇</strong>；</li><li>重新计算每个<strong>簇</strong>的簇中心；</li><li>重复上述步骤直到<strong>簇中心不发生变化</strong>；</li></ul><p><strong>算法特点</strong>：</p><ul><li>简单、直观；</li><li>聚类结果依赖于<strong>𝐾</strong>个初始簇中心的选择；</li><li>容易陷入局部最优，不易处理非簇状数据；</li><li>聚类结果容易受离群值影响；</li></ul><p><strong>时间复杂度</strong>：</p><script type="math/tex; mode=display">O(mnkt)</script><p>其中，<script type="math/tex">m</script>：数据维度；<script type="math/tex">n</script>：样本个数；<script type="math/tex">k</script>：类别数；<script type="math/tex">t</script>：迭代次数。</p><p><img src="/2021/05/15/K-means/sphx_glr_plot_kmeans_assumptions_001.png" alt="Incorrect Number of Blobs, Anisotropicly Distributed Blobs, Unequal Variance, Unevenly Sized Blobs"></p><h2 id="改进模型"><a href="#改进模型" class="headerlink" title="改进模型"></a>改进模型</h2><h3 id="K-medoids"><a href="#K-medoids" class="headerlink" title="K-medoids"></a>K-medoids</h3><p><strong>K-medoids</strong>改进方法：</p><ul><li>选取每个簇中到<strong>簇内其他点</strong>的<strong>距离和最小</strong>的样本作为簇的中心。</li></ul><h3 id="二分K-means"><a href="#二分K-means" class="headerlink" title="二分K-means"></a>二分K-means</h3><p><strong>Bi K-means</strong>改进方法：</p><ul><li>每次从所有簇中选择能最大限度降低<strong>损失函数</strong>的簇，然后将该簇<strong>划分为两个簇</strong>，重复该过程，直至簇集合中含有<strong>𝐾</strong>个簇；</li></ul><h3 id="K-median"><a href="#K-median" class="headerlink" title="K-median"></a>K-median</h3><p><strong>K-median</strong>改进方法：</p><ul><li>距离度量使用<strong>曼哈顿距离</strong>；</li><li>每次<strong>簇中心</strong>使用簇的中位数；</li></ul><h2 id="评价标准"><a href="#评价标准" class="headerlink" title="评价标准"></a>评价标准</h2><h3 id="内部指标"><a href="#内部指标" class="headerlink" title="内部指标"></a>内部指标</h3><ul><li><strong>紧凑度</strong>：衡量簇内样本之间是否足够紧凑；</li><li><strong>分离度</strong>：衡量不同簇之间距离是否足够远；</li></ul><h3 id="外部指标"><a href="#外部指标" class="headerlink" title="外部指标"></a>外部指标</h3><ul><li>将<strong>聚类</strong>结果与其他模型进行比较；</li></ul><h3 id="轮廓系数"><a href="#轮廓系数" class="headerlink" title="轮廓系数"></a>轮廓系数</h3><p><strong>轮廓系数</strong>是聚类效果好坏的一种评价方式。它结合<strong>紧凑度</strong>和<strong>分离度</strong>两种因素。可以用来在相同原始数据的基础上用来评价不同算法，或者算法不同运行方式对聚类结果所产生的影响。</p><h4 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h4><ul><li><p><strong>簇内不相似度</strong>：计算样本<script type="math/tex">x_i</script>到同簇其他样本的平均距离<script type="math/tex">a_i</script>，称为样本<script type="math/tex">x_i</script>的<strong>簇内不相似度</strong>。</p><script type="math/tex; mode=display">a_i=\frac{1}{N-1}\sum_{j \ne i}d(x_i,x_j)</script><p>  <script type="math/tex">a_i</script>越小，说明样本<script type="math/tex">x_i</script>越应该被聚类到该簇。</p></li><li><p><strong>簇不相似度</strong>：簇<strong>C</strong>中所有样本的<strong>簇内不相似度</strong>的<strong>均值</strong>。</p></li><li><p><strong>不相似度</strong>：样本<script type="math/tex">x_i</script>到其他某簇<script type="math/tex">C_j</script>的<strong>所有样本</strong>的<strong>平均距离</strong><script type="math/tex">b_{iC_j}</script>，称为样本<script type="math/tex">x_i</script>与簇<script type="math/tex">C_j</script>的<strong>不相似度</strong>。</p><script type="math/tex; mode=display">b_{iC_j}=\frac{1}{N_{C_j}}\sum_{x\in C_j}d(x_i,x)</script></li><li><p><strong>簇间不相似度</strong>：样本<script type="math/tex">x_i</script>与其他簇的<strong>不相似度</strong>的<strong>最小值</strong><script type="math/tex">b_i</script>。</p><script type="math/tex; mode=display">b_i=\min(b_1,\cdots,b_N)</script><p>  <script type="math/tex">b_i</script>越大，说明样本<script type="math/tex">x_i</script>越不属于其他簇。</p></li><li><p><strong>轮廓系数</strong>：</p><script type="math/tex; mode=display">s(x_i)=\frac{b_i-a_i}{\max(a_i,b_i)}</script></li></ul><h4 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h4><ul><li><script type="math/tex">s(x_i)</script>越接近<strong>1</strong>，则说明样本<script type="math/tex">x_i</script>聚类越合理；</li><li><script type="math/tex">s(x_i)</script>越接近<strong>-1</strong>，则说明样本<script type="math/tex">x_i</script>越应该分类到另外的簇；</li><li><script type="math/tex">s(x_i)</script>近似为<strong>0</strong>，则说明样本<script type="math/tex">x_i</script>在两个簇的<strong>边界</strong>上。</li></ul><h3 id="兰德指数"><a href="#兰德指数" class="headerlink" title="兰德指数"></a>兰德指数</h3><p><strong>兰德指数（Rand index）</strong>需要给定<strong>实际标签C</strong>，假设<script type="math/tex">y_i,y_j</script>是<script type="math/tex">x_i,x_j</script>聚类结果，<script type="math/tex">y_i^*,y_j^*</script>是实际类别。则，<script type="math/tex">a</script>表示<script type="math/tex">y_i^*=y_j^*\and y_i=y_j</script>的对数，<script type="math/tex">b</script>表示<script type="math/tex">y_i^*\ne y_j^*\and y_i\ne y_j</script>的对数：</p><script type="math/tex; mode=display">\mathrm{RI}=\frac{a + b}{C_{|C|}^2}</script><h4 id="判断方法-1"><a href="#判断方法-1" class="headerlink" title="判断方法"></a>判断方法</h4><ul><li><strong>兰德指数</strong>取值范围为<strong>[0, 1]</strong>，值越大意味着聚类结果与真实情况越吻合；</li></ul>]]></content>
-    
-    
-    <summary type="html">对K-means聚类算法的介绍。</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
-    
-    <category term="Cluser" scheme="https://1.15.86.100/tags/Cluser/"/>
-    
-    <category term="K-means" scheme="https://1.15.86.100/tags/K-means/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Discretization</title>
-    <link href="https://1.15.86.100/2021/05/15/Discretization/"/>
-    <id>https://1.15.86.100/2021/05/15/Discretization/</id>
-    <published>2021-05-15T03:11:48.000Z</published>
-    <updated>2021-05-17T15:49:41.212Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="数据离散化"><a href="#数据离散化" class="headerlink" title="数据离散化"></a>数据离散化</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将<strong>连续性特征</strong>转换成为<strong>离散型特征</strong>的过程称为<strong>特征离散化（data discretization）</strong>。</p><h2 id="无监督离散化"><a href="#无监督离散化" class="headerlink" title="无监督离散化"></a>无监督离散化</h2><h3 id="等距离散化"><a href="#等距离散化" class="headerlink" title="等距离散化"></a>等距离散化</h3><p>该方法根据<strong>连续特征</strong>的取值，将其均匀地划分成<script type="math/tex">k</script>个区间，每个区间的<strong>区间宽度<script type="math/tex">w</script></strong>相等：</p><script type="math/tex; mode=display">w=\frac{x_{max}-x_{min}}{k}</script><p><strong>特点</strong>：</p><ul><li>对数据要求高；</li><li>对离群值敏感；</li></ul><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut()</span><br></pre></td></tr></tbody></table></figure><h3 id="等频离散化"><a href="#等频离散化" class="headerlink" title="等频离散化"></a>等频离散化</h3><p>根据<strong>连续性特征</strong>取值的总数是<script type="math/tex">N</script>，仍然将其划分为<script type="math/tex">k</script>个区段，每个区段包含的数据个数<script type="math/tex">n</script>为:</p><script type="math/tex; mode=display">n=\frac{N}{k}</script><p><strong>特点</strong>：</p><ul><li>保证了每个区间段有相同的样本数；</li><li>取值相近的样本会被划分到不同区间；</li></ul><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="聚类离散化"><a href="#聚类离散化" class="headerlink" title="聚类离散化"></a>聚类离散化</h3><p>离散化<strong>连续性特征</strong>时，如果<strong>相似的样本</strong>能落到<strong>相同的区间段</strong>内，则这样的划分可以更好地代表原始数据的信息，因此可以考虑利用<strong>聚类</strong>对连续性特征进行离散化处理。</p><h2 id="有监督离散化"><a href="#有监督离散化" class="headerlink" title="有监督离散化"></a>有监督离散化</h2><h3 id="信息增益离散化"><a href="#信息增益离散化" class="headerlink" title="信息增益离散化"></a>信息增益离散化</h3><p>该方法源自于<strong>决策树</strong>模型，在建立决策树时，遍历每一个特征，选择熵最小也就是<strong>信息增益最大</strong>的特征作为正式分裂节点。</p><h4 id="算法步骤："><a href="#算法步骤：" class="headerlink" title="算法步骤："></a>算法步骤：</h4><ul><li>对连续型特征进行排序；</li><li>把特征的每一个取值作为候选<strong>切分点</strong>，计算出相应的<strong>熵</strong>，选择熵最小的取值作为正式的切分点，将原来的区间一分为二；</li><li>递归处理第二步中得到的两个新区间段，直到每个区间段内特征的类别一样为止；</li><li>合并相邻的，<strong>类的熵值为0且特征类别相同</strong>的区段，重新计算新区间段类的熵值；</li><li>重复第四步到满足终止条件（决策树的深度或叶子数）；</li></ul><h3 id="卡方离散化"><a href="#卡方离散化" class="headerlink" title="卡方离散化"></a>卡方离散化</h3><p>基于<strong>卡方</strong>的离散化方法是采用<strong>自底向上</strong>的合并策略，首先将特征的取值看作单独的区间，然后逐一递归进行区间合并。</p><h4 id="ChiMerge方法步骤："><a href="#ChiMerge方法步骤：" class="headerlink" title="ChiMerge方法步骤："></a>ChiMerge方法步骤：</h4><ul><li>将连续型特征的每一个取值看作是一个单独的区间段，并进行排序；</li><li>针对每对相邻的区间段，计算卡方统计量。卡方值最小或者低于设定阈值的相邻区间段合并：</li><li>对于新的区间段，递归进行第1,2步，只到满足终止条件；</li></ul><h3 id="类别属性依赖最大化（CAIM）离散化"><a href="#类别属性依赖最大化（CAIM）离散化" class="headerlink" title="类别属性依赖最大化（CAIM）离散化"></a>类别属性依赖最大化（CAIM）离散化</h3><p>它采取<strong>自顶向下</strong>的策略。通过选择切分点<script type="math/tex">p</script>，把特征的取值空间划分为<script type="math/tex">x\le p</script>和<script type="math/tex">x \gt p</script>两个子区间段, 用来衡量切分点选择优劣的度量方法是类别属性的<strong>相互依赖程度</strong>。</p><p>假设某个<strong>连续型特征</strong>有<script type="math/tex">n</script>个取值，<script type="math/tex">C</script>个类别. 假设我们把特征划分为<script type="math/tex">k</script>个<strong>子区间段</strong>，子区间段集合记为：</p><script type="math/tex; mode=display">D=\{[x_0,x_1],(x_1,x_2],\cdots, (x_{k-1},x_k]\}</script><p>其中，<script type="math/tex">x_0,x_k</script>分别为特征的<strong>最小值</strong>和<strong>最大值</strong>。</p><p>设，<script type="math/tex">n_{i\cdot}</script>表示<strong>属于类别i</strong>的样本个数，<script type="math/tex">n_{\cdot j}</script>表示落在<strong>区间段</strong><script type="math/tex">(x_{j-1},x_j]</script>的样本个数，<script type="math/tex">n_{ij}</script>表示在区间内<script type="math/tex">(x_{j-1},x_j)</script>的且属于类别<script type="math/tex">\textbf{i}</script>的样本个数. 我们可以得到一个由<strong>类别特征</strong>和<strong>离散化特征取值</strong>所构成的二维表：</p><div class="table-container"><table><thead><tr><th>类别</th><th style="text-align:center"><script type="math/tex">[x_0,x_1]</script></th><th style="text-align:center"><script type="math/tex">(x_1,x_2]</script></th><th style="text-align:center">……</th><th style="text-align:center"><script type="math/tex">(x_{k-1},x_k]</script></th><th style="text-align:center">类别样本数</th></tr></thead><tbody><tr><td><strong>1</strong></td><td style="text-align:center"><script type="math/tex">n_{11}</script></td><td style="text-align:center"><script type="math/tex">n_{12}</script></td><td style="text-align:center">……</td><td style="text-align:center"><script type="math/tex">n_{1k}</script></td><td style="text-align:center"><script type="math/tex">n_{1\cdot}</script></td></tr><tr><td><strong>2</strong></td><td style="text-align:center"><script type="math/tex">n_{21}</script></td><td style="text-align:center"><script type="math/tex">n_{22}</script></td><td style="text-align:center">……</td><td style="text-align:center"><script type="math/tex">n_{2k}</script></td><td style="text-align:center"><script type="math/tex">n_{2\cdot}</script></td></tr><tr><td><script type="math/tex">\vdots</script></td><td style="text-align:center"><script type="math/tex">\vdots</script></td><td style="text-align:center"><script type="math/tex">\vdots</script></td><td style="text-align:center"><script type="math/tex">\ddots</script></td><td style="text-align:center"><script type="math/tex">\vdots</script></td><td style="text-align:center"><script type="math/tex">\vdots</script></td></tr><tr><td><strong>C</strong></td><td style="text-align:center"><script type="math/tex">n_{C1}</script></td><td style="text-align:center"><script type="math/tex">n_{C2}</script></td><td style="text-align:center">……</td><td style="text-align:center"><script type="math/tex">n_{Ck}</script></td><td style="text-align:center"><script type="math/tex">n_{C\cdot}</script></td></tr><tr><td><strong>区间样本数</strong></td><td style="text-align:center"><script type="math/tex">n_{\cdot 1}</script></td><td style="text-align:center"><script type="math/tex">n_{\cdot 2}</script></td><td style="text-align:center">……</td><td style="text-align:center"><script type="math/tex">n_{\cdot k}</script></td><td style="text-align:center"><script type="math/tex">n_{\cdot}</script></td></tr></tbody></table></div><p>则：</p><script type="math/tex; mode=display">\mathrm{CAIM}=\frac{1}{N}\sum_{j=1}^k\frac{M_j^2}{n_{\cdot j}},M_j=\max(\{n_{1j},n_{2j},\cdots,n_{Cj}\})</script><p><strong>CAIM</strong>的值<strong>越大</strong>，说明类和离散区间的<strong>相互依赖程度越大</strong>，也就说明了<strong>离散化效果越好</strong>。</p><h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ul><li>对进行离散化的<strong>特征</strong>进行<strong>升序排列</strong>，确定取值区间的<strong>最小值</strong><script type="math/tex">x_0</script>和<strong>最大值</strong><script type="math/tex">x_k</script>，初始化划分策略<script type="math/tex">D=\{[d_0,d_k]\}</script>；</li><li>把区间内的每个值当作<strong>候选切分点</strong>，计算把<strong>区间二分</strong>后的<strong>CAIM</strong>值，并选取<strong>CAIM值最高</strong>的点作为<strong>切分点</strong>，并更新<script type="math/tex">D</script>；</li><li>对于<script type="math/tex">D</script>中的每个<strong>区间段</strong>，重复第二步的计算，直到满足终止条件；</li></ul>]]></content>
-    
-    
-    <summary type="html">数据离散化是特征工程或者数据预处理中很关键的一个环节，这里会对数据离散化进行简单介绍。</summary>
-    
-    
-    
-    
-    <category term="Feature Engineering" scheme="https://1.15.86.100/tags/Feature-Engineering/"/>
-    
-    <category term="Discretization" scheme="https://1.15.86.100/tags/Discretization/"/>
     
   </entry>
   
