@@ -92,22 +92,22 @@
 
 
 
-<meta name="description" content="Linux用户管理配置：用户信息文件、影子文件、组信息文件。">
+<meta name="description" content="Linux用户管理配置，用户管理命令：用户信息文件、影子文件、组信息文件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux-用户管理">
 <meta property="og:url" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="Linux用户管理配置：用户信息文件、影子文件、组信息文件。">
+<meta property="og:description" content="Linux用户管理配置，用户管理命令：用户信息文件、影子文件、组信息文件。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理/image-20210814165205912.png">
-<meta property="og:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理/image-20210814170742873.png">
-<meta property="og:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理/image-20210814171614809.png">
+<meta property="og:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814165205912.png">
+<meta property="og:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814170742873.png">
+<meta property="og:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814171614809.png">
 <meta property="article:published_time" content="2021-08-14T08:44:51.000Z">
-<meta property="article:modified_time" content="2021-08-14T12:50:45.872Z">
+<meta property="article:modified_time" content="2021-08-15T03:00:07.838Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="will">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理/image-20210814165205912.png">
+<meta name="twitter:image" content="https://1.15.86.100/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814165205912.png">
 
 
 
@@ -417,7 +417,7 @@
 
           
               <div class="post-description">
-                  Linux用户管理配置：用户信息文件、影子文件、组信息文件。
+                  Linux用户管理配置，用户管理命令：用户信息文件、影子文件、组信息文件。
               </div>
           
 
@@ -434,8 +434,8 @@
       
 
       
-        <h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><h2 id="etc-passwd【用户信息文件】"><a href="#etc-passwd【用户信息文件】" class="headerlink" title="/etc/passwd【用户信息文件】"></a>/etc/passwd【用户信息文件】</h2><p>可以使用<code>man 5 passwd</code>查看配置信息。</p>
-<h4 id="配置信息详情"><a href="#配置信息详情" class="headerlink" title="配置信息详情"></a>配置信息详情</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理\image-20210814165205912.png" alt="image-20210814165205912"></p>
+        <h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><h2 id="用户管理文件"><a href="#用户管理文件" class="headerlink" title="用户管理文件"></a>用户管理文件</h2><h3 id="etc-passwd【用户信息文件】"><a href="#etc-passwd【用户信息文件】" class="headerlink" title="/etc/passwd【用户信息文件】"></a>/etc/passwd【用户信息文件】</h3><p>可以使用<code>man 5 passwd</code>查看配置信息。</p>
+<h4 id="配置信息详情"><a href="#配置信息详情" class="headerlink" title="配置信息详情"></a>配置信息详情</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814165205912.png" alt="image-20210814165205912"></p>
 <p>每个字段用 <strong>:</strong> 分割。</p>
 <ul>
 <li><p>第1字段：用户名称；</p>
@@ -468,8 +468,8 @@
 <li><p>第7字段：登录之后的Shell；</p>
 </li>
 </ul>
-<h2 id="etc-shadow【影子文件】"><a href="#etc-shadow【影子文件】" class="headerlink" title="/etc/shadow【影子文件】"></a>/etc/shadow【影子文件】</h2><p>可以使用<code>man 5 shadow</code>查看配置信息。</p>
-<h4 id="详细配置信息"><a href="#详细配置信息" class="headerlink" title="详细配置信息"></a>详细配置信息</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理\image-20210814170742873.png" alt="image-20210814170742873"></p>
+<h3 id="etc-shadow【影子文件】"><a href="#etc-shadow【影子文件】" class="headerlink" title="/etc/shadow【影子文件】"></a>/etc/shadow【影子文件】</h3><p>可以使用<code>man 5 shadow</code>查看配置信息。</p>
+<h4 id="详细配置信息"><a href="#详细配置信息" class="headerlink" title="详细配置信息"></a>详细配置信息</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814170742873.png" alt="image-20210814170742873"></p>
 <ul>
 <li><p>第1字段：用户名；</p>
 </li>
@@ -511,14 +511,50 @@
 <li><p>第9字段：保留</p>
 </li>
 </ul>
-<h2 id="etc-group【组信息文件】"><a href="#etc-group【组信息文件】" class="headerlink" title="/etc/group【组信息文件】"></a>/etc/group【组信息文件】</h2><p>可以使用<code>man 5 group</code>查看配置信息。</p>
-<h4 id="详细信息"><a href="#详细信息" class="headerlink" title="详细信息"></a>详细信息</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/Linux-用户管理\image-20210814171614809.png" alt="image-20210814171614809"></p>
+<h3 id="etc-group【组信息文件】"><a href="#etc-group【组信息文件】" class="headerlink" title="/etc/group【组信息文件】"></a>/etc/group【组信息文件】</h3><p>可以使用<code>man 5 group</code>查看配置信息。</p>
+<h4 id="详细信息"><a href="#详细信息" class="headerlink" title="详细信息"></a>详细信息</h4><p><img src="/2021/08/14/Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/image-20210814171614809.png" alt="image-20210814171614809"></p>
 <ul>
 <li>第一字段：组名；</li>
 <li>第二字段：组密码标志；</li>
 <li>第三字段：GID；</li>
 <li>第四字段：组中附加用户；</li>
 </ul>
+<h3 id="etc-gshadow【组密码文件】"><a href="#etc-gshadow【组密码文件】" class="headerlink" title="/etc/gshadow【组密码文件】"></a>/etc/gshadow【组密码文件】</h3><ul>
+<li>第一字段：组名；</li>
+<li>第二字段：组密码 (不推荐使用，可以理解为给组设置个小组长)；</li>
+<li>第三字段：组管理员用户名；</li>
+<li>第四字段：组中附加用户；</li>
+</ul>
+<h3 id="用户相关目录"><a href="#用户相关目录" class="headerlink" title="用户相关目录"></a>用户相关目录</h3><h4 id="家目录"><a href="#家目录" class="headerlink" title="家目录"></a>家目录</h4><ul>
+<li>普通用户：<code>/home/用户名/</code>，所有者和所属组都是此用户，权限是700 </li>
+<li>超级用户：<code>/root/</code>，所有者和所属组都是root用户，权限是550 </li>
+</ul>
+<h4 id="用户邮箱"><a href="#用户邮箱" class="headerlink" title="用户邮箱"></a>用户邮箱</h4><ul>
+<li><code>/var/spool/mail/用户名/</code> </li>
+</ul>
+<h4 id="用户模板目录"><a href="#用户模板目录" class="headerlink" title="用户模板目录"></a>用户模板目录</h4><ul>
+<li><code>/etc/skel/</code></li>
+</ul>
+<h2 id="用户管理命令"><a href="#用户管理命令" class="headerlink" title="用户管理命令"></a>用户管理命令</h2><h3 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h3><p>添加用户</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">useradd [选项] [用户名]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -u UID： 手工指定用户的UID号</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -d 家目录： 手工指定用户的家目录</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -c 用户说明： 手工指定用户的说明</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -g 组名： 手工指定用户的初始组</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -G 组名： 指定用户的附加组</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -s shell： 手工指定用户的登录shell。默认是/bin/bash</span> </span><br></pre></td></tr></tbody></table></figure>
+<h3 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h3><p>修改密码</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">passwd [选项] 用户名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -S  查询用户密码的密码状态。仅root用户可用。</span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> -l  暂时锁定用户。仅root用户可用</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -u  解锁用户。仅root用户可用</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> --stdin 可以通过管道符输出的数据作为用户的密码。</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><p>修改用户信息</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">usermod [选项] 用户名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -u UID：修改用户的UID号</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -c 用户说明：修改用户的说明信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -G 组名：修改用户的附加组</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -L：临时锁定用户（Lock）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -U：解锁用户锁定（Unlock）</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="chage"><a href="#chage" class="headerlink" title="chage"></a>chage</h3><p>修改用户信息</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chage [选项] 用户名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -l：列出用户的详细密码状态</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -d 日期：修改密码最后一次更改日期（shadow3字段）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -m 天数：两次密码修改间隔（4字段）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -M 天数：密码有效期（5字段）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -W 天数：密码过期前警告天数（6字段）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -I 天数：密码过后宽限天数（7字段）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -E 日期：账号失效时间（8字段）</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h3><p>删除用户</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdel [-r] 用户名 </span><br><span class="line"><span class="meta">#</span><span class="bash"> -r：删除用户的同时删除用户家目录</span> </span><br></pre></td></tr></tbody></table></figure>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>查看用户<strong>id</strong></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id 用户名</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><p>切换用户</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su [选项] 用户名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -：选项只使用“-”代表连带用户的环境变量一起切换  (env命令查看当前环境变量)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -c 命令：仅执行一次命令，而不切换用户身份</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="用户组管理命令"><a href="#用户组管理命令" class="headerlink" title="用户组管理命令"></a>用户组管理命令</h2><h4 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h4><p>添加组</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd [选项] 组名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -g GID：指定组ID</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h4><p>修改组</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupmod [选项] 组名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -g GID 修改组ID</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -n 新组名 修改组名</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h4><p>删除组</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupdel [选项] 组名</span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -747,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#etc-passwd%E3%80%90%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.1.</span> <span class="nav-text">&#x2F;etc&#x2F;passwd【用户信息文件】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E6%83%85"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">配置信息详情</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#etc-shadow%E3%80%90%E5%BD%B1%E5%AD%90%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.2.</span> <span class="nav-text">&#x2F;etc&#x2F;shadow【影子文件】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">详细配置信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#etc-group%E3%80%90%E7%BB%84%E4%BF%A1%E6%81%AF%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.3.</span> <span class="nav-text">&#x2F;etc&#x2F;group【组信息文件】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">详细信息</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">用户管理文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-passwd%E3%80%90%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.1.1.</span> <span class="nav-text">&#x2F;etc&#x2F;passwd【用户信息文件】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E6%83%85"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">配置信息详情</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-shadow%E3%80%90%E5%BD%B1%E5%AD%90%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.1.2.</span> <span class="nav-text">&#x2F;etc&#x2F;shadow【影子文件】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">详细配置信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-group%E3%80%90%E7%BB%84%E4%BF%A1%E6%81%AF%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.1.3.</span> <span class="nav-text">&#x2F;etc&#x2F;group【组信息文件】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">详细信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-gshadow%E3%80%90%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E3%80%91"><span class="nav-number">1.1.4.</span> <span class="nav-text">&#x2F;etc&#x2F;gshadow【组密码文件】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.5.</span> <span class="nav-text">用户相关目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">家目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%82%AE%E7%AE%B1"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">用户邮箱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%A8%A1%E6%9D%BF%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">用户模板目录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">用户管理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#useradd"><span class="nav-number">1.2.1.</span> <span class="nav-text">useradd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#passwd"><span class="nav-number">1.2.2.</span> <span class="nav-text">passwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#usermod"><span class="nav-number">1.2.3.</span> <span class="nav-text">usermod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chage"><span class="nav-number">1.2.4.</span> <span class="nav-text">chage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#userdel"><span class="nav-number">1.2.5.</span> <span class="nav-text">userdel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id"><span class="nav-number">1.2.6.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#su"><span class="nav-number">1.2.7.</span> <span class="nav-text">su</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">用户组管理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#groupadd"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">groupadd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#groupmod"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">groupmod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#groupdel"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">groupdel</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -788,7 +824,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共34k字</span>
+  <span class="post-count">博客全站共34.6k字</span>
 </div>
         
 <div class="busuanzi-count">
