@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-08-15T03:00:07.838Z</updated>
+  <updated>2021-08-17T02:21:14.039Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux-Shell编程</title>
+    <link href="https://1.15.86.100/2021/08/16/Linux-Shell%E7%BC%96%E7%A8%8B/"/>
+    <id>https://1.15.86.100/2021/08/16/Linux-Shell%E7%BC%96%E7%A8%8B/</id>
+    <published>2021-08-16T15:07:12.000Z</published>
+    <updated>2021-08-17T02:21:14.039Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Shell编程"><a href="#Shell编程" class="headerlink" title="Shell编程"></a>Shell编程</h1><h2 id="Shell简介"><a href="#Shell简介" class="headerlink" title="Shell简介"></a>Shell简介</h2><h3 id="Shell是什么"><a href="#Shell是什么" class="headerlink" title="Shell是什么"></a>Shell是什么</h3><ul><li>Shell是一个<strong>命令行解释器</strong>，它为用户提供了一个向Linux内核发送请求以便运行程序的界面系统级程序，用户可以用Shell来启动、挂起、停止甚至是编写一些程序；</li><li>Shell还是一个功能相当强大的编程语言，易编写，易调试，灵活性较强。Shell是解释执行的脚本语言，在Shell中可以直接调用Linux系统命令；</li></ul><h3 id="Shell分类"><a href="#Shell分类" class="headerlink" title="Shell分类"></a>Shell分类</h3><ul><li><p><strong>Bourne Shell</strong>：从1979起Unix就开始使用Bourne Shell，Bourne Shell的主文件名为<strong>sh</strong>，Bourne家族主要包括sh、ksh、<strong>Bash</strong>、psh、zsh；</p></li><li><p><strong>C Shell</strong>： C Shell主要在BSD版的Unix系统中使用，其语法和C语言相类似而得名，C家族主要包括：csh、tcsh；</p></li><li><strong>Bash</strong>： Bash与sh兼容，现在使用的Linux 就是使用Bash作为用户的基本Shell；</li></ul><h3 id="查看Linux支持的shell"><a href="#查看Linux支持的shell" class="headerlink" title="查看Linux支持的shell"></a>查看Linux支持的shell</h3><p><code>/etc/shells</code></p><p><img src="/2021/08/16/Linux-Shell%E7%BC%96%E7%A8%8B/image-20210816231159818.png" alt="image-20210816231159818"></p><h2 id="Bash基本功能"><a href="#Bash基本功能" class="headerlink" title="Bash基本功能"></a>Bash基本功能</h2><h3 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h3><ul><li>直接运行：<code>./hello.sh</code>；</li><li>Bash调用执行脚本：<code>bash hello.sh</code>，<code>sh hello.sh</code>；</li></ul><h3 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo [选项] [输出内容]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -e： 支持反斜线控制的字符转换</span></span><br></pre></td></tr></tbody></table></figure><h3 id="历史命令"><a href="#历史命令" class="headerlink" title="历史命令"></a>历史命令</h3><p><code>history</code></p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">history [选项] [历史命令保存文件]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -c：清空历史命令</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -w：把缓存中的历史命令写入历史命令保存文件，保存在：~/.bash_history</span> </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h3><h4 id="设置别名-1"><a href="#设置别名-1" class="headerlink" title="设置别名"></a>设置别名</h4><p><code>alias 别名='原命令'</code></p><h4 id="删除别名"><a href="#删除别名" class="headerlink" title="删除别名"></a>删除别名</h4><p><code>unalias 别名</code></p><h4 id="查看别名"><a href="#查看别名" class="headerlink" title="查看别名"></a>查看别名</h4><p><code>alias</code></p><h3 id="命令执行顺序"><a href="#命令执行顺序" class="headerlink" title="命令执行顺序"></a>命令执行顺序</h3><p>1 第一顺位执行用绝对路径或相对路径执行的命令；</p><p>2 第二顺位执行别名；</p><p>3 第三顺位执行Bash的内部命令； </p><p>4 第四顺位执行按照$PATH环境变量定义的目录查找顺序找到的第一个命令；</p><h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><p>​                 <img src="/2021/08/16/Linux-Shell%E7%BC%96%E7%A8%8B/1.png" alt="img">        </p><p>​                 <img src="/2021/08/16/Linux-Shell%E7%BC%96%E7%A8%8B/2.png" alt="img">        </p><h3 id="多命令与管道"><a href="#多命令与管道" class="headerlink" title="多命令与管道"></a>多命令与管道</h3><p>​                 <img src="/2021/08/16/Linux-Shell%E7%BC%96%E7%A8%8B/3.png" alt="img">        </p><h4 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h4>]]></content>
+    
+    
+    <summary type="html">Shell编程的语法。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://1.15.86.100/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-文件系统管理</title>
+    <link href="https://1.15.86.100/2021/08/16/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"/>
+    <id>https://1.15.86.100/2021/08/16/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</id>
+    <published>2021-08-16T02:31:13.000Z</published>
+    <updated>2021-08-16T03:12:49.636Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-文件系统管理"><a href="#Linux-文件系统管理" class="headerlink" title="Linux 文件系统管理"></a>Linux 文件系统管理</h1><h2 id="分区和文件系统"><a href="#分区和文件系统" class="headerlink" title="分区和文件系统"></a>分区和文件系统</h2><h3 id="分区类型"><a href="#分区类型" class="headerlink" title="分区类型"></a>分区类型</h3><ul><li><strong>主分区</strong>：总共最多只能分<strong>四</strong>个；</li><li><p><strong>扩展分区</strong>：只能有一个，也算作主分区的一种，也就是说<strong>主分区加扩展分区最多有四个</strong>。但是扩展分区不能存储数据和格式化，必须再划分成逻辑分区才能使用；</p></li><li><p><strong>逻辑分区</strong>：逻辑分区是在扩展分区中划分的，如果是IDE硬盘，Linux最多支持59个逻辑分区，如果是SCSI硬盘Linux最多支持11个逻辑分区；</p></li></ul><h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><ul><li><strong>ext2</strong>：是ext文件系统的升级版本，Red Hat Linux7.2版本以前的系统默认都是ext2 文件系统。1993年发布，<strong>最大支持16TB 的分区和最大2TB的文件</strong>（1TB=1024GB=1024*1024KB）；</li><li><strong>ext3</strong>： ext3文件系统是ext2文件系统的升级版本，最大的区别就是<strong>带日志功能</strong>，以在系统突然停止时提高文件系统的可靠性。支持最大16TB的分区和最大2TB的文件；</li><li><strong>ext4</strong>：它是ext3文件系统的升级版。ext4 在性能、伸缩性和可靠性方面进行了大量改进。EXT4 的变化可以说是翻天覆地的，比如向下兼容EXT3、<strong>最大1EB文件系统和16TB文件</strong>、无限数量子目录、Extents连续数据块概念、多块分配、延迟分配、持久预分配、快速FSCK、日志校验、无日志模式、在线碎片整理、inode增强、默认启用barrier等。是CentOS 6.3的默认文件系统      （1EB=1024PB=1024*1024TB）；</li></ul><h2 id="文件系统常用命令"><a href="#文件系统常用命令" class="headerlink" title="文件系统常用命令"></a>文件系统常用命令</h2><h3 id="普通命令"><a href="#普通命令" class="headerlink" title="普通命令"></a>普通命令</h3><h4 id="df"><a href="#df" class="headerlink" title="df"></a>df</h4><p>查看文件系统</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df  [选项] [挂载点]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -a：显示所有的文件系统信息，包括特殊文件系统，如 /proc、/sysfs</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -h：使用习惯单位显示容量，如KB，MB或GB等</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -T：显示文件系统类型</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -m：以MB为单位显示容量</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -k：以KB为单位显示容量。默认就是以KB为单位</span></span><br></pre></td></tr></tbody></table></figure><h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><p>统计目录或文件大小</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">du [选项] [目录或文件名]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -a：显示每个子文件的磁盘占用量。默认只统计 子目录的磁盘占用量</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -h：使用习惯单位显示磁盘占用量，如KB，MB  或GB等</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash"> -s：统计总占用量，而不列出子目录和子文件的 占用量</span></span><br></pre></td></tr></tbody></table></figure><h4 id="fsck"><a href="#fsck" class="headerlink" title="fsck"></a>fsck</h4><p>文件系统修复命令</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fsck [选项] 分区设备文件名</span><br><span class="line"><span class="meta">#</span><span class="bash"> -a：不用显示用户提示，自动修复文件系统；</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -y：自动修复。和-a作用一致，不过有些文件系统只支持-y</span></span><br></pre></td></tr></tbody></table></figure><h4 id="dumpe2fs"><a href="#dumpe2fs" class="headerlink" title="dumpe2fs"></a>dumpe2fs</h4><p>显示磁盘状态</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpe2fs 分区设备文件名</span><br></pre></td></tr></tbody></table></figure><h3 id="挂载命令"><a href="#挂载命令" class="headerlink" title="挂载命令"></a>挂载命令</h3><h4 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h4><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount [选项]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -l：查询系统中已经挂载的设备，会显示卷标名称</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> –a：依据配置文件/etc/fstab的内容，自动挂载</span></span><br></pre></td></tr></tbody></table></figure><p>~~~shell<br>mount [-t 文件系统] [-L 卷标名]  [-o 特殊选项]  设备文件名 挂载点</p><h1 id="t-文件系统：加入文件系统类型来指定挂载的类型，可以ext3、ext4、iso9660等文件系统"><a href="#t-文件系统：加入文件系统类型来指定挂载的类型，可以ext3、ext4、iso9660等文件系统" class="headerlink" title="-t 文件系统：加入文件系统类型来指定挂载的类型，可以ext3、ext4、iso9660等文件系统"></a>-t 文件系统：加入文件系统类型来指定挂载的类型，可以ext3、ext4、iso9660等文件系统</h1><h1 id="L-卷标名：-挂载指定卷标的分区，而不是安装设备文件名挂载"><a href="#L-卷标名：-挂载指定卷标的分区，而不是安装设备文件名挂载" class="headerlink" title="-L 卷标名： 挂载指定卷标的分区，而不是安装设备文件名挂载"></a>-L 卷标名： 挂载指定卷标的分区，而不是安装设备文件名挂载</h1><h1 id="o-特殊选项：可以指定挂载的额外选项"><a href="#o-特殊选项：可以指定挂载的额外选项" class="headerlink" title="-o 特殊选项：可以指定挂载的额外选项"></a>-o 特殊选项：可以指定挂载的额外选项</h1>]]></content>
+    
+    
+    <summary type="html">对Linux分区文件系统的介绍，文件系统常用命令，fdisk分区，/etc/fstab文件修复，分配swap分区。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://1.15.86.100/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux-用户管理</title>
@@ -375,50 +413,6 @@
     <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
     
     <category term="Naive Bayes" scheme="https://1.15.86.100/tags/Naive-Bayes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KNN</title>
-    <link href="https://1.15.86.100/2021/05/15/KNN/"/>
-    <id>https://1.15.86.100/2021/05/15/KNN/</id>
-    <published>2021-05-15T08:19:02.000Z</published>
-    <updated>2021-05-15T08:37:25.987Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="K近邻（KNN）"><a href="#K近邻（KNN）" class="headerlink" title="K近邻（KNN）"></a>K近邻（KNN）</h1><h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>给定<strong>训练集</strong><script type="math/tex">D</script>，当对<strong>测试样本</strong>进行<strong>分类</strong>时，找到<strong>训练集</strong>中与该<strong>样本</strong>最相似的<script type="math/tex">k</script>个<strong>样本（k近邻）</strong>，根据<script type="math/tex">k</script>个<strong>样本</strong>的标签确定测试样本的标签。</p><p><img src="/2021/05/15/KNN/image-20210515162556039.png" alt="image-20210515162556039"></p><h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><ul><li>输入训练集<script type="math/tex">D</script>；</li><li>确定<script type="math/tex">k</script>的大小和距离计算方法<script type="math/tex">d(\cdot)</script>；</li><li>从<strong>训练集</strong>中得到前<script type="math/tex">k</script>个与测试样本最近的样本（<script type="math/tex">k</script>近邻）；</li><li>根据<script type="math/tex">k</script>个最相似的训练样本的类别，通过<strong>投票</strong>的方式来确定测试样本的类别；</li></ul><h3 id="常用距离度量方法"><a href="#常用距离度量方法" class="headerlink" title="常用距离度量方法"></a>常用距离度量方法</h3><h4 id="欧式距离"><a href="#欧式距离" class="headerlink" title="欧式距离"></a>欧式距离</h4><script type="math/tex; mode=display">d(x_1,x_2)=\sqrt{\sum_{i=1}^d(x_{1i}-x_{2i})^2}</script><h4 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h4><script type="math/tex; mode=display">d(x_1,x_2)=\sum_{i=1}^d|x_{1i}-x_{2i}|</script><h4 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h4><script type="math/tex; mode=display">d(x_1,x_2)=\sqrt{(x_1-x_2)^T\Sigma^{-1}(x_1-x_2)}</script><h4 id="余弦距离"><a href="#余弦距离" class="headerlink" title="余弦距离"></a>余弦距离</h4><script type="math/tex; mode=display">d(x_1,x_2)=\frac{x_1^Tx_2}{||x_1||_2||x_2||_2}</script><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>对<strong>异常数据</strong>不敏感，具有较好的<strong>抗噪性</strong>；</li><li><strong>KNN</strong>算法的计算<strong>效率低</strong>；</li><li>当<strong>训练集较小</strong>的时候，<strong>KNN</strong>算法易导致<strong>过拟合</strong>；</li></ul><h2 id="Kd树"><a href="#Kd树" class="headerlink" title="Kd树"></a>Kd树</h2>]]></content>
-    
-    
-    <summary type="html">KNN介绍</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
-    
-    <category term="KNN" scheme="https://1.15.86.100/tags/KNN/"/>
-    
-    <category term="Supervised Learning" scheme="https://1.15.86.100/tags/Supervised-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Decision Tree</title>
-    <link href="https://1.15.86.100/2021/05/15/Decision-Tree/"/>
-    <id>https://1.15.86.100/2021/05/15/Decision-Tree/</id>
-    <published>2021-05-15T08:17:08.000Z</published>
-    <updated>2021-05-15T08:18:28.651Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><p><strong>决策树</strong>是一种描述对<em>实例</em>分类的树状结构，由结点（node）和有向边（directed edge）组成。在进行分类时，对每个实例，从<strong>根节点</strong>（root）开始，根据<em>该实例</em>是否满足结点的调节，选择不同的分支进入下个结点，最终到达<strong>叶节点</strong>（leaf）得到分类结果。</p><h4 id="信息增益："><a href="#信息增益：" class="headerlink" title="信息增益："></a>信息增益：</h4><p><strong>熵（entropy）</strong>表示随机变量<strong>不确定性</strong>的度量，设$X$是一个取有限个值的离散随机变量，其概率分布</p>]]></content>
-    
-    
-    <summary type="html">决策树介绍</summary>
-    
-    
-    
-    
-    <category term="Machine Learning" scheme="https://1.15.86.100/tags/Machine-Learning/"/>
-    
-    <category term="Decision Tree" scheme="https://1.15.86.100/tags/Decision-Tree/"/>
     
   </entry>
   
