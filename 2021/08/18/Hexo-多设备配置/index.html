@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="GitHub," />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -92,22 +92,18 @@
 
 
 
-<meta name="description" content="Common Command Lines and the Solutions to sone Errors of GitHub.">
+<meta name="description" content="利用git仓库保存hexo文件，可以在多个设备编辑博客并实现同步。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub Command Line">
-<meta property="og:url" content="https://1.15.86.100/2019/10/29/GitHub-Command-Line/index.html">
+<meta property="og:title" content="Hexo-多设备配置">
+<meta property="og:url" content="https://1.15.86.100/2021/08/18/Hexo-%E5%A4%9A%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
-<meta property="og:description" content="Common Command Lines and the Solutions to sone Errors of GitHub.">
+<meta property="og:description" content="利用git仓库保存hexo文件，可以在多个设备编辑博客并实现同步。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://1.15.86.100/2019/10/29/GitHub-Command-Line/one.png">
-<meta property="og:image" content="https://1.15.86.100/2019/10/29/GitHub-Command-Line/two.png">
-<meta property="og:image" content="https://1.15.86.100/2019/10/29/GitHub-Command-Line/three.png">
-<meta property="article:published_time" content="2019-10-29T14:33:04.000Z">
-<meta property="article:modified_time" content="2021-08-18T03:37:38.924Z">
+<meta property="article:published_time" content="2021-08-18T03:44:57.000Z">
+<meta property="article:modified_time" content="2021-08-18T03:46:47.842Z">
 <meta property="article:author" content="Bao Wenjie">
-<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://1.15.86.100/2019/10/29/GitHub-Command-Line/one.png">
 
 
 
@@ -137,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2019/10/29/GitHub-Command-Line/"/>
+  <link rel="canonical" href="https://1.15.86.100/2021/08/18/Hexo-多设备配置/"/>
 
 
 
 
 
-  <title>GitHub Command Line | BaoWJ's Blog</title>
+  <title>Hexo-多设备配置 | BaoWJ's Blog</title>
   
 
 
@@ -343,7 +339,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">GitHub Command Line</h2>
+          <h2 class="post-title" itemprop="name headline">Hexo-多设备配置</h2>
         
 
         <div class="post-meta">
@@ -355,8 +351,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-29T22:33:04+08:00">
-                2019-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-18T11:44:57+08:00">
+                2021-08-18
               </time>
             
 
@@ -365,6 +361,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../../../categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -395,7 +413,7 @@
 
           
               <div class="post-description">
-                  Common Command Lines and the Solutions to sone Errors of GitHub.
+                  利用git仓库保存hexo文件，可以在多个设备编辑博客并实现同步。
               </div>
           
 
@@ -412,55 +430,7 @@
       
 
       
-        <h3 id="链接仓库"><a href="#链接仓库" class="headerlink" title="链接仓库"></a>链接仓库</h3><ol>
-<li><p>复制仓库的链接</p>
-<p><img src="/2019/10/29/GitHub-Command-Line/one.png" alt="Position"></p>
-</li>
-<li><p>在需要链接的文件夹下面打开<strong>Git Bash</strong></p>
-<p><img src="/2019/10/29/GitHub-Command-Line/two.png" alt="git"></p>
-</li>
-<li><p>命令行界面如下：</p>
-<p><img src="/2019/10/29/GitHub-Command-Line/three.png" alt="GitBash"></p>
-</li>
-<li><p>运行命令：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init<span class="comment">#初始化本地仓库</span></span><br><span class="line">git config user.email<span class="string">"your email@address"</span></span><br><span class="line">git config user.name<span class="string">"your name"</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">'My first post'</span></span><br><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>获取ssh</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">cat id_rsa.pub</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>撤回上一次commit</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~</span><br><span class="line">git reset HEAD@{index}</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>获取已经commit但未push的文件信息</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry -v</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>当前提交状态</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>列出所有操作记录</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>合并到最后一次提交</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>获取最新提交记录</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick master</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>对远程仓库的操作</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看所有的远程仓库</span></span><br><span class="line">git remote</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看远程仓库对应的地址</span></span><br><span class="line">git remote -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置新的远程仓库地址</span></span><br><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ol>
-<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h4><p><code>git branch</code></p>
-<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><p><code>git branch -d [branchname]</code></p>
-<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><h4 id="服务器端创建仓库"><a href="#服务器端创建仓库" class="headerlink" title="服务器端创建仓库"></a>服务器端创建仓库</h4><p><code>git init --bare name.git</code></p>
-<h3 id="Git-Problem"><a href="#Git-Problem" class="headerlink" title="Git Problem"></a>Git Problem</h3><ol>
-<li>~~~bash<br>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/Vilily/python.git/">https://github.com/Vilily/python.git/</a>‘: SSL certificate problem: self signed certificate in certificate chain</li>
-</ol>
-<p>   solution：<br>   git config —global http.sslVerify false<br>   ~~~</p>
-<p>2. </p>
-
+        <h1 id="Hexo-多设备配置"><a href="#Hexo-多设备配置" class="headerlink" title="Hexo-多设备配置"></a>Hexo-多设备配置</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3>
       
     </div>
     
@@ -477,7 +447,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+            <a href="../../../../tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
           
         </div>
       
@@ -490,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../28/PCA-algorithm/" rel="next" title="PCA algorithm">
-                <i class="fa fa-chevron-left"></i> PCA algorithm
+              <a href="../../16/Linux-Shell%E7%BC%96%E7%A8%8B/" rel="next" title="Linux-Shell编程">
+                <i class="fa fa-chevron-left"></i> Linux-Shell编程
               </a>
             
           </div>
@@ -499,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../11/09/mySQL-Command-Line/" rel="prev" title="mySQL Command Line">
-                mySQL Command Line <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -698,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">链接仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-branch"><span class="nav-number">2.</span> <span class="nav-text">git branch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="nav-number">2.1.</span> <span class="nav-text">查看分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="nav-number">2.2.</span> <span class="nav-text">删除分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-init"><span class="nav-number">3.</span> <span class="nav-text">git init</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">服务器端创建仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Problem"><span class="nav-number">4.</span> <span class="nav-text">Git Problem</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E5%A4%9A%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Hexo-多设备配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
