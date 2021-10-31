@@ -6,7 +6,7 @@
   <link href="https://1.15.86.100/atom.xml" rel="self"/>
   
   <link href="https://1.15.86.100/"/>
-  <updated>2021-10-26T07:14:46.754Z</updated>
+  <updated>2021-10-31T02:08:06.307Z</updated>
   <id>https://1.15.86.100/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux设置虚拟内存</title>
+    <link href="https://1.15.86.100/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    <id>https://1.15.86.100/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/</id>
+    <published>2021-10-31T01:56:30.000Z</published>
+    <updated>2021-10-31T02:08:06.307Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux设置虚拟内存"><a href="#Linux设置虚拟内存" class="headerlink" title="Linux设置虚拟内存"></a>Linux设置虚拟内存</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>虚拟内存</strong>是指将部分<strong>硬盘存储</strong>通过<strong>虚拟化</strong>转变成<strong>内存</strong>，以缓解内存不足的问题。</p><h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><h3 id="查看本地虚拟内存情况"><a href="#查看本地虚拟内存情况" class="headerlink" title="查看本地虚拟内存情况"></a>查看本地虚拟内存情况</h3><p>命令：<code>free -m</code></p><p><img src="/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/image-20211031100002940.png" alt="image-20211031100002940"></p><h3 id="创建swapfile文件"><a href="#创建swapfile文件" class="headerlink" title="创建swapfile文件"></a>创建swapfile文件</h3><ul><li>进入<code>/usr</code>目录；</li><li>创建<code>swap</code>文件夹，并进入该文件夹；</li><li>创建<code>swapfile</code>文件：<code>dd if=/dev/zero of=/usr/swap/swapfile bs=1M count=4096</code></li></ul><p><img src="/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/image-20211031100237307.png" alt="image-20211031100237307"></p><h3 id="将swapfile设置为swap分区文件"><a href="#将swapfile设置为swap分区文件" class="headerlink" title="将swapfile设置为swap分区文件"></a>将swapfile设置为swap分区文件</h3><p>命令：<code>mkswap /usr/swap/swapfile</code></p><p><img src="/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/image-20211031100411392.png" alt="image-20211031100411392"></p><h3 id="激活swap分区"><a href="#激活swap分区" class="headerlink" title="激活swap分区"></a>激活swap分区</h3><p>命令：<code>swapon /usr/swap/swapfile</code></p><p><img src="/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/image-20211031100524446.png" alt="image-20211031100524446"></p><h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><p>命令：<code>free -m</code></p><p><img src="/2021/10/31/Linux%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/image-20211031100613907.png" alt="image-20211031100613907"></p><h3 id="设置开机自启动虚拟内存"><a href="#设置开机自启动虚拟内存" class="headerlink" title="设置开机自启动虚拟内存"></a>设置开机自启动虚拟内存</h3><ul><li><p>打开<code>/etc/fstab</code>文件；</p></li><li><p>添加下面内容：</p>  <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/swap/swapfile swap swap defaults 0 0</span><br></pre></td></tr></tbody></table></figure></li></ul>]]></content>
+    
+    
+    <summary type="html">给Linux系统设置虚拟内存。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://1.15.86.100/categories/Linux/"/>
+    
+    
+    <category term="虚拟内存" scheme="https://1.15.86.100/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenGL</title>
@@ -396,25 +417,6 @@
     
     
     <category term="加密算法" scheme="https://1.15.86.100/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dilworth定理</title>
-    <link href="https://1.15.86.100/2021/05/24/Dilworth%E5%AE%9A%E7%90%86/"/>
-    <id>https://1.15.86.100/2021/05/24/Dilworth%E5%AE%9A%E7%90%86/</id>
-    <published>2021-05-24T12:04:37.000Z</published>
-    <updated>2021-08-10T08:23:38.383Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Dilworth定理"><a href="#Dilworth定理" class="headerlink" title="Dilworth定理"></a>Dilworth定理</h1><h2 id="概念定义"><a href="#概念定义" class="headerlink" title="概念定义"></a>概念定义</h2><ul><li><strong>自反性</strong>：对于集合<strong>A</strong>上的<strong>二元关系R</strong>，<script type="math/tex">xRx,\forall x\in A</script>；</li><li><strong>反对称性</strong>：对于集合<strong>A</strong>上的<strong>二元关系R</strong>，对于 <script type="math/tex">xRy\ \ and\ \ yRx,\forall x,y\in A</script>，有<script type="math/tex">x=y</script>；</li><li><strong>传递性</strong>：对于集合<strong>A</strong>上的<strong>二元关系R</strong>，对于 <script type="math/tex">xRy\ \ and\ \ yRz,\forall x,y,z\in A</script>，有<script type="math/tex">xRz</script>；</li><li><strong>偏序关系</strong>：满足<strong>自反性</strong>、<strong>反对称性</strong>、<strong>传递性</strong>的二元关系；</li><li><strong>偏序集</strong>：<script type="math/tex">(S,\precsim)</script>，集合<strong>S</strong>中任意两个元素之间都存在偏序关系；</li><li><strong>链</strong>：对于一个有序序列<script type="math/tex">(x_1,x_2,\cdots,x_n)</script>，如果<script type="math/tex">x_i\precsim x_j \forall i \le j</script>，则称该序列为<strong>链</strong>；</li><li><strong>反链</strong>：对于一个有序序列<script type="math/tex">(x_1,x_2,\cdots,x_n)</script>，如果<script type="math/tex">\forall i \le j,x_1,x_j</script>都不满足偏序关系<script type="math/tex">\precsim</script>（即不可比），则称该序列为<strong>反链</strong>；</li></ul><h2 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h2><p>偏序集的<strong>最少</strong>的链的划分数等于其<strong>最长</strong>反链长度。</p><p>【把一个数列划分成最少的<strong>最长不升子序列</strong>的数目就等于这个数列的<strong>最长上升子序列</strong>的长度（LIS)】</p><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p><strong>数学归纳法</strong>：</p><p>设<strong>m</strong>表示<strong>偏序集</strong><script type="math/tex">(S,\precsim)</script>中元素个数。</p><ul><li><p>对于<strong>m=0，1</strong>，命题成立；</p></li><li><p>假设对于<script type="math/tex">m<n(n\in\mathbb{N}^+)</script>时命题成立，下面讨论<strong>m=n</strong>情况：</p><p>  设 <script type="math/tex">a</script> 为 <script type="math/tex">S</script> 中的一个<strong>极大元</strong>，构建偏序集 <script type="math/tex">S':=S-\{a\}</script>，由<strong>假设</strong>，<script type="math/tex">(S’,\precsim)</script> 满足该定理；</p><p>  假设 <script type="math/tex">S'</script> <strong>最小的链划分数</strong>以及<strong>最长反链长度</strong>为 <script type="math/tex">k</script>，划分为 <script type="math/tex">C_1,C_2\cdots,C_k</script> 这些不相交的链，长度为 <script type="math/tex">k</script> 的<strong>反链</strong>为 <script type="math/tex">a_1,a_2,\cdots,a_k</script>。</p><p>  记 <script type="math/tex">b_i</script> 为 <script type="math/tex">C_i</script> 中所有属于长为 <script type="math/tex">k</script> 的<strong>反链</strong>的元素中的<strong>最大元</strong>，构造<script type="math/tex">B:=\{b_1,b_2,\cdots,b_k\}</script>。在 <script type="math/tex">B</script> 中，易知 <script type="math/tex">B</script> 是<strong>反链</strong>，且 <script type="math/tex">C_i</script> 中的不可能存在多余一个元素都在<strong>反链</strong>上，也不会少于1个。</p><p>  下面考虑偏序集 <script type="math/tex">S</script>：</p><ul><li>因为 <script type="math/tex">a</script> 为 <script type="math/tex">S</script> 的<strong>极大元</strong>，那么 <script type="math/tex">\{a,b_1,b_2\cdots,b_k\}</script> 是一条长为 <script type="math/tex">k+1</script> 的<strong>反链</strong>。</li></ul></li></ul>]]></content>
-    
-    
-    <summary type="html">对Dilworth定理的介绍和证明。</summary>
-    
-    
-    
-    <category term="组合数学" scheme="https://1.15.86.100/categories/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
-    
     
   </entry>
   
