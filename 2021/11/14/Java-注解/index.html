@@ -100,7 +100,7 @@
 <meta property="og:description" content="Java注解的简介。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-14T11:19:54.000Z">
-<meta property="article:modified_time" content="2021-11-15T11:18:00.059Z">
+<meta property="article:modified_time" content="2021-12-03T03:07:34.759Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="注解">
 <meta name="twitter:card" content="summary">
@@ -430,11 +430,24 @@
       
 
       
-        <h1 id="Java注解"><a href="#Java注解" class="headerlink" title="Java注解"></a>Java注解</h1><h2 id="注解简介"><a href="#注解简介" class="headerlink" title="注解简介"></a>注解简介</h2><p>注解是代码里的<strong>特殊标记</strong>，这些标记可以在编译，类加载，运行时被读取，并执行相应的处理。通过注解开发人员可以在不改变原有代码和逻辑的情况下在源代码中嵌入补充信息。</p>
+        <h1 id="Java注解"><a href="#Java注解" class="headerlink" title="Java注解"></a>Java注解</h1><h2 id="注解简介"><a href="#注解简介" class="headerlink" title="注解简介"></a>注解简介</h2><p>注解是代码里的<strong>特殊标记</strong>【JDK5.0引入】，这些标记可以在编译，类加载，运行时被读取，并执行相应的处理。通过注解开发人员可以在不改变原有代码和逻辑的情况下在源代码中嵌入补充信息。</p>
+<p><strong>注解</strong>只是一种标记，一般利用<strong>反射</strong>读取注解实现特定功能。</p>
 <h2 id="注解创建"><a href="#注解创建" class="headerlink" title="注解创建"></a>注解创建</h2><ul>
-<li>注解的<strong>声明关键字</strong>为<strong>@interface</strong>；</li>
-<li>可以用<strong>default</strong>指定成员<strong>默认值</strong>；</li>
+<li>注解的<strong>声明关键字</strong>为<strong>@interface</strong>：<ul>
+<li>自动继承<strong>java.lang.annotation.Annotation</strong>接口；</li>
+<li>格式：<strong><code>public @interface 注解名 {内容}</code></strong>；</li>
 </ul>
+</li>
+<li>每一个方法实际是声明一个<strong>配置参数</strong>：<ul>
+<li><strong>方法名</strong>就是<strong>参数名</strong>；</li>
+<li><strong>返回值</strong>类型就是<strong>参数类型</strong>【只能是<strong>基本类型</strong>】；</li>
+<li>可以用<strong>default</strong>指定参数<strong>默认值</strong>；</li>
+<li>如果只有一个参数，一般参数名为<strong>value</strong>；</li>
+</ul>
+</li>
+<li>注解元素必须有值，一般设置<strong>默认值</strong>；</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(value = ElementType.METHOD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation {</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "Hello"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>元注解</strong>是<strong>修饰</strong>其他<strong>注解</strong>的注解。</p>
 <h3 id="Retention"><a href="#Retention" class="headerlink" title="Retention"></a>Retention</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>只能用于修饰<strong>Annotation的定义</strong>，用于指定该<strong>Annotation</strong>的<strong>生命周期</strong>。</p>
 <p>其内部包含一个<strong>RetentionPolicy枚举类</strong>成员变量，其中<strong>RetentionPolicy</strong>值可以为：</p>
@@ -454,7 +467,13 @@
 <h3 id="Documented"><a href="#Documented" class="headerlink" title="Documented"></a>Documented</h3><h4 id="功能-2"><a href="#功能-2" class="headerlink" title="功能"></a>功能</h4><p>指定被修饰的<strong>Annotation类</strong>会被<strong>javadoc</strong>工具提取成<strong>文档</strong>，默认情况下<strong>javadoc</strong>不包含<strong>注解</strong>。</p>
 <h3 id="Inherited"><a href="#Inherited" class="headerlink" title="Inherited"></a>Inherited</h3><h4 id="功能-3"><a href="#功能-3" class="headerlink" title="功能"></a>功能</h4><p>被修饰的<strong>Annotation</strong>将具有<strong>继承性</strong>【被修饰类的<strong>子类</strong>自动具有该注解】</p>
 <h3 id="Repeatable"><a href="#Repeatable" class="headerlink" title="Repeatable"></a>Repeatable</h3><h4 id="功能-4"><a href="#功能-4" class="headerlink" title="功能"></a>功能</h4><p>被修饰的<strong>Annotation</strong>可以重复修饰同一个元素。</p>
-<h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2>
+<h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><ul>
+<li><strong>FunctionalInterface</strong>：函数式接口；</li>
+<li><strong>Override</strong>：重写；</li>
+<li><strong>Deprecated</strong>：不推荐使用的方法；</li>
+<li><strong>SuppressWarnings</strong>：抑制警告；</li>
+</ul>
+
       
     </div>
     
@@ -580,7 +599,7 @@
               
                 <a href="../../../../archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -602,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -692,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Java注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">注解简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text">注解创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Retention"><span class="nav-number">1.3.2.</span> <span class="nav-text">Retention</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Target"><span class="nav-number">1.3.3.</span> <span class="nav-text">Target</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-1"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Documented"><span class="nav-number">1.3.4.</span> <span class="nav-text">Documented</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-2"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inherited"><span class="nav-number">1.3.5.</span> <span class="nav-text">Inherited</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-3"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable"><span class="nav-number">1.3.6.</span> <span class="nav-text">Repeatable</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-4"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.4.</span> <span class="nav-text">常用注解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">Java注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">注解简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text">注解创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Retention"><span class="nav-number">1.3.2.</span> <span class="nav-text">Retention</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Target"><span class="nav-number">1.3.3.</span> <span class="nav-text">Target</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-1"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Documented"><span class="nav-number">1.3.4.</span> <span class="nav-text">Documented</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-2"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inherited"><span class="nav-number">1.3.5.</span> <span class="nav-text">Inherited</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-3"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable"><span class="nav-number">1.3.6.</span> <span class="nav-text">Repeatable</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-4"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.4.</span> <span class="nav-text">常用注解</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -733,7 +752,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共46.6k字</span>
+  <span class="post-count">博客全站共49.7k字</span>
 </div>
         
 <div class="busuanzi-count">
