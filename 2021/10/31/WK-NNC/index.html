@@ -95,18 +95,18 @@
 <meta name="description" content="介绍WK_NNC，以及利用sklearn实现模型代码。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WK_NNC">
-<meta property="og:url" content="https://1.15.86.100/2021/10/31/WK-NNC/index.html">
+<meta property="og:url" content="https://baowj-678.github.io/2021/10/31/WK-NNC/index.html">
 <meta property="og:site_name" content="BaoWJ&#39;s Blog">
 <meta property="og:description" content="介绍WK_NNC，以及利用sklearn实现模型代码。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://1.15.86.100/2021/10/31/WK-NNC/image-20211031114639261.png">
+<meta property="og:image" content="https://baowj-678.github.io/2021/10/31/WK-NNC/image-20211031114639261.png">
 <meta property="article:published_time" content="2021-10-31T03:19:51.000Z">
 <meta property="article:modified_time" content="2021-10-31T03:59:20.783Z">
 <meta property="article:author" content="Bao Wenjie">
 <meta property="article:tag" content="KNN">
 <meta property="article:tag" content="sklearn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://1.15.86.100/2021/10/31/WK-NNC/image-20211031114639261.png">
+<meta name="twitter:image" content="https://baowj-678.github.io/2021/10/31/WK-NNC/image-20211031114639261.png">
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="https://1.15.86.100/2021/10/31/WK-NNC/"/>
+  <link rel="canonical" href="https://baowj-678.github.io/2021/10/31/WK-NNC/"/>
 
 
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://1.15.86.100">
+    <link itemprop="mainEntityOfPage" href="https://baowj-678.github.io">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -433,7 +433,7 @@
       
 
       
-        <h1 id="WK-NNC-1"><a href="#WK-NNC-1" class="headerlink" title="WK_NNC[1]"></a>WK_NNC<a href="#refer-anchor-1"><sup>[1]</sup></a></h1><h2 id="WK-NNC简介"><a href="#WK-NNC简介" class="headerlink" title="WK_NNC简介"></a>WK_NNC简介</h2><p><strong>WK_NNR模型</strong>（Distance-Weighted k-Nearest-Neighbor Rule）是<em>Sahibsingh A. Dudani</em>于1976年提出的对<strong>KNN</strong>（详见<a href="http://1.15.86.100/2021/05/15/KNN/">KNN | BaoWJ’s Blog</a>）的一种改进方法。</p>
+        <h1 id="WK-NNC-1"><a href="#WK-NNC-1" class="headerlink" title="WK_NNC[1]"></a>WK_NNC<a href="#refer-anchor-1"><sup>[1]</sup></a></h1><h2 id="WK-NNC简介"><a href="#WK-NNC简介" class="headerlink" title="WK_NNC简介"></a>WK_NNC简介</h2><p><strong>WK_NNR模型</strong>（Distance-Weighted k-Nearest-Neighbor Rule）是<em>Sahibsingh A. Dudani</em>于1976年提出的对<strong>KNN</strong>（详见<a target="_blank" rel="noopener" href="http://1.15.86.100/2021/05/15/KNN/">KNN | BaoWJ’s Blog</a>）的一种改进方法。</p>
 <p>该方法的主要思路是对<strong>KNN</strong>中的距离进行<strong>加权</strong>。</p>
 <p>基础<strong>KNN</strong>是：直接取距离<strong>待预测数据点</strong> <script type="math/tex">\alpha</script> 最近的<strong>K</strong>个点，并预测该数据类别为这K个数据中<strong>占比最大</strong>的数据的类别。<strong>KNN</strong>可以看成<strong>WK__NNC</strong>的一个特例，这相当于对K个数据点中，设置权重都为<strong>1</strong>。</p>
 <p><strong>WK_NNR</strong>的思路是根据这K个点距离 <script type="math/tex">\alpha</script> 的距离不同赋予不同的<strong>权重</strong>，最后依据<strong>权重之和</strong>最大的类别来预测。</p>
@@ -463,8 +463,8 @@
 <h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p><img src="/2021/10/31/WK-NNC/image-20211031114639261.png" alt="image-20211031114639261"></p>
 <p>结果发现，<strong>WK_NNC</strong>模型取的最优值的地方<strong>K</strong>值都比较大（在10附近），说明<strong>WK_NNC</strong>模型<strong>泛化性</strong>比较好。</p>
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><ul>
-<li><a href="http://1.15.86.100/2021/05/15/KNN/">KNN | BaoWJ’s Blog</a></li>
-<li><a href="http://1.15.86.100/2021/10/31/K-NNMC/">K-NNMC | BaoWJ’s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="http://1.15.86.100/2021/05/15/KNN/">KNN | BaoWJ’s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="http://1.15.86.100/2021/10/31/K-NNMC/">K-NNMC | BaoWJ’s Blog</a></li>
 </ul>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p></p><div id="refer-anchor-1"></div> [1] S. A. Dudani, “The Distance-Weighted k-Nearest-Neighbor Rule,” in IEEE Transactions on Systems, Man, and Cybernetics, vol. SMC-6, no. 4, pp. 325-327, April 1976, doi: 10.1109/TSMC.1976.5408784.<p></p>
 
